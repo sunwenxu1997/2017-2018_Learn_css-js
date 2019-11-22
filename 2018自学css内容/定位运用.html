@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位运用</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            /* 设置body高度与 html 高度相等，以便实现垂直居中 */
+            height: 100%;
+            /* 开启弹性布局 */
+            display: flex;
+            /* 水平居中 */
+            justify-content: center;
+            /* 垂直居中 */
+            align-items: center;
+            /* 消除body自带边距,消除滚动条 */
+            margin: 0 auto;
+        }
+    div{
+        /* 针对上级父元素body所开启的弹性布局,相对居中 */
+        width: 500px;
+        height: 500px;
+        /* 设置相对定位,为子元素 section 提供定位 */
+        position: relative;
+        background: #ccc;
+        transform: scale(0.7);
+    }
+    section{
+        width: 100px;
+        height: 100px;
+        background: white;
+        /* 设置绝对定位,针对父元素 div进行定位 */
+        position: absolute;
+        /* 设置渐变返回时间为0.5s */
+        transition-duration: 0.5s;
+        /* 文本居中 */
+        text-align: center;
+        line-height: 100px;
+        /* 透明度为0.7 */
+        opacity: 0.7;
+    }
+   section:nth-child(1){
+       /* 左上对齐 */
+       left: 0;
+       top: 0;
+        /* 盒子阴影效果 */
+        /* box-shadow： 水平偏移方向  垂直偏移方向  阴影散发范围  阴影颜色 */
+        box-shadow: -3px -3px 2px rgb(94, 92, 92);
+   }
+   section:nth-child(2){
+       /* 右上对齐 */
+       /* right: 0; */
+        /* 针对下面发生的鼠标经过，必须与其的 left值对应，所以在这里用right不行 */
+       left: 400px;
+       top: 0;
+       box-shadow: 3px -3px 2px rgb(94, 92, 92);
+   }
+   section:nth-child(3){
+       /* 左下对齐 */
+       left: 0;
+       /* 针对下面发生的鼠标经过，必须与其的 top值对应，所以在这里用bottom不行 */
+       /* bottom: 0; */
+       top: 400px;
+       box-shadow: -3px 3px 2px rgb(94, 92, 92);
+   }
+   section:nth-child(4){
+       /* 右下对齐 */
+       left: 400px;
+       /* bottom: 0; */
+       top: 400px;
+       box-shadow: 3px 3px 2px rgb(94, 92, 92);
+   }
+   section:nth-child(5){
+       /* 居中对齐 */
+       left: 200px;
+       top: 200px;
+   }
+
+   
+   /* 鼠标经过 */
+   /* 当鼠标经过 div 时 div内的 section 发生改变 */
+   div:hover section{
+      /* 设置渐变时间为2s */
+      transition: 2s;
+       /* 居中 */
+       /* left:  500px/2 - 100px/2 =200px */
+      left: 200px;
+      /* 此处针对上面的 top left */
+      /* 若换成bottom right 不能实现该效果 */
+      top: 200px;
+      background: yellow;
+   }
+
+
+     /* 当鼠标经过 div 时 div内的 第五个section 发生改变 */
+     div:hover section:nth-child(5){
+         /* 渐变延迟 */
+        transition-delay: 2s;
+        /* 变大 */
+        transform: scale(1.5);
+        /* 透明度为1，背景色为父元素背景色，实现遮盖效果 */
+        background: #ccc;
+        opacity: 1;
+     }
+    </style>
+</head>
+<body>
+    <div>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <section>5</section>
+    </div>
+</body>
+</html>

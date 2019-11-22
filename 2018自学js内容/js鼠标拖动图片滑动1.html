@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js鼠标拖动图片滑动</title>
+    <style>
+        .fotorama__stage__shaft,
+        .fotorama__stage__frame,
+        .fotorama__html {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0
+        }
+        .fotorama{
+            margin: 0 auto;
+            width: 900px;
+            /* background: red; */
+            overflow: hidden;
+            position: relative;
+        }
+        .fotorama img{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            cursor: pointer;
+        }
+        .fotorama__nav__frame{
+            /* 小圆点横向排列部分 */
+            float: left;
+        }
+        .fotorama__stage {
+            overflow: hidden;
+            position: relative;
+        }
+
+  /* 小圆点盒子部分 */
+        .fotorama__nav--dots {
+            display: block;
+            /* background: red; */
+            display: flex;
+            justify-content: center;
+
+        }
+        .fotorama__nav__frame {
+            width: 18px;
+            height: 30px;
+            /* background: yellow; */
+            cursor: pointer;
+        }
+      /* 小圆点部分 */
+        .fotorama__dot {
+            display: block;
+            width: 4px;
+            height: 4px;
+            position: relative;
+            top: 12px;
+            left: 6px;
+            border-radius: 6px;
+            border: 1px solid;
+        }
+        .fotorama__dot {
+            border-color: #7f7f7f
+        }
+        .fotorama__active .fotorama__dot {
+            background-color: #7f7f7f
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <center> -->
+        <div class="fotorama" >
+          <img src="img/1.jpg">
+          <img src="img/2.jpg">
+          <img src="img/3.jpg">
+          <img src="img/6.jpg">
+        </div>
+        <!-- </center> -->
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/fotorama.js"></script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>催眠灯泡</title>
+    <style>
+body{background: #2c142f;}
+.box{
+    width: 80px;
+    height: 300px;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    transform-origin: 50% 0%;
+    animation: dong 5s  infinite;
+}@keyframes dong{
+    0%{
+transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(-30deg);
+    }
+}
+.box:hover{
+    animation-play-state: paused;
+}
+.box:hover .dp{
+    background: white;
+    box-shadow: 0 0 100px white;
+}
+.box:active .dp{
+    background: none;
+    box-shadow: none;
+}
+.dx{
+    width: 2px;
+    height: 200px;
+    background: black;
+    margin: 0 auto;
+}
+.dg{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid black;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+}
+.dp{
+    width: 70px;
+    height: 70px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px white  inset;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+}
+.xdp{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: 0 0 5px yellow  inset;
+    margin: 0 auto;
+}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="dx"></div>
+        <div class="dg"></div>
+        <div class="dp">
+            <div class="xdp"></div>
+        </div>
+    </div>
+</body>
+</html>

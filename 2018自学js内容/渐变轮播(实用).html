@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(73, 73, 73);
+        }
+
+        #banner {
+            /* 定义装整个轮播图的容器 */
+            width: 550px;
+            height: 300px;
+            position: relative;
+        }
+
+        #banner section {
+            /* 定义轮播图左右键的样式 */
+            width: 30px;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.404);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            line-height: 70px;
+            position: absolute;
+            top: 40%;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        #banner .pre {
+            /* 往左键左对齐 */
+            left: 0;
+        }
+
+        #banner .next {
+            /* 往右键右对齐 */
+            right: 0;
+        }
+
+        #banner .dot {
+            /* 定义装小圆点的盒子 */
+            width: 50%;
+            height: 30px;
+            /* background: red; */
+            position: absolute;
+            bottom: 20px;
+            /* 使盒子居中 */
+            left: calc(50% - 25%);
+            /* 开启弹性布局，使通过js创建的 span便签(即小圆点),居中排列 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+         .cir {
+            /* 定义js添加后的 span标签样式(即小圆点) */
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.37);
+        }
+        .cr{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 5px;
+            background: rgba(56, 56, 56, 0.911);
+        }
+        .box .img {
+            /* 定义装图片的li标签样式 */
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* 设置定位，使图片堆叠到一起 */
+            position: absolute;
+            list-style: none;
+            /* 使图片全为无，然后在标签中定义第一张图片为 有 */
+            /* 这样做避免造成图片重叠，使后几张图片盖住第一张 */
+            display: none;
+        }
+
+        .box .img img {
+            /* 定义图片样式 */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <!-- 两个往左，往右键 -->
+        <section class="pre">
+            <</section>
+                <section class="next">></section>
+                <!-- 装图片的盒子 -->
+                <ul class="box">
+                    <li class="img" style="display:block"><img src="img/1.PNG" alt=""></li>
+                    <li class="img"><img src="img/2.PNG" alt=""></li>
+                    <li class="img"><img src="img/3.PNG" alt=""></li>
+                    <li class="img"><img src="img/4.PNG" alt=""></li>
+                    <li class="img"><img src="img/5.PNG" alt=""></li>
+                    <li class="img"><img src="img/8.PNG" alt=""></li>
+                    <li class="img"><img src="img/7.PNG" alt=""></li>
+                </ul>
+                <!-- 装小圆点的盒子 -->
+                <div class="dot"></div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/banner3.js"></script>
+<!-- <script>
+    //定义一个基数index
+    var index = 0;
+    // 定义一个时间，表示为定时器每隔 2s 执行一次
+    var times = 2000;
+    var timer = setInterval(play,times);
+   
+     function play() {
+         //每调用一次 index+1
+            index++;
+            $('.img').eq(index).fadeIn(500).siblings().fadeOut(500);
+            $('span').eq(index).addClass('cr').siblings().removeClass('cr')
+            //判断当index大于图片数时
+            if (index == $('.img').length) {
+                index = 0;
+                //让第一张图片变为有，其它依旧是 无，以此循环
+                 $('.img').eq(index).fadeIn(500).siblings().fadeOut(500);
+                 $('span').eq(index).addClass('cr').siblings().removeClass('cr')
+            }
+      }
+
+
+// 添加鼠标事件，防止在点击轮播图时 与 定时器出现的冲突
+   $('#banner').hover(
+    //    鼠标经过，定时器暂停
+       function () {
+       clearInterval(timer);
+      },
+    //鼠标离开，定时器开始
+      function () {
+          timer = setInterval(play,times)
+      }
+)
+</script> -->
+
+</html>

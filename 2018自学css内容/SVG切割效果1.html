@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <style>
+        body {
+            overflow: hidden;
+            background: rgb(73, 73, 73);
+        }
+
+        main {
+            width: 300px;
+            height: 200px;
+            /* background: red; */
+            position: absolute;
+        }
+
+        #head {
+            width: 300px;
+            height: 200px;
+            background: rgb(37, 37, 37);
+            position: absolute;
+            z-index: 88;
+            overflow: hidden;
+        }
+        #head img{
+            height: 100%;
+        }
+        i {
+            color: white;
+            position: absolute;
+            right: 30px;
+            top: 25px;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+       .head  #svg {
+            width: 300px;
+            height: 200px;
+            /* background: yellow; */
+            background: rgb(37, 37, 37);
+            position: absolute;
+            background-size: 100% 100%;
+        }
+
+       .head  .one {
+            /* background-image: url(img/2.jpg); */
+            clip-path: polygon(0px 0px, 220px 0px,260px 35px, 90px 200px, 0px 200px);
+        }
+
+       .head  .two {
+            /* background-image: url(img/2.jpg); */
+            /* clip-path: polygon(300px 0px, 200px 0px, 50px 150px, 300px 150px); */
+            clip-path: polygon(260px 35px,90px 200px,300px 200px,300px 70px);
+        }
+        .head  .three{
+            /* background-image: url(img/2.jpg); */
+            clip-path: polygon(300px 0,220px 0,260px 35px);
+        }
+        .head  .four{
+            /* background-image: url(img/2.jpg); */
+            clip-path: polygon(300px 0,300px 70px,260px 35px);
+        }
+        .ones {
+            animation: move 2s ease both 1;
+        }
+        @keyframes move {
+            2%{
+                transform: translateX(10px) translateY(-10px) rotate(0deg);
+            }
+            10%{
+                transform: translateX(-10px) translateY(10px) rotate(0deg);
+            }
+            100% {
+                transform: translateX(-300px) translateY(600px) rotate(-80deg);
+            }
+        }
+
+        .twos {
+            animation: move1 2s ease both 1;
+        }
+
+        @keyframes move1 {
+            2%{
+                transform: translateX(10px) translateY(-10px) rotate(0deg);
+            }
+            10%{
+                transform: translateX(-10px) translateY(10px) rotate(0deg);
+            }
+            100% {
+                transform: translateX(100px) translateY(500px) rotate(50deg);
+            }
+        }
+       .threes{
+           transform-origin: 280px 30px;
+           animation: move2 1.5s ease both 1;
+       }@keyframes move2{
+        2%{
+                transform: translateX(10px) translateY(10px) rotate(0deg);
+            }
+            10%{
+                transform: translateX(-10px) translateY(-10px) rotate(0deg);
+            }
+        100% {
+                transform: translateX(-400px) translateY(-500px) rotate(360deg);
+            }
+       }
+       .fours{
+           transform-origin: 280px 30px;
+           animation: move3 1.5s ease both 1;
+       }@keyframes move3{
+        2%{
+                transform: translateX(-10px) translateY(10px) rotate(0deg);
+            }
+            10%{
+                transform: translateX(10px) translateY(-10px) rotate(0deg);
+            }
+        100% {
+                transform: translateX(1000px) translateY(200px) rotate(360deg);
+            }
+       }
+        .btn {
+            width: 100px;
+            height: 50px;
+            background: black;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            letter-spacing: 0.2em;
+            position: absolute;
+            left: calc(50% - 50px);
+            top: calc(50% - 25px);
+            z-index: 1000;
+            overflow: hidden;
+        }
+        .btn::before{
+            content: '';
+            width: 25px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.637);
+            transform: rotate(40deg);
+            position: absolute;
+            top: -20px;
+            left: -55px;
+            transition: 0.5s;
+        }
+        .btn:hover::before{
+             left: 130px;
+        }
+        .head{
+            width: 300px;
+            height: 150px;
+            position: relative;
+        }
+        .head section{
+            width: 1500px;
+            height: 1px;
+            position: absolute;
+        }
+        .hd-l{
+            transform-origin: 50% 50%;
+            transform: rotate(40deg)  translateX(1000px);
+            background: white;
+            left: -530px;
+            opacity: 0;
+        }
+        .hd-r{
+            transform-origin: 50% 50%;
+            transform: rotate(-45deg) translateX(1000px);
+            background: rgb(132, 132, 243);
+            left: -460px;
+            opacity: 0;
+        }
+        .bianl{
+            animation: bianl 0.5s ease both 1;
+        }@keyframes bianl{
+            0%{
+                opacity: 1;
+                transform: rotate(40deg)  translateX(1000px);
+            }
+            100%{
+                opacity: 0;
+                transform: rotate(40deg)  translateX(0px);  
+            }
+        }
+        .bianr{
+            animation: bianr 0.5s ease both 1;
+        }@keyframes bianr{
+            0%{
+                opacity: 1;
+                transform: rotate(-45deg)  translateX(1000px);
+            }
+            100%{
+                opacity: 0;
+                transform: rotate(-45deg)  translateX(0px);  
+            }
+        }
+        form{
+            margin-top: 60px;
+            margin-left: 18px;
+            font-weight: 100;
+            color: white;
+        }
+        input{
+            height: 20px;
+            background: none;
+            border: 1px solid white;
+            color: white;
+        }
+        button{
+            display: block;
+            width: 60px;
+            height: 30px;
+            background: rgb(132, 132, 243);
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 35px;
+        }
+        button:hover{
+            box-shadow: 0 0 5px rgb(132, 132, 243);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <section class="hd-l"></section>
+        <section class="hd-r"></section>
+    <div class="btn">Click</div>
+    <main style="display:none">
+        <div id="head">
+            <!-- <img src="img/2.jpg" alt=""> -->
+            <i class="fa fa-remove" id="close"></i>
+            <form action="">
+                <label for="">UserName :</label>
+                <input type="text" required><br><br>
+                <label for="">PassWord &nbsp;:</label>
+                <input type="password" required>
+                <button>Login</button>
+            </form>
+        </div>
+        <div  id="svg" class="one">
+                <form action="">
+                        <label for="">UserName :</label>
+                        <input type="text" required><br><br>
+                        <label for="">PassWord &nbsp;:</label>
+                        <input type="password" required>
+                        <button>Login</button>
+                    </form>
+        </div>
+        <div  id="svg" class="two">
+                <form action="">
+                        <label for="">UserName :</label>
+                        <input type="text" required><br><br>
+                        <label for="">PassWord &nbsp;:</label>
+                        <input type="password" required>
+                        <button>Login</button>
+                    </form>
+        </div>
+        <div  id="svg" class="three"></div>
+        <div  id="svg" class="four"></div>
+    </main>
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $('.btn').click(function () {
+        $('main').fadeIn();
+        $('#head').fadeIn(0);
+        $('.one').removeClass('ones');
+        $('.two').removeClass('twos');
+        $('.three').removeClass('threes');
+        $('.four').removeClass('fours');
+        $(this).fadeOut(0);
+        $('.hd-l').removeClass('bianl');
+        $('.hd-r').removeClass('bianr');
+    })
+    $('#close').click(function () {
+        $('#head').fadeOut(0);
+        $('.btn').fadeIn(800);
+        $('.one').addClass('ones');
+        $('.two').addClass('twos');
+        $('.three').addClass('threes');
+        $('.four').addClass('fours');
+        $('.hd-l').addClass('bianl');
+        $('.hd-r').addClass('bianr');
+    })
+
+</script>
+
+</html>

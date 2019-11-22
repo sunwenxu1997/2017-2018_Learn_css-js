@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>便签</title>
+    <style>
+        main{
+            width: 500px;
+            height: 400px;
+            margin: 150px auto;
+            border: 1px solid transparent;
+        }
+    #bianqian{
+        width: 300px;
+        height: 50px;
+        margin: 50px auto;
+        border-radius: 5px;
+        position: relative;
+        transition: 0.5s;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        text-shadow: 10px 4px 2px rgb(87, 85, 85);
+        transition: 0.5s;
+        cursor: default;
+        box-shadow: 0px 2px 2px rgb(119, 117, 117);
+    }
+   #bianqian:hover{
+    transition: 0.25s;
+    text-shadow: 2px 2px 2px rgb(87, 85, 85);
+   }
+    #bianqian::after{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        box-shadow: 3px 3px 3px rgb(126, 125, 125) inset;
+        transition: 0.25s;
+    }
+    #bianqian::before{
+        content: "";
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        box-shadow: 10px 10px 10px rgb(87, 86, 86);
+        transform: rotate(5deg);
+        position: absolute;
+        right: 18px;
+        top: -7px;
+        z-index: -5;
+        transition: 0.25s ease-in-out;
+    }
+    #bianqian:hover::after{
+        transition: 0.25s  ease-in-out;
+        box-shadow: 2px 2px 1px rgb(126, 125, 125) inset;
+    }
+    #bianqian:hover::before{
+        transition: 0.25s;
+        transform: rotate(0deg);
+        box-shadow: 10px 10px 10px white;
+    }
+    .green{
+        background: linear-gradient(to right,#dff3a5,#b8ce75); 
+    }
+    .green:hover{
+        background: linear-gradient(to right,#dff3a5,#9fb363);
+    }
+  
+    .blue{
+        background: linear-gradient(to right,rgb(128, 128, 221),rgb(80, 80, 192),rgb(128, 128, 221));
+    }
+    .blue:hover{
+        background: linear-gradient(to right,rgb(128, 128, 221),rgb(80, 80, 192));
+    }
+    .yellow{
+        background: linear-gradient(to right,rgb(243, 243, 121),rgb(207, 207, 77),rgb(243, 243, 121));
+    }
+    .yellow:hover{
+        background: linear-gradient(to right,rgb(243, 243, 121),rgb(207, 207, 77));
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <div id="bianqian" class="green">明人不说暗话</div>
+    <div id="bianqian" class="blue">我想对你说：</div>
+    <div id="bianqian" class="yellow">你就是个猪！</div>
+</main>
+</body>
+</html>

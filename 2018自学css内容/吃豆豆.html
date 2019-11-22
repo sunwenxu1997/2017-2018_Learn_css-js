@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>吃豆豆</title>
+    <style> 
+    body{
+        background: tomato;
+        margin: 0 auto;
+    }
+    .box{
+width: 200px;
+height: 200px;
+/* background: green; */
+margin: 300px auto;
+position: relative;
+left: -200px;
+    }
+    i{
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        left: 100px;
+        z-index: 1;
+    }
+    .top{
+        border-left:80px solid yellow;
+        border-top:80px solid yellow;
+        border-right:80px solid transparent;
+        border-bottom:80px solid transparent;
+        animation: go1  1s linear infinite;
+    }@keyframes go1{
+        0%{
+            transform: rotate(0deg)
+        }
+        50%{
+            transform: rotate(45deg)
+        }
+       100%{
+            transform: rotate(0deg)
+        }
+    }
+    .bottom{
+        border-left:80px solid yellow;
+        border-top:80px solid transparent;
+        border-right:80px solid transparent;
+        border-bottom:80px solid yellow;
+       position: relative;
+       top: -160px;
+       animation: go2 1s linear infinite;
+    }@keyframes go2{
+        0%{
+            transform: rotate(0deg)
+        }
+        50%{
+            transform: rotate(-45deg)
+        }
+       100%{
+            transform: rotate(0deg)
+        }
+    }
+    .box::after{
+        content: "";
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        left: 100px;
+        top:75px;
+        box-shadow: 200px 0 0 0px white,
+        350px 0 0 0px white,
+        500px 0 0 0 white,
+        650px 0 0 0 white;
+        animation: move 1s infinite  linear;
+    }@keyframes move{
+        0%{
+            box-shadow: 200px 0 0 0px white,
+        350px 0 0 0px white,
+        500px 0 0 0 white,
+        650px 0 0 0 white;
+        }
+        100%{
+            box-shadow: 50px 0 0 0px white,
+        200px 0 0 0px white,
+        350px 0 0 0 white,
+        500px 0 0 0 white;
+        }
+    }
+    .box::before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: black;
+        border-radius: 50%;
+        position: absolute;
+        top: 30px;
+        left: 180px;
+        z-index: 2;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <i class="top"></i>
+        <i class="bottom"></i>
+    </div>
+</body>
+</html>

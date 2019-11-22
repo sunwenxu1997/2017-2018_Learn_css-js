@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .test{
+            margin:900px auto 500px;
+            width:800px;
+            height:600px;
+            position: relative;
+            background-color: #00ac61;
+        }
+        .animate-box{
+            position: absolute;
+            left:200px;
+            width:400px;
+            height:300px;
+            opacity: 0;
+            background-color: palevioletred;
+        }
+        .hh{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            bottom: 0;
+
+
+        }
+
+    </style>
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+ 
+   <div class="test">
+       <div class="animate-box">
+           滑出的元素
+       </div>
+       <div class="hh">
+            11111111111
+       </div>
+   </div>
+   <script>
+       $(function(){
+
+           $(window).scroll(function(){
+                slideIn($(".animate-box"),100);
+                slideIn($(".hh"),200);
+           });
+
+
+          function slideIn(obj,left){
+              var targetHeight = obj.offset().top;   //目标元素到顶部的距离
+              var scrollTop = $(window).scrollTop(); //页面滚动的距离
+
+              if(scrollTop>targetHeight-600){
+                   obj.animate({left:left+'px',opacity:1},500);
+              }
+           };
+
+
+       });
+   </script>
+</body>
+</html>

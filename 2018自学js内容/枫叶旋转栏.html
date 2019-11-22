@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(73, 73, 73);
+        }
+       body{
+           overflow: hidden;
+       }
+        main {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            animation: zhuan 8s linear infinite;
+            /* border: 1px solid white; */
+            border-radius: 50%;
+        }
+
+        @keyframes zhuan {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        main:hover {
+            animation-play-state: paused;
+        }
+
+        main:hover div {
+            opacity: 1;
+        }
+
+        div {
+            width: 200px;
+            height: 250px;
+            transform-origin: 50% 100%;
+            position: absolute;
+            transition: 1s;
+            z-index: 888;
+            opacity: 0.7;
+        }
+
+        svg {
+            width: 200px;
+            height: 250px;
+            position: absolute;
+        }
+
+        svg path {
+            stroke: rgb(73, 73, 73);
+            stroke-width: 1
+        }
+
+        #dian {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            left: calc(50% - 10px);
+            top: calc(50% - 10px);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        #dian::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(46, 45, 45, 0.37);
+            position: absolute;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        #dian:hover::after {
+            transform: scale(6.5);
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main">
+        <section id="dian"></section>
+    </main>
+</body>
+<script>
+    var main = document.getElementById('main');
+    var dian = document.getElementById('dian');
+    var color = ['rgb(252, 72, 171)', 'rgb(252, 72, 117)', 'rgb(252, 72, 87)', 'rgb(252, 72, 72)', 'rgb(252, 99, 72)', 'rgb(252, 129, 72)', 'rgb(252, 159, 72)', 'rgb(252, 234, 72)', 'rgb(252, 159, 72)', 'rgb(252, 72, 117)']
+    var deg = 36;
+    var k = 0;
+    var index = 0;
+    var indexs = 0;
+    for (var i = 0; i < 10; i++) {
+        var div = document.createElement('div');
+        var path = ' <path style=" fill:' + color[i] + ' ;"   d="M100 0   L120 50 L140 30 L120 130 L160 80 L155 105 L190 90 L170 125 L190 125 L140 180 L150 190 L102 180 L104 230  L96 230 L98 180 L50 190 L60 180 L10 125 L30 125 L10 90 L45 105 L40 80 L80 130 L60 30 L80 50  L100 0  Z" />'
+        // div.style.background = color[i];
+        div.innerHTML = '<svg>' + path + '</svg>';
+        main.appendChild(div);
+
+    }
+    dian.onclick = function () {
+        k++;
+        if (k % 2 == 0) {
+            var timer = setInterval(function () {
+                var divs = document.getElementsByTagName('div');
+                divs[indexs].style.transform = 'rotate(0deg)';
+                indexs++;
+                // console.log(index)
+                if (indexs == 10) {
+                    indexs = 0;
+                    clearInterval(timer)
+                }
+            }, 10)
+        } else {
+            var timer = setInterval(function () {
+                var divs = document.getElementsByTagName('div');
+                divs[index].style.transform = 'rotate(' + index * deg + 'deg)';
+                index++;
+                // console.log(index)
+                if (index == 10) {
+                    index = 0;
+                    clearInterval(timer)
+                }
+
+            }, 10)
+        }
+
+
+    }
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            margin: 0 auto;
+            /* overflow: hidden; */
+            position: relative;
+        }
+        body::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-image: url(img/18.jpg);
+            background-size: 100% 100%;
+            position: absolute;
+            filter: blur(5px);
+            z-index: 1;
+        }
+        body::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: rgb(85, 85, 85);
+            opacity: 0.5;
+            position: absolute;
+            z-index: 2;
+        }
+        div#test {
+            width: 800px;
+            height: 400px;
+            perspective: 2000px;
+            /* position: absolute; */
+            z-index: 3;
+           
+        }
+
+        #banner {
+            width: 800px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 0.1s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.493);
+            text-align: center;  
+            perspective:1000px;
+            cursor: default;
+        }
+
+        .banner{
+            width: 800px;
+            height:400px;
+            overflow: hidden;
+            position: absolute;
+        }
+        .banner img{
+            width: 200%;
+            position: absolute;
+            left: -50%;
+            top: -62%;
+        }
+        .banners{
+            width: 500px;
+            height: 75px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform-origin: 0% 100%;
+            transform: rotateX(-30deg);
+            background: black;
+            opacity: 0.6;
+             /* 字体间的空格值 */
+	        /* letter-spacing:0.4em; */
+            color: white;
+            text-transform: uppercase;
+            font-size: 27px;
+            text-align: center;
+            line-height: 75px;
+            box-shadow: 5px 5px 5px black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .bannerss{
+            width: 150px;
+            height: 70px;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            transform-origin: 0% 100%;
+            transform:  translateZ(50px);
+            background: rgb(10, 10, 10);
+            opacity: 0.7;
+            box-shadow: 7px 7px 10px black;
+            text-transform: uppercase;
+            font-size: 35px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 70px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test">
+        <div id="banner">
+                <div class="banner"> <img src="img/18.jpg" alt=""> </div>
+                <div class="banners">sail  across  the  ocean  blue</div>
+                <div class="bannerss">sea</div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $('body').on('mousemove', function (e) { //on() 方法在被选元素及子元素上添加一个或多个事件处理程序;mousemove()当鼠标指针在指定的元素中移动时，就会发生 mousemove 事件。mousemove() 方法触发 mousemove 事件，或添加当发生 mousemove 事件时运行的函数。注意：用户把鼠标移动一个像素，就会发生一次 mousemove 事件。处理所有 mousemove 事件会耗费系统资源。请谨慎使用该事件。
+        //获取到id为body的坐标
+        var offset = $('body').offset() //offset() 方法设置或返回被选元素相对于文档的偏移坐标。
+
+        //获取到鼠标相对于offset的坐标
+        var x = e.pageX + offset.left
+        var y = e.pageY + offset.top
+
+        //获取到body的宽度和高度
+        var centerX = $('body').outerWidth() / 2 //outerWidth() 方法返回第一个匹配元素的外部宽度。
+        var centerY = $('body').outerHeight() / 2 //outerHeight() 方法返回第一个匹配元素的外部高度。
+
+        var deltaX = x - centerX
+        var deltaY = y - centerY
+
+
+        var percentX = deltaX / centerX
+        var percentY = deltaY / centerY
+
+        var deg =10
+        
+        // 定义图框原地不动，但随时朝向鼠标位置
+        $('#banner').css({
+             //transform(设置这个属性可以使div旋转)
+            transform: 'rotateX(' + deg * -percentY + 'deg)' + 'rotateY(' + deg * +percentX + 'deg)',
+        });
+     
+        //使div跟随鼠标反向移动
+        // 定义图框上下左右移动的距离
+        var deeg = 50;
+        var deegr = 50;
+        var deegb = 50;
+        var percenttX = deltaX / centerX;
+        var percenttY = deltaY / centerY;
+
+        // 实现图框上下左右移动 + 之前的朝向鼠标的效果
+        $('#banner').css({
+            "margin-top": deeg * -percenttY + 'px',
+            "margin-left": deeg * -percenttX + 'px',
+            "margin-bottom": deegb * -percenttX + 'px',
+            "margin-right": deegr * -percenttY + 'px',
+        });
+
+        // 当图框移动时，图片也跟随移动
+        $(' #banner img').css({
+            transform: 'translateX(' +  deeg * -percenttX + 'px)' + 'translateY(' + -deeg * -percenttY + 'px)',//-deeg 使图片在上下移动时与图框反向执行
+        })
+
+    });
+</script>
+
+</html>

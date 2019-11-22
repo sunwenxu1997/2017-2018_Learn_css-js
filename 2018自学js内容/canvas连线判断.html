@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0;
+    }
+    #cvs{
+        display: block;
+        background: rgb(41, 56, 138);
+    }
+    </style>
+</head>
+<body>
+    <canvas id="cvs"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('cvs')
+    var w, h;
+    w = window.innerWidth; 
+    h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    var ctx = canvas.getContext('2d');
+    var num = 3000;
+    var data = [];
+    function circle(x,y) {
+    ctx.beginPath();
+    ctx.fillStyle = 'white';
+    ctx.arc(x,y,1,0,Math.PI*2);
+    ctx.fill();
+    }
+   
+    
+  for (var i = 0; i < num; i++) {
+      data[i] = { x:Math.random()*w, y:Math.random()*h, cX:Math.random()*2 - 1, cY:Math.random()*2 - 1}
+    //   circle(data[i].x,data[i].y);
+  }
+  
+  function draw() {
+    ctx.clearRect(0,0,w,h);
+      for (var i = 0; i < num; i++) {
+      
+         data[i].x+=data[i].cX;
+         data[i].y+=data[i].cY;
+         if (data[i].x<0 || data[i].x>w) {
+                data[i].cX = -data[i].cX
+         }
+         if (data[i].y<0 || data[i].y>h) {
+                data[i].cY = -data[i].cY
+         }
+         circle(data[i].x,data[i].y); 
+      }
+  }
+    setInterval(function () {
+        draw();
+    },10)
+
+</script>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>层叠海浪</title>
+    <style>
+    html,
+body {
+	height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+canvas {
+  display: block;
+}
+    </style>
+</head>
+<body>
+    
+<canvas>
+  
+</canvas>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.3.0/simplex-noise.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+<script>
+
+var gui = new dat.GUI(),
+    guiSet = {
+	frequency: 100,
+	reset: function reset() {
+		$.reset();
+	}
+};
+gui.add(guiSet, 'frequency').min(10).max(50);
+gui.add(guiSet, 'reset');
+
+//
+
+var $ = {};
+
+/*========================================
+Utility
+========================================*/
+
+$.PI = Math.PI;
+$.TAU = $.PI * 2;
+
+$.rand = function (min, max) {
+	if (!max) {
+		var max = min;
+		min = 0;
+	}
+
+	return Math.random() * (max - min) + min;
+};
+
+/*========================================
+Initialize
+========================================*/
+
+$.init = function () {
+	$.c = document.querySelector('canvas');
+	$.ctx = $.c.getContext('2d');
+	$.simplex = new SimplexNoise();
+	$.events();
+	$.reset();
+	$.loop();
+};
+
+/*========================================
+Reset
+========================================*/
+
+$.reset = function () {
+	$.w = window.innerWidth;
+	$.h = window.innerHeight;
+	$.cx = $.w / 2;
+	$.cy = $.h / 2;
+	$.c.width = $.w;
+	$.c.height = $.h;
+
+	$.count = Math.floor($.w / guiSet.frequency); // Wave frequency
+	$.xoff = 0;
+	$.xinc = 0.05;
+	$.yoff = 0;
+	$.yinc = 0.01; // Speed
+	$.goff = 0;
+	$.ginc = 0;
+	$.y = $.h * 0.65;
+	$.length = $.w + 0;
+	$.amp = 15; // Wave height
+};
+
+/*========================================
+Event
+========================================*/
+
+$.events = function () {
+	window.addEventListener('resize', $.reset.bind(undefined));
+};
+
+/*========================================
+Wave
+========================================*/
+
+$.wave = function (color, amp, height, comp) {
+	$.ctx.beginPath();
+	var sway = $.simplex.noise2D($.goff, 0) * amp;
+
+	for (var i = 0; i <= $.count; i++) {
+		$.xoff += $.xinc;
+		var x = $.cx - $.length / 2 + $.length / $.count * i;
+		var y = height + $.simplex.noise2D($.xoff, $.yoff) * amp + sway;
+		$.ctx[i === 0 ? 'moveTo' : 'lineTo'](x, y);
+	}
+
+	$.ctx.lineTo($.w, -$.h); // -$.h - Vertically reflection
+	$.ctx.lineTo(0, -$.h); // -$.h - Vertically reflection
+	$.ctx.closePath();
+	$.ctx.fillStyle = color;
+
+	if (comp) {
+		$.ctx.globalCompositeOperation = comp;
+	}
+
+	$.ctx.fill();
+};
+
+/*========================================
+Loop
+========================================*/
+
+$.loop = function () {
+	requestAnimationFrame($.loop);
+
+	$.ctx.clearRect(0, 0, $.w, $.h);
+	$.xoff = 0;
+
+	$.ctx.fillStyle = "#182645";
+	$.ctx.fillRect(0, 0, $.w, $.h);
+
+	$.wave("#fb0000", 20, $.h * .5, "screen");
+	$.wave("#00ff8e", 20, $.h * .5, "screen");
+	$.wave("#6F33FF", 20, $.h * .5, "screen");
+
+	$.ctx.fillStyle = "#f1dfdd";
+
+	$.ctx.globalCompositeOperation = "darken";
+
+	$.ctx.fillRect(0, 0, $.w, $.h);
+
+	$.yoff += $.yinc;
+	$.goff += $.ginc;
+};
+
+/*========================================
+Start
+========================================*/
+
+$.init();
+</script>
+</html>

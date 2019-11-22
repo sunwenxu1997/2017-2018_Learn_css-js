@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>海浪</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3881c6;
+            font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+
+        }
+
+        .sea {
+            width: 300px;
+            height: 300px;
+            background-color: white;
+            background-image: linear-gradient( darkblue 0%, rgba(255, 255, 255, 0) 80%);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.219);
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            cursor: default;
+        }
+        .sea .title {
+	color:white;
+	font-size:24px;
+	text-align:center;
+	line-height:250px;
+    /* 定义仅有大写字母 */
+    text-transform:uppercase;
+    /* 字体间的空格值 */
+	letter-spacing:0.4em;
+	position:absolute;
+    top: 0;
+	z-index:1;
+	width:100%;
+    transition: 1s;
+}
+        .sea .wave{
+            position: absolute;
+            top: -250px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: deepskyblue;
+            border-radius: 43%;
+            opacity: 0.4;
+            transform-origin: 50% 48%;
+            animation:drift linear infinite;
+            transition: 1s;
+        }@keyframes drift {
+	from {
+	transform:rotate(360deg);
+}
+}
+@keyframes move {
+	0%{}
+    50%{
+        transform: translateX(50px)
+    }
+    100%{
+        transform: translateX(-40px)
+    }
+}
+.sea .wave:nth-of-type(1) {
+	animation-duration:5s;
+    transition-delay: 0s;
+}
+.sea .wave:nth-of-type(2) {
+	animation-duration:7s;
+    transition-delay: 0.3s;
+
+}
+.sea .wave:nth-of-type(3) {
+	animation-duration:9s;
+    transition-delay:0.5s;
+	background-color:orangered;
+	opacity: 0.1;
+}
+.sea:hover .wave{
+    border-radius: 20%;
+    animation: move  ease-in-out -1s infinite alternate;
+}
+.sea:hover .wave:nth-of-type(1){
+    height: 475px;
+    animation-duration: 3s;
+}
+.sea:hover .wave:nth-of-type(2){
+    height: 480px;
+    animation-duration: 2s;
+}
+.sea:hover .wave:nth-of-type(3){
+    height: 480px;
+    animation-duration: 2.5s;
+}
+.sea:hover .title{
+    top: 115px;
+    color: #72b7f7;
+    text-shadow: 0px 0px 5px #8dc3f5;
+}
+    </style>
+</head>
+
+<body>
+    <div class="sea">
+        <p class="title">Hi,sea</p>
+        <span class="wave"></span>
+        <span class="wave"></span>
+        <span class="wave"></span>
+    </div>
+</body>
+
+</html>

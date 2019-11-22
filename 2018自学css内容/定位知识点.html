@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位</title>
+    <style>
+        body{
+            margin: 0;
+        }
+    div{
+        width: 300px;
+        height: 300px;
+        border: 10px solid black;
+    }
+    section{
+        width: 100px;
+        height: 100px;
+    }
+   
+   #one{
+       /* 若父元素设有  相对定位 */
+       /* 相对定位 */
+       position: relative;
+   }
+   #one section{
+       /* 绝对定位，针对于父元素的 #one 进行定位 */
+       position: absolute;
+       /* 左上角对其 */
+       /* left: 0;top: 0; */
+       /* 左下角对其 */
+       /* left: 0;bottom: 0; */
+        /* 右上角对其 */
+       /* right: 0;top: 0; */
+        /* 右下角对其 */
+         right: 0;bottom: 0;
+         background: red;
+   }
+
+
+   #two{
+        /* 若父元素没有设  相对定位 */
+   }
+   #two section{
+       /* 其父元素 #two 未设有 相对定位，则该子元素相对于 body进行定位 */
+       position: absolute;
+       top: 20px;
+       background: blue;
+   }
+
+   #three{
+        /* 若父元素没有设  相对定位 */
+   }
+   #three section{
+       /* 直接对子元素设置 相对定位 */
+       /* 该子元素 会相对当前位置进行移动 */
+       /* 在进行网页编写时，不建议使用 */
+       position: relative;
+       top: 20px;
+       /* 针对第一个 右上角 的效果不可实现 */
+        /* right: 0;top: 0; */
+       background: purple;
+   }
+
+   #four{
+       /* 弹性布局 */
+       /* 开启弹性布局 */
+       display: flex;
+       /* 使标签水平居中 */
+       justify-content: center;
+       /* 使标签垂直居中 */
+       align-items: center;
+   }
+   #four section{
+       background: yellow;
+       /* 字体居中 */
+       text-align: center;
+       /* 使字体高度等于父元素高度，实现垂直居中 */
+       /* 此处 section 高度为100px； */
+       line-height: 100px;
+   }
+
+   #five{
+       /* 浮动 */
+       /* 方法一 */
+       /*在父元素中 开启弹性布局，定义其内的子元素从左往右排列 */
+       /* display: flex; */
+   }
+   #five section{
+        /* 方法二 */
+        /* 在该元素内设置浮动 */
+        /* 左浮动 */
+        /* float: left; */
+          /* 右浮动 */
+        float: right;
+    background: brown;
+   }
+
+   #six{
+       /* 给父元素设置相对定位 */
+      position: relative;
+   }
+   #six section{
+      position: absolute;
+      top: 50px;
+      /* 浮动失效 */
+      /* 因此定位与浮动两者在同一标签属性内不可冲突 */
+      float: right;
+      background: green;
+   }
+
+   #seven{
+        /* 给父元素设置相对定位 */
+    position: relative;
+   }
+   #seven section{
+       background: red;
+    position: absolute;
+    /* 设置定位动画效果 */
+    /* alternate 动画返回执行 */
+    animation: move 5s linear infinite alternate;
+   }@keyframes move{
+       0%{left: 0px;top: 0px; background: red;}
+       20%{left: 50px;top: 0px; background: rgb(217, 255, 0);}
+       40%{left: 50px;top:50px; background: rgb(0, 255, 21);}
+       60%{left: 100px;top:50px; background: rgb(0, 247, 255);}
+       80%{left: 200px;top: 80px; background: rgb(0, 81, 255);}
+       100%{left: 200px;top: 0px; background: rgb(255, 0, 242);}
+   }
+
+   #eight{
+      /* 超出隐藏 */
+      /* 针对以下溢出部分，进行隐藏 */
+      overflow: hidden;
+   }
+   #eight section{
+       width: 120px;
+       background: seagreen;
+       /* 设置浮动 */
+        /* 当标签长度超过父元素长度，会自动换行 */
+          /* 当标签高度超过父元素高度，会溢出 */
+       float: left;
+
+   }
+    </style>
+</head>
+<body>
+    <div id="one">
+            <section>我是第一个</section>
+    </div>
+    <div id="two">
+            <section>我是第二个</section>
+    </div>
+    <div id="three">
+            <section>我是第三个</section>
+    </div>
+    <div id="four">
+            <section>我是第四个</section>
+    </div>
+    <div id="five">
+            <section>我是第五个</section>
+            <section>我是第五个</section>
+    </div>
+    <div id="six">
+            <section>我是第六个</section>
+    </div>
+    <div id="seven">
+            <section>我是第七个</section>
+    </div>
+    <div id="eight">
+            <section>我是第八个</section>
+            <section>我是第八个</section>
+            <section>我是第八个</section>
+            <section>我是第八个</section>
+            <section>我是第八个</section>
+            <section>我是第八个</section>
+            <section>我是第八个</section>
+    </div>
+</body>
+</html>

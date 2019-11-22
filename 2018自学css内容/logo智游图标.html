@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        body{
+            perspective: 3000px;
+        }
+     main{
+         width: 500px;
+         height: 500px;
+         background: rgba(65, 105, 225, 0.575);
+         perspective: 2000px;
+         border: 1px solid red;
+         transform: rotateX(80deg)  rotateZ(0deg);
+         animation: zhuan 30s linear infinite;
+         transform-style: preserve-3d;
+     }@keyframes zhuan{
+         100%{
+             transform: rotateX(80deg) rotateZ(-360deg);
+         }
+     }
+    #text{
+        transform-style: preserve-3d;
+        width: 500px;
+        height: 500px;
+        background: rgba(0, 0, 0, 0.548);
+        transform: rotateX(-90deg);
+        position: relative;
+        perspective: 2000px;
+    }
+    h1{
+        font-size: 120px;
+        position: absolute;
+        letter-spacing: 0.1em;
+        color: #1e2d5c;
+        top: 100px;
+        right: 0;
+    }
+    .qian{
+        transform: translateZ(20px);
+    }
+    .hou{
+        transform: translateZ(0px);
+    }
+    </style>
+</head>
+<body>
+  <main>
+ <div id="text">
+     <h1 class="qian">智游</h1>
+     <h1 class="hou">智游</h1>
+ </div>
+  </main>
+</body>
+</html>

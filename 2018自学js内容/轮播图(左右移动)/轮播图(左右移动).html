@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(73, 73, 73);
+        }
+
+        #banner {
+            /* 定义装整个轮播图的容器 */
+            width: 550px;
+            height: 300px;
+            position: relative;
+        }
+
+        #banner section {
+            /* 定义轮播图左右键的样式 */
+            width: 30px;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.404);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            line-height: 70px;
+            position: absolute;
+            top: 40%;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        #banner .pre {
+            /* 往左键左对齐 */
+            left: 0;
+        }
+
+        #banner .next {
+             /* 往右键右对齐 */
+            right: 0;
+        }
+
+
+        .box .img {
+            /* 定义装图片的li标签样式 */
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* 设置定位，使图片堆叠到一起 */
+            position: absolute;
+            list-style: none;
+            /* 使图片全为无，然后在标签中定义第一张图片为 有 */
+            /* 这样做避免造成图片重叠，使后几张图片盖住第一张 */
+            display: none;
+        }
+
+        .box .img img {
+            /* 定义图片样式 */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <!-- 两个往左，往右键 -->
+        <section class="pre"><</section>
+        <section class="next">></section>
+        <!-- 装图片的盒子 -->
+                <ul class="box">
+                    <li class="img" style="display:block"><img src="img/孔雀开屏.PNG" alt=""></li>
+                    <li class="img"><img src="img/扇子.PNG" alt=""></li>
+                    <li class="img"><img src="img/空调off.PNG" alt=""></li>
+                    <li class="img"><img src="img/鸡尾酒.PNG" alt=""></li>
+                    <li class="img"><img src="img/小风扇.PNG" alt=""></li>
+                    <li class="img"><img src="img/帆船.PNG" alt=""></li>
+                    <li class="img"><img src="img/杯子.PNG" alt=""></li>
+                </ul>
+            
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    //定义一个基数index
+    var index = 0;
+    
+     // 点击往右移动，相对应图片改变
+    $('.next').click(function () {
+        // 每当点击时 index+1
+        index++;
+        console.log(index);
+        // 点击一次时 即为 .img[1] 标签(图片2)变为 有，然后遮盖住上第一张图片
+        $('.img').eq(index).css({ display: 'block' });
+        // 当index++ 达到 图片的相应长度时
+        if (index == $('.img').length) {
+            //把所有的图片变为 无 ,然后只把第一张图片变为 有  (不这样的话,第一张图片会一直在其它图片下方，无法看见)
+            $('.img').css({ display: 'none' });
+            $('.img').eq(0).css({ display: 'block' });
+            index = 0;
+            
+        }
+      
+    })
+    // 点击往左移动，相对应图片改变
+    $('.pre').click(function () {
+        // 每当点击时 index-1
+        index--;
+        // console.log(index);
+        //此处和往右移动图片不太一样
+        //需要先把所有图片变为 无 ，然后再让相对应图片变为 有  (不这样的话，即便你一直往左，之前的图片也会在现在图片的下方)
+        $('.img').css({ display: 'none' });
+        $('.img').eq(index).css({ display: 'block' });
+        //当往左到到第一张图片时
+        if (index == -1) {
+            // 使index 等于当前图片长度 -1的位置，即到达最后一张图片
+            index = $('.img').length - 1;
+        }
+       
+    })
+
+   
+</script>
+
+</html>

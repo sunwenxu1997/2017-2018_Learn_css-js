@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跟随下划线</title>
+    <style>
+        ul {
+            width: 600px;
+            display: block;
+            list-style: none;
+            padding: 0;
+            margin:200px auto;
+            box-sizing: border-box;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            /* background: red; */
+            position: relative;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        li:last-child::after {
+            content: "";
+            width: 100%;
+            height:3px;
+            background-color: black;
+            display: block;
+            transition: 0.3s ease;
+            position: absolute;
+            left: 0;
+        }
+
+        li:nth-child(1).current~li:last-child::after {
+            left: -500px;
+            background-color: black;
+        }
+
+        li:nth-child(2).current~li:last-child::after {
+            left: -400px;
+            background-color: black;
+        }
+
+        li:nth-child(3).current~li:last-child::after {
+            left: -300px;
+            background-color: black;
+        }
+
+        li:nth-child(4).current~li:last-child::after {
+            left: -200px;
+            background-color: black;
+        }
+
+        li:nth-child(5).current~li:last-child::after {
+            left: -100px;
+            background-color: black;
+        }
+        li:nth-child(1):hover~li:last-child::after {
+            left: -500px;
+            background-color: #360033;
+        }
+
+        li:nth-child(2):hover~li:last-child::after {
+            left: -400px;
+            background-color: #360033;
+        }
+
+        li:nth-child(3):hover~li:last-child::after {
+            left: -300px;
+            background-color: #360033;
+        }
+
+        li:nth-child(4):hover~li:last-child::after {
+            left: -200px;
+            background-color: #360033;
+        }
+
+        li:nth-child(5):hover~li:last-child::after {
+            left: -100px;
+            background-color: #360033;
+        }
+
+        li:nth-child(6):last-child:last-child:hover::after {
+            left: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="current">HOME</li>
+        <li>SCHOOL</li>
+        <li>ASDAS</li>
+        <li>ASD</li>
+        <li>SSSSSS</li>
+        <li>ASDASD</li>
+    </ul>
+</body>
+
+</html>

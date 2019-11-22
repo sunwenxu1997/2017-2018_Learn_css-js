@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 auto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    body,html{
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    img{
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+    }
+    table{
+        position: relative;
+        top: -90px;
+        width:95%;
+        border-collapse: collapse;
+        opacity: 1;
+        color: #C3FB81;
+    }
+    td{
+        height: 50px;
+        border: 2px solid #C3FB81;
+        position: relative;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .center{
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        line-height: 50px;
+        font-weight: bold;
+    }
+    .time-lt{
+        font-size: 11px;
+        position: absolute;
+        left: 2px;
+        top: 2px;
+    }
+    .time-t{
+        position: relative;
+        top: -8px;
+    }
+    .time-b{
+        position: relative;
+        top: 8px;
+    }
+    </style>
+</head>
+<body>
+    <img src="./img/maImg.jpg" alt="">
+    <table>
+        <tr>
+            <td style="width:130px;">
+            <p class="time-lt">(2019)</p>
+            <span class="center">10月</span>
+            </td>
+            <td style="">
+                <p class="time-lt">(2019)</p>
+                <span class="center">11月</span>
+            </td>
+            <td style="width:70px">
+                <p class="time-lt">(2019)</p>
+                <span class="center">12月</span>
+            </td>
+            <td style="width:70px">
+                <p class="time-lt">(2020)</p>
+                <span class="center">1月</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                <p class="time-t">class1 Miki Emura             3日</p>
+                <p class="time-b">class2 Miki Emura             3日</p>
+            </td>
+            <td rowspan="2" style="text-align:center;">
+                <p>老师待定</p>
+                <p style="font-size: 9px;">(投票选出)</p>
+                <p style="font-size: 9px;">(全网投票通道8月1日打开)</p>
+            </td>
+            <td rowspan="2" colspan="2" style="text-align:center">
+                <p>12.31-1.1"跨年CAMP"</p>
+                <p style="font-size: 9px;">(投票选出)</p>
+                <p style="font-size: 9px;">(全网投票通道9月1日打开)</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">
+                <p class="time-t">class3 Miki Emura    4日</p>
+                <p class="time-b">class4 Miki Emura    4日</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

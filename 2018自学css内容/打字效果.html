@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        body{
+            background: rgb(66, 66, 66);
+        }
+        main{
+            width: 500px;
+            height: 800px;
+            /* border: 1px solid black; */
+        }
+    p{
+        /* 从(1开始)第一个字符前开始算 到最后一个字符结束的位置长度 */
+        /* width: 11ch; */
+        margin: 20px auto;
+        overflow: hidden;
+        /* word-break 属性规定自动换行的处理方法。 */
+        /* break-all 允许在单词内换行。 */
+        /* keep-all   只能在半角空格或连字符处换行。 */
+        word-break: keep-all;
+        /* color:#9197f5; */
+        /* border-right: 3px solid white; */
+        font-weight: bold;
+        /* Monospace 字体并不是成比例的。它们通常用于模拟打字机打出的文本、老式点阵打印机的输出，甚至更老式的视频显示终端。采用这些字体，每个字符的宽度都必须完全相同，所以小写的 i 和小写的 m 有相同的宽度。这些字体可能有上下短线，也可能没有。如果一个字体的字符宽度完全相同，则归类为 Monospace 字体，而不论是否有上下短线 */
+        font-family: monospace;
+          /* 400% 放大字体 */
+        font-size: 400%;
+        /* animation:text 5s infinite steps(11);是利用了steps()值设定步长，因为一共11ch的长度，所以设定11个步长。然后设置infinite来实现无限循环。  */
+        animation: caret 0.5s step-end infinite,text 5s infinite steps(11);
+    }@keyframes caret{
+        50%{
+            border-color: transparent;
+        }
+    }@keyframes text{
+        from{
+            width: 0;
+        }
+    }
+    .one{
+        width: 11ch;
+        color:#b1b6f5;
+        border-right: 3px solid rgb(81, 192, 243);
+        font-size: 250%;
+    }
+    .two{
+        width: 11ch;
+        color:red;
+        font-size: 300%;
+        border-right: 3px solid rgb(247, 112, 112);
+        text-shadow: 0 0 5px red;
+    }
+    .three{
+        width: 19ch;
+        color: white;
+        border-right: 3px solid rgb(189, 185, 185);
+        font-size: 200%;
+        letter-spacing: 0.22em;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        animation:  caret 0.5s step-end infinite,text 5s infinite steps(9);
+    }
+    .four{
+        width: 11ch;
+        color:rgb(146, 216, 54);
+        font-size: 200%;
+        border-right: 3px solid rgb(189, 247, 112);
+        animation:  caret 0.1s step-end infinite,text 5s infinite steps(11);
+    }
+    .five{
+          width: 18ch;
+          font-size: 250%;
+          color: transparent;
+          border-right: 3px solid white;
+          animation:  caret1 0.5s step-end infinite,text 8s infinite steps(18);
+          background-image: linear-gradient(to right,rgb(238, 100, 100) 20%, rgb(114, 114, 247) 20%, rgb(114, 114, 247) 40%,yellow 40%,yellow 60%,rgb(247, 121, 83) 60%,rgb(247, 121, 83) 80%,rgb(93, 238, 238) 80%,rgb(93, 238, 238) 100% );
+          background-clip: text;
+    }@keyframes caret1{
+        0%{
+            border-color: rgb(238, 100, 100);
+        }
+        20%{
+            border-color: rgb(114, 114, 247);
+        }
+        40%{
+            border-color: yellow;
+        }
+        60%{
+            border-color: rgb(247, 121, 83);
+        }
+        80%{
+            border-color: rgb(93, 238, 238);
+        }
+        100%{
+            border-color: transparent;
+        }
+    }
+    .six{
+        width: 15ch;
+        font-size: 150%;
+        color: rgb(94, 215, 231);
+        border-right: 5px solid rgba(20, 20, 20, 0.856);
+        animation:  caret1 0.1s step-end infinite,text 2s infinite steps(15);
+    }
+    .seven{
+        width: 19ch;
+        color: transparent;
+        font-size: 260%;
+        border-right: 5px solid rgba(255, 255, 255, 0.678);
+        /* orange   greenyellow  orangered  red  royalblue   teal  tomato  crimson  darkorchid*/
+        animation:  caret 0.3s step-end infinite,text 6s infinite steps(19);
+        background-image: linear-gradient(to right,white 1ch,rgb(238, 100, 100) 1ch, rgb(238, 100, 100) 2ch, rgb(114, 114, 247) 2ch, rgb(114, 114, 247) 3ch,yellow 3ch,yellow 4ch,rgb(247, 121, 83) 4ch,rgb(247, 121, 83) 5ch,rgb(93, 238, 238) 5ch,rgb(93, 238, 238) 6ch,orange 6ch,orange 7ch, greenyellow 7ch,greenyellow 8ch,orangered 8ch,orangered 9ch,red 9ch,red 10ch,royalblue 10ch,royalblue 11ch,greenyellow 11ch,greenyellow 12ch,royalblue 12ch,royalblue 13ch,teal 13ch,tomato 14ch,crimson  14ch,crimson 15ch,darkorchid 15ch,darkorchid 16ch,red 16ch,red  17ch,greenyellow  17ch,greenyellow 18ch,rgb(93, 238, 238) 18ch,rgb(93, 238, 238) 19ch);
+        background-clip: text;
+    }
+    .eight{
+        width: 13ch;
+        font-size: 100%;
+        color: rgb(86, 245, 112);
+        border-right: 3px solid rgba(245, 247, 244, 0.966);
+        animation:  caret 0.1s step-end infinite,text 2s infinite steps(13);
+    }
+    .nine{
+        width: 23ch;
+        font-size: 170%;
+        transform: scaleX(-1);
+        color: rgb(245, 118, 86);
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        letter-spacing: 0.19em;
+        border-right: 3px solid rgba(245, 247, 244, 0.966);
+        animation:  caret 0.5s step-end infinite,text 5s infinite steps(12);
+    }
+    .ten{
+        filter: blur(2px);
+        width: 13ch;
+        font-size: 200%;
+        color: yellow;
+        border-right: 1px solid rgba(245, 247, 244, 0.966);
+        animation:  caret 0.1s step-end infinite,text 5s infinite steps(13);
+    }
+    .eleven{
+        width: 23ch;
+        font-size: 130%;
+        color: rgb(245, 86, 86);
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        letter-spacing: 0.19em;
+        border-right: 3px solid rgba(245, 247, 244, 0.966);
+        animation:  caret 0.5s step-end infinite,text 7s infinite steps(12);
+    }
+    .twelve{
+        width: 23ch;
+        font-size: 100%;
+        color: rgb(243, 19, 19);
+        transform: scaleY(-1) scaleX(-1);
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        letter-spacing: 0.19em;
+        border-right: 3px solid rgba(245, 247, 244, 0.966);
+        animation:  caret 0.1s step-end infinite,text 3s infinite steps(12);
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <p class="one">Loading...</p>
+    <p class="two">loading...</p>
+    <p class="three">孙大旭是个帅锅儿</p>
+    <p class="four">What&nbsp;Fuck!</p>
+    <p class="five">Do&nbsp;not&nbsp;go&nbsp;too&nbsp;far</p>
+    <p class="six">You&nbsp;are&nbsp;a&nbsp;fool</p>
+    <p class="seven">Don't&nbsp;want&nbsp;to&nbsp;love</p>
+    <p class="eight">zzzzzzzzzzzz</p>
+    <p class="nine">辣鸡&nbsp;&nbsp;辣鸡&nbsp;&nbsp;辣鸡&nbsp;&nbsp;辣鸡</p>
+    <p class="eleven">辣鸡&nbsp;&nbsp;辣鸡&nbsp;&nbsp;辣鸡&nbsp;&nbsp;辣鸡</p>
+   <p class="twelve">辣鸡&nbsp;&nbsp;辣鸡&nbsp;&nbsp;辣鸡&nbsp;&nbsp;辣鸡</p>
+   <p class="ten">The&nbsp;end&nbsp;of&nbsp;!</p>
+   </main>
+</body>
+</html>

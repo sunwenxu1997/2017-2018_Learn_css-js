@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>花瓣</title>
+    <style>
+        main {
+            width: 300px;
+            height: 300px;
+            /* border: 1px solid red; */
+            margin: 200px auto;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            /* background: red; */
+            /* margin: 20px; */
+            float: left;
+            position: relative;
+        }
+
+        section {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            /* background: powderblue; */
+        }@keyframes left{
+            from{
+                transform: rotateZ(0);
+            }
+            to{
+                transform: translateX(30px) rotateZ(180deg);
+            }
+        }
+        @keyframes right{
+            from{
+                transform: rotateZ(0);
+            }
+            to{
+                transform: translateX(-30px) rotateZ(180deg);
+            }
+        }
+        @keyframes top{
+            from{
+                transform: rotateZ(0);
+            }
+            to{
+                transform: translateY(30px) rotateZ(180deg);
+            }
+        }
+        @keyframes bottom{
+            from{
+                transform: rotateZ(0);
+            }
+            to{
+                transform: translateY(-30px) rotateZ(180deg);
+            }
+        }
+        div::before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 50px solid red;
+            border-top: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            transition: 2s;
+            animation: left 3s linear infinite alternate;
+            animation-delay: 1s;
+        }
+
+        div::after {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-right: 50px solid red;
+            border-top: 50px solid transparent;
+            border-left: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            transition: 2s;
+            animation: right 3s linear infinite alternate;
+            animation-delay: 1s;
+        }
+
+        section::before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 50px solid red;
+            border-left: 50px solid transparent;
+            border-right:50px solid transparent;
+            border-bottom: 50px solid transparent;
+            transition: 2s;
+            animation: top 3s linear infinite alternate;
+            animation-delay: 1s;
+        }
+
+        section::after {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-bottom: 50px solid red;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 50px solid transparent;
+            transition: 2s;
+            animation: bottom 3s linear infinite alternate;
+            animation-delay: 1s;
+        }
+
+        main:hover div:before {
+            border-radius: 30px;
+            transform: translateX(30px);
+            animation: none;
+        }
+
+        main:hover div:after {
+            border-radius: 30px;
+            transform: translateX(-30px);
+            animation: none;
+        }
+
+        main:hover section:before {
+            border-radius: 30px;
+            transform: translateY(30px);
+            animation: none;
+        }
+
+        main:hover section:after {
+            border-radius: 30px;
+            transform: translateY(-30px);
+            animation: none;
+        }
+
+        main:active div:before {
+            transform: translateX(-100px) rotateX(91deg);
+        }
+
+        main:active div:after {
+            transform: translateX(100px) rotateX(91deg);
+        }
+
+        main:active section:before {
+            transform: translateY(-100px) rotateY(91deg);
+        }
+
+        main:active section:after {
+            transform: translateY(100px) rotateY(91deg);
+        }
+        main:hover .one::before{
+            border-left: 50px solid green;
+        }
+        main:hover .one::after{
+            border-right: 50px solid greenyellow;
+        }
+        main:hover .one section::before{
+            border-top: 50px solid greenyellow;
+        }
+        main:hover .one section::after{
+            border-bottom: 50px solid green;
+        }
+       main:hover .two::before{
+            border-left: 50px solid orange;
+        }
+        main:hover .two::after{
+            border-right: 50px solid yellow;
+        }
+        main:hover .two section::before{
+            border-top: 50px solid yellow;
+        }
+        main:hover .two section::after{
+            border-bottom: 50px solid orange;
+        }
+        main:hover .three::before{
+            border-left: 50px solid palevioletred;
+        }
+        main:hover .three::after{
+            border-right: 50px solid pink;
+        }
+        main:hover .three section::before{
+            border-top: 50px solid pink;
+        }
+        main:hover .three section::after{
+            border-bottom: 50px solid palevioletred;
+        }
+
+          main:hover .four::before{
+            border-left: 50px solid teal;
+        }
+        main:hover .four::after{
+            border-right: 50px solid rgb(19, 206, 206);
+        }
+        main:hover .four section::before{
+            border-top: 50px solid rgb(19, 206, 206);
+        }
+        main:hover .four section::after{
+            border-bottom: 50px solid teal;
+        }
+
+         main:hover .five::before{
+            border-left: 50px solid red;
+        }
+        main:hover .five::after{
+            border-right: 50px solid rgb(241, 50, 50);
+        }
+        main:hover .five section::before{
+            border-top: 50px solid rgb(241, 50, 50);
+        }
+        main:hover .five section::after{
+            border-bottom: 50px solid red;
+        }
+
+        main:hover .six::before{
+            border-left: 50px solid blue;
+        }
+        main:hover .six::after{
+            border-right: 50px solid royalblue;
+        }
+        main:hover .six section::before{
+            border-top: 50px solid blue;
+        }
+        main:hover .six section::after{
+            border-bottom: 50px solid royalblue;
+        }
+
+          main:hover .seven::before{
+            border-left: 50px solid rgb(146, 7, 146);
+        }
+        main:hover .seven::after{
+            border-right: 50px solid rgb(212, 15, 212);
+        }
+        main:hover .seven section::before{
+            border-top: 50px solid rgb(212, 15, 212);
+        }
+        main:hover .seven section::after{
+            border-bottom: 50px solid rgb(146, 7, 146);
+        }
+
+         main:hover .eight::before{
+            border-left: 50px solid saddlebrown;
+        }
+        main:hover .eight::after{
+            border-right: 50px solid rgb(221, 115, 39);
+        }
+        main:hover .eight section::before{
+            border-top: 50px solid rgb(221, 115, 39);
+        }
+        main:hover .eight section::after{
+            border-bottom: 50px solid saddlebrown;
+        }
+
+        main:hover .nine::before{
+            border-left: 50px solid rgb(226, 36, 11);
+        }
+        main:hover .nine::after{
+            border-right: 50px solid rgb(245, 183, 14);
+        }
+        main:hover .nine section::before{
+            border-top: 50px solid rgb(245, 183, 14);
+        }
+        main:hover .nine section::after{
+            border-bottom: 50px solid rgb(226, 36, 11);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="one">
+            <section ></section>
+        </div>
+        <div class="two">
+            <section></section>
+        </div>
+        <div class="three">
+            <section></section>
+        </div>
+        <div class="four">
+            <section></section>
+        </div>
+        <div class="five">
+            <section></section>
+        </div>
+        <div class="six">
+            <section></section>
+        </div>
+        <div class="seven">
+            <section></section>
+        </div>
+        <div class="eight">
+            <section></section>
+        </div>
+        <div class="nine">
+            <section></section>
+        </div>
+
+    </main>
+</body>
+
+</html>

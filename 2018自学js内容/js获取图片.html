@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js获取图片</title>
+    <style>
+    *{
+        margin: 0 ;
+        padding: 0;
+    }
+    .box{
+        width: 1200px;
+        border: 1px solid red;
+        margin:  0 auto;
+        overflow: hidden;/*解决父元素高度塌陷问题 */
+    }
+    .box img{
+        width: 500px;
+        height: 300px;
+        float: left;/*导致父元素高度塌陷 */
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+<script>
+    var box=document.querySelector('.box');//选中盒子
+    var length=20;//所有需要加载的图片
+    var count=0;//已经加载的图片
+    var imglist=[];
+function initimg (i) {
+    var img=document.createElement('img');
+    img.src='img/'+i+'.jpg';//设置图片地址
+    imglist.push(img);//所有已添加的图片放到imglist里面了
+    box.appendChild(img);
+}
+for(var i=1; i<length+1;i++){
+    initimg(i)
+}
+</script>
+</html>

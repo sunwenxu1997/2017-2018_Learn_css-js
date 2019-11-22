@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转3D导航栏</title>
+    <style>
+        body{
+            margin: 0 auto;
+        }
+    .nav{
+        /* z 轴值 */
+        perspective: 1000px;
+        /* 弹性盒模型 */
+        /* 生成一条从左往右的主轴，所有的子元素都要沿着主轴排列 */
+        display: flex;
+        width: 507px;
+        height: 300px;
+        /* background: red; */
+        margin: 250px auto;
+        cursor: default;
+    }
+    .tab{
+        width: 200px;
+        height: 300px;
+        background-color: #08D5A1;
+        margin-right: 7px;
+    }
+    .content{
+        /* width: 300px;
+        height: 300px; */
+        /* 通过三角函数，调整视觉效果 */
+        width: 260px;
+        height: 260px;
+        background-color: #168a8d;
+        position: relative;
+        top: 20px;
+        left: 7px;
+        /* 3D旋转 */
+        transform-style: preserve-3d;
+        transition:0.5s;
+    }
+    .tab1,.tab2,.tab3{
+        width: 200px;
+        height: 100px;
+        color: white;
+        line-height: 100px;
+        text-align: center;
+        /* bold  加粗字体 */
+        font-weight: bold;
+    }
+    .tab1{
+        background: #08D5A1;
+    }
+    .tab2{
+        background: #1b9aaa;
+    }
+    .tab3{
+        background: #ef476f;
+    }
+    .content1,.content2,.content3{
+        width: 260px;
+        height: 260px;
+        position: absolute;
+        color: white;
+        line-height: 260px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .content1{
+        background: #08D5A1;
+        transform:translateY(-130px) rotateX(90deg);
+    }
+    .content2{
+        background: #1b9aaa;
+        transform: translateZ(130px);
+    }
+    .content3{
+        background: #ef476f;
+        transform:translateY(130px) rotateX(-90deg);
+    }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="tab">
+            <div class="tab1">我很帅</div>
+            <div class="tab2">我可帅</div>
+            <div class="tab3">我真帅</div>
+        </div>
+        <div class="content">
+            <div class="content1">我很帅</div>
+            <div class="content2">我可帅</div>
+            <div class="content3">我真帅</div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+      $(".tab1").click(function () {
+        $(".content").css("transform","rotateX(-90deg)")
+    })
+    $(".tab2").click(function () {
+        $(".content").css("transform","rotateX(0deg)")
+    })
+    $(".tab3").click(function () {
+        $(".content").css("transform","rotateX(90deg)")
+    })
+    </script>
+</body>
+</html>

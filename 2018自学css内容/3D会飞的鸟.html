@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会飞的鸟</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+            perspective: 1000px;
+            /* 滤镜 投影 */
+            filter: drop-shadow(0px 150px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        #sky {
+            width: 500px;
+            height: 300px;
+            border: 1px solid transparent;
+            transform-style: preserve-3d;
+            animation: zhuan 5s linear infinite;
+
+        }
+
+        .bird div {
+            transform-style: preserve-3d;
+        }
+
+        .bird {
+            width: 30px;
+            height: 200px;
+            /* border: 1px solid white; */
+            margin: 50px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg);
+
+        }
+
+        @keyframes zhuan {
+            0% {
+                transform: rotateX(60deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(60deg) rotateZ(360deg);
+            }
+        }
+
+        .bird .head {
+            width: 0;
+            height: 0;
+            border-bottom: 30px solid rgb(72, 136, 136);
+            border-top: 15px solid transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            transform-origin: 100% 100%;
+            transform: rotateX(35deg);
+        }
+
+        .bird .body {
+            width: 30px;
+            height: 70px;
+            background: rgb(13, 170, 170);
+            position: relative;
+        }
+
+        .bird .body::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid rgb(20, 219, 219);
+            border-top: 25px solid rgb(20, 219, 219);
+            border-bottom: 25px solid transparent;
+            border-right: 15px solid transparent;
+            position: absolute;
+            top: 70px;
+            transform-origin: 100% 0%;
+            transform: rotateX(30deg);
+        }
+
+        .bird .body::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-top: 25px solid rgb(24, 243, 243);
+            border-bottom: 25px solid transparent;
+            border-right: 15px solid rgb(24, 243, 243);
+            position: absolute;
+            top: 70px;
+            transform-origin: 100% 0%;
+            transform: rotateX(30deg);
+        }
+
+        .bird .wing-l {
+            width: 60px;
+            height: 40px;
+            background: rgb(18, 201, 201);
+            position: absolute;
+            top: 45px;
+            left: 30px;
+            transform-origin: 0 100%;
+            animation: wingl 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes wingl {
+            0% {
+                transform: rotateY(40deg)
+            }
+            100% {
+                transform: rotateY(-40deg);
+            }
+        }
+
+        @keyframes wingls {
+            0% {
+                transform: rotateY(40deg)
+            }
+            100% {
+                transform: rotateY(-40deg);
+            }
+        }
+
+        .bird .wing-l::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 15px solid rgb(18, 201, 201);
+            border-left: 30px solid rgb(18, 201, 201);
+            border-right: 30px solid transparent;
+            border-bottom: 15px solid transparent;
+            position: absolute;
+            top: 40px;
+        }
+
+        .bird .wing-l::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 20px solid rgb(93, 240, 240);
+            border-left: 25px solid rgb(93, 240, 240);
+            border-right: 25px solid transparent;
+            border-bottom: 20px solid transparent;
+            position: absolute;
+            left: 60px;
+            transform-origin: 0 100%;
+            animation: wingls 1.49s ease-in-out infinite alternate;
+        }
+
+        .bird .wing-r {
+            width: 60px;
+            height: 40px;
+            background: rgb(18, 201, 201);
+            position: absolute;
+            top: 45px;
+            left: -60px;
+            transform-origin: 100% 0;
+            animation: wingr 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes wingr {
+            0% {
+                transform: rotateY(-40deg)
+            }
+            100% {
+                transform: rotateY(40deg);
+            }
+        }
+
+        @keyframes wingrs {
+            0% {
+                transform: rotateY(-40deg)
+            }
+            100% {
+                transform: rotateY(40deg);
+            }
+        }
+
+        .bird .wing-r::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 15px solid rgb(18, 201, 201);
+            border-left: 30px solid transparent;
+            border-right: 30px solid rgb(18, 201, 201);
+            border-bottom: 15px solid transparent;
+            position: absolute;
+            top: 40px;
+        }
+
+        .bird .wing-r::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 20px solid rgb(93, 240, 240);
+            border-left: 25px solid transparent;
+            border-right: 25px solid rgb(93, 240, 240);
+            border-bottom: 20px solid transparent;
+            position: absolute;
+            left: -50px;
+            transform-origin: 100% 0;
+            animation: wingrs 1.49s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sky">
+        <div class="bird">
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="wing-l"></div>
+            <div class="wing-r"></div>
+        </div>
+    </div>
+</body>
+
+</html>

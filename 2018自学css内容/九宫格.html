@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九宫格</title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        body{
+              /* background: linear-gradient(90deg, #e03636 10%,#edd0be 10%,#edd0be 20%,#ff534d 20%,#ff534d 30%,#edd0be 30%,#edd0be 40%,#25c6fc 40%); */
+              background: #25c6fc;
+        }
+    main{
+        width: 1000px;
+        height: 500px;
+        /* 定义边框渐变 */
+        /* border: 10px solid; */
+        /* border-image: linear-gradient(-45deg, #37c6c0,#1db0b8,#00343f,#011935) 10; */
+        position: relative;
+        overflow: hidden;
+    }
+    main div{
+        transition: 0.5s;
+    }
+    #top img{
+        /* width: 110%; */
+        height: 120%;
+        float: left;
+    }
+    #bottom img{
+        /* width: 110%; */
+        height: 150%;
+        float:right;
+    }
+    #top{
+        position: absolute;
+        top: 0;
+        z-index: 99;
+        cursor: pointer;
+        box-sizing: border-box;
+        border: 0px solid transparent;
+        overflow: hidden;
+    }
+    #bottom{
+        position: absolute;
+        bottom: 0;
+        z-index: 99;
+        cursor: pointer;
+        box-sizing: border-box;
+        border: 0px solid transparent;
+        overflow: hidden;
+    }
+    .t-l1{
+        width: 300px;
+        height: 300px;
+        /* background: #011935; */
+        left: 0;
+    }
+    .t-l2{
+        width: 200px;
+        height: 200px;
+        /* background: #00343f; */
+        left: 300px;
+    }
+    .t-l3{
+        width: 150px;
+        height: 150px;
+        /* background: #1db0b8; */
+        left: 500px;
+    }
+    .t-r1{
+        width: 350px;
+        height: 200px;
+        /* background: #37c6c0; */
+        right: 0;
+    }
+   
+    .b-r1{
+        width: 300px;
+        height: 300px;
+        /* background: #011935; */
+        right: 0;
+    }
+    .b-r2{
+        width: 200px;
+        height: 200px;
+        /* background: #00343f; */
+        right: 300px;
+    }
+    .b-r3{
+        width: 150px;
+        height: 150px;
+        /* background: #1db0b8; */
+        right: 500px;
+    }
+    .b-l1{
+        width: 350px;
+        height: 200px;
+        /* background: #37c6c0; */
+        left: 0;
+    }
+   #top:hover{
+       border: 30px solid rgba(255, 255, 255, 0.781);
+    }
+    #bottom:hover{
+        border: 30px solid rgba(255, 255, 255, 0.781);
+    }
+    #show{
+        width: 400px;
+        height: 200px;
+        background:rgba(200, 231, 243, 0.76);
+        position: absolute;
+        left: 300px;
+        top:150px;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        font-size: 50px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        cursor: default;
+    }
+    </style>
+</head>
+<body>
+    <main>
+     <div id="top" class="t-l1">
+         <img src="img/4.jpg" alt="">
+     </div>
+     <div id="top" class="t-l2">
+            <img src="img/11.jpg" alt="">
+     </div>
+     <div id="top" class="t-l3">
+            <img src="img/18.jpg" alt="">
+     </div>
+     <div id="top" class="t-r1">
+            <img src="img/21.jpg" alt="">
+     </div>
+     <div id="bottom" class="b-r1">
+            <img src="img/9.jpg" alt="">
+     </div>
+     <div id="bottom" class="b-r2">
+            <img src="img/10.jpg" alt="">
+     </div>
+     <div id="bottom" class="b-r3">
+            <img src="img/19.jpg" alt="">
+     </div>
+     <div id="bottom" class="b-l1">
+            <img src="img/8.jpg" alt="">
+     </div>
+     <div id="show">Supperme</div>
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+   var index = 0
+$('.t-l1').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({width:'1000px',height:'500px','z-index':'1000'})
+    }else{
+        $(this).css({width:'300px',height:'300px','z-index':'99'})
+    }
+    index++
+})
+$('.t-l2').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({'z-index':'1000',width:'1000px',height:'500px',left:'0px'})
+    }else{
+        $(this).css({'z-index':'99',width:'200px',height:'200px',left:'300px'})
+    }
+    index++
+})
+$('.t-l3').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({'z-index':'1000',width:'1000px',height:'500px',left:'0px'})
+    }else{
+        $(this).css({'z-index':'99',width:'150px',height:'150px',left:'500px'})
+    }
+    index++
+})
+$('.t-r1').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({'z-index':'1000',width:'1000px',height:'500px',right:'0px'})
+    }else{
+        $(this).css({'z-index':'99',width:'350px',height:'200px',right:'0px'})
+    }
+    index++
+})
+$('.b-r1').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({width:'1000px',height:'500px','z-index':'1000'})
+    }else{
+        $(this).css({width:'300px',height:'300px','z-index':'99'})
+    }
+    index++
+})
+$('.b-r2').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({'z-index':'1000',width:'1000px',height:'500px',right:'0px'})
+    }else{
+        $(this).css({'z-index':'99',width:'200px',height:'200px',right:'300px'})
+    }
+    index++
+})
+$('.b-r3').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({'z-index':'1000',width:'1000px',height:'500px',right:'0px'})
+    }else{
+        $(this).css({'z-index':'99',width:'150px',height:'150px',right:'500px'})
+    }
+    index++
+})
+$('.b-l1').click(function () {
+    if (index % 2 ==0) {
+        $(this).css({'z-index':'1000',width:'1000px',height:'500px',left:'0px'})
+    }else{
+        $(this).css({'z-index':'99',width:'350px',height:'200px',left:'0px'})
+    }
+    index++
+})
+$('#show').click(function () {
+    if (index%2==0) {
+        $(this).css({width:'1000px',height:'500px', left:'0px',top:'0px',lineHeight:'500px'})
+        $('.t-l1').css({top:'-150px',})
+        $('.t-l2').css({top:'-150px',})
+        $('.t-l3').css({top:'-150px',})
+        $('.t-r1').css({top:'-150px',})
+        $('.b-r1').css({bottom:'-150px',})
+        $('.b-r2').css({bottom:'-150px',})
+        $('.b-r3').css({bottom:'-150px',})
+        $('.b-l1').css({bottom:'-150px',})
+    }else{
+ $(this).css({width:'400px',height:'200px', left:'300px',top:'150px',lineHeight:'200px'})
+ $('.t-l1').css({top:'0px',})
+ $('.t-l2').css({top:'0px',})
+ $('.t-l3').css({top:'0px',})
+ $('.t-r1').css({top:'0px',})
+ $('.b-r1').css({bottom:'0px',})
+ $('.b-r2').css({bottom:'0px',})
+ $('.b-r3').css({bottom:'0px',})
+ $('.b-l1').css({bottom:'0px',})
+    }
+    index++
+})
+</script>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        body {
+            background: rgb(14, 14, 112);
+            overflow: hidden;
+        }
+
+        #box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 999;
+        }
+
+        #box::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-bottom: 50px solid rgb(240, 35, 96);
+            border-top: 0px solid transparent;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            position: absolute;
+            top: -5px;
+            z-index: 99;
+        }
+        #box::after{
+            content: '';
+            width: 2px;
+            height: 10px;
+            background: white;
+            position: absolute;
+            left: calc(50% - 1px);
+            z-index: 98;
+            opacity: 0;
+           
+        }@keyframes she{
+            0%{
+                opacity: 1;
+                transform: translateY(0px);
+                box-shadow: 0px -100px 0px white,0px -200px 0px white,0px -300px 0px white;
+            }
+            100%{
+                opacity: 1;
+                transform: translateY(-600px);
+                box-shadow: 0px -100px 0px white,0px -200px 0px white,0px -300px 0px white;
+            }
+        }
+        body:active #box:after{
+            animation: she 0.1s linear infinite;
+        }
+        .fire {
+            width: 20px;
+            height: 20px;
+            background: orange;
+            position: absolute;
+            z-index: 8;
+            left: calc(50% - 10px);
+            bottom: 0;
+            animation: dong linear infinite alternate;
+            animation-duration: 500ms;
+        }
+
+        @keyframes dong {
+            0% {
+                transform: rotate(45deg) translateX(-8px) translateY(-8px)
+            }
+
+            100% {
+                transform: rotate(45deg) translateX(8px) translateY(8px)
+            }
+        }
+
+        .cloud {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            opacity: 0.7;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .cloud1 {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .cloud2 {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.9;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <section class="fire"></section>
+    </div>
+</body>
+<script>
+
+    var oBox = document.getElementById('box');
+    var fire = document.querySelector('.fire');
+    var iRotate = 0;
+    var time = 100;
+
+
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    // 创建标签背景部分
+    for (let i = 0; i < 5; i++) {
+        var cloud = document.createElement('div');
+        var Top = Math.random() * h;
+        var Left = Math.random() * w;
+        cloud.style.top = Top + 'px';
+        cloud.style.left = Left + 'px';
+        cloud.setAttribute('class', 'cloud');
+        document.body.appendChild(cloud)
+    }
+    for (let i = 0; i < 10; i++) {
+        var cloud = document.createElement('div');
+        var Top = Math.random() * h;
+        var Left = Math.random() * w;
+        cloud.style.top = Top + 'px';
+        cloud.style.left = Left + 'px';
+        cloud.setAttribute('class', 'cloud1');
+        document.body.appendChild(cloud)
+    }
+    for (let i = 0; i < 5; i++) {
+        var cloud = document.createElement('div');
+        var Top = Math.random() * h;
+        var Left = Math.random() * w;
+        cloud.style.top = Top + 'px';
+        cloud.style.left = Left + 'px';
+        cloud.setAttribute('class', 'cloud2');
+        document.body.appendChild(cloud)
+    }
+
+
+     var dataA = '';
+     var a,b;
+    document.onmousemove = function (e) {
+         a = e.clientX - oBox.offsetLeft - 25;
+         b = e.clientY - oBox.offsetTop - 25;
+        // console.log(a)
+        var c = Math.sqrt(a * a + b * b);
+        if (a > 0 && b > 0) { //第一象限
+            iRotate = Math.asin(b / c) + 90 * Math.PI / 180;
+            fire.style.animationDuration = 500 - a / 1.5 + 'ms';
+        } else if (a > 0) {
+            iRotate = Math.asin(a / c);
+            fire.style.animationDuration = 500 - a / 1.5 + 'ms';
+        }
+        if (a < 0 && b > 0) {  //第二象限
+            iRotate = -(Math.asin(b / c) + 90 * Math.PI / 180);
+            fire.style.animationDuration = 500 + a / 1.5 + 'ms'
+        } else if (a < 0) {   //第三象限(a<0 b<0)
+            iRotate = Math.asin(a / c);
+            fire.style.animationDuration = 500 + a / 1.5 + 'ms'
+        }
+        oBox.style.WebkitTransform = 'rotate(' + iRotate + 'rad)';
+    }
+
+        setInterval(function () {//云的移动
+                for (let i = 0; i < 5; i++) {
+                    var clouds = document.getElementsByClassName('cloud')[i];
+                    var L = clouds.offsetLeft;
+                    var T = clouds.offsetTop;
+                        L= L - a/50;
+                        T= T - b/50;
+                    clouds.style.left = L + 'px'
+                    clouds.style.top = T + 'px'
+                    if (L > w ) {
+                        L = -20;
+                        clouds.style.left = L + 'px'
+                    }
+                    if ( T > h) {
+                        T = -20;
+                        clouds.style.top = T + 'px'
+                    }
+                    if (L < -20) {
+                        L = w ;
+                        clouds.style.left = L + 'px'
+                    }
+                    if (T < -20) {
+                        T = h ;
+                        clouds.style.top = T + 'px'
+                    }
+                }
+            },1)
+            setInterval(function () {//云的移动
+                for (let i = 0; i < 10; i++) {
+                    var clouds = document.getElementsByClassName('cloud1')[i];
+                    var L = clouds.offsetLeft;
+                    var T = clouds.offsetTop;
+                        L= L - a/100;
+                        T= T - b/100;
+                    clouds.style.left = L + 'px'
+                    clouds.style.top = T + 'px'
+                    if (L > w ) {
+                        L = -2;
+                        clouds.style.left = L + 'px'
+                    }
+                    if ( T > h) {
+                        T = -2;
+                        clouds.style.top = T + 'px'
+                    }
+                    if (L < -2) {
+                        L = w ;
+                        clouds.style.left = L + 'px'
+                    }
+                    if (T < -2) {
+                        T = h ;
+                        clouds.style.top = T + 'px'
+                    }
+                }
+            },1)
+            setInterval(function () {//云的移动
+                for (let i = 0; i < 5; i++) {
+                    var clouds = document.getElementsByClassName('cloud2')[i];
+                    var L = clouds.offsetLeft;
+                    var T = clouds.offsetTop;
+                        L= L - a/40;
+                        T= T - b/40;
+                    clouds.style.left = L + 'px'
+                    clouds.style.top = T + 'px'
+                    if (L > w ) {
+                        L = -10;
+                        clouds.style.left = L + 'px'
+                    }
+                    if ( T > h) {
+                        T = -10;
+                        clouds.style.top = T + 'px'
+                    }
+                    if (L < -10) {
+                        L = w ;
+                        clouds.style.left = L + 'px'
+                    }
+                    if (T < -10) {
+                        T = h ;
+                        clouds.style.top = T + 'px'
+                    }
+                }
+            },1)
+</script>
+
+</html>

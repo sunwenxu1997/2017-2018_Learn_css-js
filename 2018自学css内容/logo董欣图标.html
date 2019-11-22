@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>董欣图标</title>
+    <style>
+        main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid transparent;
+            margin: 250px auto;
+            position: relative;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            /* background: blue; */
+            position: absolute;
+            top: 80px;
+            right: 28px;
+            transform: scale(0.6);
+            transform-origin: 50% 50%;
+            transition-duration: 0.5s;
+            animation: zhuan 9s linear infinite;
+            opacity: 0;
+
+        }
+
+        @keyframes zhuan {
+            0% {
+                transform: rotate(0deg) scale(0.6);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(0.6);
+            }
+        }
+
+        main:hover .logo {
+            transition: 1s;
+            transition-delay: 0.5s;
+            opacity: 1;
+        }
+
+        section::after,
+        section::before {
+            transition: 0.5s;
+        }
+
+        main:active section::before {
+            transition: 1s;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        main:active section::after {
+            transition: 1s;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        .logo section {
+            width: 60px;
+            height: 60px;
+            /* border: 1px solid red; */
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+
+        .logo section:nth-child(1)::before {
+            display: block;
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 132, 255);
+            position: absolute;
+            top: -35px;
+            left: 10px;
+            /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
+        }
+
+        .logo section:nth-child(1)::after {
+            display: block;
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 255, 221);
+            position: absolute;
+            bottom: -56px;
+            left: 10px;
+            /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+
+        .logo section:nth-child(2)::before {
+            display: block;
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 255, 34);
+            position: absolute;
+            top: -10px;
+            left: -35px;
+            transform: rotate(300deg);
+            z-index: -1;
+            /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
+        }
+
+        .logo section:nth-child(2)::after {
+            display: block;
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 153, 255);
+            position: absolute;
+            top: -10px;
+            right: -42px;
+            transform: rotate(60deg);
+            /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
+        }
+
+        .logo section:nth-child(3)::before {
+            display: block;
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 255, 128);
+            position: absolute;
+            top: 42px;
+            left: -35px;
+            transform: rotate(240deg);
+            z-index: 2;
+            /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
+        }
+
+        .logo section:nth-child(3)::after {
+            display: block;
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 217, 255);
+            position: absolute;
+            top: 42px;
+            right: -42px;
+            transform: rotate(120deg);
+            /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
+        }
+
+        .pic {
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid blue; */
+            position: relative;
+            top: 50px;
+        }
+
+        .shuzhi {
+            position: absolute;
+            top: 50px;
+            left: -50px;
+            /* opacity: 0; */
+        }
+
+        .pic img {
+            position: absolute;
+        }
+
+        .pic img:nth-child(2) {
+            top: 130px;
+            left: 50px;
+            transform: rotate(30deg);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        main:hover .pic img:nth-child(2) {
+
+            transition: 2s;
+            top: 170px;
+            left: 170px;
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        main:active .pic img:nth-child(2) {
+            transition: 1s;
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .pic img:nth-child(3) {
+            top: 90px;
+            left: 0px;
+            transform: rotate(40deg);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        main:hover .pic img:nth-child(3) {
+            transition: 2s;
+            top: 90px;
+            left: 50px;
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+
+        main:active .pic img:nth-child(3) {
+            transition: 1s;
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .pic img:nth-child(4) {
+            top: 160px;
+            left: 40px;
+            transform: rotate(50deg);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        main:hover .pic img:nth-child(4) {
+            transition: 2s;
+            top: 180px;
+            left: 100px;
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+
+        main:active .pic img:nth-child(4) {
+            transition: 1s;
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .pic img:nth-child(5) {
+            top: 150px;
+            left: 80px;
+            transform: rotate(60deg);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        main:hover .pic img:nth-child(5) {
+            transition: 2s;
+            top: 150px;
+            left: 150px;
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+
+        main:active .pic img:nth-child(5) {
+            transition: 1s;
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .pic img:nth-child(6) {
+            top: 110px;
+            left: 20px;
+            transform: rotate(70deg);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        main:hover .pic img:nth-child(6) {
+            transition: 2s;
+            top: 130px;
+            left: 90px;
+            transform: rotate(270deg);
+            opacity: 1;
+        }
+
+        main:active .pic img:nth-child(6) {
+            transition: 1s;
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .pic img:nth-child(7) {
+            top: 190px;
+            left: 100px;
+            transform: rotate(80deg);
+            transition: 1s;
+            opacity: 0;
+        }
+
+        main:hover .pic img:nth-child(7) {
+            transition: 2s;
+            top: 200px;
+            left: 200px;
+            transform: rotate(200deg);
+            opacity: 1;
+        }
+
+        main:active .pic img:nth-child(7) {
+            transition: 1s;
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .shangbiao {
+            width: 100px;
+            height: 30px;
+            background: gray;
+            color: white;
+            text-align: center;
+            margin-left: 150px;
+            position: relative;
+            opacity: 0;
+            transition: 0.5s;
+            cursor: default;
+
+        }
+
+        .shangbiao::before {
+            display: block;
+            content: "";
+            width: 5px;
+            height: 50px;
+            box-shadow: 5px 2px 5px white;
+            position: absolute;
+            top: -12px;
+            left: -5px;
+            transform: rotate(30deg);
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% {}
+            100% {
+                left: 100px;
+            }
+        }
+
+        main:hover .shangbiao {
+            transition: 1s;
+            transition-delay: 1.5s;
+            opacity: 0.8;
+        }
+
+        .wenzi {
+            width: 300px;
+            height: 30px;
+            /* background: red; */
+            color: black;
+            font-size: 13px;
+            text-align: center;
+            font-family: 仿宋;
+            font-weight: 200;
+            cursor: default;
+            margin-top: 15px;
+            position: relative;
+            left: -200px;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        main:active .wenzi {
+            transition: 1s;
+            left: 0;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="pic">
+            <img src="img/shuzhi.png" alt="" width="200" height="200" class="shuzhi">
+            <img src="img/shuye1.png" alt="" width="15" height="15" id="shuye">
+            <img src="img/shuye2.png" alt="" width="15" height="15" id="shuye">
+            <img src="img/shuye1.png" alt="" width="15" height="15" id="shuye">
+            <img src="img/shuye2.png" alt="" width="15" height="15" id="shuye">
+            <img src="img/shuye1.png" alt="" width="15" height="15" id="shuye">
+            <img src="img/shuye2.png" alt="" width="15" height="15" id="shuye">
+        </div>
+        <div class="logo">
+            <section></section>
+            <section></section>
+            <section></section>
+        </div>
+        <div class="shangbiao">
+            <h2>DXIN</h2>
+        </div>
+        <div class="wenzi">
+            选择董欣
+            <br> 相信大自然会带给您最好的礼物
+        </div>
+    </main>
+</body>
+
+</html>

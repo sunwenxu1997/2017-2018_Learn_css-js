@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框(stroke)</title>
+    <style>
+        body,html{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(10, 21, 117);
+        }
+        main{
+            width: 200px;
+            height: 500px;
+            /* border: 1px solid black; */
+        }
+    svg{
+        width: 200px;
+        height: 50px;
+        margin-bottom: 20px;
+        /* background: #ccc; */
+        cursor: default;
+    }
+    rect#shape{
+      fill: transparent;
+       stroke: white;
+       stroke-width: 6px;
+       stroke-dasharray:0 500;
+       stroke-dashoffset: 0;
+       transition: 0.5s ease;
+       /* animation: dong 2s ease-in-out infinite alternate ; */
+    }
+    svg:hover #shape{
+        stroke-dasharray: 500 0;
+      stroke-width: 6px;
+      stroke: rgb(32, 213, 226);
+    }
+    @keyframes dong{
+        100%{
+            stroke-dasharray: 500 0;
+      stroke-width: 6px;
+      /* stroke-dashoffset: -250; */
+      stroke: white;
+        }
+    }
+    rect#one{
+        fill: transparent;
+        stroke: yellowgreen;
+       stroke-width: 6px;
+       stroke-dasharray:0 500;
+       stroke-dashoffset: 250;
+       animation: dong1 2s ease-in-out infinite alternate ;
+    }@keyframes dong1{
+        100%{
+            stroke-dasharray: 500 0;
+            stroke-width: 6px;
+            /* stroke-dashoffset: 0; */
+            stroke: greenyellow;
+        }
+    }
+    rect#two{
+        fill: transparent;
+        stroke: rgb(233, 43, 43);
+       stroke-width: 6px;
+       stroke-dasharray:200 300;
+       stroke-dashoffset: 250;
+       animation: dong2 2s ease-in-out infinite alternate ;
+    }@keyframes dong2{
+        100%{
+            stroke-dasharray: 200 0;
+            stroke-width: 6px;
+            /* stroke-dashoffset: 0; */
+            stroke: rgb(233, 43, 43);
+        }
+    }
+    rect#three{
+        fill: transparent;
+        stroke: rgb(233, 220, 43);
+       stroke-width: 6px;
+       stroke-dasharray:50 450;
+       stroke-dashoffset:50;
+       animation: dong3 2s ease-in-out infinite alternate ;
+    }
+    rect#threes{
+        fill: transparent;
+        stroke: rgb(233, 103, 43);
+       stroke-width: 6px;
+       stroke-dasharray:50 450;
+       stroke-dashoffset:-200;
+       animation: dong3 2s ease-in-out infinite alternate ;
+    }
+    @keyframes dong3{
+        100%{
+            stroke-dasharray: 500 0;
+            stroke-width: 6px;
+            /* stroke-dashoffset: -250; */
+            stroke: rgb(233, 220, 43);
+        }
+    }
+    rect#four{
+        fill: transparent;
+        stroke: skyblue;
+        stroke-width: 6px;
+        stroke-dasharray: 50 450;
+        stroke-dashoffset: 150;
+        transition: 0.5s ease;
+        /* animation: dong4 2s ease infinite alternate; */
+    }
+    svg:hover #four{
+        stroke-dasharray: 250 250;
+    }
+    rect#fours{
+        fill: transparent;
+        stroke: blue;
+        stroke-width: 6px;
+        stroke-dasharray: 50 450;
+        stroke-dashoffset: 200;
+        transition: 0.5s ease;
+        /* animation: dong4s 2s ease infinite alternate; */
+    }
+    svg:hover #fours{
+        stroke-dasharray: 250 50;
+    }
+    @keyframes dong4{
+        100%{
+            stroke-dasharray: 250 250;
+        }
+    }
+    @keyframes dong4s{
+        100%{
+            stroke-dasharray: 250 50;
+        }
+    }
+    text{
+        fill:white;
+        font-size: 30px;
+        transition: 0.5s linear;
+    }
+    svg:hover text{
+        fill: rgb(30, 129, 223);
+    }
+    svg:hover .four{
+        fill: rgb(231, 105, 21);
+    }
+    #five{
+        fill: transparent;
+        stroke: rgb(255, 0, 179);
+        stroke-width: 6px;
+        stroke-dasharray: 50 400;
+        stroke-dashoffset: -75;
+        stroke-opacity: 0;
+        animation: dong5 1s linear infinite alternate;
+    }@keyframes dong5{
+        100%{
+             stroke-opacity: 1;
+             stroke: rgb(192, 44, 180);
+            stroke-dasharray: 50 20;
+        }
+    }
+    #six{
+        fill: transparent;
+        stroke: rgb(0, 255, 21);
+        stroke-width: 6px;
+        stroke-dasharray: 50 400;
+        stroke-dashoffset: 50;
+        animation: dong6 1s linear infinite alternate;
+    }@keyframes dong6{
+        100%{
+             stroke: rgb(231, 250, 59);
+            stroke-dasharray: 20 1;
+        }
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <svg>
+    <rect id="shape" height="50" width="200"/>
+    <text x="70" y="35"><a href="#">百度</a></text>
+    </svg>
+    <svg>
+    <rect id="one" height="50" width="200"/>
+    </svg>
+    <svg>
+        <rect id="two" height="50" width="200"/>
+    </svg>
+    <svg>
+        <rect id="three" height="50" width="200"/>
+        <rect id="threes" height="50" width="200"/>
+    </svg>
+    <svg>
+            <rect id="fours" height="50" width="200"/>
+         <rect id="four" height="50" width="200"/>
+         <text class="four" x="70" y="35"><a href="#">淘宝</a></text>
+    </svg>
+    <svg>
+            <rect id="five" height="50" width="200"/>
+        </svg>
+        <svg>
+                <rect id="six" height="50" width="200"/>
+            </svg>
+</main>
+</body>
+</html>

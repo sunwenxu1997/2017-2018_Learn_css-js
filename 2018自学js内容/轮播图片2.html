@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝轮播图</title>
+    <style>
+        /*瀹氫箟css鍙橀噺*/
+
+        :root {
+            --mywidth: 600px;
+            --myheight: 350px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: #1F1F1F;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .a-content {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .a-content:before {
+            content: '';
+            width: 500px;
+            height: 300px;
+            left: 35px;
+            top: 19px;
+            z-index: -1;
+            position: absolute;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.0);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            transform: translate(-5%, -5%);
+        }
+
+        .a-content:after {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 25%;
+            width: 270px;
+            height: 40px;
+            background: -webkit-gradient(linear, 555% 20%, 0% 92%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.0)), color-stop(.1, rgba(0, 0, 0, 0.2)));
+            border-left: 1px dashed rgba(0, 0, 0, 0.1);
+            border-right: 1px dashed rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .carousel-content {
+            width: var(--mywidth);
+            height: var(--myheight);
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel {
+            height: var(--myheight);
+            position: absolute;
+        }
+
+        .carousel li {
+            float: left;
+        }
+
+        .carousel li,
+        .carousel li img {
+            width: var(--mywidth);
+            height: var(--myheight);
+        }
+
+        .img-index {
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-index li {
+            float: left;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 3px;
+            color: #fff;
+        }
+
+        .img-index li.js_index,
+        .img-index li:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            display: inline-block;
+            top: 45%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .carousel-prev {
+            left: 0;
+        }
+
+        .carousel-next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="a-content">
+            <div class="carousel-content">
+                <ul class="carousel">
+                    <li>
+                        <img src="img/1.jpg">
+                    </li>
+                    <li>
+                        <img src="img/2.jpg">
+                    </li>
+                    <li>
+                        <img src="img/3.jpg">
+                    </li>
+                    <li>
+                        <img src="img/4.jpg">
+                    </li>
+                    <li>
+                        <img src="img/5.jpg">
+                    </li>
+                </ul>
+                <ul class="img-index"></ul>
+                <div class="carousel-prev">
+                    <img src="img/pre.png">
+                </div>
+                <div class="carousel-next">
+                    <img src="img/next.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    ; (function ($) {
+        $.fn.carousel = function (param) {
+            var carousel = param.carousel,//杞挱妗嗘灦
+                indexContainer = param.indexContainer,//涓嬫爣妗嗘灦
+                list = $(carousel).children("li"),//杞挱鍐呭
+                len = list.length,//杞挱鍐呭鏁伴噺
+                prev = param.prev,//涓婄炕鎸夐挳
+                next = param.next,//涓嬬炕鎸夐挳
+                timing = param.timing,//鑷姩杞挱闂撮殧鏃堕棿
+                animateTime = param.animateTime,//鍔ㄧ敾鏃堕棿
+                autoPlay = param.autoPlay,//鑷姩鎾斁 true/false
+                timer,//瀹氭椂鍣�
+                index = 1,//绱㈠紩鍊�
+                indexList,//涓嬫爣鍒楄〃
+                indexClassName = "js_index",//涓嬫爣楂樹寒绫诲悕
+                action = true,//寮€濮嬫粴鍔� true/false
+                totalWidtn = list.width() * (list.length + 2),//杞挱妗嗘灦鎬诲搴�
+                direction = param.direction;//婊氬姩鏂瑰悜
+
+            /*鍒濆鍖�*/
+            for (var i = 1; i <= list.length; i++) {
+                $(indexContainer).append("<li>" + i + "</li>")
+            }
+            $(carousel).width(totalWidtn)
+                .append($(list[0]).clone())
+                .prepend($(list[list.length - 1]).clone())
+                .css("left", "-" + list.width() + "px");
+            list = $(carousel).children("li");
+            indexList = $(indexContainer).children("li");
+            $(indexList[index - 1]).addClass(indexClassName);
+
+            /*鍒ゆ柇鏄惁鑷姩鎾斁*/
+            if (autoPlay) {
+                startTiming();
+                $(carousel + "," + prev + "," + next + "," + indexContainer).hover(function () {
+                    window.clearInterval(timer);
+                }, function () {
+                    startTiming();
+                });
+            }
+
+            /*璁℃椂鏂规硶*/
+            function startTiming() {
+                /*鍒ゆ柇鏂瑰悜*/
+                switch (direction) {
+                    case "right":
+                        timer = window.setInterval("$.rightChangeImg();", timing);
+                        break;
+                    case "left":
+                        timer = window.setInterval("$.leftChangeImg();", timing);
+                        break;
+                    default:
+                        timer = window.setInterval("$.leftChangeImg();", timing);
+                }
+            };
+
+            /*鍒囨崲楂樹寒涓嬫爣*/
+            $.extend({
+                changeIndex: function (index) {
+                    $(indexList).removeClass(indexClassName);
+                    $(indexList[index]).addClass(indexClassName);
+                }            
+});
+
+
+            /*鍚戝乏鍒囨崲鍥剧墖*/
+            $.extend({
+                leftChangeImg: function () {
+                    action = false;
+                    if (index == len) {
+                        index = 0;
+                        $(carousel).stop(true, true).css("left", "0px");
+                    }
+                    index++;
+                    $(carousel).stop(true, true).animate({
+                        left: "-=" + list.width() + "px"
+                    }, animateTime);
+                    setTimeout(function () {
+                        if (index == len) {
+                            index = 0;
+                            $(carousel).stop(true, true).css("left", "0px");
+                        }
+                        action = true;
+                    }, animateTime);
+                    $.changeIndex(index - 1);
+                }
+            });
+
+            /*鍚戝彸鍒囨崲鍥剧墖*/
+            $.extend({                
+rightChangeImg: function () {
+                    action = false;
+                    if (index == 0) {
+                        index = len;
+                        $(carousel).stop(true, true).css("left", "-" + left + "px");
+                    }
+                    index--;
+                    var left = totalWidtn - list.width() * 2;
+                    $(carousel).stop(true, true).animate({
+                        left: "+=" + list.width() + "px"
+                    }, animateTime);
+                    setTimeout(function () {
+                        if (index == 0) {
+                            index = len;
+                            $(carousel).stop(true, true).css("left", "-" + left + "px");
+                        }
+                        action = true;
+                    }, animateTime);
+                    if (index == 0) {
+                        $.changeIndex(len - 1);
+                    } else {
+                        $.changeIndex(index - 1);
+                    }
+                }            
+});
+
+            /*涓嬬炕鐐瑰嚮澶勭悊*/
+            $(next).on("click", function () {
+                var nowLeft = Math.abs(parseInt($(carousel).css("left")));
+                var left = totalWidtn - list.width() * 2;
+                if (action) {
+                    if (nowLeft == left) {
+                        index = 0;
+                        $(carousel).stop(true, true).css("left", "0px");
+                    }
+                    $.leftChangeImg();
+                }
+            });
+
+            /*涓婄炕鐐瑰嚮澶勭悊*/
+            $(prev).on("click", function () {
+                var nowLeft = Math.abs(parseInt($(carousel).css("left")));
+                var left = totalWidtn - list.width() * 2;
+                if (action) {
+                    if (nowLeft == 0) {
+                        index = len;
+                        $(carousel).stop(true, true).css("left", "-" + left + "px");
+                    }
+                    $.rightChangeImg();
+                }
+            });
+
+            /*涓嬫爣鐐瑰嚮澶勭悊*/
+            indexList.on("click", function () {
+                var no = $(this).index() + 1;
+                if (action) {
+                    if (no > index) {
+                        $.changeIndex(no - 1);
+                        action = false;
+                        var left = (no - index) * list.width();
+                        index = no;
+                        $(carousel).stop(true, true).animate({
+                            left: "-=" + left + "px"
+                        }, animateTime);
+                        setTimeout(function () {
+                            action = true;
+                        }, animateTime);
+                    } else if (no < index) {
+                        $.changeIndex(no - 1);
+                        action = false;
+                        var left = (index - no) * list.width();
+                        index = no;
+                        $(carousel).stop(true, true).animate({
+                            left: "+=" + left + "px"
+                        }, animateTime);
+                        setTimeout(function () {
+                            action = true;
+                        }, animateTime);
+                    }
+
+                }
+            });
+        }
+    })(jQuery);
+</script>
+<script type="text/javascript">
+    $(function () {
+        $(".carousel-content").carousel({
+            carousel: ".carousel",//轮播图容器
+            indexContainer: ".img-index",//下标容器
+            prev: ".carousel-prev",//左按钮
+            next: ".carousel-next",//右按钮
+            timing: 3000,//自动播放间隔
+            animateTime: 700,//动画时间
+            autoPlay: true,//是否自动播放 true/false
+            direction: "left",//滚动方向 right/left
+        });
+
+        $(".carousel-content").hover(function () {
+            $(".carousel-prev,.carousel-next").fadeIn(300);
+        }, function () {
+            $(".carousel-prev,.carousel-next").fadeOut(300);
+        });
+
+        $(".carousel-prev").hover(function () {
+            $(this).find("img").attr("src", "img/pre.png");
+        }, function () {
+            $(this).find("img").attr("src", "img/pre.png");
+        });
+        $(".carousel-next").hover(function () {
+            $(this).find("img").attr("src", "img/next.png");
+        }, function () {
+            $(this).find("img").attr("src", "img/next.png");
+        });
+    });
+</script>
+
+</html>

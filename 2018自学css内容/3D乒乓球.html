@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D乒乓球</title>
+    <style>
+    html,body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #7fa3c7;
+        perspective: 3000px;
+    }
+    main{
+        width: 600px;
+        height: 300px;
+        /* border: 1px solid white; */
+        perspective: 2000px;
+        /* transform:  rotateX(20deg); */
+          /* animation: zhuan 15s linear infinite; */
+    }
+    #head{
+        width: 600px;
+        height: 300px;
+        perspective: 2000px;
+        position: relative;
+        /* border: 1px solid rgb(240, 21, 21); */
+        transform: rotateX(70deg) ;
+        animation: zhuan 15s ease-in-out 1 both;
+    }@keyframes zhuan{
+        0%{transform:rotateX(0deg) rotateZ(0deg) }
+        30%{transform:rotateX(70deg) rotateZ(90deg)}
+        60%{transform:rotateX(90deg) rotateZ(180deg)}
+        100%{transform:rotateX(70deg)  rotateZ(360deg)}
+    }
+    #pq{
+        width: 600px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 5px solid white;
+        background: #2e4e80;
+        position: absolute;
+        z-index: 888;
+    }
+    #pq::before{
+        content: '';
+        width: 590px;
+        height: 5px;
+        position: absolute;
+        top: 148px;
+        background: white;
+    }
+    #pq::after{
+        content: '';
+        width: 5px;
+        height: 290px;
+        position: absolute;
+        left: 290px;
+        background: white;
+    }
+    #pq-z{
+        width: 600px;
+        height: 25px;
+        background: #192a44;
+        position: absolute;
+        left: 0px;
+        z-index: 777;
+    }
+    .pq-zl{
+        bottom: 0px;
+        transform-origin: 0% 100%;
+        transform: rotateX(90deg);
+    }
+    .pq-zr{
+        top: 0px;
+        transform-origin: 0% 0%;
+        transform: rotateX(-90deg);
+    }
+    #pq-d{
+        width: 25px;
+        height: 300px;
+        background: #192a44;
+        position: absolute;
+        top: 0;
+        z-index: 777;
+    }
+    .pq-dl{
+        left: 0px;
+        transform-origin: 0% 0%;
+        transform: rotateY(90deg);
+    }
+    .pq-dr{
+        right: 0px;
+        transform-origin: 100% 0%;
+        transform: rotateY(-90deg);
+    }
+    #gan-r{
+        width: 10px;
+        height: 40px;
+        background: black;
+        position: absolute;
+        top: 5px;
+        left: 293px;
+        z-index: 999;
+        transform-origin: 50% 0%;
+    }
+    #gan-l{
+        width: 10px;
+        height: 40px;
+        background: black;
+        position: absolute;
+        bottom: -35px;
+        left: 293px;
+        z-index: 999;
+        transform-origin: 50% 0%;
+    }
+    .gan-rq{
+       transform: rotateZ(180deg) translateY(5px) rotateX(90deg);
+    }
+    .gan-rh{
+       transform: rotateZ(0deg) translateY(5px) rotateX(90deg);
+    }
+    .gan-rl{
+       transform: rotateZ(90deg) translateY(5px) rotateX(90deg);
+    }
+    .gan-rr{
+       transform: rotateZ(-90deg) translateY(5px) rotateX(90deg);
+    }
+    #wang{
+        width: 35px;
+        height: 300px;
+        border-right: 5px solid rgb(77, 76, 76);
+        background: rgba(255, 255, 255, 0.589);
+        position: absolute;
+        z-index: 888;
+        left: 297px;
+        transform-origin: 0% 0%;
+        transform: rotateY(-89deg);
+    }
+    #qiu{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        perspective: 2000px;
+        /* border: 1px solid white; */
+        z-index: 1000;
+        /* transform: rotateX(-20deg); */
+        /* animation: zhuan1 15s linear infinite; */
+    }@keyframes zhuan1{
+        0%{transform:rotateX(-20deg) rotateY(0deg) }
+        100%{transform:rotateX(-20deg)  rotateY(-360deg)}
+    }
+   .qiu-1{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      left: -50px;
+      top: 140px;
+      transform-origin: 230px 0;
+      opacity: 0;
+   
+   }@keyframes dong1{
+       0%{
+           opacity: 1;
+           transform: rotate(30deg) ;
+       }
+       90%{
+        opacity: 1;
+        transform: rotate(185deg);
+       }
+       100%{
+        opacity: 0;
+        transform: rotate(185deg);
+       }
+   }
+   .qiu-2{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      left: 380px;
+      top: 130px;
+      transform-origin: 100px 0;
+      /* transform: rotate(150deg); */
+      opacity: 0;
+   
+   }@keyframes dong2{
+
+       0%{
+        opacity: 0;
+           transform:translateX(0) translateY(0px) ;
+       }
+       5%{
+        opacity: 1;
+           transform:translateX(0) translateY(0px) ;
+       }
+       90%{
+        opacity: 1;
+        transform: translateX(220px) translateY(-80px);
+       }
+       100%{
+        opacity: 0;
+        transform: translateX(220px) translateY(-80px);
+       }
+   }
+   .qiu-3{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      right: -45px;
+      top: 140px;
+      transform-origin:-230px 0;
+      /* transform: rotate(-22deg); */
+      opacity: 0;
+   
+   }@keyframes dong3{
+       0%{
+           opacity: 0;
+           transform: rotate(-22deg) ;
+       }
+       10%{
+        opacity: 1;
+        transform: rotate(-22deg);
+       }
+       90%{
+           opacity: 1;
+           transform: rotate(-185deg);
+       }
+       100%{
+        opacity: 0;
+        transform: rotate(-185deg);
+       }
+   }
+   .qiu-4{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      left: 124px;
+      top: 135px;
+      /* transform-origin:-230px 0; */
+      /* transform: rotate(-22deg); */
+      opacity: 0;
+   
+   }@keyframes dong4{
+
+0%{
+ opacity: 0;
+    transform:translateX(0) translateY(0px) ;
+}
+5%{
+ opacity: 1;
+    transform:translateX(0) translateY(0px) ;
+}
+90%{
+ opacity: 1;
+ transform: translateX(-220px) translateY(-80px);
+}
+100%{
+ opacity: 0;
+ transform: translateX(-220px) translateY(-80px);
+}
+}
+main:hover .qiu-1{
+    animation: dong1 1s ease 1 both;
+}
+main:hover .qiu-2{
+    animation: dong2 1s ease  1 both;
+     animation-delay: 0.9s;
+}
+main:hover .qiu-3{
+    animation: dong3 1s ease  1 both;
+     animation-delay: 1.7s;
+}
+main:hover .qiu-4{
+    animation: dong4 1s ease  1 both;
+     animation-delay: 2.6s;
+}
+    </style>
+</head>
+<body>
+    <main>
+        <div id="head">
+   <div id="pq"> </div>
+   <!-- 长边 -->
+   <div id="pq-z"  class="pq-zl"></div>
+   <div id="pq-z"  class="pq-zr"></div>
+   <!-- 短边 -->
+   <div id="pq-d"  class="pq-dl"></div>
+   <div id="pq-d"  class="pq-dr"></div>
+   <!-- 右杆子 -->
+   <div id="gan-r" class="gan-rq"> </div>
+   <div id="gan-r" class="gan-rh"> </div>
+   <div id="gan-r" class="gan-rl"> </div>
+   <div id="gan-r" class="gan-rr"> </div>
+   <!-- 左杆子 -->
+   <div id="gan-l" class="gan-rq"> </div>
+   <div id="gan-l" class="gan-rh"> </div>
+   <div id="gan-l" class="gan-rl"> </div>
+   <div id="gan-l" class="gan-rr"> </div>
+   <!-- 网 -->
+   <div id="wang"></div>
+  
+        </div>
+         <!-- 球 -->
+         <div id="qiu">
+   <div class="qiu-1"></div>
+   <div class="qiu-2"></div>
+   <div class="qiu-3"></div>
+   <div class="qiu-4"></div>
+         </div>
+    </main>
+</body>
+</html>

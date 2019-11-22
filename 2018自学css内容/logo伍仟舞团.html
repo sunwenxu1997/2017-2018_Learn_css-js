@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    body,html{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    main{
+        width: 200px;
+        height: 200px;
+        /* border: 1px solid black; */
+        position: relative;
+        cursor: pointer;
+    }
+    .top{
+        width: 100%;
+        height: 100px;
+        position: absolute;
+        top: 0;
+    }
+    .top section{
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        text-align: center;
+        line-height: 100px;
+        color: white;
+        font-size: 25px;
+    }
+    .t-l{
+       left: 0;
+       transform: skewY(-30deg);
+       background: linear-gradient(90deg ,greenyellow 26%,rgb(70, 69, 69) 26%,rgb(70, 69, 69) 100%);
+    }@keyframes t-l{
+        25%{
+            background: linear-gradient(90deg ,rgb(240, 28, 28) 26%,rgb(70, 69, 69) 26%,rgb(70, 69, 69) 100%);
+        }
+        50%{
+            background: linear-gradient(90deg ,rgb(16, 72, 226) 26%,rgb(70, 69, 69) 26%,rgb(70, 69, 69) 100%);
+        }
+        75%{
+            background: linear-gradient(90deg ,rgb(29, 203, 216) 26%,rgb(70, 69, 69) 26%,rgb(70, 69, 69) 100%);
+        }
+        100%{
+            background: linear-gradient(90deg ,rgb(234, 238, 22) 26%,rgb(70, 69, 69) 26%,rgb(70, 69, 69) 100%);
+        }
+    }
+    main:hover .t-l{
+        animation: t-l 2s ease infinite alternate;
+    }
+    main:hover .t-lb{
+        animation: t-l 2.01s ease infinite alternate;
+    }
+    main:hover .t-r{
+        animation: t-r 2s ease infinite alternate;
+    }
+    main:hover .t-rb{
+        animation: t-r 2.01s ease infinite alternate;
+    }
+    .t-r{
+        right: 0;
+        transform: skewY(30deg);
+        /* background: rgb(233, 231, 231); */
+        background: linear-gradient(-90deg ,greenyellow 26%,rgb(233, 231, 231) 26%,rgb(233, 231, 231) 100%);
+    }@keyframes t-r{
+        25%{
+            background: linear-gradient(-90deg ,rgb(240, 28, 28) 26%,rgb(233, 231, 231) 26%,rgb(233, 231, 231) 100%);
+        }
+        50%{
+            background: linear-gradient(-90deg ,rgb(16, 72, 226) 26%,rgb(233, 231, 231) 26%,rgb(233, 231, 231) 100%);
+        }
+        75%{
+            background: linear-gradient(-90deg ,rgb(29, 203, 216) 26%,rgb(233, 231, 231) 26%,rgb(233, 231, 231) 100%);
+        }
+        100%{
+            background: linear-gradient(-90deg ,rgb(234, 238, 22) 26%,rgb(233, 231, 231) 26%,rgb(233, 231, 231) 100%);
+        }
+    }
+    .t-lb{
+        left: 0;
+        transform-origin: 0% 0%;
+        transform: skewY(30deg);
+        background: linear-gradient(90deg ,greenyellow 26%,rgb(70, 69, 69) 26%,rgb(70, 69, 69) 100%);
+    }
+    .t-lb::before{
+        content: '';
+        width: 20px;
+        height: 5px;
+        background: white;
+        position: absolute;
+        right: 0;
+        bottom: 40px;
+        transform: skewY(-30deg)
+    }
+    .t-lb::after{
+        content: '';
+        width: 1px;
+        height: 100px;
+        background: white;
+        position: absolute;
+        left: 25px;
+    }
+    .t-rb{
+        right: 0;
+        transform-origin:100% 0%;
+        transform: skewY(-30deg);
+        /* background: rgb(233, 231, 231); */
+        background: linear-gradient(-90deg ,greenyellow 26%,rgb(233, 231, 231) 26%,rgb(233, 231, 231) 100%);
+    }
+    .t-rb::before{
+        content: '';
+        width: 20px;
+        height: 5px;
+        background: rgb(70, 69, 69);
+        position: absolute;
+        left: 0;
+        bottom: 40px;
+        transform: skewY(30deg);
+        transition: 0.2s;
+    }
+    main:hover .t-rb::before{
+        transform: skewY(20deg) translateY(-1px);
+    }
+    .t-rb::after{
+        content: '';
+        width: 1px;
+        height: 100px;
+        background: white;
+        position: absolute;
+        right: 25px;
+    }
+    .huan{
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 10px solid rgb(0, 0, 0);
+        border-bottom: 10px solid #ccc;
+        position: relative;
+        top: -70px;
+        z-index: -1;
+       
+    }@keyframes huan{
+        0%{
+            border: 10px solid rgb(122, 122, 122);
+            border-bottom: 10px solid #ccc;
+            transform: rotate(0deg);
+        }
+        25%{
+            border: 10px solid rgb(240, 28, 28);
+            border-bottom: 10px solid #ccc;
+        }
+        50%{
+            border: 10px solid rgb(16, 72, 226);
+            border-bottom: 10px solid #ccc;
+        }
+        75%{
+            border: 10px solid rgb(29, 203, 216);
+            border-bottom: 10px solid #ccc;
+        }
+        100%{
+            border: 10px solid rgb(234, 238, 22);
+            border-bottom: 10px solid #ccc;
+            transform: rotate(360deg);
+        }
+    }
+    main:hover .huan{
+ animation: huan 2s ease infinite alternate;
+    }
+    h2{
+        position: relative;
+        top: 160px;
+        color: rgb(70, 69, 69);
+        /* background: red; */
+        text-align: center;
+      
+        font-weight: 200;
+        letter-spacing: 0.4em;
+       
+    }@keyframes dong{
+        100%{
+            transform: scale(0.7);
+        }
+    }
+    main:hover h2{
+        animation: dong 0.3s ease alternate infinite;
+    }
+    h3{
+        position: relative;
+        top: 160px;
+        text-align: center;
+        letter-spacing: 0.2em;
+        font-size: 17px;
+       transition: 0.5s;
+    }
+    main:hover h3{
+        transform: scale(0.7);
+    }
+    #text{
+        width: 20px;
+        /* background: red; */
+        position: absolute;
+        top:22px;
+        text-align: center;
+        font-size: 13px;
+        color: white;
+    }
+    .text-l{
+        left: 0;
+    }
+    .text-r{
+        right: 0;
+    }
+    #eyes{
+        width: 40px;
+        height: 50px;
+        /* background: rgb(74, 240, 82); */
+        line-height: 50px;
+        position: absolute;
+        top: -15px;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 33px;
+    }
+    .eye-l{
+        transform: skewY(-45deg);
+        right: 15px;
+    }
+    .eye-r{
+        transform: skewY(45deg);
+        left: 15px;
+        color: rgb(70, 69, 69);
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="top">
+            <section class="t-l"></section>
+            <section class="t-r"></section>
+            <section class="t-lb">
+                <div id="eyes" class="eye-l">V</div>
+            </section>
+            <section class="t-rb">
+                    <div id="eyes" class="eye-r">￥</div>
+            </section>
+            <div class="huan"></div>
+        </div>
+        <div id="text" class="text-l">
+                <p>￥</p>
+                <p>5</p>
+                <p>0</p>
+                <p>0</p>
+                <p>0</p>
+            </div>
+            <div id="text" class="text-r">
+                    <p>￥</p>
+                    <p>5</p>
+                    <p>0</p>
+                    <p>0</p>
+                    <p>0</p>
+                </div>
+        <h2>Dancing</h2>
+        <h3>伍仟舞团</h3>
+    </main>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0 auto;
+        }
+        body,html{
+            height: 100%;
+        }
+        body{
+            overflow: hidden;
+            background: rgb(107, 107, 107);
+        }
+    main{
+        width: 200px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        background: rgb(73, 73, 73);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 5px black;
+        z-index: 999;
+    }
+    #import{
+        width: 150px;
+        height: 80px;
+        /* background: red; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #import #text{
+        display: block;
+        width: 150px;
+        height: 25px;
+        border: none;
+        color: rgb(73, 73, 73);
+        transition: 0.2s;
+        background: white;
+    }
+   
+    #import #send{
+        /* margin-top: 15px; */
+        display: block;
+        width: 60px;
+       height: 30px;
+       background: yellow;
+        cursor: pointer;
+        position: relative;
+        line-height: 30px;
+        text-align: center;
+        font-size: 13px;
+        background: rgb(43, 42, 42);
+        color: white;
+        transition: 0.2s;
+    }
+  
+    #import #send::before, #import #send::after{
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top: 0;
+        transition: 0.2s;
+    }
+    #import #send::before{
+        border-left: 20px solid transparent;
+        border-top: 0px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-right: 20px solid  rgb(43, 42, 42);
+        left: -39.5px;
+    }
+    #import #send::after{
+        border-left: 20px solid rgb(43, 42, 42);
+        border-top: 30px solid transparent;
+        border-bottom: 0px solid transparent;
+        border-right: 20px solid  transparent;
+        left: 59.5px;
+      
+    }
+    #import #send:active{
+        transform: scale(0.9);
+    }
+    #import #send:active:before{
+       left: -50px;
+    }
+    #import #send:active::after{
+       left: 70px;
+    }
+    p{
+        display: block;
+        height: 20px;
+        /* border: 1px solid white; */
+        position: absolute;
+        right:100px;
+        line-height: 20px;
+        transition: 1s;
+    }
+    p::after{
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid white;
+        position: absolute;
+        top: 4px;
+        right: -50%;
+    }
+    </style>
+</head>
+<body>
+    <main>
+     <form action="" id="import">
+      <input type="text" id="text" autocomplete="off">
+      <section id="send" unselectable="on" onselectstart="return false;">发射</section>
+     </form>
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+ 
+        var y;
+    y = window.innerHeight
+    var Color =['rgb(255, 241, 47)', 'rgb(255, 95, 47)', 'rgb(47, 255, 64)','rgb(47, 255, 141)','rgb(47, 248, 255)','rgb(47, 137, 255)','rgb(172, 47, 255)','rgb(255, 47, 116)','rgb(255, 47, 47)','greenyellow','white','white'];
+$('#send').click(function () {
+    var num = Math.floor(Math.random()*12);
+    var py =Math.random()*y;
+    console.log(py)
+    $('<p></p>').text( $('#text').val())
+    .css({color:Color[num],top:py+'px'})
+    .animate({
+        right:'2000px',
+    },10000) 
+
+    .appendTo($('body'))
+
+
+    $('main').animate({right:'-150px' },200).animate({right:'0px'},100);
+    $('#text').val('');
+})
+$(document).keyup(function (e) {
+        console.log(e.keyCode)
+        if (e.keyCode == 13) {
+            $("#send").click();
+        }
+    })
+ 
+//    411121197107152685
+</script>
+</html>

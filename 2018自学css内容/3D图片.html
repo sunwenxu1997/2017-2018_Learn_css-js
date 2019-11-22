@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D图片</title>
+    <style>
+     main{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        perspective: 1000px;
+        margin: 350px auto;
+        position: relative;
+    }
+    div{
+        transform-style: preserve-3d;
+        transition: 0.5s;
+        opacity: 0.8;
+        box-shadow: 5px 1px 5px gray;
+    }
+    div::after{
+        transition: 0.5s;
+    }
+    .x{
+        width: 200px;
+        height: 100px;
+        background: orange;
+        transform: rotateY(60deg) rotateZ(-2deg);
+        position: absolute;
+        left: 0;
+        text-overflow: clip;
+    }
+    .x::after{
+        content:"";
+        width: 200px;
+        height: 70px;
+        /* 线性渐变，从下往上 */
+        background:linear-gradient(to top,white,orange);
+        /* 径向渐变,由内向外 */
+        /* background: radial-gradient( red,yellow,green,fuchsia); */
+        position: absolute;
+        top:100px;
+        left: 0;
+        opacity: 0.5;
+    }
+    .y{
+        width: 200px;
+        height: 100px;
+        background: red;
+        transform: rotateY(60deg) rotateZ(-2deg);
+        position: absolute;
+        left: 50px;
+    }
+    .y::after{
+        content:"";
+        width: 200px;
+        height: 70px;
+        /* 线性渐变，从下往上 */
+        background:linear-gradient(to top,white,red);
+        /* 径向渐变,由内向外 */
+        /* background: radial-gradient( red,yellow,green,fuchsia); */
+        position: absolute;
+        top:100px;
+        left: 0;
+        opacity: 0.5;
+    }
+    .z{
+        width: 200px;
+        height: 100px;
+        background: yellow;
+        transform: rotateY(60deg) rotateZ(-2deg);
+        position: absolute;
+        left: 100px;
+    }
+    .z::after{
+        content:"";
+        width: 200px;
+        height: 70px;
+        /* 线性渐变，从下往上 */
+        background:linear-gradient(to top,white,yellow);
+        /* 径向渐变,由内向外 */
+        /* background: radial-gradient( red,yellow,green,fuchsia); */
+        position: absolute;
+        top:100px;
+        left: 0;
+        opacity: 0.5;
+    }
+    .x:hover{
+        z-index: 2;
+        transition: 1s;
+        transform:rotateY(0) scale(1.5);
+       left: 50px; 
+    }
+    .x:hover:after{
+        transition: 1s;
+        opacity: 0;
+    }
+    .y:hover{
+        transition: 1s;
+        z-index: 2;
+        transform:rotateY(0) scale(1.5);
+    }
+    .y:hover:after{
+        transition: 1s;
+        opacity: 0;
+    }
+    .z:hover{
+        transition: 1s;
+        z-index: 2;
+        transform:rotateY(0) scale(1.5);
+        left: 50px;
+    }
+    .z:hover:after{
+        transition: 1s;
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="x"></div>
+        <div class="y"></div>
+        <div class="z"></div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(131, 247, 131);
+        }
+
+        main {
+            width: 300px;
+            height: 150px;
+            border: 0px solid;
+            border-image: linear-gradient(-45deg, white 50%, greenyellow 50%, greenyellow 100%) 30 30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+
+        main:hover {
+            border: 25px solid;
+            border-image: linear-gradient(-45deg, white 50%, greenyellow 50%, greenyellow 100%) 30 30;
+        }
+
+        #ma {
+            width: 250px;
+            height: 100px;
+            /* background: red; */
+            position: relative;
+        }
+
+        section {
+            width: 150px;
+            height: 100px;
+            background: white;
+            position: absolute;
+            left: 50px;
+            z-index: 100;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            background: linear-gradient(-45deg, white 50%, greenyellow 50%, greenyellow 100%);
+            color: rgb(170, 170, 167);
+            transition: 0.5s;
+        }
+
+        main:hover section {
+            opacity: 0;
+            z-index: 87;
+            transform: scale(1.5);
+        }
+
+        .ma {
+            width: 150px;
+            height: 100px;
+            background: white;
+            position: absolute;
+            left: 50px;
+            z-index: 99;
+            transition-duration: 0.5s;
+            text-align: center;
+            line-height: 100px;
+            font-size: 35px;
+            letter-spacing: 0.2em;
+            cursor: default;
+            opacity: 0;
+            color: transparent;
+            text-transform: uppercase;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        main:hover .ma {
+            transition: 0.7s ease-in-out;
+            left: 0;
+            opacity: 1;
+            color: rgb(85, 84, 84);
+        }
+
+        #refresh {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 50px;
+            z-index: 88;
+            transition-duration: 0.5s;
+            border: 18px solid transparent;
+            background: greenyellow;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        #refresh:hover {
+            border: 0px solid white;
+        }
+
+        main:hover #refresh {
+            transition: 0.7s ease-in-out;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="ma">
+            <section>验证码</section>
+            <input type="button" id="refresh" value="刷新" onclick="random()">
+            <!-- 无法选中和复制字符 -->
+            <div class="ma" unselectable="on" onselectstart="return false;">5c1q</div>
+        </div>
+    </main>
+</body>
+<script>
+
+    var refresh = document.getElementById('refresh');
+    var ma = document.getElementsByClassName('ma')[0];
+    var arr = ['1', 'a', '2', 'b', '3', 'c', '4', 'd', '5', 'e', '6', 'f', '7', 'g', '8', 'h', '9', 'i', '0', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var index = 0;
+    function f1() {
+        var num1 = Math.floor(Math.random() * 36);
+        var num2 = Math.floor(Math.random() * 36);
+        var num3 = Math.floor(Math.random() * 36);
+        var num4 = Math.floor(Math.random() * 36);
+        var random = arr[num1] + arr[num2] + arr[num3] + arr[num4];
+        ma.innerHTML = random;
+        console.log(num1, num2, num3, num4)
+    }
+    f1();
+
+    function f2() {
+        var Color = ['rgb(255, 241, 47)', 'rgb(255, 95, 47)', 'rgb(47, 255, 64)','rgb(47, 255, 141)','rgb(47, 248, 255)','rgb(47, 137, 255)','rgb(172, 47, 255)','rgb(255, 47, 116)','rgb(255, 47, 47)','greenyellow'];
+        refresh.style.background = Color[index];
+        index++;
+        if (index > Color.length - 1) {
+            index = 0;
+        }
+    }
+    refresh.onclick = function random() {
+        f1();
+        f2();
+    }
+</script>
+
+</html>

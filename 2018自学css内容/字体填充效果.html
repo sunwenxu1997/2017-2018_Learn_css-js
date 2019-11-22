@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 200px;
+            font-size: 90px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 200px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .one {
+            /* 第一必须为背景色，顺序不能换 */
+            background: red;
+            color: transparent;
+            /* 使背景填充字体 */
+            background-clip: text;
+        }
+        .two{
+            /* 背景向右渐变 */
+            background: linear-gradient(to right,blue,red,yellow);
+            /* 背景指定角度渐变 */
+            /* background: linear-gradient(80deg,blue,red,yellow); */
+            color: transparent;
+            background-clip: text;
+        }
+        .three{
+            /* 此处可以用图片填充字体 */
+            background-image: url(img/5.jpg);
+            color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">
+        Beautiful
+    </div>
+    <div class="two">
+         Beautiful
+        </div>
+    <div class="three">
+        Beautiful
+    </div>
+</body>
+
+</html>

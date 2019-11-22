@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>白色衬衫</title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        height: 100%;
+    }
+    body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(75, 24, 122);
+        overflow: hidden;
+    }
+    main{
+        width: 270px;
+        height: 350px;
+        position: relative;
+        cursor: pointer;
+        /* border: 1px solid black; */
+    }
+    #xizhuang{
+        width: 100%;
+        height: 100%;
+        /* overflow: hidden; */
+        /* background: yellow; */
+    }
+    .ling{
+        width: 141px;
+        height: 30px;
+        background: white;
+        position: relative;
+        z-index: 999;
+    }
+    .ling section{
+        width: 15px;
+        height: 15px;
+        background: black;
+        position: relative;
+        top: 30px;
+        color: white;
+        text-align: center;
+        line-height: 15px;
+        font-size: 10px;
+    }
+    .ling::before{
+    content: '';
+    width: 100px;
+    height: 35px;
+    background: white;
+    position: absolute;
+    top: 0;
+    transform-origin: 0% 0%;
+    transform: rotate(45deg);
+    border: 1px solid rgb(206, 204, 204);
+    }
+    .ling::after{
+    content: '';
+    width: 100px;
+    height: 35px;
+    background: white;
+    position: absolute;
+    left: 40px;
+    top: 0px;
+    transform-origin: 100% 0%;
+    transform: rotate(-45deg);
+    border: 1px solid rgb(206, 204, 204);
+    }
+    .lings{
+        width: 100px;
+        height: 40px;
+        background: rgb(206, 204, 204);
+        position: relative;
+        z-index: 888;
+    }
+    .yi{
+        width: 260px;
+        height: 290px;
+        background: white;
+        position: relative;
+        top: -20px;
+        z-index:777;
+    }
+    .yi::before{
+        content: '';
+        width: 121px;
+        height: 1px;
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+        border-top: 50px solid transparent;
+        border-bottom: 50px solid white;
+        position: absolute;
+        top: -101px;
+    }
+    #jie{
+        width: 100px;
+        height:250px;
+        /* background: red; */
+        position: relative;
+        top: 40px;
+        transform-origin: 50% 0%;
+    }@keyframes zhuan{
+        0%{
+            transform: rotate(0deg);
+        }
+        25%{
+            transform: rotate(45deg);
+        }
+        50%{
+            transform: rotate(-20deg);
+        }
+        75%{
+            transform: rotate(10deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+    main:hover #jie{
+       
+        animation: zhuan 3s ease-in-out 1;
+        animation-delay:0.8s;
+    }
+    .jie{
+        width:30px;
+        height: 30px; 
+        background: white;
+        border: 1px solid black;
+        transform: rotate(45deg);
+        position: relative;
+        top: 7px;
+        z-index: 50;
+    }
+    
+    .jies{
+        width: 30px;
+        height: 150px;
+        background: black;
+       position: relative;
+       margin-top: -13px;
+    }
+    .jies::before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-left:10px solid transparent;
+        border-right: 10px solid black;
+        border-top: 75px solid transparent;
+        border-bottom: 75px solid black;
+        position: absolute;
+        left: -20px;
+    }
+    .jies::after{
+        content: '';
+        width: 0;
+        height: 0;
+        border-left:10px solid black;
+        border-right: 10px solid transparent;
+        border-top: 75px solid transparent;
+        border-bottom: 75px solid black;
+        position: absolute;
+        left: 30px;
+    }
+    .jiess{
+        width: 0 ;
+        height: 0;
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-bottom: 50px solid transparent;
+        border-top: 70px solid black;
+    }
+    .dai{
+        /* box-sizing: content-box; */
+        width: 50px;
+        height: 5px;
+        background: rgb(190, 189, 189);
+        border: 1px solid rgb(121, 119, 119);
+        position: absolute;
+        right: 20px;
+        top: 50px;
+        z-index: 666;
+    }
+    .dai::before{
+        content: '';
+        width: 50px;
+        height: 40px;
+        background: rgb(236, 234, 234);
+        position: absolute;
+        top:4px;
+        left: -1px;
+    }
+    .dai::after{
+        content: '';
+        box-sizing: content-box;
+        width: 0px;
+        height: 0px;
+        border-left: 25px solid transparent;
+        border-right:25px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-top: 15px solid rgb(236, 234, 234);
+        position: absolute;
+        top: 44px;
+        left: -1px;
+        /* border: 1px solid black; */
+    }
+    #box{
+        width: 270px;
+        height: 345px;
+        /* border: 1px solid black; */
+        position: absolute;
+        top: 0;
+        /* background: rgb(179, 138, 52); */
+        z-index: 1000;
+       transition-duration: 0.5s;
+    }
+    .box-t{
+        width: 100%;
+        height: 113px;
+        background: rgb(179, 138, 52);
+    }
+    .box-b{
+        width: 95px;
+        height: 345px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: rgb(179, 138, 52);
+        font-size: 22px;
+        text-align: center;
+    }
+    .box-b p{
+        color: white;
+    }
+    .box-l{
+        width: 175px;
+        height: 232px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: black;
+        opacity: 0.2;
+        overflow: hidden;
+    }
+    main:hover #box{
+        transition: 1s;
+        transition-delay: 0.5s;
+        transform: translateY(300px);
+        opacity: 0;
+    }
+    .box-t section{
+        width: 60px;
+        height: 30px;
+        background: white;
+        float: left;
+        color: black;
+        font-size: 8px;
+        line-height: 30px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .box-l section{
+        width: 20px;
+        height: 300px;
+        background: white;
+        transform: rotate(40deg);
+        position: absolute;
+        /* top: -150px; */
+        animation: move 4s ease-in-out -1s infinite;
+    }@keyframes move{
+        0%{
+            top: -200px;
+            left: 0;
+        }
+        60%{
+            top: -100px;
+            left:50px;
+        }
+        100%{
+            top: 120px;
+            left: 150px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <div id="xizhuang">
+     <div class="ling">
+         <section>L</section>
+     </div>
+     <div class="lings"></div>
+     <div class="yi">
+         <div id="jie">
+         <div class="jie"></div>
+         <div class="jies"></div>
+         <div class="jiess"></div>
+        </div>
+        <div class="dai"></div>
+     </div>
+    </div>
+    <div id="box">
+        <div class="box-t">
+            <section>零售价:1899元</section>
+        </div>
+        <div class="box-b">
+            <p style="padding-top:20px;">A</p>
+            <p style="padding-top:20px;">w</p>
+            <p>h</p>
+            <p>i</p>
+            <p>t</p>
+            <p>e</p>
+            <p style="padding-top:20px;">s</p>
+            <p>h</p>
+            <p>i</p>
+            <p>r</p>
+            <p>t</p>
+        <!-- <span> white shirt</span> -->
+        </div>
+        <div class="box-l"><section></section></div>
+    </div>
+    </main>
+</body>
+</html>

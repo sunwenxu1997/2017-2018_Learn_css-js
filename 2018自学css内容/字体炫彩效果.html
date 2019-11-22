@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字体炫彩</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            background: black;
+        }
+
+        main h4 {
+            display: block;
+            width: 600px;
+            height:300px;
+            /* border: 1px solid black; */
+            /*渐变背景，此处为能无缝拼接的渐变 即0~100%*/
+            /* 为适应填充文字，此处前必须加-webkit-，以便适应浏览器 */
+            background: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+            /*文字填充色为透明*/
+            color: transparent;
+            /* background-clip 规定背景的绘制区域：*/
+            /*背景剪裁为文字，相当于用背景填充文字 CSS3新属性*/
+            background-clip: text;
+            /*背景图片向水平方向扩大一倍，这样background-position才有移动与变化的空间*/
+            background-size: 200% 100%;
+            animation: dong 4s infinite linear;
+        }
+        @keyframes dong {
+            0% {
+                background-position: 0 0;
+                /*background-position 属性设置背景图像的起始位置。*/
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h4>
+               一封信两年未都没动笔一封信两年未都没动笔一封信两年未都没动笔<br>
+            <br> 　　三个字过了几个四季　三个字过了几个四季　三个字过了几个四季　
+            <br> 　　你是有多想逃避 你是有多想逃避 你是有多想逃避
+            <br> 　　来不及问问你 　来不及问问你<br>
+            <br> 　　三个字过了几个四季　三个字过了几个四季　三个字过了几个四季　
+            <br> 　　你是有多想逃避 你是有多想逃避 你是有多想逃避
+            <br> 　　来不及问问你 　来不及问问你<br>
+            <br> 　　三个字过了几个四季　三个字过了几个四季　三个字过了几个四季　
+            <br> 　　你是有多想逃避 你是有多想逃避 你是有多想逃避
+            <br> 　　来不及问问你 　来不及问问你<br>
+        </h4>
+    </main>
+</body>
+
+</html>

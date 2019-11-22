@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>孔雀开屏</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(26, 146, 136);
+        }
+        main {
+            width: 500px;
+            height: 500px;
+            /* border: 1px solid white; */
+            position: relative;
+        }
+
+        #kongque {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+        }
+        #mao::after{
+            content: '';
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            left: -20px;
+            top: -275px;
+            opacity: 0;
+            transition: 1s;
+            animation: bian 3s linear infinite alternate;
+        }@keyframes bian{
+            0%{ background: radial-gradient(blue,orange,yellow 45%,green,turquoise);  box-shadow: 0 0 10px green;}
+            100%{ background: radial-gradient(rgb(235, 56, 11),rgb(23, 210, 235),white 45%,rgb(241, 178, 95),rgb(235, 235, 86));  box-shadow: 0 0 10px rgb(241, 243, 241);}
+        }
+        #mao {
+            width: 0;
+            height: 0;
+            border-bottom: 0px solid transparent;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-top: 270px solid rgb(36, 185, 61);
+            position: absolute;
+            left: 210px;
+            transform-origin: 50% 100%;
+            opacity: 0.9;
+            transform: rotate(0deg);
+            transition: 1s;
+            /* transform: rotate(50deg); */
+        }
+
+        main:hover #mao:nth-child(2) {
+            transform: rotate(17deg);
+        }
+
+        main:hover #mao:nth-child(3) {
+            transform: rotate(-17deg);
+        }
+
+        main:hover #mao:nth-child(4) {
+            transform: rotate(34deg);
+        }
+
+        main:hover #mao:nth-child(5) {
+            transform: rotate(-34deg);
+        }
+
+        main:hover #mao:nth-child(6) {
+            transform: rotate(51deg);
+        }
+
+        main:hover #mao:nth-child(7) {
+            transform: rotate(-51deg);
+        }
+
+        main:hover #mao:nth-child(8) {
+            transform: rotate(68deg);
+        }
+
+        main:hover #mao:nth-child(9) {
+            transform: rotate(-68deg);
+        }
+
+        main:hover #mao:nth-child(10) {
+            transform: rotate(85deg);
+        }
+
+        main:hover #mao:nth-child(11) {
+            transform: rotate(-85deg);
+        }
+
+        main:hover #mao:nth-child(12) {
+            transform: rotate(102deg);
+        }
+
+        main:hover #mao:nth-child(13) {
+            transform: rotate(-102deg);
+        }
+
+        main:hover #mao:nth-child(14) {
+            transform: rotate(119deg);
+        }
+
+        #mao::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid rgb(36, 185, 61);
+            position: absolute;
+            top: -350px;
+            left: -40px;
+
+        }
+
+        #mao-c {
+            width: 0;
+            height: 0;
+            border-bottom: 0px solid transparent;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 200px solid rgb(60, 224, 46);
+            position: absolute;
+            left: 220px;
+            top: 70px;
+            transform-origin: 50% 100%;
+            opacity: 0.8;
+            transition: 0.8s;
+            /* transform: rotate(50deg); */
+        }
+
+        .mao-cl1{
+            transform: rotate(-8.5deg);
+        }
+        .mao-cl2{
+            transform: rotate(-8.5deg);
+        }
+        .mao-cl3{
+            transform: rotate(-8.5deg);
+        }
+        .mao-cl4{
+            transform: rotate(-8.5deg);
+        }
+        .mao-cl5{
+            transform: rotate(-8.5deg);
+        }
+        .mao-cl6{
+            transform: rotate(-8.5deg);
+        }
+        .mao-cl7{
+            transform: rotate(-8.5deg);
+        }
+      main:hover .mao-cl2{
+            transform: rotate(-25.5deg);
+        }
+        main:hover .mao-cl3{
+            transform: rotate(-42.5deg);
+        }
+        main:hover .mao-cl4{
+            transform: rotate(-59.5deg);
+        }
+        main:hover .mao-cl5{
+            transform: rotate(-76.5deg);
+        }
+        main:hover .mao-cl6{
+            transform: rotate(-93.5deg);
+        }
+        main:hover .mao-cl7{
+            transform: rotate(-110.5deg);
+        }
+        .mao-cr1{
+            transform: rotate(8.5deg);
+        }
+        .mao-cr2{
+            transform: rotate(8.5deg);
+        }
+        .mao-cr3{
+            transform: rotate(8.5deg);
+        }
+        .mao-cr4{
+            transform: rotate(8.5deg);
+        }
+        .mao-cr5{
+            transform: rotate(8.5deg);
+        }
+        .mao-cr6{
+            transform: rotate(8.5deg);
+        }
+        .mao-cr7{
+            transform: rotate(8.5deg);
+        }
+      main:hover  .mao-cr2{
+            transform: rotate(25.5deg);
+        }
+        main:hover .mao-cr3{
+            transform: rotate(42.5deg);
+        }
+        main:hover .mao-cr4{
+            transform: rotate(59.5deg);
+        }
+        main:hover .mao-cr5{
+            transform: rotate(76.5deg);
+        }
+        main:hover .mao-cr6{
+            transform: rotate(93.5deg);
+        }
+        main:hover .mao-cr7{
+            transform: rotate(110.5deg);
+        }
+        #mao-c::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 40px solid rgb(60, 224, 46);
+            position: absolute;
+            top: -280px;
+            left: -30px;
+        }
+        #mao-c::after{
+            content: '';
+            width: 30px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px green;
+            position: absolute;
+            left: -15px;
+            top: -210px;
+            opacity: 0;
+            transition: 1s;
+            animation: bian 2.5s linear infinite alternate;
+        }
+      
+        #mao-b{
+            width: 0;
+            height: 0;
+            border-bottom: 0px solid transparent;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 140px solid rgb(84, 248, 69);
+            position: absolute;
+            left: 220px;
+            top: 130px;
+            transform-origin: 50% 100%;
+            opacity: 0.8;
+            transition: 0.5s;
+            z-index: 77;
+        }
+        .mao-bl1{
+            /* transform: rotate(-18deg); */
+            transform: rotate(-18deg);
+
+        }
+        .mao-br1{
+            transform: rotate(18deg);
+        }
+
+        .mao-bl2{
+            transform: rotate(-18deg);
+        }
+        .mao-bl3{
+            transform: rotate(-18deg);
+        }
+        .mao-bl4{
+            transform: rotate(-18deg);
+        }
+
+        .mao-br2{
+            transform: rotate(18deg);
+        }
+        .mao-br3{
+            transform: rotate(18deg);
+        }
+        .mao-br4{
+            transform: rotate(18deg);
+        }
+
+     main:hover .mao-bl1{
+            /* transform: rotate(-18deg); */
+            transform: rotate(-24deg);
+
+        }
+        main:hover  .mao-br1{
+            transform: rotate(24deg);
+        }
+       main:hover .mao-bl2{
+            transform: rotate(-48deg);
+        }
+        main:hover .mao-bl3{
+            transform: rotate(-72deg);
+        }
+        main:hover .mao-bl4{
+            transform: rotate(-96deg);
+        }
+
+        main:hover .mao-br2{
+            transform: rotate(48deg);
+        }
+        main:hover .mao-br3{
+            transform: rotate(72deg);
+        }
+        main:hover .mao-br4{
+            transform: rotate(96deg);
+        }
+        #mao-b::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 40px solid rgb(84, 248, 69);
+            position: absolute;
+            top: -220px;
+            left: -30px;
+        }
+        #mao-b::after{
+            content: '';
+            width: 20px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px green;
+            position: absolute;
+            left: -10px;
+            top: -150px;
+            opacity: 0;
+            transition: 1s;
+            animation: bian 2s linear infinite alternate;
+        }
+        main:hover #mao::after{
+            opacity: 1;
+        }
+        main:hover #mao-c::after{
+            opacity:1;
+        }
+        main:hover #mao-b::after{
+            opacity:1;
+        }
+        #tou{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 235px;
+            z-index: 99;
+         
+         
+        }
+        .tou-c{
+            background: white;
+            top: 200px;
+            transform: rotate(45deg);
+        }
+        .tou-c section{
+            width: 10px;
+            height: 10px;
+            background: rgb(106, 191, 240);
+        }
+        .tou-c .tou-cl{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .tou-c .tou-cr{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .tou-l{
+            top: 210px;
+            z-index: 88;
+            animation: tou-l 1s ease infinite alternate;
+        }@keyframes tou-l{
+            0%{transform: rotate(29deg);}
+            100%{transform: rotate(20deg);}
+        }
+        .tou-r{
+            top: 210px;
+            transform: rotate(60deg);
+            animation: tou-r 1s ease  infinite alternate;
+            z-index: 88;
+        }@keyframes tou-r{
+            0%{transform: rotate(60deg);}
+            100%{transform: rotate(69deg);}
+        }
+        #tou::before{
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: white;
+            position: absolute;
+            top: -30px;
+            left: -30px;
+        }
+        #tou::after{
+            content: '';
+            width: 1px;
+            height: 30px;
+            border-left: 2px dashed white;
+            position: absolute;
+            transform-origin: 0% 0%;
+            transform: rotate(-45deg);
+            top: -21px;
+            left: -22px;
+        }
+        #bo{
+            width: 20px;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 0 solid transparent;
+            border-bottom: 50px solid rgb(42, 169, 243);
+            position: absolute;
+            left: 230px;
+            top: 230px;
+            z-index: 88;
+        }
+        #bo::after{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid rgb(42, 169, 243);
+            border-bottom: 0px solid transparent;
+            position: absolute;
+            left: -10px;
+            top: 50px;
+        }
+        #bo::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid rgb(84, 248, 69);
+            border-bottom: 0px solid transparent;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #shen{
+            width: 50px;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 0 solid transparent;
+            border-bottom: 70px solid rgb(28, 87, 197);
+            position: absolute;
+            left: 205px;
+            top: 280px;
+            z-index: 1;
+        }
+        #shen::after{
+            content: '';
+            width: 40px;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 0 solid transparent;
+            border-top: 30px solid rgb(28, 87, 197);
+            position: absolute;
+            top: 70px;
+            left: -20px;
+        }
+        #shen::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 30px solid rgb(26, 146, 136);
+            border-bottom: 0px solid transparent;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #chi-l{
+            width: 0;
+            height: 0;
+            border-left: 0px solid transparent;
+            border-top: 0px solid transparent;
+            border-bottom: 20px solid transparent;
+            position: absolute;
+            z-index: 999;
+           
+        }
+        #chi-r{
+            width: 0;
+            height: 0;
+            border-right: 0px solid transparent;
+            border-top: 0px solid transparent;
+            border-bottom: 20px solid transparent;
+            position: absolute;
+            z-index: 999;
+        
+        }
+        #chi-r::after{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-top: 10px solid transparent;
+            border-bottom:10px solid rgb(154, 185, 243);
+            border-right: 10px solid rgb(154, 185, 243);
+            position: absolute;
+         
+        }
+        #chi-l::after{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 10px solid rgb(154, 185, 243);
+            border-top: 10px solid transparent;
+            border-bottom:10px solid rgb(154, 185, 243);
+            border-right: 10px solid transparent;
+            position: absolute;
+         
+        }
+        .chi-l1{
+            top: 280px;
+            left: 118px;
+            transform-origin: 90px 100%;
+            transform: rotate(90deg);
+            border-right: 80px solid white;
+            opacity: 0.5;
+            transition: 1s;
+        }
+        main:hover .chi-l1{
+            opacity: 0.9;
+            transform: rotate(60deg);
+        }
+        .chi-l1::after{
+            left: 80px;
+        }
+        .chi-l2{
+            top: 315px;
+            left: 57px;
+            transform-origin: 140px 100%;
+            transform: rotate(90deg);
+            border-right: 130px solid white;
+            opacity: 0.7;
+            transition: 0.5s;
+        }
+        main:hover .chi-l2{
+            transform: rotate(60deg);
+            opacity: 1;
+        }
+        .chi-l2::after{
+            left: 130px;
+        }
+        .chi-r1{
+            top: 290px;
+            left:308px;
+            transform-origin: -20px 20px;
+            transform: rotate(-90deg);
+            border-left: 80px solid white;
+            opacity: 0.5;
+            transition: 1s;
+        }
+        main:hover .chi-r1{
+            opacity: 0.9;
+            transform: rotate(-60deg);
+        }
+        .chi-r1::after{
+            left: -100px;
+        }
+        .chi-r2{
+            top: 325px;
+            left:320px;
+            transform-origin: -20px 20px;
+            transform: rotate(-90deg);
+            border-left: 130px solid white;
+            transition: 0.5s;
+            opacity: 0.7;
+        }
+        main:hover .chi-r2{
+            transform: rotate(-60deg);
+            opacity: 1;
+        }
+        .chi-r2::after{
+            left: -150px;
+        }
+        #tui{
+            width: 5px;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-top: 35px solid rgb(23, 33, 167);
+            border-bottom:0px solid transparent;
+            border-right: 5px solid transparent;
+            position: absolute;
+           
+        }
+        .tui-l{
+            top: 380px;
+            left: 210px;
+        }
+        .tui-r{
+            top: 380px;
+            left: 275px;
+        }
+        .tui{
+            width: 0;
+            height: 0;
+            border-left: 2.5px solid transparent;
+            border-top: 10px solid rgb(68, 68, 68);
+            border-bottom:0px solid transparent;
+            border-right: 2.5px solid transparent;
+            position: absolute;
+            top: 3px;
+        }
+        .tui-l .tui::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-right: 7.5px solid transparent;
+            border-top:7.5px solid transparent;
+            border-bottom:7.5px solid rgb(23, 33, 167);
+            border-left: 7.5px solid rgb(23, 33, 167);
+            position: absolute;
+            top: -63px;
+            left: -8px;
+        }
+        .tui-r .tui::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 7.5px solid transparent;
+            border-top:7.5px solid transparent;
+            border-bottom:7.5px solid rgb(23, 33, 167);
+            border-right: 7.5px solid rgb(23, 33, 167);
+            position: absolute;
+            top: -63px;
+            left: -8px;
+        }
+        #tui::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-top:2.5px solid transparent;
+            border-bottom:2.5px solid rgb(68, 68, 68);
+            border-right: 10px solid rgb(68, 68, 68);
+            position: absolute;
+            left: -23px;
+            top: 3px;
+        }
+        #tui::after{
+            content: '';
+            width: 0;
+            height: 0;
+            border-right: 10px solid transparent;
+            border-top:2.5px solid transparent;
+            border-bottom:2.5px solid rgb(68, 68, 68);
+            border-left: 10px solid rgb(68, 68, 68);
+            position: absolute;
+            left: 8px;
+            top: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="kongque">
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao"></section>
+            <section id="mao-c" class="mao-cl1"></section>
+            <section id="mao-c" class="mao-cl2"></section>
+            <section id="mao-c" class="mao-cl3"></section>
+            <section id="mao-c" class="mao-cl4"></section>
+            <section id="mao-c" class="mao-cl5"></section>
+            <section id="mao-c" class="mao-cl6"></section>
+            <section id="mao-c" class="mao-cl7"></section>
+            <section id="mao-c" class="mao-cr1"></section>
+            <section id="mao-c" class="mao-cr2"></section>
+            <section id="mao-c" class="mao-cr3"></section>
+            <section id="mao-c" class="mao-cr4"></section>
+            <section id="mao-c" class="mao-cr5"></section>
+            <section id="mao-c" class="mao-cr6"></section>
+            <section id="mao-c" class="mao-cr7"></section>
+            <section id="mao-b" ></section>
+            <section id="mao-b" class="mao-bl1"></section>
+            <section id="mao-b" class="mao-bl2"></section>
+            <section id="mao-b" class="mao-bl3"></section>
+            <section id="mao-b" class="mao-bl4"></section>
+            <section id="mao-b" class="mao-br1"></section>
+            <section id="mao-b" class="mao-br2"></section>
+            <section id="mao-b" class="mao-br3"></section>
+            <section id="mao-b" class="mao-br4"></section>
+            <div id="tou" class="tou-l"></div>
+            <div id="tou" class="tou-r"></div>
+            <div id="tou" class="tou-c"><section class="tou-cl"></section><section class="tou-cr"></section></div>
+            <div id="bo"></div>
+            <div id="shen"></div>
+            <div id="chi-l" class="chi-l1"></div>
+            <div id="chi-l" class="chi-l2"></div>
+            <div id="chi-r" class="chi-r1"></div>
+            <div id="chi-r" class="chi-r2"></div>
+            <div id="tui" class="tui-l"><section class="tui"></section></div>
+            <div id="tui" class="tui-r"><section class="tui"></section></div>
+        </div>
+
+    </main>
+</body>
+
+</html>

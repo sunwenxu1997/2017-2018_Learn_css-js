@@ -1,0 +1,131 @@
+#scroll {
+    width: 1080px;
+    margin: 0 auto;
+    padding-top: 30px;
+    font-family: "Microsoft Yahei";
+}
+
+#scroll .owl-wrapper-outer {
+    margin: 0 auto;
+}
+
+#scroll .item {
+    position: relative;
+    width:1080px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow: hidden;
+}
+#scroll .item img{
+    width: 100%;
+}
+.owl-theme .owl-controls .owl-buttons div {
+    /* 左右按钮位置 */
+    position: absolute;
+    top: 250px;
+    width: 30px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    font: 60px/60px "宋体";
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+    left: -40px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+    right: -40px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev:before {
+    content: "<";
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next:before {
+    content: ">";
+}
+
+.owl-carousel{
+/* 定义包裹整个的盒子 */
+display: none;
+position: relative;
+width: 100%;
+/* background: red; */
+}
+
+
+.owl-carousel .owl-wrapper-outer{
+/* 定义包裹内容的盒子 */
+/* 删除后占满横屏 */
+overflow: hidden;
+position: relative;
+width: 100%;
+
+}
+
+.owl-carousel .owl-item{
+/* 定义标签往左浮动 */
+float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+/* 定义触摸左右切换按钮和小圆点的鼠标样式 */
+cursor: pointer;
+}
+
+
+.owl-theme .owl-controls{
+/* 定义左右切换 和 小圆点 内的内容居中 */
+margin-top: 10px;
+text-align: center;
+}
+
+.owl-theme .owl-controls .owl-buttons div{
+/* 包含左右切换按钮的盒子部分 */
+color: #FFF;
+display: inline-block;
+zoom: 1;
+margin: 5px;
+padding: 3px 10px;
+font-size: 12px;
+border-radius: 30px;
+background: #869791;
+opacity: 0.5;
+/* background: red; */
+}
+
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+/* 定义左右切换按钮的鼠标经过效果 */
+transition: 0.5s;
+opacity: 1;
+text-decoration: none;
+}
+
+
+.owl-theme .owl-controls .owl-page{
+/* 包含小圆点的盒子 */
+display: inline-block;
+zoom: 1;
+/* background: red; */
+}
+.owl-page span{
+/* 小圆点样式 */
+display: block;
+width: 12px;
+height: 12px;
+margin: 5px 7px;
+opacity: 0.5;
+border-radius: 20px;
+background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+/* 小圆点鼠标经过及点击样式 */
+opacity: 1;
+}

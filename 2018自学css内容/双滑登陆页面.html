@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双滑登陆页面</title>
+    <style>
+        body{
+            margin:  0 auto;
+        }
+        main{
+          width: 700px;
+          height: 500px;
+          margin: 150px auto;
+          position: relative;
+          overflow: hidden;
+        }
+        #qq,#weixin{
+          transition: 0.5s;
+        }
+        .lefts, .rights{
+          width: 100%;
+          height: 100%;
+          transition: 0.5s;
+          position: absolute;
+          top: 0;
+          color: white;
+          font-size: 15px;
+          line-height: 900px;
+          text-align: center;
+          display: none;
+        }
+        form{
+          width: 210px;
+          height: 80px;
+          /* background: red; */
+          margin: 50px auto;
+          color: white;
+          font-size: 14px;
+          opacity: 0;
+          transition: 1s;
+        }
+        input{
+          border: 1px solid white;
+          color: grey;
+        }
+        input:hover{
+          box-shadow: 0px 0px 3px white;
+        }
+        .left:hover form{
+          opacity: 1;
+        }
+        .left:hover button{
+          margin-top: -40px;
+        }
+        .right:hover form{
+          opacity: 1;
+        }
+        .right:hover button{
+          margin-top: -40px;
+        }
+         button{
+          width: 100px;
+          height: 40px;
+          display: block;
+          margin: 0 auto;
+          background: #0078d7;
+          color: white;
+          border: 1px solid white;
+          transition: 0.7s;
+        }
+         button:hover{
+          box-shadow: 0px 1px 5px white;
+          cursor: pointer;
+        }
+        .left {
+            width: 50%;
+            height: 100%;
+            background: #0078d7;
+            position: absolute;
+            left: 0;
+            transition: 500ms all ease-in-out;
+        }
+       .left div{
+         width: 250px;
+         height: 300px;
+         /* border: 1px solid black; */
+         margin: 100px auto;
+       }
+        img{
+         width: 80px;
+         height: 80px;
+         display: block;
+         margin: 0 auto;
+       }
+        .left:hover {
+            transition: 500ms all ease-in-out; 
+        }
+        .left:hover .lefts{
+          z-index: 2;
+        }
+        .right {
+            width: 50%;
+            height: 100%;
+            background: #00ac18;
+            position: absolute;
+            right: 0;
+            transition: 500ms all ease-in-out;
+        }
+        .right div{
+         width: 250px;
+         height: 300px;
+         /* border: 1px solid black; */
+         margin: 100px auto;
+       }
+        .right:hover {
+            transition: 500ms all ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+  <main>
+        <div class="left">
+          <div id="qq">
+            <img src="img/QQ.jpg" alt="">
+            <form action="">
+              用户: <input type="text" autocomplete="off"><br><br>
+              密码: <input type="password">
+            </form>
+            <button>登录</button>
+          </div>
+         <section class="lefts">选择QQ登录</section>
+        </div>
+        <div class="right">
+          <div id="weixin">
+            <img src="img/WeiXin.jpg" alt="" width="80" height="80" >
+            <form action="">
+              用户: <input type="text" autocomplete="off"><br><br>
+              密码: <input type="password">
+            </form>
+                  <button style="background:#00ac18;">登录</button>
+          </div>
+            <section class="rights">选择微信登录</section>
+        </div>
+      </main>
+</body>
+<script>
+    var left = document.getElementsByClassName('left')[0]
+    var right = document.getElementsByClassName('right')[0]
+    var lefts = document.getElementsByClassName('lefts')[0]
+    var rights = document.getElementsByClassName('rights')[0]
+    var qq = document.getElementById('qq')
+    var weixin = document.getElementById('weixin')
+    left.addEventListener(
+        'mousemove',
+        Left
+    )
+    left.addEventListener(
+        'mouseleave',
+        Lefts
+    )
+    right.addEventListener(
+        'mousemove',
+        Right
+    )
+    right.addEventListener(
+        'mouseleave',
+        Rights
+    )
+    function Left() {
+        left.style.width = '85%'
+        right.style.width = '15%'
+        rights.style.background = 'rgb(0,0,0,0.4)'
+        rights.style.display = 'block'
+        weixin.style.opacity = '0'
+
+    }
+    function Lefts() {
+        left.style.width = '50%'
+        right.style.width = '50%'
+        rights.style.background = 'none'
+        rights.style.display = 'none'
+        weixin.style.opacity = '1'
+    }
+    function Right() {
+        right.style.width = '85%'
+        left.style.width = '15%'
+        lefts.style.background = 'rgb(0,0,0,0.4)'
+        lefts.style.display = 'block'
+        qq.style.opacity = '0'
+    }
+    function Rights() {
+        right.style.width = '50%'
+        left.style.width = '50%'
+        lefts.style.background = 'none'
+        lefts.style.display = 'none'
+        qq.style.opacity = '1'
+    }
+</script>
+</html>

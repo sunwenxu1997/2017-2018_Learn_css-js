@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>愤怒的小鸟</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    body,html{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body{
+        /* background: linear-gradient(to left,rgb(4, 128, 4) 0%, rgb(6, 192, 6) 20%,rgb(26, 226, 26) 40%,rgb(77, 243, 77) 60%,rgb(122, 247, 122) 80%,white 100%); */
+        /* background: rgb(204, 252, 31); */
+        overflow: hidden;
+    }
+    main{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    #bird{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 5px solid rgb(54, 54, 54);
+      background: linear-gradient(-180deg, red 75%,white 75%,white 100%);
+      transition: 0.5s;
+        position: relative;
+        top: 0;
+        cursor: pointer;
+    }
+    .chi{
+        width: 50px;
+        height: 75px;
+        background: rgb(223, 14, 14);
+        position: absolute;
+        top: 100px;
+        left: 55px;
+        border-bottom-right-radius: 100%;
+        transition: 0.5s;
+        transform-origin: 50% 0%;
+        border: 5px solid black;
+        border-top: none;
+    }@keyframes dong {
+        50%{
+            transform: rotateX(110deg);
+        }
+        100%{
+            transform: rotateX(0deg);
+        }
+    }
+   #wei{
+       height: 5px;
+       border-radius: 50%;
+       position: absolute;
+       transform-origin: 100% 50%;
+       z-index: -1;
+       transition: 0.5s;
+       background: rgb(202, 18, 18);
+       box-shadow: 0 0 5px  rgb(202, 18, 18);
+   }
+   .b-w1{
+       width: 120px;
+       top: 85px;
+       left: -115px;
+       transform: rotate(5deg);
+       /* background: rgb(240, 52, 93); */
+   }
+   .b-w2{
+       width: 80px;
+       top: 70px;
+       left: -75px;
+       transform: rotate(15deg);
+       /* background: rgb(56, 97, 235); */
+   }
+   .b-w3{
+       width: 60px;
+       top: 95px;
+       left: -55px;
+       transform: rotate(-15deg);
+       /* background: rgb(17, 224, 17); */
+   }
+   #eye{
+       width: 55px;
+       height: 55px;
+       border-radius: 50%;
+       /* border: 5px solid rgb(85, 85, 85); */
+       position: absolute;
+       right: 25px;
+       top:35px;
+       background: white;
+   }@keyframes eye{
+       70%{
+           transform: rotate(90deg);
+       }
+       90%{
+           transform: rotate(-20deg);
+       }
+       100%{
+        transform: rotate(0deg);
+       }
+   }
+   #eye::before{
+       content: '';
+       width: 50px;
+       height: 20px;
+       background: black;
+       position: absolute;
+       top: -25px;
+       left: -10px;
+       transform: rotate(-15deg);
+       transition: 0.5s;
+       z-index: 999;
+   }
+   .eye{
+       width: 35px;
+       height: 35px;
+       border-radius: 50%;
+       background: black;
+       position: absolute;
+       right: 0;
+       top: 10px;
+       transform-origin: 20% 50%;
+       animation: eye 0.8s ease infinite;
+   }
+   .eye::before{
+       content: '';
+       width: 15px;
+       height: 15px;
+       border-radius: 50%;
+       background: white;
+       position: absolute;
+       right: 5px;
+       top: 5px;
+      
+   }
+   .eye::after{
+       content: '';
+       width: 7px;
+       height: 7px;
+       border-radius: 50%;
+       background: white;
+       position: absolute;
+       right: 18px;
+       top:23px;
+   }
+   .e-t{
+       width: 62px;
+       height: 22px;
+       background: red;
+       opacity: 0;
+       position: absolute;
+       top: -2px;
+       transform: rotate(15deg);
+       transition: 0.5s;
+   }
+   #zui{
+       width: 0;
+       height: 0;
+       border-right: 0px solid transparent;
+       position: absolute;
+       z-index: -1;
+       transition: 0.5s;
+   }
+   .z-t{
+       border-top:  20px solid transparent;
+       border-bottom:  0px solid transparent;
+       border-left: 35px solid rgb(255, 187, 0);
+       transform: rotate(-30deg);
+       right: -30px;
+       top:72px;
+   }
+   .z-b{
+       border-top:  0px solid transparent;
+       border-bottom:  20px solid transparent;
+       border-left: 35px solid rgb(255, 187, 0);
+       transform: rotate(20deg);
+       right: -27px;
+       top:102px;
+   }
+   #tou{
+       width: 50px;
+       height: 1px;
+       position: absolute;
+       z-index: -1;
+       left: 55px;
+       top: -28px;
+       border-top-right-radius: 50%;
+       border-top: 30px solid red;
+       border-bottom: 0px solid transparent;
+       border-left: 40px solid transparent;
+       border-right: 30px solid red;
+       transform: rotate(5deg)
+       /* position: absolute; */
+   }
+   .bei-2{
+       width: 0px;
+       height: 100%;
+       background: rgba(0, 0, 0, 0.452);
+       position: absolute;
+       top: 0px;
+       left:100%;
+       z-index: 1000;
+       opacity: 0;
+       box-shadow: 300px 0px 10px 80px rgb(161, 87, 27);
+       animation: move 1.5s linear infinite; 
+   }
+   .bei-1{
+       width: 0px;
+       height: 100%;
+       background: rgba(0, 0, 0, 0.452);
+       position: absolute;
+       top: 0px;
+       left:180%;
+       z-index: -2;
+       opacity: 0;
+       box-shadow: 300px 0px 10px 40px rgba(0, 0, 0, 0.452);
+       animation: move 2s linear infinite;
+       
+   }@keyframes move{
+       100%{
+           left: -500px;
+       }
+   }
+   main:hover #bird{
+      height: 150px;
+      background: linear-gradient(-170deg, red 75%,white 75%,white 100%);
+      top: 25px;
+   }
+   main:hover .z-t{
+       top: 58px;
+       transform: rotate(0deg);
+   }
+   main:hover .z-b{
+       top: 80px;
+       transform: rotate(0deg);
+   }
+   main:hover .b-w1{
+       top: 65px;
+   }
+   main:hover .b-w2{
+       top: 50px;
+   }
+   main:hover .b-w3{
+       top: 75px;
+   }
+   main:hover #eye::before{
+    transform: rotate(15deg);
+    left: 0;
+    top: -22px;
+   }
+   main:hover .eye{
+       animation: none;
+   }
+   main:hover .e-t{
+       opacity: 1;
+   }
+   main:hover .chi{
+       height: 50px;
+       top: 80px;
+   }
+   main:hover .eye::after,main:hover .eye::before{
+    background: black;
+   }
+   main:active .bei-1, main:active .bei-2{
+       opacity: 1;
+   }
+   main:active .chi{
+       
+        animation: dong 0.1s linear infinite;
+   }
+    </style>
+</head>
+<body>
+    <main>
+    <div class="bei-1"></div>
+    <div class="bei-2"></div>
+    <div id="bird">
+        <div id="wei" class="b-w1"></div>
+        <div id="wei" class="b-w2"></div>
+        <div id="wei" class="b-w3"></div>
+        <div id="eye">
+            <section class="eye"></section>
+            <section class="e-t"></section>
+        </div>
+        <div id="zui" class="z-t"></div>
+        <div id="zui" class="z-b"></div>
+        <div id="tou"></div>
+        <div class="chi"></div>
+    </div>
+    </main>
+</body>
+</html>

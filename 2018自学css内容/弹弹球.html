@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹弹球</title>
+    <style>
+    body{
+        margin: 0 auto;
+    }
+.bubble{
+    /* 把行元素变成块元素 */
+    display: block;
+    /* background-color: red; */
+}
+    </style>
+</head>
+<body>
+    <canvas class="bubble"></canvas>
+    <script>
+//         让canvas元素和浏览器宽高一致
+// 1.获取canvas元素和浏览器宽高；
+// 2.获取浏览器宽高；
+// 3.给canvas元素设置宽高
+var canvas=document.querySelector(".bubble");
+//获取宽高
+var w;
+var h;
+var aColor=["#ff4124","#ababab","#595957","#050501","#ff0f33"];//制定球的颜色
+~~function setSize(){
+    window.onresize=arguments.callee;
+    w=window.innerWidth;
+    h=window.innerHeight;
+    canvas.width=w;
+    canvas.height=h;
+}();
+ var canCon=canvas.getContext("2d");//找到一张宣纸
+// var y=100,x=100; //设定圆的初始位置
+// setInterval(function () {
+//     canCon.beginPath();//重新画
+//     canCon.fillStyle="blue";//用什么颜色的笔画
+//     canCon.clearRect(0,0,w,h);//擦除之前绘制的图形
+// canCon.arc(x++,y++,66,0,Math.PI*2);//确定圆心的 x，y。圆的半径
+// canCon.fill();//再次开始画
+// },1000/60);//每隔tms就执行一次fuction
+function random(min,max) {//返回到一个min到max之间的值
+    return Math.random()*(max-min)+min;
+}
+function Bubble(){};//圆的DNA 构造函数
+    var bubble=new Bubble();//生成一个圆 
+    Bubble.prototype={//给DNA加上一些基因
+init:function(){
+    this.x=random(0,w);//从0到w 小圆的x坐标
+    this.y=random(0,h);//从0到h
+    this.color=aColor[Math.floor(random(0,5))];//小圆的颜色
+    this.r=random(5,10);//小圆的半径
+},
+draw:function(){
+    canCon.beginPath();//重新画
+     canCon.fillStyle=this.color;//用什么颜色的笔画
+    //  canCon.clearRect(0,0,w,h);//擦除之前绘制的图形
+ canCon.arc(this.x,this.y,this.r,0,Math.PI*2);//确定圆心的 x，y。圆的半径
+ canCon.fill();//再次画
+},
+move:function(){
+    this.x++;
+    this.y++;
+    this.draw();
+}
+    }
+ 
+    function create(num) {
+        for(var i=0;i<num;i++){
+            var bubble=new Bubble();//生成一个小球
+            bubble.init();
+            bubble.draw();
+            // aBubble.push(bubble);
+        }
+    }
+    create(500);//生成500个小球
+    setInterval(function () {//让小球开始动
+for(var item of aBubble){
+item.move();
+}
+},1000/60);
+var bubble=new Bubble();
+    bubble.init();
+    bubble.draw();
+    </script>
+</body>
+</html>

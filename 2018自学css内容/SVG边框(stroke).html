@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG边框(stroke)</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            /* 边框颜色 */
+            stroke: black;
+            /* 边框高度 */
+            stroke-width: 5;
+            /* 第一个用来表示实线长度，第二个用来表示间隔距离 */
+            stroke-dasharray: 5, 20;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- view='x,y,width,height' -->
+    <!-- x,y  相当于 svg 左上角的横坐标和纵坐标 -->
+    <svg viewBox='0,0,40,30' width="400" height="300" style="border:1px solid #cd0000;">
+        <rect x='10' y='5' width='20' height='15' fill='red'>
+            <!-- 更形象的解释就是：SVG就像是我们的显示器屏幕，
+            viewBox就是截屏工具选中的那个框框，
+            最终的呈现就是把框框中的截屏内容再次在显示器中全屏显示！ -->
+        </rect>
+    </svg>
+
+    <!-- 指定来这条直线边框的颜色是黑色以及它的宽度为10像素。 -->
+    <svg viewBox="0 0 300 10">
+        <style>
+        line#hua1{
+            stroke: yellow;
+            stroke-width: 10;
+        }@keyframes hua1{
+            10%{
+            }
+        }
+        </style>
+        <!-- x1 属性在 x 轴定义线条的开始 -->
+        <!-- y1 属性在 y 轴定义线条的开始 -->
+        <!-- x2 属性在 x 轴定义线条的结束 -->
+        <!-- y2 属性在 y 轴定义线条的结束 -->
+        <line id="hua1" x1="0" y1="0" x2="300" y2="0" />
+    </svg>
+
+    <!-- 虚线 -->
+    <!-- 在SVG中也可以像CSS中那样指定边框为虚线要用到属性stroke-dasharray。
+troke-dasharray属性的参数，是一组用逗号分割的数字组成的序列。
+需要注意的是，这里的数字必须用逗号分割，虽然也可以插入空格，但是数字之间必须用逗号分开。
+每一组数字，第一个用来表示实线，第二个用来表示空白。 -->
+    <svg viewBox="0 0 300 10">
+        <line x1="0" y1="0" x2="300" y2="0" stroke="black" stroke-width="10" stroke-dasharray="5" />
+    </svg>
+
+
+    <svg viewBox="0 0 300 10">
+        <style>
+            line#es {
+                stroke: black;
+                stroke-width: 10;
+                stroke-dasharray: 5, 20, 5;
+            }
+        </style>
+        <line id="es" x1="0" y1="0" x2="300" y2="0" />
+
+    </svg>
+
+    <svg viewBox="0 0 2000 200">
+        <style>
+        @keyframes dong{
+            0%{stroke-dasharray: 10;}
+            100%{stroke-dasharray: 15;}
+        }
+        rect#strokedrect{
+            /* hsl(Hue(色调),Saturation(饱和度),Lightness(亮度)) */
+            stroke: hsl(260, 50%, 90%);
+            /* fill属性只在XML-SVG格式中存在 */
+            fill: red;
+            stroke-width: 7;
+            /* stroke-dashoffset，定义虚线开始的位置 */
+            stroke-dasharray: 10;
+            stroke-linecap:round;
+            animation: dong 2s alternate linear infinite;
+        }
+        </style>
+        <rect id="strokedrect" x="0" y="0" width="300" height="200" />
+        </svg>
+
+        <svg viewBox="0 0 2000 300">
+            
+            <style>
+                rect#hua{
+                    stroke: red;
+                    fill: yellow;
+                    stroke-width: 5;
+                    stroke-dasharray: 5;
+                    animation: hua 5s linear infinite forwards;
+                }@keyframes hua{
+                    100%{stroke-dasharray: 300}
+                }
+            </style>
+            <rect id="hua" x="0" y="0" width="300" height="300"> </rect>
+        </svg>
+</body>
+
+</html>

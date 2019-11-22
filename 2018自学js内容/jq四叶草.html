@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四叶草</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 定义背景颜色的过度和延迟 */
+            transition: 0.5s;
+            transition-delay: 0.3s;
+        }
+
+        main {
+            width: 400px;
+            height: 400px;
+            /* border: 1px solid black; */
+            position: relative;
+        }
+
+        div {
+            /* 设置4个小叶片的整体样式 */
+            width: 150px;
+            height: 150px;
+            /* 设置绝对定位，相对于他的父元素 main */
+            position: absolute;
+            box-sizing: border-box;
+            transition: 0.5s;
+            background: rgba(0, 0, 0, 0.493);
+            text-align: center;
+            line-height: 150px;
+            color: rgba(255, 255, 255, 0.849);
+            font-size: 35px;
+            /* 设置小手样式 */
+            cursor: pointer;
+        }
+
+        .one:hover,
+        .two:hover {
+            /* 当鼠标经过 医疗 饮食时，出现阴影，并往上移动10px */
+            box-shadow: 0 0 10px rgb(102, 98, 98);
+            transform: translateY(-10px);
+        }
+
+        .three:hover,
+        .four:hover {
+            /* 当鼠标经过 运动 消费时，出现阴影，并往下移动10px */
+            box-shadow: 0 0 10px rgb(102, 98, 98);
+            transform: translateY(10px);
+        }
+
+        .one {
+            /* 初始样式 */
+            /* 给医疗小叶片定位 */
+            left: 45px;
+            top: 45px;
+            /* 设置右上角和左下角样式 */
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            background: rgba(238, 10, 10, 0.644);
+        }
+
+        .ones {
+            /* 点击要调用的样式 */
+            left: 0px;
+            top: 0px;
+            text-shadow: 5px 5px 5px rgb(56, 55, 55);
+            background: rgba(238, 10, 10, 0.986);
+        }
+
+        .two {
+            /* 初始样式 */
+            /* 给饮食小叶片定位 */
+            right: 45px;
+            top: 45px;
+            /* 设置左上角和右下角样式 */
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            background: rgba(252, 235, 3, 0.863);
+        }
+
+        .twos {
+            /* 点击要调用的样式 */
+            right: 0px;
+            top: 0px;
+            text-shadow: -5px 5px 5px rgb(56, 55, 55);
+            background: rgba(252, 235, 3, 0.863);
+        }
+
+        .three {
+            /* 初始样式 */
+            /* 给运动小叶片定位 */
+            left: 45px;
+            bottom: 45px;
+            /* 设置左上角和右下角样式 */
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            background: rgba(149, 247, 3, 0.877);
+        }
+
+        .threes {
+            /* 点击要调用的样式 */
+            left: 0;
+            bottom: 0;
+            text-shadow: 5px -5px 5px rgb(56, 55, 55);
+            background: rgba(149, 247, 3, 0.877);
+        }
+
+        .four {
+            /* 初始样式 */
+            /* 给消费小叶片定位 */
+            bottom: 45px;
+            right: 45px;
+            /* 设置右上角和左下角样式 */
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            background: rgba(5, 190, 247, 0.856);
+        }
+
+        .fours {
+            /* 点击要调用的样式 */
+            bottom: 0;
+            right: 0;
+            text-shadow: -5px -5px 5px rgb(56, 55, 55);
+            background: rgba(5, 190, 247, 0.856);
+        }
+
+        .ones,
+        .twos,
+        .threes,
+        .fours {
+            /* 设置被调用的公共样式 */
+            border: 3px solid white;
+            color: white;
+            border-radius: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="one">医疗</div>
+        <div class="two">饮食</div>
+        <div class="three">运动</div>
+        <div class="four">消费</div>
+    </main>
+</body>
+<!-- 这里需要引用 jq文件，可根据自己版本进行修改 -->
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    // 当点击医疗时调用方法
+    $('.one').click(function () {
+        // 判断语句
+        // 如果当前样式为  .one时
+        if ($(this).attr('class') == 'one') {
+            // 则点击时调用的为 .ones 样式
+            $(this).attr('class', 'ones')
+            //    背景颜色改变
+            $('body').css({ background: 'rgba(247, 114, 114, 0.986)' })
+        } else {//否则，也就是说当前为 .ones样式时，点击调用的是 .one样式
+
+            //这样可以实现重复点击效果
+            $(this).attr('class', 'one')
+            //使背景颜色变白
+            $('body').css({ background: 'none' })
+        }
+    })
+
+    // 当点击饮食时调用方法
+    //道理同上
+    $('.two').click(function () {
+        if ($(this).attr('class') == 'two') {
+            $(this).attr('class', 'twos')
+            $('body').css({ background: 'rgb(245, 245, 129)' })
+        } else {
+            $(this).attr('class', 'two')
+            $('body').css({ background: 'none' })
+        }
+    })
+
+    // 当点击运动时调用方法
+    //道理同上
+    $('.three').click(function () {
+        if ($(this).attr('class') == 'three') {
+            $(this).attr('class', 'threes')
+            $('body').css({ background: 'rgb(193, 245, 115)' })
+        } else {
+            $(this).attr('class', 'three')
+            $('body').css({ background: 'none' })
+        }
+    })
+
+    // 当点击消费时调用方法
+    //道理同上
+    $('.four').click(function () {
+        if ($(this).attr('class') == 'four') {
+            $(this).attr('class', 'fours')
+            $('body').css({ background: 'rgb(133, 219, 245)' })
+        } else {
+            $(this).attr('class', 'four')
+            $('body').css({ background: 'none' })
+        }
+    })
+</script>
+
+</html>

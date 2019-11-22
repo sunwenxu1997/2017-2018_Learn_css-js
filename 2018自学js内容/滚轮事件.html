@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            /* background: rgb(73, 73, 73); */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        main {
+            width: 30%;
+            /* height: 2000px; */
+            /* border: 1px solid black; */
+            position: relative;
+        }
+
+        #head {
+            width: 700px;
+            height: 80px;
+            position: fixed;
+            z-index: 99;
+            transition: 0.5s;
+            background: rgba(0, 0, 0, 0.507);
+            color: white;
+            font-size: 40px;
+            overflow: hidden;
+            line-height: 80px;
+            padding-left: 50px;
+        }
+
+        .one,
+        .two,
+        .three,
+        .four,
+        .five,
+        .six {
+            width: 100%;
+            height: 350px;
+            border: 1px solid rgb(100, 100, 100);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            background: black;
+            opacity: 0.8;
+            filter: blur(2px);
+            transition: 0.3s;
+        }
+
+        #sT img {
+            height: 100%;
+        }
+
+       
+
+        #img {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            filter: blur(5px);
+        }
+
+        .img {
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .public {
+            opacity: 1;
+            filter: blur(0px);
+        }
+        .imgs{
+            height: 100%;
+            position: absolute;
+            opacity: 1;
+        }
+        .button {
+            text-align: center;
+            line-height: 350px;
+            cursor: pointer;
+            color: white;
+            font-size: 35px;
+            background: rgba(0, 0, 0, 0.301);
+            position: relative;
+            top: 0;
+            transition: 1s;
+            opacity: 0;
+        }
+        .buttons{
+            top:-400px;
+            opacity: 1;
+        }
+        .sixs{
+            width: 40%;
+            height: 400px;
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="overall">
+        <div id="head">How much time do you have .</div>
+        <div id="sT" class="one" style=" filter: blur(0px);opacity: 1;"><img src="img/4.jpg" alt=""></div>
+        <div id="sT" class="two"><img src="img/18.jpg" alt=""></div>
+        <div id="sT" class="three"><img src="img/21.jpg" alt=""></div>
+        <div id="sT" class="four"><img src="img/20.jpg" alt=""></div>
+        <div id="sT" class="five"><img src="img/11.jpg" alt=""></div>
+        <div id="sT" class="six"><img src="img/19.jpg" alt=""></div>
+        <div id="sT" class="sixs"></div>
+        <div id="sT" class="button">
+            <h1>Back</h1>
+        </div>
+    </main>
+    <div id="img">
+        <img src="img/4.jpg" alt="" class="img" style="opacity:1">
+        <img src="img/18.jpg" alt="" class="img" >
+        <img src="img/21.jpg" alt="" class="img">
+        <img src="img/20.jpg" alt="" class="img">
+        <img src="img/11.jpg" alt="" class="img">
+        <img src="img/19.jpg" alt="" class="img">
+    </div>
+</body>
+<script>
+    var head = document.getElementById('head');
+    var button = document.getElementsByClassName('button')[0];
+    var one = document.getElementsByClassName('one')[0];
+    var two = document.getElementsByClassName('two')[0];
+    var three = document.getElementsByClassName('three')[0];
+    var four = document.getElementsByClassName('four')[0];
+    var five = document.getElementsByClassName('five')[0];
+    var six = document.getElementsByClassName('six')[0];
+    var img = document.getElementById('img');
+    var imgs = img.getElementsByTagName('img');
+
+    window.onscroll = function (e) {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop <= 350) {
+            head.innerText = 'How much time do you have .';
+            one.classList.add('public')
+        } else {
+            one.classList.remove('public')
+        }
+
+        if (scrollTop <= 700 && scrollTop > 350) {
+            head.innerText = 'Is your life complete ?';
+            two.classList.add('public');
+            imgs[1].classList.add('imgs');
+        } else {
+            two.classList.remove('public');
+            imgs[1].classList.remove('imgs');
+        }
+
+        if (scrollTop <= 1050 && scrollTop > 700) {
+            head.innerText = 'The world is still big .';
+            three.classList.add('public');
+            imgs[2].classList.add('imgs');
+        } else {
+            three.classList.remove('public');
+            imgs[2].classList.remove('imgs');
+        }
+
+        if (scrollTop <= 1400 && scrollTop > 1050) {
+            head.innerText = 'Where do you want to go .';
+            four.classList.add('public');
+            imgs[3].classList.add('imgs');
+        } else {
+            four.classList.remove('public');
+            imgs[3].classList.remove('imgs');
+        }
+         if (scrollTop <= 1750 && scrollTop > 1400) {
+            head.innerText = 'Do you have enough money ?';
+            five.classList.add('public');
+            imgs[4].classList.add('imgs');
+        }else{
+            five.classList.remove('public')
+            imgs[4].classList.remove('imgs');
+        }
+         if (scrollTop <= 2100 && scrollTop > 1750) {
+            head.innerText = 'Travel with your partner !';
+            six.classList.add('public');
+            imgs[5].classList.add('imgs');
+            button.classList.add('buttons');
+        }else{
+            six.classList.remove('public');
+            imgs[5].classList.remove('imgs');
+            button.classList.remove('buttons');
+        }
+        button.onclick = function (e) {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+    }
+
+</script>
+
+</html>

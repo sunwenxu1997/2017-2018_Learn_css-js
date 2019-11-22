@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>花束</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body {
+            background: pink;
+            perspective: 3000px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        main {
+            width: 400px;
+            height: 500px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 3000px;
+            /* transform: rotateX(80deg); */
+        }
+
+        main div {
+            transform-style: preserve-3d;
+        }
+
+        #bouquet {
+            width: 300px;
+            height: 400px;
+            /* border: 1px solid white; */
+            box-sizing: border-box;
+            position: relative;
+            perspective: 3000px;
+            /* transform: rotateX(-50deg)  rotateY(0deg); */
+            animation: zhuan 15s linear infinite;
+            animation-delay: 3s;
+        }
+        @keyframes zhuan {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(0deg);
+            }
+        }
+
+        #bouquet #pack {
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        #bouquet #pack::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .pack-b {
+            border-top: 0px solid transparent;
+            border-bottom: 150px solid rgba(255, 255, 255, 0.829);
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            transform: rotateX(15deg) translateZ(-55px) translateY(-50px);
+        }
+
+        .pack-b::before {
+            border-top: 250px solid white;
+            border-bottom: 0px solid transparent;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            left: -150px;
+            top: 149px;
+        }
+
+        .pack-l {
+            border-top: 0px solid transparent;
+            border-bottom: 100px solid rgba(255, 255, 255, 0.63);
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            top: -25px;
+            transform: rotateY(100deg) rotateX(30deg) rotateZ(2deg) translateZ(-115px) translateX(-30px);
+        }
+
+        .pack-l::before {
+            border-top: 320px solid white;
+            border-bottom: 0px solid transparent;
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            left: -90px;
+            top: 100px;
+        }
+
+        .pack-r {
+            border-top: 0px solid transparent;
+            border-bottom: 100px solid rgba(255, 255, 255, 0.63);
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            top: -25px;
+            left: 129px;
+            transform: rotateY(90deg) rotateX(-32deg) rotateZ(-2deg) translateZ(115px) translateX(-44px);
+        }
+
+        .pack-r::before {
+            border-top: 320px solid white;
+            border-bottom: 0px solid transparent;
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            left: -90px;
+            top: 100px;
+        }
+
+        .pack-q {
+            border-top: 150px solid white;
+            border-bottom: 0px solid transparent;
+            border-left: 70px solid transparent;
+            border-right: 84px solid transparent;
+            left: 82px;
+            top: 180px;
+            transform: rotateX(-21deg) translateZ(79px);
+        }
+
+        .pack-q h2 {
+            display: block;
+            width: 80px;
+            height: 30px;
+            font-size: 15px;
+            background: rgb(253, 245, 245);
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            left: -40px;
+            top: -130px;
+            color: red;
+        }
+
+        .pack-q section {
+            width: 20px;
+            height: 1px;
+            border-top: 20px solid red;
+            border-left: 10px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 0px solid transparent;
+            position: absolute;
+            left: -19px;
+            top: -40px;
+        }
+
+        .pack-b .cord {
+            width: 20px;
+            height: 1px;
+            border-top: 20px solid red;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 0px solid transparent;
+            position: absolute;
+            top: 360px;
+            left: -22px;
+        }
+
+        .pack-b .cord-wl {
+            width: 1px;
+            height: 100px;
+            border-top: 0px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid red;
+            border-right: 20px solid transparent;
+            position: absolute;
+            top: 365px;
+            left: 20px;
+            transform: translateZ(50px) rotateZ(-20deg);
+        }
+
+        .pack-b .cord-wr {
+            width: 1px;
+            height: 100px;
+            border-top: 0px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-right: 20px solid red;
+            position: absolute;
+            top: 365px;
+            left: -50px;
+            transform: translateZ(50px) rotateZ(20deg);
+        }
+
+        .pack-l section,
+        .pack-r section {
+            width: 43px;
+            height: 1px;
+            border-top: 20px solid red;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 0px solid transparent;
+            position: absolute;
+            top: 321px;
+            left: -29px;
+        }
+
+        #flower {
+            width: 30px;
+            height: 300px;
+            /* background: white; */
+            position: absolute;
+
+        }
+
+        .flower-1 {
+            left: 110px;
+            top: 20px;
+            transform: rotateX(10deg) rotateZ(-5deg);
+        }
+
+        .flower-2 {
+            left: 150px;
+            top: 20px;
+            transform: rotateX(-5deg) translateZ(15px) rotateZ(15deg);
+        }
+
+        .flower-3 {
+            left: 120px;
+            top: 50px;
+            transform: rotateX(-5deg) translateZ(15px) rotateZ(0deg);
+        }
+
+        .flower-4 {
+            left: 80px;
+            top: 50px;
+            transform: rotateX(-5deg) translateZ(15px) rotateZ(-15deg) scale(0.8);
+        }
+
+        .flower-5 {
+            left: 60px;
+            top: 50px;
+            transform: rotateX(5deg) translateZ(0px) rotateZ(-25deg) scale(0.8);
+        }
+
+        .flower-6 {
+            left: 85px;
+            top: 50px;
+            transform: rotateX(-10deg) translateZ(50px) rotateZ(-15deg) rotateY(20deg) scale(0.8);
+        }
+
+        .flower-7 {
+            left: 155px;
+            top: 50px;
+            transform: rotateX(-10deg) translateZ(50px) rotateZ(15deg) rotateY(20deg) scale(0.8);
+        }
+
+        .flower-8 {
+            left: 155px;
+            top: 50px;
+            transform: rotateX(-10deg) translateZ(50px) rotateZ(15deg) rotateY(20deg) scale(0.8);
+        }
+        .flower-9 {
+            left: 130px;
+            top: 50px;
+            transform: rotateX(-10deg) translateZ(50px) rotateZ(10deg) rotateY(20deg) scale(0.7);
+        }
+        .flower-10 {
+            left: 110px;
+            top: 60px;
+            transform: rotateX(-10deg) translateZ(55px) rotateZ(-10deg) rotateY(20deg) scale(0.6);
+        }
+        .flower-11 {
+            left: 140px;
+            top: 60px;
+            transform: rotateX(-35deg) translateZ(55px) rotateZ(-10deg) rotateY(20deg) scale(0.6);
+        }
+        .flower-12 {
+            left: 160px;
+            top: 50px;
+            transform: rotateX(-35deg) translateZ(68px) rotateZ(20deg) rotateY(20deg) scale(0.6);
+        }
+        .flower-13 {
+            left: 200px;
+            top: 50px;
+            transform: rotateX(-10deg) translateZ(10px) rotateZ(20deg) rotateY(20deg) scale(0.6);
+        }
+        #flower div {
+            width: 0;
+            height: 0;
+            border-top: 0px solid transparent;
+            border-bottom: 30px solid rgb(250, 33, 33);
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            position: absolute;
+            transform-origin: 0% 30px;
+        }
+
+        #flower .flower-hb {
+            transform: rotateX(50deg);
+        }
+
+        #flower .flower-hl {
+            transform: rotateY(-50deg) rotateX(-50deg);
+        }
+
+        #flower .flower-hr {
+            left: 27px;
+            top: 0px;
+            transform: rotateY(-100deg) rotateX(50deg) rotateZ(5deg) translateX(-5px);
+        }
+
+        #flower section {
+            width: 0;
+            height: 0;
+            border-top: 250px solid rgba(248, 127, 127, 0.884);
+            border-bottom: 0px solid transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            position: absolute;
+            top: 30px;
+            transform-origin: 50% 0;
+        }
+
+        #flower .flower-b {
+            transform: rotateX(1deg);
+        }
+
+        #flower .flower-l {
+            left: -15px;
+            transform: rotateY(-50deg) translateX(15px) rotateX(-2deg);
+        }
+
+        #flower .flower-r {
+            left: 15px;
+            transform: rotateY(65deg) translateX(-10px) rotateX(-3deg);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="bouquet">
+            <div id="pack" class="pack-b">
+                <section id="cord" class="cord"></section>
+                <section id="cord" class="cord-wl"></section>
+                <section id="cord" class="cord-wr"></section>
+            </div>
+            <div id="pack" class="pack-l">
+                <section id="cord"></section>
+            </div>
+            <div id="pack" class="pack-r">
+                <section id="cord"></section>
+            </div>
+            <div id="pack" class="pack-q">
+                <h2> I Love You</h2>
+                <section id="cord"></section>
+            </div>
+            <div id="flower" class="flower-1">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-2">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-3">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-4">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-5">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-6">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-7">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-8">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-9">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-10">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-11">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-12">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+            <div id="flower" class="flower-13">
+                <div class="flower-hb"></div>
+                <section class="flower-b"></section>
+                <div class="flower-hl"></div>
+                <section class="flower-l"></section>
+                <div class="flower-hr"></div>
+                <section class="flower-r"></section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

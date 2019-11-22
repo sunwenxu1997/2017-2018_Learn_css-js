@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>海贼王</title>
+        <style>
+                body,html {
+                    height: 100%;
+                        margin: 0 auto;
+                }
+                body{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: rgb(243, 198, 51);
+                    transition: 0.5s;
+                }
+               #head{
+                   width: 600px;
+                   height: 300px;
+                   /* border: 5px solid white; */
+                   position: relative;
+                   transition: 2s;
+                   background: rgb(245, 212, 103);
+                   box-shadow: 10px 10px 10px rgb(58, 57, 57);
+               }
+                main {
+                        width: 600px;
+                        height: 250px;
+                        /* border: 1px solid red; */
+                        position: absolute;
+                        bottom: 0;
+                        cursor: pointer;
+
+                }
+
+                .left,
+                .right {
+                        width: 90px;
+                        height: 190px;
+                        /* background: red; */
+                        float: left;
+                        margin: 60px 0 0 0px;
+                }
+
+                .center {
+                        width: 10px;
+                        height: 190px;
+                        /* background: red; */
+                        float: left;
+                        margin: 60px 0 0 0;
+                }
+
+                .left div {
+                        height: 10px;
+                }
+
+                .left div div {
+                        width: 10px;
+                        height: 10px;
+                        float: right;
+                        transition-duration: 1s;
+                       
+                }
+
+                .center div {
+                        width: 10px;
+                        height: 10px;
+                        /* background: blue; */
+                        float: left;
+                        transition-duration: 1s;
+                }
+
+                .right div {
+                        height: 10px;
+                }
+
+                .right div div {
+                        width: 10px;
+                        height: 10px;
+                        float: left;
+                        transition-duration: 1s;
+                }
+                .lian{
+                    background: #F3AC93;
+                }
+                .zui{
+                    background: red;
+                }
+                .yan{
+                    background: black;
+                }
+                .yans{
+                    background: #FFFAC4;
+                }
+                .yanss{
+                    background: black;
+                }
+                main:hover .lian{
+                    background: red;
+                }
+                main:hover .zui{
+                     background: #FFFAC4;
+                }
+                #head:hover .yan{
+                     background: #F3AC93;
+                }
+                #head:hover .yans{
+                     background: black;
+                }
+                #head:hover .yanss{
+                    background: #FFFAC4;
+                }
+                #head img{
+                    width: 150px;
+                    height: 150px;
+                    display: block;
+                    position: absolute;
+                    left: 210px;
+                    opacity: 0;
+                    transition: 2s;
+
+                }
+        </style>
+</head>
+
+<body>
+    <div id="head">
+        <img src="img/xsxin.png" alt="">
+        <main id="lufei-l">
+                <div class="left">
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#F3AC93"></div>
+                                <div class="yan"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div  style="background:#0F0F0E" ></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F8F8F7"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                </div>
+                <div class="center">
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                </div>
+                <div class="right">
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#FFFF00"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#F3AC93"></div>
+                                <div class="yan"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#F7AF0F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div  class="yanss"></div>
+                                <div  class="yans"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F8F8F7"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#E5042F"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                </div>
+        </main>
+        <main id="lufei-r">
+                <div class="left">
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F8F8F7"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div class="lian"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                </div>
+                <div class="center">
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div  class="zui"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                </div>
+                <div class="right">
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:red"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:red"></div>
+                                <div style="background:rgb(241, 206, 46)"></div>
+                                <div style="background:red"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:red"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:rgb(248, 248, 123)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:rgb(231, 231, 119)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F8F8F7"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#F3AC93"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div  class="lian"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                                <div style="background:rgb(230, 160, 10)"></div>
+                        </div>
+                        <div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:rgb(250, 93, 122)"></div>
+                                <div style="background:#FFFAC4"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                        <div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                                <div style="background:#0F0F0E"></div>
+                        </div>
+                </div>
+        </main>
+    </div>
+        <script src="js/jquery-1.12.1.min.js"></script>
+        <script>
+                var index = 0;
+                $('#lufei-l  div div div').each(function () {
+                        $(this).css
+                                ({
+                                        position: 'relative',
+                                        left: '-200px',
+                                        opacity: 0
+                                })
+                        var wait =Math.floor(Math.random() * 3000);
+                        $(this).delay(wait).animate({
+                                left: 0,
+                                opacity: 1,
+                        }, 1000)
+                });
+                $('#lufei-r  div div div').each(function () {
+                        $(this).css
+                                ({
+                                        position: 'relative',
+                                        right: '-600px',
+                                        opacity: 0
+                                })
+                        var wait =Math.floor(Math.random() * 3000);
+                        $(this).delay(wait).animate({
+                                right: -410,
+                                opacity: 1,
+                        }, 1000)
+                });
+//                 鼠标事件
+// click：单击
+// dblclick：双击
+// mousedown：鼠标按下
+// mouseup：鼠标抬起
+// mouseover：鼠标悬浮
+// mouseout：鼠标离开
+// mousemove：鼠标移动
+// mouseenter：鼠标进入
+// mouseleave：鼠标离开
+                $('main').click(function () {
+                        $('#lufei-l  div div div').each(function () {
+                        $(this).css
+                                ({
+                                        position: 'relative',
+                                        left: 0,
+                                        opacity: 1
+                                })
+                        var back =Math.floor(Math.random());
+                        $(this).delay(back).animate({
+                               left: '100px',
+                                opacity: 1,
+                        })
+                        })
+                        $('#lufei-r  div div div').each(function () {
+                        $(this).css
+                                ({
+                                        position: 'relative',
+                                        right: -400,
+                                        opacity: 1
+                                })
+                        var back =Math.floor(Math.random());
+                        $(this).delay(back).animate({
+                                right: '-280px',
+                                opacity: 1,
+                        })
+                        })
+                        $('img').each(function () {
+                            $(this).css({
+                                top:100,
+                                opacity:1
+                            })
+                            $(this).animate({
+                                top:'-70px',
+                                opacity:1
+                            })
+                        })
+                       
+                });
+                $('#head').click(function () {
+                            $(this).css({
+                                background:'pink',
+                                boxShadow:'-10px 10px 10px rgb(58, 57, 57)'
+                            })
+                            $('body').css({
+                                background:'rgb(248, 99, 124)'
+                            })
+                        })
+//     $(function(){//逐个消除像素
+//             $('main div div div').hover(function () {
+//                 $(this).stop().animate({
+//            left:'200px',
+//           opacity:0,
+//             },10)
+//     }); 
+//     })
+        </script>
+</body>
+
+</html>

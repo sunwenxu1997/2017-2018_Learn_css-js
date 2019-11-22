@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+    }
+    html,body{
+        height: 100%;
+    }
+    main{
+        width: 100px;
+        height: 230px;
+        position: relative;
+        top: -30px;
+        transform-origin: 50% 0%;
+        cursor: pointer;
+    }
+    #body{
+        width: 100px;
+        height: 230px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background: rgb(41, 41, 41);
+     
+        /* transform: rotate(10deg); */
+        position: absolute;
+        z-index: 99;
+    }
+    .mouse{
+        width: 40px;
+        height: 2px;
+        background: white;
+        position: absolute;
+        top: 120px;
+        left: 30px;
+    }
+    .mouse::before,.mouse::after{
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 0px solid transparent;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 20px solid white;
+        position: absolute;
+        top: -20px;
+    }
+    .mouse::before{
+        left: 5px;
+    }
+    .mouse::after{
+        right: 5px;
+    }
+    #ear{
+        width: 0;
+        height: 0;
+        border-top: 100px solid rgb(41, 41, 41);
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 0px solid transparent;
+        position: absolute;
+        bottom: -80px;
+        transform-origin: 50% 0px;
+        /* transform: rotate(-10deg) */
+    }
+    #ear::before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 50px solid rgb(104, 102, 102);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 0px solid transparent;
+        position: absolute;
+        top: -100px;
+        left: -10px;
+    }
+    .ear-l{
+        left: 0;
+    }
+    .ear-r{
+        right: 0;
+    }
+    #eye{
+        width: 30px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        bottom: 50px;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+    #eyes{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: black;
+        position: absolute;
+        top: 10px;
+    }
+    .eyes-l{
+        left: 10px;
+    }
+    .eyes-r{
+        right: 10px;
+    }
+    .eye-l{
+        height: 2px;
+        left: 15px;
+    }
+    .eye-r{
+        height: 2px;
+        right: 15px;
+    }
+    #zhe{
+        width: 30px;
+        height: 15px;
+        background: rgb(61, 61, 61);
+        position: absolute;
+    }
+    .zhe-tl,.zhe-tr{
+        top: -20px;
+    }
+    .chi-l{
+        width: 0px;
+        height: 40px;
+        border-left: 50px solid transparent;
+        border-right: 70px solid rgb(116, 114, 114);
+        border-top: 0px solid transparent;
+        border-bottom: 60px solid transparent;
+        transform: rotate(70deg);
+        position: absolute;
+        top: 50px;
+        left: -100px;
+        z-index: -1;
+    }
+    .chi-l::before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 0px solid transparent;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-bottom: 40px solid rgb(71, 70, 70);
+        transform: rotate(30deg) translateX(-70px);
+        position: absolute;
+        top: 70px;
+        transition: 0.5s;
+    }
+    .chi-r::before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 40px solid rgb(71, 70, 70);
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-bottom: 40px solid transparent;
+        transform: rotate(-28deg) translateX(-60px);
+        position: absolute;
+        bottom: 30px;
+        transition: 0.5s;
+    }
+    .chi-r{
+        width: 0px;
+        height: 40px;
+        border-left: 50px solid transparent;
+        border-right: 70px solid rgb(116, 114, 114);
+        border-top: 60px solid transparent;
+        border-bottom: 0px solid transparent;
+        transform: rotate(110deg);
+        position: absolute;
+        top: 50px;
+        right: -100px;
+        z-index: -1;
+    }
+    main:hover .chi-l::before{
+        transform: rotate(-20deg) translateX(-70px) translateY(-30px);
+    }
+    main:hover .chi-r::before{
+        transform: rotate(20deg) translateX(-70px) translateY(30px);
+    }
+    main:hover #eye{
+        background: red;
+    }
+    </style>
+</head>
+<body>
+    <main id="bodys">
+            <div id="chi" class="chi-l"></div>
+            <div id="chi" class="chi-r"></div>
+    <div id="body">
+        <div class="mouse"></div>
+        <div id="ear" class="ear-l"></div>
+        <div id="ear" class="ear-r"></div>
+        <div id="eye" class="eye-l">
+            <div id="eyes" class="eyes-l"></div>
+            <div id="zhe" class="zhe-tl"></div>
+        </div>
+        <div id="eye" class="eye-r">
+            <div id="eyes" class="eyes-r"></div>
+            <div id="zhe" class="zhe-tr"></div>
+        </div>
+    </div>
+</main>
+</body>
+<script>
+   var w = window.innerWidth;
+   var h = window.innerHeight;
+   var bd = document.getElementById('bodys');
+   var earL = document.getElementsByClassName('ear-l')[0];
+   var earR = document.getElementsByClassName('ear-r')[0];
+   var eyeL = document.getElementsByClassName('eye-l')[0];
+   var eyeR = document.getElementsByClassName('eye-r')[0];
+   var eyesL = document.getElementsByClassName('eyes-l')[0];
+   var eyesR = document.getElementsByClassName('eyes-r')[0];
+   var zheTL =document.getElementsByClassName('zhe-tl')[0];
+   var zheTR =document.getElementsByClassName('zhe-tr')[0];
+   document.onmousemove = function (e) {
+       eyeL.style.height = '30px';
+       eyeR.style.height = '30px';
+       var x = e.clientX;
+       var y = e.clientY;
+       bd.style.transform = 'rotate('+ (-x + w/2)*0.04 +'deg)';
+
+       earL.style.transform = 'rotate('+ (-x + w/2)*0.06 +'deg)';
+       earR.style.transform = 'rotate('+ (-x + w/2)*0.06 +'deg)';
+
+       eyeL.style.left = 15 - (-x + w/2)*0.02 + 'px';
+       eyeR.style.right = 15 + (-x + w/2)*0.02 + 'px';
+
+       eyesL.style.left = 10 - (-x + w/2)*0.015 + 'px';
+       eyesR.style.right = 10 + (-x + w/2)*0.015 + 'px';
+       eyesL.style.top = 10 - ( -y + h/2)*0.02 + 'px';
+       eyesR.style.top = 10 - ( -y + h/2)*0.02 + 'px';
+
+       zheTL.style.top = 25 - ( -y + h/2)*0.02 + 'px';
+       zheTR.style.top = 25 - ( -y + h/2)*0.02 + 'px';
+       console.log(x,y)
+   }
+  var timer = setInterval(function () {
+       eyeL.style.height = '2px';
+       eyeR.style.height = '2px';
+   },2000)
+</script>
+</html>

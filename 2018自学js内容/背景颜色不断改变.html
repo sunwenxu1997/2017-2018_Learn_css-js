@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #dv{
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+</head>
+<body>
+    <div id="dv"></div>
+</body>
+<script>
+    window.onload = function(){
+     changeColor();
+    }
+    function changeColor(){
+     var r = parseInt(Math.random() * 255);
+     var g = parseInt(Math.random() * 255);
+     var b = parseInt(Math.random() * 255);
+     var colorHex = r.toString(16) + g.toString(16) + b.toString(16);
+     document.body.bgColor = "#"+colorHex;
+     window.setTimeout("changeColor()",1000);
+    }
+    </script>
+</html>

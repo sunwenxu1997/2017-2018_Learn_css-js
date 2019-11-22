@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+    }
+    body,html{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+        background: rgb(73, 73, 73);
+        perspective: 1000px;
+        overflow: hidden;
+    }
+    #album{
+        width: 133px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg);
+    }
+    #album img{
+        /* position: absolute;
+        top: 0;
+        left: 0; */
+        height: 100%;
+     
+    }
+    </style>
+</head>
+<body>
+    <div id="album">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    <img src="img/18.jpg" alt="">
+    </div>
+</body>
+<script>
+    // 网页中的某些JavaScript脚本代码往往需要在文档加载完成后才能够去执行，否则可能导致无法获取对象的情况，为了避免类似情况的发生，可以使用以下两种方式:
+    // （1）.将脚本代码放在网页的底端，运行脚本代码的时候，可以确保要操作的对象已经加载完成。
+    // （2）.通过window.onload来执行脚本代码。
+    // 第一种方式感觉比较凌乱（其实推荐使用），我们通常需要将脚本代码放在一个更为合适的地方，window.onload方式将是一个良好的选择。window.onload是一个事件，当文档内容完全加载完成会触发该事件。可以为此事件注册事件处理函数，并将要执行的脚本代码放在事件处理函数中，于是就可以避免获取不到对象的情况
+window.onload = function () {
+    var album = document.getElementById('album');
+        aImg = document.querySelectorAll('img');
+        console.log(aImg)
+        for (var i = 0; i < aImg.length; i++) {
+            //图片旋转分散 36°，因为为10张图片，刚好360°
+            aImg[i].style.transform = 'rotateY('+ i*360 /aImg.length + 'deg) traslateZ(300px)';
+            aImg[i].style.trasition = 'transform 1s' + (aImg.length - i)*0.1 + 's';
+            console.log(aImg[i])        
+        }
+}
+</script>
+</html>

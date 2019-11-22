@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算器</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        #jieguo {
+            height: 12rem;
+            background: rgb(228, 227, 227);
+            text-align: right;
+            cursor: default;
+            font-size: 2rem;
+            /* line-height: 18rem; */
+            color: rgb(78, 78, 78);
+            word-wrap: break-word;
+        }
+
+        #jisuan {
+            background-color: orange;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            width: 100%;
+        }
+        table tr td {
+            width: 25%;
+            height: 4rem;
+            text-align: center;
+            line-height: 4rem;
+            border: 1px solid rgb(228, 227, 227);
+            cursor: pointer;
+            font-weight: bold;
+            color: rgb(87, 85, 85);
+            font-size: 1.5rem;
+        }
+
+        table tr td:hover {
+            background: rgb(248, 240, 240);
+        }
+        table tr td:active {
+            background: rgb(248, 240, 240);
+        }
+
+        #jisuan:hover {
+            background: rgb(224, 148, 5);
+        }
+        #jisuan:active {
+            background: rgb(224, 148, 5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="jieguo"></div>
+    <table id="calculater" onClick="calculater()">
+        <tr>
+            <td style="color:orange">C</td>
+            <td>Repeal</td>
+            <td>/</td>
+            <td>*</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td id="one">1</td>
+            <td id="two">2</td>
+            <td id="three">3</td>
+            <td rowspan="2" id="jisuan">=</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>0</td>
+            <td>.</td>
+        </tr>
+    </table>
+</body>
+<script>
+ function calculater(){
+results = event.srcElement.innerText
+console.log(results)
+}
+</script>
+</html>

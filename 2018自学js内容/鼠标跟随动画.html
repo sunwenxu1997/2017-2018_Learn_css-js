@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0 auto;
+            overflow: hidden;
+        }
+    #follow{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* background: red; */
+        position: absolute;
+        /* transform: translateX(-50px) translateY(-50px); */
+        /* animation: zhuan 1s linear infinite; */
+    }@keyframes zhuan{
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+  .qiu{
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      left: calc(50% - 1px);
+      top: calc(50% - 1px);
+      background: black;
+      border-radius: 50%;
+      /* box-shadow: 100px 5px 10px 5px yellow,60px 50px 5px 5px rgb(0, 217, 255),20px 200px 20px 10px rgb(51, 255, 0),200px 80px 20px 5px rgb(4, 0, 255),20px 5px 10px 5px rgb(255, 0, 34); */
+      /* animation: dong 1s ease infinite alternate; */
+  }@keyframes dong{
+      0%{
+        box-shadow: 0px 0px 0px 0px yellow,0px 0px 0px 0px rgb(0, 217, 255),0px 0px 0px 0px rgb(51, 255, 0),0px 0px 0px 0px rgb(4, 0, 255),0px 0px 0px 0px rgb(255, 0, 34);
+      }
+      100%{
+        box-shadow: 100px 5px 10px 5px yellow,60px 50px 5px 5px rgb(0, 217, 255),20px 200px 20px 10px rgb(51, 255, 0),200px 80px 20px 5px rgb(4, 0, 255),20px 5px 10px 5px rgb(255, 0, 34);
+      }
+  }
+    </style>
+</head>
+<body id="body">
+    <div id="follow" style=" display: none;">
+        <div class="qiu">
+            <img src="img/shu.png" alt="" id="img">
+        </div>
+    </div>
+</body>
+<script>
+   var w = window.innerWidth;
+   var h = window.innerHeight;
+   var img = document.getElementById('img')
+   var fw = document.getElementById('follow');
+   var body = document.getElementById('body');
+   document.onmousemove = function (e) {
+       var x = e.clientX;
+       var y = e.clientY;
+       console.log(x,y);
+       fw.style.display = 'block';
+       fw.style.left = -50 + x + 'px';
+       fw.style.top = - 50 + y + 'px';
+      
+      
+   }
+  
+   setInterval(function () {
+           body.style.cursor = 'none'
+       },2000,function () {
+        body.style.cursor = 'default'
+       })
+</script>
+</html>

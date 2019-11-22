@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .nav {
+            position: relative;
+            height: 30px;
+            background: red;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .fixednav {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            opacity: 1;
+            transition: 1s;
+        }
+
+    </style>
+   
+</head>
+
+<body>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <!-- <div class="navTmp" style="display:none;height:30px;"></div> -->
+    <div class="nav"></div>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+    <p>我爱学习</p>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var nav = $(".nav"); //得到导航对象
+        var win = $(window); //得到窗口对象
+        var sc = $(document);//得到document文档对象。
+
+        win.scroll(function () {
+            // 当鼠标滚轮到达距离顶部大于等于60px 位置时调用 .fixednav css样式
+            if (sc.scrollTop() >= 60) {
+                nav.addClass("fixednav");
+                $(".navTmp").fadeIn();
+
+            } else {
+                nav.removeClass("fixednav");
+                $(".navTmp").fadeOut();
+            }
+        })
+    })
+</script>
+</html>

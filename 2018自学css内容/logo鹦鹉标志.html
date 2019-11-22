@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鹦鹉标志</title>
+    <style>
+    body{
+        background-color: #1B1D33;  
+    }
+    .box{
+        width: 300px;
+        height: 300px;
+        margin: 200px auto;
+        /* inset内阴影 */
+        box-shadow: 0 0 20px 0 white inset;
+        border-radius: 50%;
+        transform: rotate(-45deg);
+    }
+    .box:hover .big{
+ transform: rotate(180deg);
+        transition: 2s;
+        border-top: 100px solid cornflowerblue;
+        border-left: 100px solid cornflowerblue;
+        /* animation-fill-mode: forwards; */
+    }
+    .box:hover .bog{
+        transform: rotate(180deg);
+        transition: 2s;
+        border-top: 75px solid #ccc;
+        border-bottom: 75px solid yellow;
+        border-right: 75px solid transparent;
+        border-left: 75px solid white;
+        /* animation-fill-mode: forwards; */
+    }
+    .box:hover .small{
+        transform: rotate(180deg);
+        transition: 2s;
+        border-right: 45px solid orange;
+        border-bottom: 45px solid transparent;
+        /* animation-fill-mode: forwards; */
+    }
+    .box:hover .eye{
+        transition: 2s;
+        position: relative;
+        top: -10px;
+        left:-60px;
+    }
+    .big{
+        width: 0px;
+        height: 0px;
+        margin: auto;
+        border-top: 100px solid red;
+        border-bottom: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-left: 100px solid red;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;right: 0;bottom: 0;top: 0;
+        transition-duration: 1s;
+    }
+    .bog{
+        width: 0px;
+        height: 0px;
+        margin: auto;
+        border-top: 75px solid white;
+        border-bottom: 75px solid transparent;
+        border-right: 75px solid yellow;
+        border-left: 75px solid #ccc;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;right: 0;bottom: 0;top: 0;
+        transition-duration: 1s;
+    }
+    .eye{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: black;
+        position: absolute;
+        top: -50px;
+        left: -10px;
+        transition-duration: 1s;
+    }
+    .small{
+        width: 0px;
+        height: 0px;
+        margin: auto;
+        border-top: 45px solid transparent;
+        border-bottom: 45px solid orange;
+        border-right: 45px solid transparent;
+        border-left: 45px solid transparent;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;right: 0;bottom: 0;top: 0;
+        transition-duration: 1s;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="big"></div>
+        <div class="bog">
+            <div class="eye"></div>
+        </div>
+        <div class="small"> </div>
+    </div>
+</body>
+</html>

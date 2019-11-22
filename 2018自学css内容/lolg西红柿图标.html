@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>西红柿图标</title>
+    <style>
+        body {
+            background: rgb(255, 212, 71);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            cursor: default;
+        }
+
+        main {
+            width: 300px;
+            height: 300px;
+            border: 2px solid transparent;
+            margin: 250px auto;
+            position: relative;
+        }
+        .title{
+        position: absolute;
+        right:0px;
+        top: 70px;
+        width: 30px;
+        height: 30px;
+        /* background: red; */
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    #active{
+        opacity: 0;
+    }
+    main:hover .title{
+        transition: 1s;
+        right: 50px;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    main:active #hover{
+        transition: 1s;
+        opacity: 0;
+    }
+    main:active #active{
+        transition: 1s;
+        opacity: 1;
+        color: orangered;
+    }
+        @keyframes dong1 {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+                top: 45px;
+                left: 10px;
+                transform: rotate(0deg);
+            }
+            100% {
+                opacity: 1;
+                top: 80px;
+                left: 50px;
+                transform: rotate(-30deg);
+            }
+        }
+
+        @keyframes dong0deg {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                top: 85px;
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes dong2 {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                top: 40px;
+                left: 40px;
+                transform: rotate(0);
+            }
+            100% {
+                opacity: 1;
+                top: 80px;
+                left: 10px;
+                transform: rotate(30deg);
+            }
+        }
+
+        @keyframes dong3 {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                top: 75px;
+                left: 45px;
+                transform: rotate(30deg);
+            }
+        }
+
+        @keyframes dong4 {
+            0% {}
+            100% {
+
+                transform: rotate(-60deg) translateX(-5px) translateY(-5px);
+            }
+        }
+
+        @keyframes dong5 {
+            0% {}
+            100% {
+                transform: rotate(70deg) translateX(5px) translateY(-5px);
+            }
+        }
+
+        .fanqie {
+            width: 140px;
+            height: 150px;
+            /* background: blue; */
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+.shuil,.shuir{
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            border-bottom: 10px solid transparent;
+            border-left: 5px solid transparent;
+            border-right:5px solid transparent;
+            border-top: 10px solid rgb(252, 57, 23);
+            position: absolute;
+            top: 60px;
+            left: 65px;
+}
+.shuil{
+    transform: rotate(-45deg);
+    left:25px;
+    top: 50px;
+}@keyframes shuil{
+    0%{
+    }
+    100%{
+        left: 0;
+        top: 25px;
+        border-top: 10px solid white;
+    }
+}
+main:active .shuil{
+animation: shuil 1s linear infinite;
+}
+.shuir{
+    transform: rotate(30deg);
+    left:90px;
+    top: 80px;
+}@keyframes shuir{
+    0%{
+    }
+    100%{
+        left: 110px;
+        top:30px;
+        border-top: 10px solid white;
+    }
+}
+main:active .shuir{
+animation: shuir 1s linear infinite;
+}
+        .tou {
+            width: 10px;
+            height: 5px;
+            background: green;
+            position: absolute;
+            top: 45px;
+            left: 65px;
+            z-index: 1;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            transition: 0.5s;
+        }
+        .dao{
+            width: 1px;
+            height: 80px;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 70px;
+            opacity: 0;
+        }@keyframes dao{
+            0%{
+
+            }
+            100%{
+                top: 100px;
+                opacity: 1;
+            }
+        }
+        main:hover .dao{
+            animation: dao 0.5s linear 1;
+        }
+main:hover .tou{
+    transition: 1s;
+    opacity: 0;
+    top: 0;
+}
+        .fanqiel {
+            width: 70px;
+            height: 100px;
+            border-top-left-radius: 35px;
+            border-bottom-left-radius: 55px;
+            background:  rgb(252, 57, 23);
+            position: absolute;
+            top: 50px;
+           transition: 0.5s;
+        }
+main:hover .fanqiel{
+    transition: 1s;
+     transform-origin:40% 100%;
+     transform: rotate(-60deg);
+     /* background: rgb(252, 84, 55); */
+}
+main:active .fanqiel{
+    animation: left 0.5s linear infinite alternate;
+    background: tomato;
+}
+@keyframes left{
+    0%{
+    }
+    100%{
+        transform-origin:40% 100%;
+     transform: rotate(-70deg);
+    }
+}
+main:hover .fanqie .water{
+    animation: none;
+}
+
+        .fanqiel .water {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            border-top: 8px solid transparent;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 8px solid white;
+            position: absolute;
+            top: 0;
+            left: 30px;
+        }
+
+        .fanqiel .water:nth-child(1) {
+            left: 40px;
+            transform: rotate(20deg);
+            animation: dong1 5s linear infinite;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+
+        .fanqiel .water:nth-child(2) {
+            opacity: 0;
+            top: 0px;
+            left: 55px;
+            transform: rotate(0deg);
+            animation: dong0deg 4s linear infinite;
+
+        }
+
+        .fanqiel::before {
+            display: block;
+            content: "";
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            border-left: 6px solid greenyellow;
+            position: absolute;
+            top: -30px;
+            right: -15px;
+            transition: 0.5s;
+        }
+
+        .fanqiel::after {
+            display: block;
+            content: "";
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            border-left: 7px solid greenyellow;
+            transform: rotate(-50deg);
+            position: absolute;
+            top: -60px;
+            right: -25px;
+            animation: dong4 2s linear infinite alternate;
+            transition: 0.5s;
+        }
+main:hover .fanqiel::before{
+    transition: 1s;
+border-left: 7px solid darkgoldenrod;
+}
+main:hover .fanqiel::after{
+    transition: 1s;
+border-left: 7px solid darkgoldenrod;
+animation-play-state: paused;
+}
+        .fanqier {
+            width: 70px;
+            height: 100px;
+            border-top-right-radius: 35px;
+            border-bottom-right-radius: 55px;
+            background: rgb(252, 57, 23);
+            position: absolute;
+            top: 50px;
+            left: 70px;
+            transition: 0.5s;
+        }
+        main:hover .fanqier{
+    transition: 1s;
+    transform-origin:60% 100%;
+    transform: rotate(60deg);
+    /* background: rgb(252, 84, 55); */
+}
+main:active .fanqier{
+    animation: right 0.5s linear infinite alternate;
+    background: tomato;
+}
+@keyframes right{
+    0%{
+    }
+    100%{
+        transform-origin:60% 100%;
+    transform: rotate(70deg);
+    }
+}
+        .fanqier .water {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            border-top: 8px solid transparent;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 8px solid white;
+            position: absolute;
+            top: 0;
+            left: 30px;
+        }
+
+        .fanqier .water:nth-child(1) {
+            opacity: 0;
+            left: 30px;
+            transform: rotate(-20deg);
+            animation: dong2 5s linear infinite;
+        }
+
+        .fanqier .water:nth-child(2) {
+            top: 20px;
+            left: 55px;
+            transform: rotate(10deg);
+            opacity: 0;
+            animation: dong3 4s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .fanqier::before {
+            display: block;
+            content: "";
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            border-right: 6px solid greenyellow;
+            position: absolute;
+            top: -30px;
+            left: -15px;
+            transition: 0.5s;
+        }
+
+        .fanqier::after {
+            display: block;
+            content: "";
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            border-right: 7px solid greenyellow;
+            transform: rotate(50deg);
+            position: absolute;
+            top: -60px;
+            left: -25px;
+            animation: dong5 2s linear infinite alternate;
+            transition: 0.5s;
+        }
+        main:hover .fanqier::before{
+    transition: 1s;
+border-right: 7px solid darkgoldenrod;
+}
+main:hover .fanqier::after{
+    transition: 1s;
+border-right: 7px solid darkgoldenrod;
+animation-play-state: paused;
+}
+    </style>
+</head>
+
+<body>
+    <main>
+            <div class="title" id="hover">切~</div>
+            <div class="title" id="active">挤~</div>
+        <div class="fanqie">
+            <div class="tou"></div>
+            <div class="dao"></div>
+            <div class="shuil"></div>
+            <div class="shuir"></div>
+            <div class="fanqiel">
+                <div class="water"></div>
+                <div class="water"></div>
+            </div>
+            <div class="fanqier">
+                <div class="water"></div>
+                <div class="water"></div>
+            </div>
+        </div>
+        <h1> 好吃的番茄</h1>
+    </main>
+</body>
+
+</html>

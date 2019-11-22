@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+            user-select: none;
+            cursor: pointer;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        @keyframes reveal {
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #instruction {
+            position: absolute;
+            bottom: 2vw;
+            right: 2vw;
+            line-height: 0;
+            opacity: 1;
+            font-family: "Raleway", sans-serif;
+            font-size: 12px;
+            margin-top: 1em;
+            color: white;
+        }
+
+        #title {
+            display: block;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            font-family: "Knewave", cursive;
+            font-size: 24px;
+            text-align: center;
+            color: white;
+            transform: translateX(-50%) translateY(-50%);
+            pointer-events: none;
+        }
+
+        #title::after {
+            content: "A Pen by Chris Caldwell";
+            display: block;
+            font-family: "Raleway", sans-serif;
+            font-size: 12px;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1 id="title">Fractal 3: Untitled</h1> -->
+    <!-- <h1 id="instruction">点击更改颜色</h1> -->
+</body>
+<script src="js/p5.js"></script>
+<script>
+    // Global Vars
+    var fr = 60;
+    var stage;
+    var hue;
+    var bgHue;
+    var circleHue;
+    var drawOnce = false;
+    var reset = true;
+    var initialSize;
+
+    // Setup
+    function setup() {
+        // Create Stage
+        stage = createVector(document.body.offsetWidth, document.body.offsetHeight);
+        createCanvas(stage.x, stage.y);
+        frameRate(fr);
+
+        // Set Background
+        colorMode(HSB);
+        mousePressed();
+        // Set Fractal Size
+        resize();
+
+        window.addEventListener("resize", resize);
+        // gskinner lab export
+        // LabTemplate.loadComplete();
+    }
+
+    function resize() {
+        resizeCanvas(window.innerWidth, window.innerHeight);
+        if (window.innerWidth > window.innerHeight) {
+            initialSize = window.innerWidth / 5;
+        } else {
+            initialSize = window.innerHeight / 5;
+        }
+    }
+
+
+    // MOUSE EVENTS
+    function mousePressed() {
+        // hue = random(240, 300);
+        hue = random(0, 360);
+
+        bgHue = hue;
+        bgHue = createVector(correctRotation(bgHue), 50, 20);
+        background(bgHue.x, bgHue.y, bgHue.z);
+        getCircleHue(bgHue.x);
+        draw();
+    }
+
+    // SHAPE ADJUSTMENTS
+    function getCircleHue(c) {
+        circleHue = bgHue.x + random(100, 120);
+        circleHue = createVector(correctRotation(circleHue), 70, 80);
+    }
+
+    // FRACTAL
+    function fractal(x, y, d, i) {
+
+        var myHue = circleHue.x + random(-20, 20);
+        var myLightness = circleHue.z + random(-20, 20);
+
+        fill(correctRotation(myHue), circleHue.y, myLightness);
+        noStroke();
+        ellipse(x, y, d, d);
+
+        noLoop();
+
+        if (d > 2) {
+            var mixitup = 100;
+            fractal(x + d + random(-2 * mixitup, mixitup) / i, y + random(-1 * mixitup, mixitup), d / i, i);
+            fractal(x - d + random(-1 * mixitup, mixitup) / i, y + random(-1 * mixitup, mixitup), d / i, i);
+        }
+
+    }
+
+    // Update Canvas
+    function draw() {
+        clear();
+        background(bgHue.x, bgHue.y, bgHue.z);
+
+        // Draw Fractal
+        fractal(width / 2, height / 2, random(initialSize, initialSize * 2), 1.5);
+    }
+
+
+    // UTILITIES
+
+    // Correct Rotation ? Works for colors and anything that uses 360 degree rotational values
+    function correctRotation(deg) {
+        /*
+          Corrects a rotation and if it:
+          exceed 360 degrees or is less than 0
+        */
+        if (deg > 360) {
+            deg -= 360;
+        } else if (deg < 0) {
+            deg += 360;
+        }
+        return (deg);
+    }
+
+</script>
+
+</html>

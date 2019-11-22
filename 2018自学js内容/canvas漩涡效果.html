@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas,
+        body {
+            padding: 0;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    //在body中创建一个 canvas画布 标签
+    var canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+
+    var bg = [20, 0, 30];  //定义背景颜色[r,g,b]
+    var wh = window.innerHeight; //获取浏览器的高
+
+    // 获取画笔(这是我们绘制的部分)
+    var ctx = canvas.getContext('2d')
+
+    /*  UI线程：就是我们的主线程，系统在创建UI线程的时候会初始化一个Looper对象，同时也会创建一个与其关联的MessageQueue
+    
+     Handler：作用就是发送与处理信息，如果希望Handler正常工作，在当前线程中必须要有一个Looper对象
+    
+     Message：Handler接收与处理的对象。Handler也能接收与处理Runnable对象
+    
+     MessageQueue：消息队列，先进先出管理Message，在初始化Looper对象时会创建一个与之关联的MessageQueue
+    
+     Looper：每个线程只能够有一个Looper，Looper负责创建并管理当前线程中的MessageQueue，调用loop方法后就会在一个无限循环体中不断地从MessageQueue中取出Message并分发给对应的Handler，最后回调handleMessage()方法处理此消息。Looper才是整个机制的核心！ */
+    var sharedloop1 = new Looper(250 + 20 * Math.random(), 60 * Math.random());
+
+    function setup() {
+        //设置画布大小以匹配窗口
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        //当浏览器的宽小于其高时，取宽值作为浏览器的高，反之依旧取高值
+        wh = window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight;
+        //  将0,0点设置为画布的中间，这不是必须的，但它可以很方便
+        /*  translate()函数可以将元素向指定的方向移动，类似于position中的relative。
+         或以简单的理解为，使用translate()函数，可以把元素从原来的位置移动，而不影响在X、Y轴上的任何Web组件。 */
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+
+        fill(bg, 1);
+    }
+
+    //用预设的颜色填充整个画布
+    function fill(rgb, amt) {
+        ctx.beginPath();//抬笔作画
+        //rect(x,y,width,height)
+        //因为之前定义作画位置从中心点开始，此处为了使绘制的矩形从左上角位置开始，铺满整个屏幕
+        ctx.rect(- canvas.width / 2, - canvas.height / 2, canvas.width, canvas.height);//将矩形设置为与窗口大小相同的大小
+        //此处位背景颜色，可直接定义颜色
+        // ctx.fillStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${amt})`;//使用rgb数组/颜色填充，amt表示不透明度
+
+        //-------------------------------定义背景颜色--------------------------------------------------
+        ctx.fillStyle = 'white';
+        ctx.fill(); //作图
+    }
+
+    //绘制移动的小圆点
+    function drawCircle(x, y, r, color) {
+        ctx.beginPath();//抬笔作画
+        ctx.arc(x, y, r, 0, 2 * Math.PI);//arc(x,y,半径,起始角,结束角)
+        ctx.fillStyle = color || 'white';
+        ctx.fill();//作图
+        ctx.closePath();//每次绘制完一个圆后抬笔
+    }
+
+    function Particle() {
+        //用随机间隔和偏移量初始化循环
+
+             //-------------------------------定义粒子运动速度和起始位置--------------------------------------------------
+        this.loop2 = new Looper(520 + 20 * Math.random(), 140 * Math.random());
+        this.loop3 = new Looper(290 + 20 * Math.random(), 140 * Math.random());
+        this.history = [];
+        this.history_max = 40;
+        this.offset = Math.random(); //一些颜色偏移
+
+        this.draw = function () {
+            //设置x、y、半径和颜色参数
+            var x = (this.loop2.sin * (wh / 3 - 10) + this.loop3.cos * 120) * (sharedloop1.sinNorm / 2 + 0.5);
+            var y = (this.loop2.cos * (wh / 3 - 10) + this.loop3.sin * 120) * (sharedloop1.cosNorm / 2 + 0.5);
+
+            //-------------------------------定义粒子大小变化--------------------------------------------------
+            var r = 0.2 + 3 * this.loop3.sinNorm * this.loop3.cosNorm; //设置半径
+            //hsla(色调,饱和度,亮度,透明度)
+
+            //-------------------------------定义粒子颜色--------------------------------------------------
+            var c = `hsla(${10 + 60 * (this.loop2.cosNorm + this.offset) * this.loop3.sinNorm}, ${100}%, ${50 + 10 * this.loop3.sin}%, ${1})`;//设置颜色参数
+
+            ctx.beginPath();//抬笔作画
+            ctx.strokeStyle = c; //描边颜色
+            ctx.lineCap = 'round';//绘制线条的边角为圆角样式 butt 为直角
+
+            //-------------------------------定义尾线粗细--------------------------------------------------
+            ctx.lineWidth = r * 0.5;//绘制的线条粗细
+
+            var tx = x;
+            var ty = y;
+            for (let i = 0; i < Math.min(this.history_max * this.loop2.cosNorm, this.history.length); i++) {
+                ctx.moveTo(tx, ty);//从当前位置开始
+                //  a[][] 二维数组 有两个下标,a[0][0]表示第0行第0列的数据
+                tx = this.history[i][0];
+                ty = this.history[i][1];
+
+                //-------------------------------定义是否有尾线跟随--------------------------------------------------
+                ctx.lineTo(tx, ty);//到此处位置结束
+            }
+            ctx.stroke(); //绘制线条
+            //此处调用前面的画圆函数
+
+               //-------------------------------定义粒子大小--------------------------------------------------
+            drawCircle(x, y, r * 2 + 3, c); //画圆  (x,y,半径,颜色)
+
+            this.loop2.update(); //
+            this.loop3.update();
+
+            this.history.unshift([x, y]);//unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度
+            if (this.history.length > this.history_max) {
+                //  长度大于最大长度时
+                //  pop() 方法用于删除并返回数组的最后一个元素
+                this.history.pop();
+            }
+        }
+    }
+    // 初始化一组粒子
+    var particles = [];
+    //此处可定义粒子个数
+    //-------------------------------定义粒子个数--------------------------------------------------
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+    }
+
+    function draw() {
+        //用背景色填充上下文
+        //用于遮罩之前画过动画，通过背景图层，一层一层的遮盖起来，使其隐藏
+        fill(bg, 0.36);
+
+        //更新所有粒子
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].draw();//做一次
+        }
+
+        sharedloop1.update();
+        //这是一个绘制循环，它将频繁执行
+        //    该方法用于在浏览器中制作动画。
+        // 优于setTimeout/setInterval的地方在于它是由浏览器专门为动画提供的API
+        // 该方法1秒刷新的帧数大概为60，即一秒刷新60次页面
+        window.requestAnimationFrame(function () {
+            draw();
+        })
+    }
+    //启动enterFrame循环
+    window.requestAnimationFrame(draw);
+    //强制运行设置
+    setup();
+    //当窗口大小改变时重新设置画布
+    window.addEventListener("resize", setup) //addEventListener() 方法用于向指定元素添加事件句柄
+
+    //创建一个类来保存值，并内置递增功能
+    function Looper(steps, start) {
+        this.val = start || 0;  //如果已定义，则将值设置为起始值，或0
+        this.steps = steps || 100;//设置步骤为传递值或默认值为100
+        this.norm = this.val / this.range;//初始化归一化值(0 - 1)
+        this.sin = Math.sin(this.norm * Math.PI * 2);////从范数标准化到[0,2pi]得到正弦值
+        this.sinNorm = (this.sin + 1) / 2; //将sin标准化为[0,1]
+        this.cos = Math.cos(this.norm * Math.PI * 2);//从范数标准化得到余弦值为[0,2pi]
+        this.cosNorm = (this.cos + 1) / 2; //将cos标准化为[0,1]
+
+        this.update = function () {
+            this.val = (this.val + 1) % this.steps; //更新值
+            this.norm = this.val / this.steps; //更新规范化值(在0到1之间)
+            this.sin = Math.sin(this.norm * Math.PI * 2);////从范数标准化到[0,2pi]得到正弦值
+            this.sinNorm = (this.sin + 1) / 2; //将sin标准化为[0,1]
+            this.cos = Math.cos(this.norm * Math.PI * 2);//从范数标准化得到余弦值为[0,2pi]
+            this.cosNorm = (this.cos + 1) / 2; //将cos标准化为[0,1]
+        }
+    }
+</script>
+
+</html>

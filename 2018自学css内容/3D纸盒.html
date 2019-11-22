@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0 auto;
+    }
+    body,html{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: tomato;
+    }
+    h1{
+        line-height: 250px;
+    }
+    body{
+        /* 给main 的父元素 body设置景深 */
+        perspective: 3000px;
+    }
+    main{
+        width: 300px;
+        height: 300px;
+        /* border: 1px solid black; */
+        transform-style: preserve-3d;
+        /* 给div 的父元素 main设置景深 */
+        perspective: 3000px;
+        position: relative;
+        transform: rotateX(60deg);
+        animation: zhuan 10s linear infinite;
+        animation-delay:1s;
+    }@keyframes zhuan{
+        0%{ transform: rotateX(60deg) rotateZ(0deg);}
+        100%{ transform: rotateX(60deg) rotateZ(360deg);}
+    }
+    main div{
+        width: 100%;
+        height: 100%;
+        /* 给div设置整体定位，使他重叠到一起 */
+        position: absolute;
+        transform-style: preserve-3d;
+        border: 1px solid white;
+    }
+    .top{
+        /* 上面 */
+        /* background: yellow; */
+        transform: translateZ(150px);
+       
+    }
+    .bottom{
+        /* 下面 */
+        /* background: orange; */
+        background: rgb(241, 197, 74);
+        transform: translateZ(-150px);
+    }
+    .front{
+        /* 前面 */
+        /* background: greenyellow; */
+        background: rgb(241, 197, 74);
+        transform: rotateX(-90deg) translateZ(150px);
+        text-align: center;
+    }
+    .behind{
+        /* 后面 */
+        /* background: green; */
+        background: rgb(241, 197, 74);
+        transform: rotateX(-90deg) translateZ(-150px);
+    }
+    .left{
+        /* 左面 */
+        /* background: red; */
+        background: rgb(241, 197, 74);
+        transform: rotateY(-90deg) translateZ(150px);
+    }
+    .right{
+        /* 右面 */
+        /* background: blue; */
+        background: rgb(241, 197, 74);
+        transform: rotateY(90deg) translateZ(150px);
+    }
+    .top::before{
+        /* 添加胶带效果 */
+        content: '';
+        width: 100%;
+        height: 150px;
+        background: rgb(241, 197, 74);
+        /* 相对于他的父元素 .top 进行定位 */
+        position: absolute;
+        top:0;
+         /* 为下面的鼠标经过添加过度 */
+         transition: 0.5s;
+           /* 设置旋转角度从最上面开始 */
+           transform-origin: 0% 0%;
+           box-sizing: border-box;
+           border: 1px solid white;
+           border-bottom: 20px solid rgb(255, 217, 0);
+         
+    }
+    .top::after{
+         /* 添加胶带效果 */
+        content: '';
+        width: 100%;
+        height: 150px;
+        background: rgb(241, 197, 74);
+        /* 相对于他的父元素 .top 进行定位 */
+        position: absolute;
+        bottom:0;
+         /* 为下面的鼠标经过添加过度 */
+         transition: 0.5s;
+         /* 设置旋转角度从最下面开始 */
+         transform-origin: 0% 100%;
+         box-sizing: border-box;
+         border: 1px solid white;
+         border-top: 20px solid rgb(255, 217, 0);
+    }
+    .right::before{
+        /* 给右面添加胶带效果 */
+        content: '';
+        width: 80px;
+        height: 40px;
+        background: rgb(255, 217, 0);
+        position: absolute;
+        top: 130px;
+    }
+    .left::before{
+        /* 给左面添加胶带效果 */
+        content: '';
+        width: 80px;
+        height: 40px;
+        background: rgb(255, 217, 0);
+        position: absolute;
+        right: 0;
+        top: 130px;
+    }
+    /* 添加鼠标经过效果 */
+    main:hover{
+        /* 动画暂停 */
+        animation-play-state: paused;
+    }
+    main:hover .top::before{
+        transform: rotateX(150deg);
+    }
+    main:hover .top::after{
+        transform: rotateX(-200deg);
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <!-- 定义盒子的 6 个面 -->
+   <div class="top"></div>
+   <div class="bottom"></div>
+   <!-- 前面的面 -->
+   <div class="front">
+       <h1>京东快递</h1>
+       <p>贵重物品，轻拿轻放</p>
+   </div>
+   <!-- 后面的面 -->
+   <div class="behind"></div>
+   <div class="left"></div>
+   <div class="right"></div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(70, 67, 67);
+}
+
+body {
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    line-height: 270px;
+}
+
+i {
+    color: white;
+}
+
+main {
+    width: 400px;
+    height: 550px;
+    border: 1px solid rgba(110, 110, 110, 0.808);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    transition: 0.2s;
+    overflow: hidden;
+}
+
+#menu {
+    width: 70px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.534);
+    overflow: hidden;
+}
+
+#commodity {
+    width: 300px;
+    height: 100%;
+    /* background: greenyellow; */
+    margin-left: 10px;
+    position: relative;
+}
+
+
+
+#menu ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    /* background: red; */
+}
+
+#menu .menu {
+    height: 52.8px;
+    border: 1px solid rgba(56, 56, 56, 0.808);
+    box-sizing: border-box;
+    border-bottom: none;
+    overflow: hidden;
+}
+
+#menu .menu section {
+    width: 100%;
+    height: 106px;
+    /* background: red; */
+    position: relative;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#menu .menu section a {
+    display: block;
+    width: 100%;
+    height: 53px;
+    background: rgba(90, 89, 89, 0.534);
+    position: absolute;
+    bottom: 0;
+    text-decoration: none;
+    font-size: 11px;
+    text-align: center;
+    line-height: 53px;
+    color: white;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#menu .menu:hover section {
+    transition: 0.2s;
+    transform: translateY(-52.7px);
+    opacity: 1;
+}
+
+#menu .menu:hover section a {
+    opacity: 1;
+}
+
+#menu .menu i {
+    color: white;
+    position: absolute;
+    left: 35%;
+    top: 17px;
+}
+
+.img {
+    width: 100%;
+    height: 270px;
+    background: rgba(39, 39, 39, 0.603);
+    font-size: 50px;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    /* overflow: hidden; */
+}
+
+.img .introduce {
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.479);
+    position: absolute;
+    bottom: 0;
+    transform: translateX(1000px);
+    transition-duration: 0;
+    opacity: 0;
+    cursor: default;
+}
+
+.introduce p {
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    text-indent: 2em;
+}
+
+.img:hover .introduce {
+    transition: 0.5s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#shop {
+    width: 100%;
+    height: 70px;
+    /* background: white; */
+    position: relative;
+    overflow: hidden;
+}
+
+.pre,
+.next {
+    width: 40px;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.514);
+    position: absolute;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 999;
+}
+
+#shop i {
+    position: absolute;
+    left: 13px;
+    top: 27px;
+}
+
+.pre {
+    left: -40px;
+}
+
+.next {
+    right: -40px;
+}
+
+#shop:hover .pre {
+    left: 0;
+}
+
+#shop:hover .next {
+    right: 0;
+}
+
+#shop ul {
+    width: 600px;
+    height: 60px;
+    margin: 5px 0 5px 0;
+    list-style: none;
+    transition: 0.5s ease-in;
+}
+
+#shop .shop-img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(56, 56, 56, 0.808);
+    box-sizing: border-box;
+    float: left;
+    border-left: none;
+    background: rgba(39, 39, 39, 0.603);
+    color: white;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#shop .shop-img:hover {
+    transform: scale(1.2);
+}
+
+.shop-b {
+    width: 100%;
+    height: 170px;
+    /* background: red; */
+    position: absolute;
+    bottom: 0;
+}
+#price{
+    width: 50px;
+    height: 40px;
+    background: rgba(58, 57, 57, 0.808);
+    position: absolute;
+    left: 45px;
+    text-align: center;
+    line-height: 40px;
+    color: gold;
+}
+#price::before{
+    content: 'Pirce:';
+    width: 45px;
+    height: 40px;
+    position: absolute;
+    left: -45px;
+    background: rgba(58, 57, 57, 0.808);
+    color: white;
+}
+#price::after{
+    content: 'RMB';
+    width: 23px;
+    height: 40px;
+    position: absolute;
+    left:50px;
+    background: rgba(58, 57, 57, 0.808);
+    color: white;
+    font-size: 8px;
+    line-height: 45px;
+    text-align: left;
+}
+#add {
+    width: 150px;
+    height: 40px;
+    /* background: black; */
+    position: absolute;
+    right: 0;
+}
+#add i{
+    position: absolute;
+    top: 13px;
+    left: 14px;
+}
+#number{
+    width: 65px;
+    height: 40px;
+    position: absolute;
+    left: 42px;
+    border: 1px solid rgba(110, 110, 110, 0.808);
+    background: none;
+    box-sizing: border-box;
+    font-size: 25px;
+    color: white;
+    padding-left: 5px;
+    font-weight: 0;
+}
+.add,.reduce{
+    width: 40px;
+    height: 40px;
+    background: rgba(110, 110, 110, 0.808);
+    position: absolute;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.add{
+    right: 0;
+   
+}
+.add:hover{
+    transform: scale(0.8);
+}
+.reduce{
+    left: 0;
+}
+.reduce:hover{
+    transform: scale(0.8);
+}
+.shop-bs{
+    width: 60%;
+    height: 40px;
+    /* background: blue; */
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+.join,.buy{
+    width: 80px;
+    height: 40px;
+    background: rgba(58, 57, 57, 0.808);
+    position: absolute;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 99;
+}
+.shop-bs section:hover{
+    background: rgba(36, 35, 35, 0.808);
+    transform: scale(0.9);
+}
+.buy{
+    right: 0;
+}
+.prices{
+    width: 80px;
+    height: 30px;
+    background: rgba(58, 57, 57, 0.808);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: 30px;
+    color: gold;
+    cursor: default;
+    text-align: center;
+    opacity: 0;
+    transition: 0.2s;
+}
+.prices::before{
+    content: '$';
+    position: absolute;
+    color: gold;
+    left: -15px;
+    font-weight: bold;
+}
+#pay{
+    width: 400px;
+    height: 550px;
+    background: transparent;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 275px);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: -1;
+ 
+}
+#pay .pay{
+    width: 300px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.781);
+    color: white;
+    position: absolute;
+}
+.pays{
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 80px;
+}
+ .close,.confirm{
+    width: 40px;
+    height: 30px;
+    background: rgb(63, 61, 61);
+    position: absolute;
+    bottom: 20px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close{
+    right: 90px;
+}
+.close:hover,.confirm:hover{
+    transform: scale(0.9);
+}
+.confirm{
+    left: 90px;
+}
+.cart{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 100px;
+    bottom: 0;
+    /* background: red; */
+}
+.cart .num{
+    position: absolute;
+    color: white;
+    left: -25px;
+    top: 1px;
+    font-size: 10px;
+    transition: 0.1s;
+    opacity: 0;
+}
+.cart #open{
+    position: absolute;
+    left:0;
+    top: 0;
+    cursor: pointer;
+}
+
+#cart{
+    width: 0px;
+    height: 100%;
+    background: rgba(37, 37, 37, 0.863);
+    margin-left: 10px;
+    transition: 0.5s;
+    transform: translateX(300px);
+    overflow:auto;
+    /* position: absolute; */
+    /* left: 500px; */
+}
+#cart section{
+    width: 151px;
+    height: 180px;
+    margin: 5px 0 0 5px;
+    background: rgb(83, 83, 82);
+    display: none;
+    float: left;
+    position: relative;
+}
+.fa{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}

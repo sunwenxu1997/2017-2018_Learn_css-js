@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>雨滴动画</title>
+    <style>
+    body{
+        margin: 0 auto;
+    }
+    canvas{
+        /* 自带默认属性 宽300px 高100px */
+        background-color: rgb(25, 151, 235);
+        /* background-color:rgb(181, 220, 247); */
+        /* 通过js添加宽高，充满整个屏幕 */
+        /* width: 100%;
+        height: 100%; */
+       /* canvas 为行元素,转为块元素,以便消除滚动条 */
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <canvas class="rain"></canvas>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+ /* 1.让canvas 元素和浏览器窗口宽高一致
+      1.1获取canvas 元素
+      1.2获取浏览器宽高
+      1.3给canvas设置一个宽高
+      1.4当浏览器窗口发生改变时需要重新设置canvas的宽高
+
+   2.如何绘制图形
+
+    如何绘制圆形
+    如何绘制矩形
+    2.1 :获取canvas元素的可绘制区域
+    2.2拿起一支笔,并沾上有 红色 的墨水
+     fill:画实心图形
+     stroke: 画空心图形
+     下笔作画
+
+   3.如何绘制一个会动的图形
+  动画
+     1s 播放
+     帧:描述的就是画面中物体的状态
+     1s 画60帧
+ 
+    4.绘制会动的雨滴
+    5.绘制一个绽放的雨滴
+    6.画520个雨滴
+      6.1下落速度不同
+      6.2下落位置不同
+      6.3绽放位置不同
+      6.4绽放时雨滴的大小不同
+      
+
+ */
+
+
+// 1.1 获取canvas 元素
+var canvas = document.querySelector(".rain");
+
+//1.2:获取浏览器窗口宽高,存起来
+var w,h;
+var aRain = [] //存放所有新生成的小雨滴
+// 当浏览器发生变化时调用方法
+// 前面加 ~ ! 让解释器去知道我们希望进行匿名函数的直接调用
+!function setSize() {
+
+    // onresize 事件会在窗口或框架被调整大小时发生。
+    // arguments.callee 属性包含当前正在执行的函数。
+    window.onresize = arguments.callee;
+    w = window.innerWidth; //获取浏览器宽
+    h = window.innerHeight; //获取浏览器高
+    canvas.width = w;
+    canvas.height = h;  
+}();
+
+   // 2.1 :获取canvas元素的可绘制区域 2d 绘制区域
+   var canCon = canvas.getContext("2d")
+
+   /*
+   canCon.fillStyle = "blue" //拿起一支笔,并沾上有 红色 的墨水
+   //canCon.rect(100,50,200,100);//绘制矩形区域 左上角坐标 x, y, w, h
+   //canCon.fill(); //下笔作画
+   canCon.arc(200,200,100,0,Math.PI*2);  //画一个圆 x y r 圆心位置 旋转度数360° Math.PI*2
+   canCon.stroke(); //画空心图
+   */
+
+
+/*
+//绘制一个雨滴
+   var y = 0;
+//    每个多少时间调用一次方法
+   setInterval(function () {
+    canCon.beginPath(); //擦除前 需要先把笔抬起来
+   // canCon.clearRect(0,0,w,h);//擦除一个区域
+
+   //    加一层蒙版
+    canCon.fillStyle = "rgb(25, 151, 235,0.3)"
+    canCon.fillRect(0,0,w,h) //画一层蒙版 简写下者
+    // canCon.fill();//下笔作画
+
+
+    canCon.fillStyle = "white";
+    canCon.fillRect(100,y++,1,5); //简写下者
+    // canCon.fill();
+   },1000/60)//每隔1s/60 画一个图
+   */
+
+
+/*
+//绘制一个绽放的雨滴
+var r = 5;
+   setInterval(function () {
+   //    加一层蒙版
+    canCon.fillStyle = "rgb(25, 151, 235,0.3)"
+    canCon.fillRect(0,0,w,h) 
+    
+    canCon.beginPath();
+    canCon.strokeStyle = "white"; //边框颜色
+    canCon.arc(600,600,r++,0,Math.PI*2);  //简写下者
+    canCon.stroke();
+   },1000/60)//每隔1s/60 画一个图
+*/
+
+
+function random(min,max) {//返回一个最大值到最大值之间的值
+    return Math.random()*(max-min)+min
+}
+
+function Rain(){}//雨的DNA 构造函数
+
+
+var rain = new Rain();//创造一个新的雨滴
+Rain.prototype = {
+    init:function(){//雨滴的基本参数
+         this.x = random(0,w);//雨滴出生x坐标
+         this.y = 0;//雨滴出生y坐标
+         this.w = random(1,1.5); //雨滴宽
+         this.h = random(5,8);//雨滴大高
+         this.color = "white";//雨滴颜色
+         this.vy = random(5,10);//雨滴下降速度
+         this.vr = random(05,1.5);//雨滴绽放速度
+         this.ground = random(0.8*h,0.9*h); //定义到达某高度时绽放
+         this.r = random(5,8);//定义圆的半径  this.w/2
+    },
+    draw:function(){//把基本参数变化为雨滴效果
+    if(this.y<this.ground){//当雨滴到达一定高度前为 矩形雨滴
+    canCon.beginPath();
+    canCon.fillStyle = this.color;
+    canCon.fillRect(this.x,this.y,this.w,this.h); //简写下者
+    }else{//当雨滴到达一定高度后为 圆形雨滴 雨滴绽放
+        canCon.beginPath();
+    canCon.strokeStyle = "rgb(181, 220, 247)"; //边框颜色
+    canCon.arc(this.x,this.y,this.r++,0,Math.PI*2);  //简写下者
+    canCon.stroke();
+    }
+   
+    },
+    move:function(){
+        // this.y++;
+        // this.draw();//移动一次画一个雨
+        if(this.y<this.ground){//判断雨滴达到一定高度时停止
+            // this.y++;
+            this.y+=this.vy;
+        }else{
+            if(this.r<50){ //判断绽放半径大于50时雨滴返回
+                this.r++;
+                if(this.r>50){
+                    this.a+=this.va;
+                }
+            }else{
+                this.init();
+            }
+        }
+        this.draw();
+    }
+}
+// var rain = new Rain();//生出新的雨滴
+// rain.init();
+// rain.draw();
+
+
+function creatRain(num) {
+    for (let i = 0; i < num; i++) {
+        setTimeout(function () {
+    var rain = new Rain();//生出新的雨滴
+    rain.init();
+    rain.draw();
+    aRain.push(rain);
+        },200*i);//延迟时间 每隔多少秒出现一滴雨 可改变雨滴出现频率
+      
+    }
+}
+     creatRain(300);//雨滴数量
+
+     setInterval(function () {
+          //    加一层蒙版
+    canCon.fillStyle = "rgb(25, 151, 235,0.45)"
+    canCon.fillRect(0,0,w,h) 
+         for( var item of aRain){
+             item.move();
+         }
+     },1000/60)
+</script>
+</html>
+<!-- 
+    面向对象的方式来写不同位置的雨滴
+
+ -->

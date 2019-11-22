@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    main{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        background-image: url(img/3.jpg);
+    }
+    svg{
+        width: 200px;
+        height: 200px;
+        background: yellow;
+        background-image: url(img/3.jpg);
+        position: absolute;
+        transition: 1s;
+    }
+    .one{
+        clip-path: polygon(0px 0px,200px 200px,0px 200px);
+    }
+    .two{
+        clip-path: polygon(0px 0px,200px 200px,200px 0px);
+    }
+    path{
+        fill: rgba(255, 255, 255, 0.555);
+    }
+    main:hover .one{
+        transform: translateX(-200px) translateY(200px);
+    }
+    main:hover .two{
+        transform: translateX(200px) translateY(-200px);
+    }
+    </style>
+</head>
+<body>
+    <!-- <div></div> -->
+    <main>
+    <svg class="one"></svg>
+    <svg class="two"></svg>
+</main>
+</body>
+</html>

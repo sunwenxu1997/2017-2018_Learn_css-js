@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="menu">
+            <ul>
+               
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-search" style=" color: white;"></i>
+                        <a href="">搜索</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-home"></i>
+                        <a href="">店铺</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-clock-o"></i>
+                        <a href="">倒计时</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-qrcode"></i>
+                        <a href="">微信号</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-camera"></i>
+                        <a href="">实物照</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-group"></i>
+                        <a href="">买家秀</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-truck"></i>
+                        <a href="">物流</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-share-alt"></i>
+                        <a href="">分享</a>
+                    </section>
+                </li>
+                <li class="menu">
+                    <section>
+                        <i class="fa fa-comment-o" style=" color: rgb(236, 224, 45);"></i>
+                        <a href="">联系客服</a>
+                    </section>
+                </li>
+                <li class="menu" style="border-bottom: 1px solid rgba(56, 56, 56, 0.808);">
+                    <section>
+                        <i class="fa fa-thumbs-o-up" style=" color:red;"></i>
+                        <a href="">好评</a>
+                    </section>
+                </li>
+            </ul>
+        </div>
+        <div id="commodity">
+            <div class="img">
+                <h1>Commodity</h1>
+                <!-- 详细介绍部分 -->
+                <section class="introduce">
+                    <p>Very nice!!</p>
+                </section>
+            </div>
+            <div id="shop">
+                <section class="pre">
+                    <i class="fa fa-chevron-left"></i>
+                </section>
+                <section class="next">
+                    <i class="fa fa-chevron-right"></i>
+                </section>
+                <ul>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                    <li class="shop-img">img</li>
+                </ul>
+            </div>
+             <!-- <i class="fa fa-gift">购物车</i> -->
+                <!--  -->
+
+            <div class="shop-b">
+                <div id="price">18.88</div>
+                <div id="add">
+                <section class="add"><i class="fa fa-plus"></i></section>
+                <input type="text" id="number" value="0" autocomplete="off">
+                <section class="reduce"><i class="fa fa-minus"></i></section>
+                </div>
+                <div class="shop-bs">
+                 <section class="join" unselectable="on" onselectstart="return false;">Add Cart</section>
+                 <section class="buy">Buy</section>
+                </div>
+                
+                <div class="cart">
+                    <section class="num"></section>
+                    <i class="fa fa-shopping-cart fa-flip-horizontal" id="open"></i></div>
+                <div class="prices">0.00</div>
+            </div>
+           
+        </div>
+       <div id="cart">
+          <section class="cart-1"> <i class="fa fa-remove" ></i></section>
+          <section class="cart-2"><i class="fa fa-remove" ></i></section>
+          <section class="cart-3"><i class="fa fa-remove" ></i></section>
+          <section class="cart-4"><i class="fa fa-remove" ></i></section>
+          <section class="cart-5"><i class="fa fa-remove" ></i></section>
+          <section class="cart-6"><i class="fa fa-remove" ></i></section>
+          <section class="cart-7"><i class="fa fa-remove" ></i></section>
+          <section class="cart-8"><i class="fa fa-remove" ></i></section>
+          <section class="cart-9"><i class="fa fa-remove" ></i></section>
+          <section class="cart-10"><i class="fa fa-remove" ></i></section>
+          <section class="cart-11"><i class="fa fa-remove" ></i></section>
+       </div>
+    </main>
+    <div id="pay">
+        <section class="pay">
+         <section class="pays"></section>
+         <section class="close">No</section>
+         <section class="confirm">Yes</section>
+        </section>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var index = 0;
+    var o = 0;
+    var i = 1;
+    // var money = $('.p')
+    // 预览图片往右
+    $('.next').click(function () {
+        $('#shop ul').css({transform:'translateX(-300px)'});
+      
+    })
+    // 预览图片往左
+    $('.pre').click(function () {
+        $('#shop ul').css({transform:'translateX(0px)'});
+     
+    })
+    //加数量
+    $('.add').click(function () {
+        index++;
+        $('#number').val(index);
+        $('.prices').css({opacity:'1'});
+        operation();
+    })
+    //减数量
+    $('.reduce').click(function () {
+        index--;
+        if (index<0) {
+            return index=0;
+        }
+        $('#number').val(index);
+        operation();
+    })
+    //点击输入框时显示支付价格
+    $('#number').click(function () {
+        $('.prices').css({opacity:'1'});
+    })
+    //直接修改商品数量，失去焦点后计算总价
+    $('#number').blur( function () {
+         var num = parseInt($(this).val())*18.88
+         console.log(num)
+        $('.prices').text(num.toFixed(2));
+    })
+    //打开支付框
+    $('.buy').click(function () {
+        $('main').css({opacity:'0.5'});
+        $('#pay').css({zIndex:'1'});
+        $('.pays').text('You need to  '+ $('.prices').text() + '  RMB')
+    })
+    //关闭支付框
+    $('.close').click(function () {
+        $('main').css({opacity:'1'});
+        $('#pay').css({zIndex:'-1'});
+    })
+
+    
+    //打开购物车
+    $('#open').click(function () {
+        o++;
+        if (o%2==0) {
+        $('main').css({width:'400px'});
+        $('#cart').css({width:'0px',transform:'translateX(500px)'});
+        }else{
+            $('main').css({width:'900px'});
+        $('#cart').css({width:'500px',transform:'translateX(0px)'});
+        }
+    })
+    //点击Add Carts 就往购物车添加商品
+    $('.join').click(function () {
+        $('.num').css({opacity:'1'})
+        $('.num').text('+'+ i);
+        $('#cart .cart-'+i).css({display:'block'});
+        i++;
+       
+    })
+       //关闭添加的商品部份
+       $('#cart .fa').click(function () {
+        i--;
+        $('#cart .cart-'+i).css({display:'none'});
+      
+    })
+
+
+
+    //添加商品出现+1
+    $('.join').mouseleave(function () {
+        $('.num').css({opacity:'0'})
+    })
+ 
+
+    function operation() {//计算总价的方法
+        var num = index * 18.88;
+        $('.prices').text(num.toFixed(2));
+    }
+    function close() {
+        
+    }
+    // number();
+</script>
+</html>

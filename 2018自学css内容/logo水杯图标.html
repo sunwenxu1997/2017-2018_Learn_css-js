@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水杯图标</title>
+    <style>
+        body {
+            background: seagreen;
+        }
+
+        main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid transparent;
+            margin: 270px auto;
+            position: relative;
+        }
+        .title{
+        position: absolute;
+        right: -50px;
+        top: 60px;
+        width: 30px;
+        height: 30px;
+        /* background: red; */
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    main:hover .title{
+        transition: 1s;
+        right: 20px;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    main:active .title{
+        transition: 1s;
+        opacity: 0;
+    }
+        .shuibei {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            /* background: orange; */
+            position: relative;
+        }
+
+        .anniu {
+            width: 10px;
+            height: 25px;
+            background: black;
+            position: absolute;
+            right:36px;
+            top: 28px;
+        }
+        .anniu::before{
+            display: block;
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: white;
+            position: absolute;
+            top: -10px;
+        }
+        .anniu::after{
+            display: block;
+            content: "";
+            width: 10px;
+            height: 30px;
+            background: white;
+            position: absolute;
+            top: -10px;
+            z-index: -1;
+            transition: 0.5s;
+        }
+        main:hover .anniu::after{
+            transition: 0.5s;
+            transform: rotate(50deg);
+        }
+        .gaizi {
+            width: 109px;
+            height: 28px;
+            background: white;
+            margin: 0 auto;
+            transform-origin: 0 100%;
+           transition: 0.5s;
+        }
+        main:hover .gaizi{
+            transition: 0.5s;
+            transition-delay: 0.2s;
+            transform: rotate(-150deg);
+        }
+        .gaizis{
+            width: 81px;
+            height: 18px;
+            background: rgb(44, 44, 44);
+            position: absolute;
+            top: 10px;
+            left: 59px;
+            z-index: -1;
+        }
+        .zui{
+            width: 0;
+            height: 0;
+            border-right: 9px solid rgb(97, 96, 96);
+            border-bottom: 5px solid rgb(97, 96, 96);
+            border-left: 9px solid transparent;
+            border-top: 5px solid transparent;
+            position: absolute;
+            top: -9px;
+            right: 0;
+            z-index: -1;
+        }
+        .zui img{
+            position: absolute;
+            top: -60px;
+            right: -10px;
+            opacity: 0;
+        }
+        main:hover .zui img{
+transition: 1s;
+transition-delay: 0.5s;
+top: -90px;
+opacity: 1;
+        }
+        main:active .zui img{
+            transition: 1s;
+            top: -110px;
+            opacity: 0;
+        }
+        .gaizis::before {
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-bottom: 9px solid rgb(44, 44, 44);
+            border-top: 9px solid transparent;
+            border-right: 7px solid rgb(44, 44, 44);
+            position: absolute;
+            left:-13px;
+        }
+        .gaizis::after {
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 7px solid rgb(44, 44, 44);
+            border-bottom: 9px solid rgb(44, 44, 44);
+            border-top: 9px solid transparent;
+            border-right: 7px solid transparent;
+            position: absolute;
+            right: -13px;
+        }
+        .ning {
+            width: 109px;
+            height: 16px;
+            background: black;
+            margin: 0 auto;
+        }
+
+        .beizi {
+            width: 109px;
+            height: 156px;
+            background: white;
+            position: relative;
+            margin: 0 auto;
+        }
+        .beizi img{
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            transition: 1s;
+        }
+      #cat2{
+          bottom: 25px;
+          left: 15px;
+          opacity: 0;
+      }
+      main:active #cat{
+          transition: 0.5s;
+          opacity: 0;
+      }
+      main:active #cat2{
+          transition: 1s;
+          opacity: 1;
+      }
+        .beizi::before {
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 7px solid seagreen;
+            border-bottom: 79px solid seagreen;
+            border-top: 79px solid transparent;
+            border-right: 7px solid transparent;
+            position: absolute;
+            left: 0;
+        }
+
+        .beizi::after {
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-bottom: 79px solid seagreen;
+            border-top: 79px solid transparent;
+            border-right: 7px solid seagreen;
+            position: absolute;
+            right: 0;
+        }
+        h1 {
+position: absolute;
+bottom: -40px;
+left: 70px;
+color: white;
+cursor: default;
+}
+    </style>
+</head>
+
+<body>
+    <main>
+            <div class="title">开~</div>
+        <div class="shuibei">
+            <div class="gaizi"></div>
+            <div class="gaizis">
+                <div class="zui">
+                        <img src="img/maoyan.png" alt="" width="30" height="70">
+                </div>
+            </div>
+            <div class="ning"></div>
+            <div class="beizi">
+                <img src="img/cat.png" alt="" width="70" height="80" id="cat">
+                <img src="img/cat2.png" alt="" width="80" height="130" id="cat2">
+            </div>
+            <div class="anniu"></div>
+        </div>
+        <h1>好看的杯子</h1>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        #box {
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        div::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-bottom: 70px solid red;
+            border-top: 0px solid transparent;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            position: absolute;
+            top: -45px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box');
+        var iRotate = 0;
+        document.onmousemove = function (e) {
+            // 一个角的邻边
+            var a = e.clientX - oBox.offsetLeft - 25;
+            // 一个角的对边
+            var b = e.clientY - oBox.offsetTop - 25;
+            // 一个角的斜边
+            // sqrt() 方法可返回一个数的平方根。 根据勾股定理计算出斜边
+            var c = Math.sqrt(a * a + b * b);
+            //将浏览器以标签位置为中心，中心位置为原点，分为4个坐标系
+
+            if (a > 0 && b > 0) { //第一象限
+                // Math.asin(b / c) 返回的是一个弧度值，并不是一个 30deg什么的度数
+                // sin() 方法可返回一个数字的正弦。返回值在 -1.0 到 1.0 之间。
+                // asin() 方法可返回一个数的反正弦值。返回的值是 -PI/2 到 PI/2 之间的弧度值。
+                // 弧度的计算
+                // 1° = 1 * Π/180 ,在js中 Π = Math.PI
+                iRotate = Math.asin(b / c) + 90 * Math.PI / 180; //此处 + 90°相当于取值为 0°到180°之间的弧度值
+            } else if (a > 0) {  //第四象限(a>0 b<0)
+                // 为何变为 a/c ，因为此时旋转角为钝角，旋转角度大于90°，此时 x = a , y = b 
+                iRotate = Math.asin(a / c);
+            }
+            if (a < 0 && b > 0) {  //第二象限
+                iRotate = -(Math.asin(b / c) + 90 * Math.PI / 180);
+            } else if (a < 0) {   //第三象限(a<0 b<0)
+                iRotate = Math.asin(a / c);
+            }
+            // rad 是一个弧度单位  Π rad = 180 deg
+            oBox.style.WebkitTransform = 'rotate(' + iRotate + 'rad)';
+        }  </script>
+</body>
+
+</html>

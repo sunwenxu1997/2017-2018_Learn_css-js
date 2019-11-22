@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本描边效果</title>
+    <style>
+
+        html,body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    body{
+        background: rgb(219, 90, 209);
+        /* background-size: .2em 100%; */
+        font: 50px Open Sans, Impact;
+        /* 定义文本中只有大写字母 */
+        text-transform: uppercase;
+        margin: 0 auto;
+        overflow: hidden;
+        
+    }
+    svg{
+        width: 700px;
+        height: 350px;
+        /* background: rgb(252, 131, 110); */
+        box-shadow: 5px 5px 10px rgb(46, 45, 45) inset;
+        position: absolute;
+        z-index: 6;
+    }
+    .text,.texts{
+       
+        stroke-width: 3;
+        stroke-linejoin: round;
+        stroke-dasharray: 70 330;
+        stroke-dashoffset: 0;
+        animation: dong1 6s infinite linear ;
+    }@keyframes dong {
+  100% {
+      /* 相当于线段的运行距离 */
+    /* stroke-dashoffset: 400; */
+    stroke-dasharray: 400 0;
+  }
+}
+@keyframes dong1 {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+.texts {
+    font: 60px Open Sans, Impact;
+    fill: none;
+stroke-dasharray: 0 400;
+  stroke: rgb(250, 248, 250);
+  animation: dong 4s infinite ease-in-out alternate;
+}
+.text{
+    stroke-width: 4;
+    fill: rgba(31, 30, 30, 0.527);
+}
+.text:nth-child(5n + 1) {
+  stroke: red;
+  animation-delay: -1.2s;
+}
+.text:nth-child(5n + 2) {
+  stroke: white;
+  animation-delay: -2.4s;
+}
+.text:nth-child(5n + 3) {
+  stroke: rgb(255, 136, 0);
+  animation-delay: -3.6s;
+}
+.text:nth-child(5n + 4) {
+  stroke: rgb(255, 230, 0);
+  animation-delay: -4.8s;
+}
+.text:nth-child(5n + 5) {
+  stroke: rgb(180, 58, 191);
+  animation-delay: -6s;
+}
+main{
+    width: 700px;
+    height: 350px;
+    /* background: red; */
+    position: relative;
+    background: rgb(196, 80, 186);
+}
+div{
+    width: 450px;
+    height: 70px;
+    background: rgba(71, 71, 71, 0.74);
+    position: absolute;
+    z-index: 2;
+    top: 220px;
+    left: 125px;
+    box-shadow: 5px 10px 5px rgb(49, 48, 48) ;
+    border-radius: 50px;
+}
+    </style>
+</head>
+<body>
+    <main>
+    <svg viewBox='0 0 500 300'>
+<!-- symbol元素用来定义一个图形模板对象，它可以用一个<use>元素实例化。 -->
+<symbol id="s-t">
+        <!-- dy=".35em" -->
+    <text text-anchor="middle" x="50%" y="45%"  >孙大旭</text>
+</symbol>
+<symbol id="s-text">
+    <text text-anchor="middle" x="50%" y="80%"  >S U N D A X U</text>
+</symbol>
+<use class="texts" xlink:href="#s-t"></use>
+<use class="text" xlink:href="#s-text"></use>
+<use class="text" xlink:href="#s-text"></use>
+<use class="text" xlink:href="#s-text"></use>
+<use class="text" xlink:href="#s-text"></use>
+<use class="text" xlink:href="#s-text"></use>
+  
+    </svg>
+    <div></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>传送带</title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        body {
+            background: #ccc;
+        }
+
+        main {
+            width: 600px;
+            height: 300px;
+            /* border: 1px solid black; */
+            position: relative;
+            cursor: pointer;
+            /* overflow: hidden; */
+        }
+        main::before{
+            content: '';
+            width: 200px;
+            height: 300px;
+            background: #ccc;
+            position: absolute;
+            left: -200px;
+            z-index: 999;
+        }
+        main::after{
+            content: '';
+            width: 200px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.493);
+            position: absolute;
+            left: 200px;
+            z-index: 999;
+        }
+        svg {
+            width: 600px;
+            height: 120px;
+            /* background: yellow; */
+            position: absolute;
+            bottom: 0;
+        }
+
+        rect {
+            fill: rgb(82, 77, 184);
+            stroke: rgb(26, 22, 94);
+            stroke-width: 20px;
+
+
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                stroke-dasharray: 20 5;
+                stroke-dashoffset: 0px;
+
+            }
+            100% {
+                stroke-dasharray: 20 5;
+                stroke-dashoffset: -1000px;
+            }
+        }
+
+        #lun {
+            width: 50px;
+            height: 50px;
+            background: gray;
+            border-radius: 50%;
+            position: absolute;
+           
+            animation: zhuan 5s linear infinite;
+        }@keyframes zhuan{
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .lun-l{
+            bottom: 35px;
+            left: 50px;
+        }
+        .lun-r{
+            bottom: 35px;
+            right: 50px;
+        }
+        #lun::after,#lun::before,#lun section::before,#lun section::after{
+            content: '';
+            width: 20px;
+            height: 12px;
+            background: gray;
+            position: absolute;
+        }
+        #lun::after{
+            left: 15px;
+            top: -10px;
+        }
+        #lun::before{
+            left: 15px;
+           bottom: -10px;
+        }
+        #lun section::before{
+            transform: rotate(90deg);
+            top: 18px;
+            left: -13px;
+        }
+        #lun section::after{
+            transform: rotate(90deg);
+            top: 18px;
+            right: -13px;
+        }
+        #lun  section{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 15px solid gray;
+            box-sizing: border-box;
+            background: white;
+            box-shadow: 0 0 5px rgb(53, 52, 52);
+        }
+        #box{
+            width: 150px;
+            height: 150px;
+            font-size: 20px;
+            color: white;
+            line-height: 150px;
+            text-align: center;
+            background: rgb(221, 183, 101);
+            position: absolute;
+            transform-origin: 50% 100%;
+            top: 30px;
+            animation: move1 9s linear infinite;
+        }@keyframes move1{
+            0%{
+                opacity: 1;
+                left: -200px;
+            transform: rotate(0deg);
+            }
+            79%{
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+            80%{
+                opacity: 1;
+                left:485px;
+                transform: rotate(45deg);
+            }
+            100%{
+                opacity: 0;
+                left: 700px;
+                transform: rotate(110deg);
+            }
+        }
+        #guang{
+            width: 1px;
+            height: 180px;
+            background: red;
+            box-shadow: 0 0 5px rgb(247, 98, 98);
+            position: absolute;
+            left: 300px;
+            z-index: 9999;
+            opacity: 0;
+            animation: move2 1s ease 3.5s infinite alternate;
+        }@keyframes move2{
+            0%{
+                opacity: 1;
+                left:300px ;
+            }
+            50%{
+                opacity: 1;
+                left: 250px;
+            }
+            100%{
+                opacity: 1;
+                left: 350px;
+            }
+        }
+        #guang::before{
+            content: '';
+            width: 2px;
+            height: 10px;
+            background: white;
+            position: absolute;
+            left: -1px;
+        }
+        main:hover rect{
+            animation-play-state: paused;
+        }
+        main:hover #lun{
+            animation-play-state: paused;
+        }
+        main:hover #box{
+            animation-play-state: paused;
+        }
+        main:hover #guang{
+            animation-play-state: paused;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <main>
+        <svg>
+            <rect x='15' y='10' width='570' height='100' rx='50' ry='50' />
+        </svg>
+        <div id="lun" class="lun-l"><section></section></div>
+        <div id="lun" class="lun-r"><section></section></div>
+        <div id="box">京东物流</div>
+        <div id="guang"></div>
+    </main>
+</body>
+
+</html>

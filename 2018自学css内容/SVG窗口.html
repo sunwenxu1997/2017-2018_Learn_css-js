@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG窗口</title>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background: #0c27cf;
+
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* opacity: 0.5; */
+        }
+    </style>
+</head>
+
+<body>
+    <svg>
+        <path d="M0 0   L863 0  L1536 863 L0 1071 Z" style="fill: #13269c;" />
+    </svg>
+    <svg>
+        <path d="M0 150   L713 150  L1300 863 L0 1071 Z" style="fill: #242468;" />
+    </svg>
+    <svg>
+        <path d="M0 300   L563 300  L1064 863 L0 1071 Z" style="fill: #2648e6;" />
+    </svg>
+    <svg>
+        <path d="M0 450   L413 450   L828 863 L0 1071 Z" style="fill: #2c31b0;" />
+    </svg>
+    <svg>
+        <!-- <path d="M0 600   L263 600   L560  863 L0 1071 Z" style="fill: #262689;"  id="one"/> -->
+        <!-- <path d="M0 600   L263 600   L560  863 L0 1071 Z" style="fill: #262689;"  id="one"/> -->
+    </svg>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    console.log(w, h)
+    $('#one').click(function() {
+        $('#one').animate(
+        $('#one').attr({
+            d:'M0 600   L100 700   L560  863 L0 1071 Z',
+        }),500)
+        console.log(111)
+    })
+   
+   
+</script>
+
+</html>

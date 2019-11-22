@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图无缝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner {
+            /* 轮播盒子 */
+            width: 1200px;
+            height: 500px;
+            font-size: 0;
+            overflow: hidden;
+            position: relative;
+            /* background: red; */
+        }
+
+        .banner_img {
+            width: 100%;
+            height: 500px;
+            /* 装图片盒子 */
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* background: blue; */
+        }
+
+        .banner_img li {
+            width: 100%;
+            height: 500px;
+            float: left;
+            list-style: none;
+            /* 控制图片大小 */
+            background-size: 100%;
+            background-position: bottom;
+        }
+
+        .banner_list {
+            /* 装小圆点的盒子 */
+            height: 50px;
+            top: 450px;
+            position: relative;
+            margin: 0 auto;
+            z-index: 1;
+            /* background: orange; */
+        }
+
+        .banner_list span {
+            /* 小圆点的样式 */
+            /* 此处通过js控制，根据图片数量自动生成小圆点 */
+            display: block;
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid #555;
+            float: left;
+            margin: 0 5px
+        }
+
+        .banner_list .spcss {
+            /* 小原点点击效果 */
+            border: 3px solid white;
+        }
+
+        .banner_left {
+            /* 左边箭头样式 */
+            position: absolute;
+            height: 90px;
+            width: 60px;
+            top: 45%;
+            left: -60px;
+            background-color: rgba(73, 72, 62, .6);
+            text-align: center;
+            transition: all .5s;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .banner_left:hover {
+            background-color: rgba(73, 72, 62, .9)
+        }
+
+        .banner_right {
+            /* 右边箭头样式 */
+            position: absolute;
+            height: 90px;
+            width: 60px;
+            top: 45%;
+            right: -60px;
+            background-color: rgba(73, 72, 62, .6);
+            text-align: center;
+            transition: all .5s;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .banner_right:hover {
+            background-color: rgba(73, 72, 62, .9)
+        }
+
+        .banner_left img {
+            margin-top: 22px
+        }
+
+        .banner_right img {
+            margin-top: 22px
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 轮播盒子 -->
+    <div class="banner">
+        <!-- 装图片的盒子 -->
+        <ul class="banner_img">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+            <li><img src="img/4.jpg" /></li>
+        </ul>
+        <!-- 小圆点 -->
+        <div class="banner_list"></div>
+        <!-- 左右箭头 -->
+        <div class="banner_left">
+            <img src="img/left.png" />
+        </div>
+        <!-- 左右箭头 -->
+        <div class="banner_right">
+            <img src="img/right.png" />
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/banner1.js"></script>
+
+</html>

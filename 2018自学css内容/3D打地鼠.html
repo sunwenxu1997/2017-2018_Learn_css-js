@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        main {
+            width: 400px;
+            height: 200px;
+            margin: 300px auto;
+            border: 1px solid black;
+            perspective: 1000px;
+        }
+
+        #dadishu {
+            width: 400px;
+            height: 200px;
+            /* background: yellow; */
+            transform-style: preserve-3d;
+            background-image: url(img/caodi.jpg);
+            background-size: 100% 100%;
+        }
+        #dadishu>div{
+            width: 400px;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        section {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 50px;
+            cursor: pointer;
+            background-image: url(img/dishu.png);
+            background-size: 100% 100%;
+        }@keyframes chu{
+            100%{
+                top: 0;
+            }
+        }
+       
+        #dadishu>div:nth-child(1)>section{
+            left:270px;
+            animation: chu 1s ease infinite alternate;
+            animation-delay: 0.5s;
+        }
+        #dadishu>div:nth-child(2)>section{
+            left:50px;
+            animation: chu 1.5s ease infinite alternate;
+            animation-delay: 0.5s;
+        }
+        #dadishu>div:nth-child(3)>section{
+            left: 200px;
+            animation: chu 1s ease infinite alternate;
+            animation-delay: 2.5s;
+        }
+        #dadishu>div:nth-child(4)>section{
+            left: 320px;
+            animation: chu 1.5s ease infinite alternate;
+            animation-delay: 1.5s;
+        }
+        #dadishu>div>section:active{
+          animation: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="dadishu">
+            <div>
+                <section></section>
+            </div>
+            <div>
+                <section></section>
+            </div>
+            <div>
+                <section></section>
+            </div>
+            <div>
+                <section></section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

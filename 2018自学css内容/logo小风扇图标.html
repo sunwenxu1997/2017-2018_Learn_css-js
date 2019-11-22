@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小风扇图标</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: teal;
+            margin: 0 auto;
+        }
+    main{
+        width: 300px;
+        height: 300px;
+        /* border: 1px solid black; */
+        position: relative;
+    }
+    .head{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        /* border: 1px solid black; */
+        position: relative;
+        z-index: 88;
+        transition: 0.5s;
+    }
+    #shanye{
+        width: 0;
+        height: 0;
+        border: 30px solid transparent;
+        border-top: 30px solid rgb(60, 94, 196); 
+        border-right: 100px solid rgb(10, 30, 88); 
+        position: absolute;
+        top:150px;
+        left: 150px;
+        transform-origin: 0% 0%;
+        z-index: 88;
+    }
+    #shanye::after{
+        content: '';
+        width: 0;
+        height: 0;
+        border: 30px solid transparent;
+        border-top: 30px solid rgb(10, 30, 88); 
+        border-right: 30px solid rgb(10, 30, 88); 
+        border-radius: 50%;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 70px;
+        top:-30px;
+    }
+    .sy-one{
+        transform: rotate(0deg);
+    }
+    .sy-two{
+        transform: rotate(120deg);
+    }
+    .sy-three{
+        transform: rotate(-120deg);
+    }
+    .gaizi{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid white;
+        position: absolute;
+        top: 125px;
+        left: 125px;
+        z-index: 99;
+        box-sizing: border-box;
+    }
+    .gaizis{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 4px dashed rgb(189, 187, 187);
+        box-sizing: border-box;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+  
+    main:hover .head{
+        animation: zhuan 0.8s linear infinite;
+        animation-delay: -0.2s;
+    }
+    main:active .head{
+        animation: zhuan1 0.1s linear infinite;
+    }@keyframes zhuan{
+        0%{
+            transform: rotate(0deg)
+        }
+   100%{
+       transform: rotate(360deg);
+   }
+    }
+    @keyframes zhuan1{
+        0%{
+            transform: rotate(0deg)
+        }
+   100%{
+       transform: rotate(360deg);
+   }
+    }
+    .ganzi{
+        width:10px;
+        height: 150px;
+        /* background: yellow; */
+        position: absolute;
+        left: 145px;
+        top: 150px;
+        z-index: 77;
+        box-sizing: border-box;
+        border: 3px solid white;
+        background: rgb(218, 218, 218);
+        border-bottom: 3px solid transparent;
+    }
+    .box{
+        width: 150px;
+        height: 30px;
+        background: rgb(151, 149, 149);
+        margin: 0 auto;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        position: relative;
+        /* z-index: 77; */
+    }
+    .box::before{
+        content: '';
+        width: 10px;
+        height: 15px;
+        background: white;
+        position: absolute;
+        left: 50px;
+        top: -10px;
+        box-sizing: border-box;
+        border: 2px solid rgb(105, 105, 105);
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+        z-index: -1;
+    }
+    .box::after{
+        content: '';
+        width: 10px;
+        height: 15px;
+        background: white;
+        position: absolute;
+        left: 90px;
+        top: -10px;
+        box-sizing: border-box;
+        border: 2px solid rgb(105, 105, 105);
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+        z-index: -1;
+        transition: 0.5s;
+    }
+    main:hover .box::after{
+        top: 0px;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="head">
+            <section class="gaizi">
+                <section class="gaizis"></section>
+            </section>
+<div id="shanye" class="sy-one"></div>
+<div id="shanye" class="sy-two"></div>
+<div id="shanye" class="sy-three"></div>
+</div>
+<div class="ganzi"></div>
+<div class="box"></div>
+    </main>
+</body>
+</html>

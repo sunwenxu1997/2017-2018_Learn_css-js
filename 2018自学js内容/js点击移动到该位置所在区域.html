@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>点击返回指定位置</title>
+    <style>
+        #nav{
+            position: fixed;
+            left:0;
+            top:10px;
+        }
+        #nav li{
+            width:50px;
+            height:30px;
+            text-align: center;
+            list-style-type: none;
+            background:#333;
+            color:#fff;
+            margin:10px 0;
+            cursor: pointer;
+        }
+        #list li{
+            width:50%;
+            height:500px;
+            text-align: center;
+            font:bold 100px/300px simhei;
+            list-style-type: none;
+            background:yellow;
+            color:blue;
+            margin:50px 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li data-to="go1">1</li>
+        <li data-to="go2">2</li>
+        <li data-to="go3">3</li>
+        <li data-to="go4">4</li>
+        <li data-to="go5">5</li>
+    </ul>
+    <ul id="list">
+        <li id="go1">1</li>
+        <li id="go2">2</li>
+        <li id="go3">3</li>
+        <li id="go4">4</li>
+        <li id="go5">5</li>
+
+    </ul>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        //获取 #nav 位置
+        //定义点击事件
+        //当点击 #nav内的 li时，调用方法 e
+        $('#nav').on('click','li',function(e){
+        //target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+            var target = e.target;
+            var id = $(target).data("to");
+        //scrollTop() 方法返回或设置匹配元素的滚动条的垂直位置。
+        //offset() 方法返回或设置匹配元素相对于文档的偏移（位置）。
+            $('html').animate({scrollTop:$('#'+id).offset().top}, 400);
+        });
+    </script>
+</body>
+</html>

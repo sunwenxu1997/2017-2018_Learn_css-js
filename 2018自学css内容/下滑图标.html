@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下滑图标</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+        }
+
+        .head {
+            width: 30px;
+            height: 30px;
+            /* border: 1px solid white; */
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .arrows {
+            width: 28px;
+            height: 8px;
+            position: absolute;
+            animation: move 3s ease-out infinite;
+            opacity: 0;
+            transform: scale3d(0.5,0.5,0.5);
+        }
+
+        .arrows::before,
+        .arrows::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 51%;
+            background: white;
+        }
+
+        .arrows::before {
+            left: 0;
+            transform: skewY(30deg)
+        }
+
+        .arrows::after {
+            right: 0;
+            transform: skewY(-30deg)
+        }
+       .arrows:nth-child(1){
+           animation: move 3s ease-out 1s infinite;
+       }
+       .arrows:nth-child(2){
+           animation: move 3s ease-out 2s infinite;
+       }
+        @keyframes move {
+            25% {
+                opacity: 1;
+
+            }
+            33% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+            67% {
+                opacity: 1;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+            }
+        }
+        .text{
+            width: 80px;
+            height: 20px;
+            /* border: 1px solid white; */
+            position: absolute;
+            top: 70px;
+            left: -25px;
+            color: rgb(190, 186, 186);
+            cursor: pointer;
+            transition: 1s;
+        }
+        .text:hover{
+            color: white;
+            text-shadow: 0px 0px 10px white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div class="arrows"></div>
+        <div class="arrows"></div>
+        <div class="arrows"></div>
+        <div class="text">Scroll down</div>
+    </div>
+</body>
+
+</html>

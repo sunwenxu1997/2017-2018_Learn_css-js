@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        #divcss5 {
+            width: 600px;
+            height: 400px;
+            padding: 5px;
+            /* border: 1px solid #ccc; */
+            position: relative;
+        }
+
+        #divcss5 .small_pic {
+            width: 600px;
+            height: 400px;
+            background: #eee;
+            position: relative;
+        }
+
+        #divcss5 .float_layer {
+            width: 100px;
+            height: 100px;
+            /* border: 1px solid #000; */
+            /* filter: blur(5px); */
+            background: #fff;
+            /* filter: alpha(opacity: 30); */
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #divcss5 .mark {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            background: red;
+            /* filter: alpha(opacity:0); */
+            opacity: 0;
+        }
+
+        #divcss5 .big_pic {
+            position: absolute;
+            top: 250px;
+            left: 500px;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            border: 2px solid #CCC;
+            display: none;
+        }
+
+        #divcss5 .big_pic img {
+            position: absolute;
+            /* top: -30px;
+            left: -200px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="divcss5"> 
+        <div class="small_pic"> 
+        <span class="mark"></span> 
+            <span class="float_layer"></span> 
+            <img src="img/2.jpg" width=600px height=400px /></div> 
+            <div class="big_pic"><img src="img/2.jpg" /></div> 
+        </div> 
+</body>
+<script>
+        function getByClass(oParent, sClass) 
+    { 
+        // 获取body内的全部标签 ， * 表示全部
+     var aEle=oParent.getElementsByTagName('*'); 
+     console.log(aEle)
+     var aTmp=[]; 
+    //  var i=0; 
+      
+     for( var i=0;i<aEle.length;i++) 
+     { 
+      if(aEle[i].className==sClass) 
+      { 
+       aTmp.push(aEle[i]); 
+       console.log(sClass)
+      } 
+     } 
+      
+     return aTmp; 
+    } 
+     
+    window.onload=function () 
+    { 
+     var oDiv=document.getElementById('divcss5'); 
+     var oMark=getByClass(oDiv, 'mark')[0]; 
+     var oFloat=getByClass(oDiv, 'float_layer')[0]; 
+     var oBig=getByClass(oDiv, 'big_pic')[0]; 
+     var oSmall=getByClass(oDiv, 'small_pic')[0]; 
+     var oImg=oBig.getElementsByTagName('img')[0]; 
+     oMark.onmouseover=function () 
+     { 
+      oFloat.style.display='block'; 
+      oBig.style.display='block'; 
+     }; 
+      
+     oMark.onmouseout=function () 
+     { 
+      oFloat.style.display='none'; 
+      oBig.style.display='none'; 
+     }; 
+      
+     oMark.onmousemove=function (ev) 
+     { 
+      var oEvent=ev||event; 
+     //    定义鼠标所在位置
+    // width/2 height/2 鼠标刚好在放大镜中间位置
+      var l=oEvent.clientX-oDiv.offsetLeft-oSmall.offsetLeft-oFloat.offsetWidth/2; 
+      var t=oEvent.clientY-oDiv.offsetTop-oSmall.offsetTop-oFloat.offsetHeight/2; 
+       
+      if(l<0) 
+      { 
+       l=0; 
+      } 
+      else if(l>oMark.offsetWidth-oFloat.offsetWidth) 
+      { 
+       l=oMark.offsetWidth-oFloat.offsetWidth; 
+      } 
+       
+      if(t<0) 
+      { 
+       t=0; 
+      } 
+      else if(t>oMark.offsetHeight-oFloat.offsetHeight) 
+      { 
+       t=oMark.offsetHeight-oFloat.offsetHeight; 
+      } 
+      oFloat.style.left=l+'px'; 
+      oFloat.style.top=t+'px'; 
+      var percentX=l/(oMark.offsetWidth-oFloat.offsetWidth); 
+      var percentY=t/(oMark.offsetHeight-oFloat.offsetHeight); 
+      oImg.style.left=-percentX*(oImg.offsetWidth-oBig.offsetWidth)+'px'; 
+      oImg.style.top=-percentY*(oImg.offsetHeight-oBig.offsetHeight)+'px'; 
+     }; 
+    }; 
+</script>
+</html>

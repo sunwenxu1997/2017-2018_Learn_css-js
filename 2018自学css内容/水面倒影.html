@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+    main{
+        width: 300px;
+        height: 300px;
+        background: url(img/22.png);
+        background-size: 100% 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    div{
+       width: 300px;
+       height: 300px;
+       background-image: url(img/22.png);
+       background-size: 300px 300px;
+       background-repeat: no-repeat;
+       overflow: hidden;
+       /* background: gray; */
+     
+       position: absolute;
+       top: 0;
+    }@keyframes move{
+        0%{transform: translateX(-5px)}
+        100%{transform: translateX(5px)}
+    }
+    .one{
+        animation: move .73s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 180px,300px 180px,300px 300px)
+    }
+    .two{
+        animation: move .74s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 190px,300px 190px,300px 300px)
+    }
+    .three{
+        animation: move .75s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 200px,300px 200px,300px 300px)
+    }
+    .four{
+        animation: move .76s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 210px,300px 210px,300px 300px)
+    }
+    .five{
+        animation: move .77s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 220px,300px 220px,300px 300px)
+    }
+    .eight{
+        animation: move .78s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 230px,300px 230px,300px 300px)
+    }
+    .nine{
+        animation: move .79s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 240px,300px 240px,300px 300px)
+    }
+    .ten{
+        animation: move .8s ease infinite alternate;
+        clip-path:polygon(0px 300px,0 250px,300px 250px,300px 300px)
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    <div class="five"></div>
+    <div class="eight"></div>
+    <div class="nine"></div>
+    <div class="ten"></div>
+    </main>
+</body>
+</html>

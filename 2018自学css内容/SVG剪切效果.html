@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>剪切图片</title>
+    <style>
+
+   main{
+       width: 800px;
+       height: 500px;
+       border: 1px solid black;
+       background: black;
+       /* overflow: hidden; */
+   }
+   img{
+       width: 100%;
+       height: 100%;
+       /* 自由绘制路径 */
+       clip-path: polygon(626px 463px,765px 236px,687px 31px,271px 100px,70px 10px,49px 250px,133px 406px,374px 462px,529px 393px);
+
+       /* 绘制圆 */
+       /* 50px 为半径  100px 为x坐标  300px 为y坐标 */
+      /* clip-path: circle(50px at 100px 300px); */
+
+      /* 绘制菱形 */
+      /* clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); */
+
+      /* 绘制椭圆 */
+      /* 100px 左右半径 200px 上下半径  400px 横坐标  300px 纵坐标*/
+      /* clip-path: ellipse(100px 200px at 400px 300px); */
+      
+
+   }
+    </style>
+</head>
+<body>
+  <main>
+      <img src="img/2.jpg" alt="">
+  </main>
+</body>
+</html>

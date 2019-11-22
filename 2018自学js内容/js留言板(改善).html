@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       body{
+           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+           transition: 1s;
+           background: linear-gradient(45deg,rgb(71, 71, 240) 50%,white 50%,white 100%);
+       }
+        main {
+            width: 300px;
+            height: 500px;
+            position: relative;
+        }
+        .main{
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            z-index: 2;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.603);
+            filter: blur(10px);
+            transition: 0.5s;
+        }
+        h2{
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 500px;
+            text-align: center;
+            font-weight: 200;
+            color: white;
+            position: absolute;
+            z-index: 999;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        main:hover h2{
+            transition-delay: 0.3s;
+            opacity: 1;
+        }
+        h1{
+            display: block;
+            width: 100%;
+            height: 200px;
+            text-align: center;
+            position: absolute;
+            color: white;
+            font-weight: 200;
+            line-height: 200px;
+            font-size: 50px;
+            z-index: 9999;
+            transition: 0.5s;
+        }
+        main:hover h1{
+          transform: translateX(-1000px);
+          opacity: 0;
+          z-index: -1;
+        }
+       main:hover .main{
+        filter: blur(0px);
+        box-shadow: -5px 5px 5px rgb(82, 82, 82);
+       }
+        #frame{
+            width:100%;
+            height: 100px;
+            position: absolute;
+            left:0;
+            bottom: -5px;
+            z-index: 9999;
+            transition: 0.5s;
+        }
+        main:hover #frame{
+            left: 250px;
+        }
+        form{
+           width: 100%;
+           height: 100px;
+           position: absolute;
+        }
+
+        .write{
+            width: 100%;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.466);
+            border: 1px solid gray;
+            padding: 10px 0 0 10px;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        main:hover .write{
+            border: 5px solid rgb(124, 124, 241);
+        }
+        #btn {
+            width:70px;
+            height: 40px;
+            cursor: pointer;
+            position: absolute;
+            right:0;
+            bottom: 0;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.521);
+            color: white;
+            border: none;
+            transition: 0.1s;
+        }
+        main:hover #btn{
+            right: -5px;
+            bottom: -5px;
+        }
+       #btn:active{
+           background: rgba(255, 255, 255, 0.541);
+           color: royalblue;
+       }
+        #writes {
+            width: 100%;
+            transition: 0.5s;
+            position: relative;
+        }
+
+        section {
+            width: 300px;
+            height: 100px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.37);
+            color: white;
+            border-bottom: 1px solid rgba(99, 98, 98, 0.623);
+            position: relative;
+            padding: 10px 10px 0 10px;
+        }
+        section::before{
+            content: '';
+            width: 0;
+            height: 0;
+            opacity: 0.8;
+            border-top: 30px solid white;
+            border-left: 10px solid white;
+            border-right: 10px solid white;
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            z-index: 999;
+            top: 70px;
+            left: 0;
+        }
+        section::after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.63);
+            position: absolute;
+            z-index: 999;
+            top: 75px;
+            left: 5px;
+        }
+        section p{
+            display: block;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-size: 14px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        section span{
+            display: block;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            text-align: right;
+            font-size: 12px;
+            padding-right: 10px;
+        }
+        #change{
+            width: 40px;
+            height: 50px;
+            color: white;
+            position: absolute;
+            top:61.5%;
+            right: 0;
+            transition: 0.5s;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            opacity: 0;
+        }
+        main:hover #change{
+            opacity: 1;
+            right: -39px;
+        }
+        .c-t{
+            background: rgba(0, 0, 0, 0.212);
+        }
+        .c-b{
+            background: rgba(0, 0, 0, 0.212);
+          transform: translateY(49px);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h2>空空如也</h2>
+        <span id="change" class="c-t">Pre</span>
+        <span id="change" class="c-b">Nex</span>
+        <!-- 输入框 -->
+        <div id="frame">
+            <form action="/Message" method="GET">
+                <textarea name="account" id="account" cols="50" rows="5" class="write" placeholder="说点什么吧" ></textarea><br>
+                <input type="submit" value="留言" id="btn">
+            </form>
+
+        </div>
+        <h1>留言板</h1>
+        <div class="main">
+            <div id="writes"></div>
+        </div>
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var index = 0;
+
+    // 定义提交时执行的方法
+
+    $('#btn').click(function () {
+        var writes = $('.write');
+        if (!writes.val()) {
+            return;
+        }
+        $('h2').fadeOut(100);
+        // 创建 section标签部分
+        index++;
+        $('<section></section>').prependTo($('#writes'));
+        var sec = 'section:first-child';
+        $(sec).text(writes.val());
+
+        //获取时间部分
+        var now = new Date();
+        var hour = now.getHours()
+        var minute = now.getMinutes()
+        var second = now.getSeconds()
+        var year = now.getFullYear()
+        var month = now.getMonth() + 1
+        var ri = now.getDate()
+        $('<p></p>').appendTo($(sec));
+        $('<span></span>').appendTo($(sec));
+        $('section:first-child > p').text(year + '年' + month + '月' + ri + '日   ' + hour + ':' + minute + ':' + second);
+        $('section:first-child > span').text(index + '楼');
+        $('.c-t').css({ background: 'rgba(0, 0, 0, 0.603)' })
+        $('.c-b').css({ background: 'rgba(0, 0, 0, 0.603)' })
+        $('.c-t').click(function () {
+            $('#writes').css({ transform: 'translateY(0px)' })
+        })
+        $('.c-b').click(function () {
+            $('#writes').css({ transform: 'translateY(-500px)' })
+        })
+        setTimeout(function () {
+            clear();
+        }, 0)
+    })
+
+    //定义一个清除内容的方法
+    function clear() {
+        $('.write').val('');
+    }
+
+    //回车点击提交
+    $(document).keyup(function (e) {
+        if (e.keyCode == 13) {
+            $('#btn').click();
+            clear();
+        }
+    })
+
+
+
+
+
+
+    $('main').hover(function () {
+        $('body').css({ background: 'linear-gradient(70deg,rgb(71, 71, 240) 30%,white 30%,white 100%)' })
+    }, function () {
+        $('body').css({ background: 'linear-gradient(45deg,rgb(71, 71, 240) 50%,white 50%,white 100%)' })
+    })
+
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<title></title>
+
+		<style type="text/css">
+
+			video{
+
+				margin: 30px auto;
+
+				background-color: black;
+
+			}
+
+			.range1{
+
+				width: 500px;
+
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<video id="videoId" src="image/K.Will.mp4" controls="controls"  preload onclick="videoPlayOrPause();" width="600px"  onprogress="progressChange()">
+
+			该浏览器不支持该格式视频
+
+		</video>
+
+		<div>	
+
+			音量<input type="range" min="0" max="1" step="0.01" oninput="volumchange(this.value)"/>
+
+		</div>
+
+		<button onclick="fullScreen();">全屏模式</button>
+
+		<button onclick="play();">播放</button>
+
+		<button onclick="pausePlay();">暂停</button>
+
+		<button onclick="muted();">静音</button>
+
+		<button onclick="replay();">启用循环播放</button>
+
+		<button onclick="noReplay();">禁用循环播放</button>
+
+		<button onclick="skip(-10)">快退</button>		 
+
+		<button onclick="skip(10)">快进</button>
+
+		<button onclick="restart();">重播</button>
+
+		<p id="time"></p><br />
+
+		<input id="cs" type="range" min="0"  step="1" value='0'/>
+
+		<input type="button" value='00:00:00' id="timea" />
+
+		<input type="button" value='00:00:00' id="timeb" />
+
+		<script type="text/javascript">
+
+			var videoEle = document.getElementById("videoId");
+
+			var cs = document.getElementById("cs");
+
+			var timea = document.getElementById("timea");
+
+			var timeb = document.getElementById("timeb");
+
+			
+
+			videoEle.addEventListener('canplay',function(){
+
+				timea.value = changeTime(videoEle.duration);
+
+				cs.max=videoEle.duration;
+
+				
+
+			})
+
+			videoEle.addEventListener('timeupdate',function(){
+
+				timeb.value=changeTime(videoEle.currentTime);
+
+				cs.value= videoEle.currentTime;
+
+			})
+
+			cs.addEventListener('change',function(){
+
+				videoEle.currentTime = cs.value;
+
+			})
+
+			
+
+			function videoPlayOrPause(){				
+
+				if(videoEle.paused){
+
+					videoEle.play();
+
+				} else{
+
+					videoEle.pause();
+
+				}
+
+				
+
+			}
+
+			function changeall(){
+
+				var max = 3*60*60;
+
+				videoEle.currentTime = this.value
+
+			}
+
+			function volumchange(v){
+
+				videoEle.volume=v; 
+
+			}
+
+			function fullScreen(){
+
+				videoEle.webkitRequestFullScreen();
+
+			}
+
+			function progressChange(){
+
+//				console.log("123");
+
+			}
+
+			
+
+			
+
+			function play(){
+
+				videoEle.play();
+
+			}
+
+			function pausePlay(){
+
+				videoEle.pause();
+
+				if(videoEle.paused){
+
+					videoEle.css("disabled","disabled");
+
+				}
+
+			}
+
+			function muted(){
+
+				
+
+				if(videoEle.muted){
+
+					videoEle.muted = false;
+
+				} else{
+
+					videoEle.muted = true;
+
+				}
+
+			}
+
+			function replay(){
+
+				if(videoEle.loop){
+
+					videoEle.loop = false;
+
+				} else{
+
+					videoEle.loop = true;
+
+				}
+
+			}
+
+			function noReplay(){
+
+				if(videoEle.loop){
+
+					videoEle.loop = true;
+
+				} else{
+
+					videoEle.loop = false;
+
+				}
+
+			}
+
+			
+
+			function skip(value) {				
+
+				videoEle.currentTime += value;
+
+			}
+
+			function restart() {
+
+			
+
+				videoEle.currentTime = 0;
+
+			}
+
+			
+
+			
+
+			
+
+			function changeTime(time){
+
+				
+
+				var newTime = parseInt(time);
+
+				var hour = toZero(Math.floor(newTime/3600));
+
+				var min = toZero(Math.floor(newTime%3600/60));
+
+				var sec = toZero(Math.floor(newTime%60));
+
+				return hour+":"+min+":"+sec;
+
+				function toZero(num){
+
+					if(num<10){
+
+						return '0'+num;
+
+					} else{
+
+						return num;
+
+					}
+
+				}
+
+			}
+
+			changeTime();
+
+		</script>
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

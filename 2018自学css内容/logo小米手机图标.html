@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米手机</title>
+    <style>
+        html{
+            height: 100%;
+        }
+    body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    main{
+        width: 190px;
+        height: 350px;
+        /* border: 1px solid black; */
+        box-sizing: border-box;
+    }
+    .xiaomi-t{
+        width: 190px;
+        height: 40px;
+        border-radius: 20px 20px 0 0;
+        background: black;
+        position: relative;
+    }
+    .xiaomi-t::before{
+        content: "";
+        width: 35px;
+        height: 3px;
+        background: rgb(95, 94, 94);
+        border-radius: 3px;
+        position: absolute;
+        top: 18px;
+        left: 80px;
+    }
+    .xiaomi-t::after{
+        content: "";
+        width: 5px;
+        height: 5px;
+        background: rgb(121, 120, 120);
+        border: 3px solid rgb(78, 77, 77) ;
+        border-radius: 50%;
+        position: absolute;
+        top: 14px;
+        right: 50px;
+    }
+    .logo{
+        width: 10px;
+        height: 10px;
+        border: 3px solid white;
+        border-bottom: 0px solid transparent;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        border-radius: 0 4px 0 0;
+    }
+    .logo::before{
+        content: "";
+        width: 3px;
+        height: 8px;
+        background: white;
+        position: absolute;
+        left: 3.5px;
+        top:2px;
+    }
+    .logo::after{
+        content: "";
+        width: 3px;
+        height: 13px;
+        background: white;
+        position: absolute;
+        left: 17px;
+        top: -3px;
+    }
+    .xiaomi{
+        width: 190px;
+        height: 300px;
+        /* background: yellow; */
+        position: relative;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+        box-sizing: border-box;
+        overflow: hidden;
+        background: rgb(29, 29, 29);
+    }
+    .xiaomi section{
+        width: 190px;
+        height: 300px;
+        background: rgb(0, 0, 0,0.2);
+        z-index: 999;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .xiaomi section div{
+        width: 190px;
+        position: absolute;
+        bottom: 5px;
+        text-align: center;
+        font-size: 12px;
+        color: rgb(189, 186, 186);
+        cursor: default;
+    }
+    .xiaomi img{
+        height: 100%;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    main:hover .xiaomi section{
+        opacity: 1;
+    }
+    main:hover img{
+        opacity: 1;
+    }
+    .xiaomi-b{
+        width: 190px;
+        height: 50px;
+        background: black;
+        border-radius: 0 0 20px 20px;
+        position: relative;
+    }
+    .xiaomi-bs{
+        width: 50px;
+        height: 12px;
+        background: rgb(48, 47, 47);
+        border: 2px solid white;
+        border-radius: 10px;
+        position: absolute;
+        bottom: 18px;
+        left: 70px;
+        z-index: 222;
+        cursor: pointer;
+    }
+    h2{
+        font-weight: 100;
+        font-size: 45px;
+        font-family: 黑体;
+        text-align: center;
+        color: white;
+        /* margin: 0 auto; */
+        padding: 0;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+    p{
+        text-align: center;
+        color: white;
+        font-size: 10px;
+        margin: 0 auto;
+        padding: 0;
+        font-weight: 200;
+    }
+    /* main:active .xiaomi section{
+        top:-300px;
+    } */
+    .xiaomi-b section{
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        top: 25px;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .xiaomi-b section:nth-child(1){
+        left: 30px;
+    }
+    .xiaomi-b section:nth-child(2){
+        right: 30px;
+    }
+    main:hover .xiaomi-b section{
+        opacity: 1;
+    }
+    .zhuomian{
+        width: 100%;
+        height: 100%;
+        /* background: yellow; */
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: 1s;
+    }
+    
+    </style>
+</head>
+<body>
+    <main>
+   <div id="xiaomi">
+       <div class="xiaomi-t">
+           <section class="logo"></section>
+       </div>
+       <div class="xiaomi">
+           <img src="img/3.jpg" alt="">
+           <section>
+               <h2>7:48</h2>
+               <p>6月4日  周一晚上</p>
+               <p style="margin-top:3px;">我爱习大大</p>
+               <div>上滑解锁</div>
+           </section>
+           <div class="zhuomian">
+                <h2>7:48</h2>
+                <p>6月4日  周一晚上</p>
+           </div>
+       </div>
+       <div class="xiaomi-b">
+           <section></section>
+           <section></section>
+           <div class="xiaomi-bs"></div>
+       </div>
+   </div>
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $('.xiaomi-bs').click(function () {
+        $('.xiaomi section').css('top','-300px')
+        $('.zhuomian').css('opacity','1')
+    })
+</script>
+</html>

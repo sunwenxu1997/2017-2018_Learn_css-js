@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航跟随下三角</title>
+    <style>
+*{
+    padding: 0;
+    margin: 0 auto;
+}
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#head{
+    width: 500px;
+    height: 500px;
+     /* border: 1px solid  black;  */
+}
+ul{
+    list-style: none;
+    margin-bottom: 20px;
+    height: 30px;
+}
+li{
+    display: block;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    float: left;
+    position: relative;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.7s ease;
+    box-sizing: border-box;
+}
+
+ li:nth-child(1).home ~ li:last-child::after{
+    left: -400px;
+} 
+li:nth-child(2).home ~ li:last-child::after{
+    left: -300px;
+}
+li:nth-child(3).home ~ li:last-child::after{
+    left: -200px;
+}
+li:nth-child(4).home ~ li:last-child::after{
+    left: -100px;
+}
+   li:nth-child(1):hover~li:last-child::after {
+            left: -400px;
+ }
+  li:nth-child(2):hover~li:last-child::after {
+            left: -300px;
+ }
+ li:nth-child(3):hover~li:last-child::after {
+            left: -200px;
+ }
+ li:nth-child(4):hover~li:last-child::after {
+            left: -100px;
+ }
+  li:nth-child(5):last-child:last-child:hover::after {
+            left: 0px;
+        }
+.one li{
+    border-bottom: 2px solid black;
+}
+.one li:hover{
+background: rgb(0, 0, 0,0.5);
+color: white;
+}
+.one li:last-child::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    transition: 0.5s ease;
+}
+.one li:nth-child(1).home ~ li:last-child::after{
+    left: -355px;
+} 
+.one li:nth-child(2).home ~ li:last-child::after{
+    left: -255px;
+}
+.one li:nth-child(3).home ~ li:last-child::after{
+    left: -155px;
+}
+.one li:nth-child(4).home ~ li:last-child::after{
+    left: -55px;
+}
+  .one li:nth-child(1):hover~li:last-child::after {
+            left: -355px;
+ }
+ .one li:nth-child(2):hover~li:last-child::after {
+            left: -255px;
+ }
+ .one li:nth-child(3):hover~li:last-child::after {
+            left: -155px;
+ }
+ .one li:nth-child(4):hover~li:last-child::after {
+            left: -55px;
+ }
+  .one li:nth-child(5):last-child:last-child:hover::after {
+            left: 45px;
+        }
+.two li:last-child::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: royalblue;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    transition: 0.5s ease;
+}
+.two li:hover{
+    color: white;
+}
+.three li:last-child::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: black;
+    position: absolute;
+    transition: 0.5s ease;
+}
+.four li:nth-child(1)::before{
+    content: '';
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-left: 50px solid tomato;
+    border-right: 50px solid transparent;
+    border-top: 15px solid tomato;
+    border-bottom: 15px solid tomato;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.four li:last-child::after{
+      content: '';
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid tomato;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    top: 0;
+    transition: 0.5s ease;
+}
+.five li:last-child::after{
+content: '';
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: violet;
+opacity: 0.5;
+z-index: -1;
+position: absolute;
+top: 0;
+transition: 0.5s ease;
+}
+.five li:hover{
+    color: #333;
+}
+.five li:nth-child(1).home ~ li:last-child::after{
+    left: -365px;
+} 
+.five li:nth-child(2).home ~ li:last-child::after{
+    left: -265px;
+}
+.five li:nth-child(3).home ~ li:last-child::after{
+    left: -165px;
+}
+.five li:nth-child(4).home ~ li:last-child::after{
+    left: -65px;
+}
+ .five li:nth-child(1):hover~li:last-child::after {
+            left: -400px;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+ }
+.five li:nth-child(2):hover~li:last-child::after {
+            left: -300px;
+            background: yellow;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+ }
+ .five li:nth-child(3):hover~li:last-child::after {
+            left: -200px;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            background: red;
+ }
+.five li:nth-child(4):hover~li:last-child::after {
+            left: -100px;
+            background: blue;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+ }
+  .five li:nth-child(5):last-child:last-child:hover::after {
+            left: 0px;
+            background: greenyellow;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+        }
+       .six li:last-child::after{
+           content: '';
+           display: block;
+           width: 100px;
+           height: 30px;
+           border: 1px solid black;
+           z-index: -1;
+           position: absolute;
+           top: 0;
+           left:0;
+           transition: 0.5s ease;
+       }
+       .six li:hover{
+           text-shadow: 0 0 5px gray;
+       }
+.seven li:last-child::after{
+           content: '';
+           width: 30px;
+           height: 30px;
+           display: block;
+           background: black;
+           opacity: 0.5;
+           position: absolute;
+           left: 0;
+           top: 0;
+           transition: 0.5s ease;
+           z-index: -1;
+       }@keyframes move{
+           0%{
+               width: 100px
+           }
+           100%{
+               width: 1px;
+           }
+       }
+.seven li:nth-child(1).home ~ li:last-child::after{
+    left: -365px;
+} 
+.seven li:nth-child(2).home ~ li:last-child::after{
+    left: -265px;
+}
+.seven li:nth-child(3).home ~ li:last-child::after{
+    left: -165px;
+}
+.seven li:nth-child(4).home ~ li:last-child::after{
+    left: -65px;
+}
+.seven li:nth-child(1):hover~li:last-child::after {
+            left: -365px;
+             transform: rotate(360deg);
+ }
+.seven li:nth-child(2):hover~li:last-child::after {
+            left: -265px;
+             transform: rotate(360deg);
+ }
+.seven li:nth-child(3):hover~li:last-child::after {
+            left: -165px;
+             transform: rotate(360deg);
+ }
+.seven li:nth-child(4):hover~li:last-child::after {
+            left: -65px;
+             transform: rotate(360deg);
+ }
+.seven li:nth-child(5):last-child:last-child:hover::after {
+            left: 35px;
+             transform: rotate(360deg);
+        }
+        .eight{
+            overflow: hidden;
+        }
+.eight li:last-child::after,.eight li:last-child::before{
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: black;
+    position: absolute;
+    transition: 0.5s ease;
+}
+.eight li:last-child::after{
+    bottom: 0;
+}
+.eight li:last-child::before{
+    top: 0;
+}
+.eight li:nth-child(1).home ~ li:last-child::after{
+    left: -500px;
+} 
+.eight li:nth-child(2).home ~ li:last-child::after{
+    left: -300px;
+}
+.eight li:nth-child(3).home ~ li:last-child::after{
+    left: -200px;
+}
+.eight li:nth-child(4).home ~ li:last-child::after{
+    left: -100px;
+}
+  .eight li:nth-child(1):hover~li:last-child::after {
+            left: -400px;
+ }
+ .eight li:nth-child(2):hover~li:last-child::after {
+            left: -300px;
+ }
+ .eight li:nth-child(3):hover~li:last-child::after {
+            left: -200px;
+ }
+ .eight li:nth-child(4):hover~li:last-child::after {
+            left: -100px;
+ }
+  .eight li:nth-child(5):last-child:last-child:hover::after {
+            left: 0px;
+        }
+li:nth-child(1).home ~ li:last-child::before{
+    left: 100px;
+} 
+li:nth-child(2).home ~ li:last-child::before{
+    left: -300px;
+}
+li:nth-child(3).home ~ li:last-child::before{
+    left: -200px;
+}
+li:nth-child(4).home ~ li:last-child::before{
+    left: -100px;
+}
+   li:nth-child(1):hover~li:last-child::before {
+            left: -400px;
+ }
+  li:nth-child(2):hover~li:last-child::before {
+            left: -300px;
+ }
+ li:nth-child(3):hover~li:last-child::before {
+            left: -200px;
+ }
+ li:nth-child(4):hover~li:last-child::before {
+            left: -100px;
+ }
+  li:nth-child(5):last-child:last-child:hover::before{
+            left: 0px;
+        }
+</style>
+</head>
+<body>
+    <div id="head">
+    <ul class="one">
+        <li class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul><br>
+    <ul class="two">
+         <li class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+    <ul class="three">
+        <li class="home" >Home</li>
+        <li>Title</li>
+        <li >School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+      <ul class="four">
+        <li class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+     <ul class="five">
+        <li  class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+     <ul class="six">
+        <li  class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+    <ul class="seven">
+        <li  class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+      <ul class="eight">
+        <li  class="home">Home</li>
+        <li>Title</li>
+        <li>School</li>
+        <li>Foot</li>
+        <li>More</li>
+    </ul>
+    </div>
+</body>
+</html>

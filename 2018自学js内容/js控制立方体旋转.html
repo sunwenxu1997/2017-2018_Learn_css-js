@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    #experiment{
+        -webkit-perspective: 800;
+        -webkit-perspective-origin: 50% 50%;
+    }
+    #cube{
+        position: relative;
+        margin: 200px auto;
+        width: 200px;
+        height: 200px;
+        -webkit-transform-style: preserve-3d;
+        cursor: pointer;
+    }
+    .face{
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        line-height: 160px;
+        text-align: center;
+        padding: 20px;
+        font-weight: bold;
+        color: #fff;
+        background: #000;
+        font-size: 160px;
+        -webkit-transition: -webkit-transform 1s linear;
+        opacity: 0.8;
+    }
+    .face:nth-child(2){
+        -webkit-transform-origin: right;
+        -webkit-transform: rotateY(-90deg);
+        background: red;
+    }
+    .face:nth-child(3){
+        -webkit-transform-origin: left;
+        -webkit-transform: rotateY(90deg);
+        background: yellow;
+    }
+    .face:nth-child(4){
+        -webkit-transform-origin: top;
+        -webkit-transform: rotateX(-90deg);
+        background: blue;
+    }
+    .face:nth-child(5){
+        -webkit-transform-origin: bottom;
+        -webkit-transform: rotateX(90deg);
+        background: green;
+    }
+    .face:nth-child(6){
+        -webkit-transform: translateZ(-200px);
+        background: gray;
+    }
+</style>
+</head>
+<body>
+    <div id="experiment">
+        <div id="cube">
+            <div class="face" id="face1"></div>
+            <div class="face" id="face2"></div>
+            <div class="face" id="face3"></div>
+            <div class="face" id="face4"></div>
+            <div class="face" id="face5"></div>
+            <div class="face" id="face6"></div>
+        </div>
+    </div>
+
+<script>
+    document.onmousedown= function(event){
+        var that = document.getElementById('cube');
+        var reg = /\-?[0-9]+\.?[0-9]*/g;
+        var bf = that.style.webkitTransform || '0,0';
+        var arr = bf.match(reg);
+        var bfX = Number(arr[0]);
+        var bfY = Number(arr[1]);
+        var startX = event.pageX;
+        var startY = event.pageY;
+        document.onmousemove= function(event) {
+            var disX = event.pageX - startX ;
+            var disY = event.pageY - startY ;
+            var y=(disX+bfY)%360;
+            var x=(disY+bfX)%360;
+            that.style.webkitTransform = "rotateX("+x+"deg) rotateY("+y+"deg) rotateZ(0deg)";
+        };
+
+        document.onmouseup=function(event) {
+            document.onmousemove=null;
+            document.onmouseup=null;
+        };
+        return false;
+    }
+
+</script>
+</body>
+</html>

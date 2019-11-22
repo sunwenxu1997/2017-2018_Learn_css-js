@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流星雨</title>
+    <style>
+        body{
+            background: black;
+            overflow: hidden;
+            margin: 0;
+        }
+        img{
+            width: 100%;
+            opacity: 0.4;
+            filter: blur(3px)
+        }
+     .star{
+         width: 4px;
+         height: 4px;
+         border-radius: 50%;
+         background: rgba(255, 255, 255, 0.938);
+         box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.377);
+         position: absolute;
+         right: 200px;
+         animation: star-ani 5s linear infinite;
+         opacity: 0;
+     }
+     .star::before{
+         content: '';
+         width: 0;
+         height: 0;
+         border: 0 solid rgba(255, 255, 255, 0.61);
+         border-width:  0 90px 2px 90px;
+         border-color:  transparent transparent transparent rgba(255, 255, 255, 0.534);
+         position: absolute;
+         top: 1px;
+         left: 2px;
+         transform-origin: 0% 100%;
+         transform: rotate(-45deg);
+         box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.144);
+         
+     }
+     @keyframes star-ani {
+	0% {
+	opacity:0;
+	transform:scale(0) translate3d(0,0,0);
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.377);
+}
+20% {
+	opacity:0.8;
+	transform:scale(0.2) translate3d(-100px,100px,0);
+    box-shadow: 0 0 5px 0px rgba(255, 255, 255, 0.377);
+}
+40% {
+	opacity:0.8;
+	transform:scale(0.4) translate3d(-200px,200px,0);
+    box-shadow: 0 0 5px 0px rgba(255, 255, 255, 0.377);
+}
+60% {
+	opacity:0.8;
+	transform:scale(0.6) translate3d(-300px,300px,0);
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.377);
+}
+80% {
+	opacity:1;
+	transform:scale(1) translate3d(-350px,350px,0);
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.377);
+}
+100% {
+	opacity:1;
+	transform:scale(1.2) translate3d(-400px,380px,0);
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.377);
+}
+}
+    </style>
+</head>
+<body>
+    <img src="img/yekong1.jpg" alt="">
+    <!-- <div class="star"></div> -->
+</body>
+<script>
+    var num = 50;
+    // var w = window.innerWidth;
+    // var h = window.innerHeight;
+      for (var i = 0; i < num; i++) {
+         var stars = document.createElement('div');
+         stars.classList.add('star');
+         stars.style.top = sui(600,-200) + 'px';
+         stars.style.right = sui(1500,100) + 'px';
+         document.body.appendChild(stars); 
+      }
+     function sui(max,min) {
+         var place = Math.floor(Math.random()*(max - min)+min);
+         return place;
+     }
+
+     var star = document.getElementsByClassName('star')
+     console.log(star);
+     for (var j = 0; j < num; j++) {
+        star[j].style.animationDelay = j%5 == 0 ? '0s': j*0.8 + 's';
+     }
+</script>
+</html>

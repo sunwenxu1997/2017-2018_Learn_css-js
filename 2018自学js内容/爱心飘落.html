@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>爱心飘落</title>
+    <style>
+        /*  * {}通配符，从上到下全部遵循该属性 */
+        body{
+            margin: 0;
+        }
+    .box{
+        position: relative;
+        width:500px;
+        height: 500px;
+        /* inset 内阴影 */
+        /* box-shadow: 0 0 10px red ; */
+        margin: 150px auto;
+        /* background-image:url(); */
+        /* 复合样式写法 */
+        /* background: url() no-repeat  red center/100% 100%; */
+        overflow: hidden;
+    }
+    .content{
+        width: 340px;
+        height: 300px;
+        /* border: 1px solid red; */
+        margin: 120px 0 0 100px;
+    }
+    .left-h,.right-h{
+        width: 170px;
+        height: 300px;
+        /* background: yellow; */
+        float: left;
+    }
+    .left-h div{
+        /* 给父级加固定高度，防止父级塌陷 */
+        height: 34px;
+        /* float: right; */
+    }
+    .left-h div div{
+width: 30px;
+height: 30px;
+background: red;
+float: right;
+margin: 2px;
+    }
+    .right-h div{
+        /* 给父级加固定高度，防止父级塌陷 */
+        height: 34px;
+    }
+    .right-h div div{
+width: 30px;
+height: 30px;
+background: red;
+float: left;
+margin: 2px;
+    }
+    /* .box img{
+        position: absolute;
+        opacity: 0;
+        animation: move 1.6s infinite ease;
+    }@keyframes move{
+        0%{
+            transform: scale(0.5);
+        }
+        50%{
+            transform: scale(1);
+        }
+        100%{
+            transform: scale(0.5);
+        }
+    } */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- <img src="img/t0145e40792a1ae06b3.jpg" alt="" width="500" height="500"> -->
+        <div class="content">
+            <div class="left-h">
+                <div style="padding-right:68px;">
+                        <div></div>
+                        <div></div>
+                </div>
+                <div style="padding-right:34px;">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                </div>
+            </div>
+            <div class="right-h">
+                <div style="padding-left:34px;">
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                        <div></div>
+                        <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script>
+    // 爱心飘落动画实现思路
+    // 得到心形的元素
+    //判断最后一个心形掉落，然后再次实行
+    var index=0;
+    $('.content  div div div').each(function () { // 循环所有的心形
+        //让每一个心上去
+    $(this).css({
+position:'relative',
+top:'-200px',
+opacity:0
+    })
+     var wait=Math.floor(Math.random()*3000);
+    //  动画延迟
+     $(this).delay(wait).animate({
+top:0,
+opacity:1,
+     },1000,function () {//掉落爱心消失 爱心个数为46个
+         index++;
+         if (index==46) {
+             $('.content').animate({//46个落完时消失
+opacity:1,//定义爱心是否消失
+             },function () {
+                 //相关联的图片
+                 $('.box img').css('opacity','1');
+             });
+         }
+     });
+    });
+</script>
+</body>
+</html>

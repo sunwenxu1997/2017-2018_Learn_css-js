@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+</body>
+<script src="https://unpkg.com/frappe-charts@1.0.0/dist/frappe-charts.min.iife.js"></script>
+<script>
+let chart = new Chart( "#chart", { // or DOM element
+    data: {
+      labels: ["1月", "2月", "3月", "4月",
+      "5月", "6月", "7月", "8月"],
+
+      datasets: [
+        {
+          label: "Some Data", type: 'bar',
+          values: [25, 40, 30, 35, 8, 52, 17, -4]
+        }
+      ],
+
+    //   yMarkers: [{ label: "Marker", value: 70 }],
+    //   yRegions: [{ label: "Region", start: -10, end: 50 }]
+    },
+
+    title: "数据统计",
+    type: 'axis-mixed', 
+    height: 250,
+    colors: ['purple']
+  });
+</script>
+</html>

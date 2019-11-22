@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        svg {
+            width: 500px;
+            height: 300px;
+            border: 5px solid black;
+            background: #ccc;
+        }
+
+        rect {
+            stroke: green;
+            stroke-width: 3;
+            fill: yellow;
+        }
+        rect:hover{
+           fill: red;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            filter: blur(50px);
+            position: absolute;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <svg>
+        <defs>
+            <filter id="f1" x="0" y="0">
+                <!-- <feGaussianBlur> 元素是用于创建模糊效果 -->
+                <!-- n="SourceGraphic"这个部分定义了由整个图像创建效果 -->
+                <!-- stdDeviation属性定义模糊量 -->
+                <feGaussianBlur in="SourceGraphic" stdDeviation="50" />
+            </filter>
+        </defs>
+        <rect width="90" height="90" filter="url(#f1)"/>
+    </svg>
+    <div></div>
+</body>
+
+</html>

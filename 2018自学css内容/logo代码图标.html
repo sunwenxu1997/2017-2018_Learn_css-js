@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>代码图标</title>
+    <style>
+    html{
+        height: 100%;
+    }
+    body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    main{
+        width: 300px;
+        height: 500px;
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        /* background: linear-gradient(-45deg, #66cdcc 0%, #336799 100%); */
+    }
+    main img{
+        height: 100%;
+        position: absolute;
+    }
+    nav{
+        width: 150px;
+        height: 200px;
+        /* border: 1px solid black; */
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        position: relative;
+        z-index: 99;
+        opacity: 0.8;
+    }
+    div:nth-child(1){
+        width: 30px;
+        height: 100px;
+        background: linear-gradient(to right,rgb(5, 221, 138),rgb(5, 214, 221));
+        position: relative;
+        
+    }
+    div:nth-child(1)::after{
+        content: '';
+        transform: rotate(45deg);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        /* background: yellow; */
+        position: absolute;
+        top: 0px;
+        left: -15px;
+        border-top: 30px solid rgb(5, 178, 221);
+        border-right: 30px solid rgb(5, 178, 221);
+        border-left: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+    }
+    div:nth-child(2){
+        width: 30px;
+        height: 100px;
+        background: linear-gradient(to right,rgb(30, 150, 248),rgb(6, 29, 240));
+        position: relative;
+        left: 87.5px;
+       
+    }
+    div:nth-child(2)::after{
+        content: '';
+        transform: rotate(-45deg);
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        top: 21px;
+        left: -55px;
+        border-top: 28px solid rgb(5, 178, 221);
+        border-right: 28px solid transparent;
+        border-left: 28px solid transparent;
+        border-bottom: 28px solid transparent;
+    }
+    p{
+        width: 148px;
+        position: absolute;
+        bottom: -5px;
+        font-size: 20px;
+        color: white;
+        display: block;
+        background: black;
+        opacity: 0.7;
+        text-align: center;
+        font-weight: 200;
+        box-shadow: 5px 5px 5px rgb(63, 63, 63);
+    }
+    /* p::after{
+        content: '';
+        width: 6px;
+        height: 30px;
+        background: white;
+        position: absolute;
+        top: -2px;
+        left: 0;
+        transform: rotate(20deg);
+        box-shadow: 0 0 5px white;
+        animation:  move 2s linear infinite;
+        opacity: 0.9;
+    }@keyframes move{
+        100%{
+            left: 148px;
+        }
+    } */
+  
+    </style>
+</head>
+<body>
+    <main>
+        <!-- <img src="img/17.jpg" alt=""> -->
+        <nav>
+    <div></div>
+    <div></div>
+    <!-- <section></section> -->
+    <!-- <p> &nbsp;呆&nbsp;码&nbsp;团&nbsp;队 &nbsp;</p> -->
+</nav>
+    </main>
+
+</body>
+</html>

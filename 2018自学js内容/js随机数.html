@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Num {
+            width: 200px;
+            height: 100px;
+            background: red;
+            transition: 0.5s;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Num">
+        <h3 id="W">宽:200px</h3>
+        <h3 id="H">高:100px</h3>
+    </div>
+</body>
+<script>
+    var Num = document.getElementById('Num')
+    // 获取一个0 ~ 250之间的数字
+    var num = Math.random() * 250
+    var num = Math.floor(num)
+    console.log(num)
+
+    // 生成一个随机颜色
+
+    // var r = Math.floor(Math.random() * 256)
+    // var g = Math.floor(Math.random() * 256)
+    // var b = Math.floor(Math.random() * 256)
+    // Num.style.background = "rgb(" + r + ',' + g + ',' + b + ")"
+
+
+    // 通过随机数改变标签宽高，并显示数值
+
+    // var W = document.getElementById('W')
+    // var H = document.getElementById('H')
+    // var w = Math.floor(Math.random() * 250 + 250)
+    // var h = Math.floor(Math.random() * 250 + 250)
+    // Num.style.width = w + 'px'
+    // Num.style.height = h + 'px'
+    // W.innerText = '宽:' + w + 'px'
+    // H.innerText = '高:' + h + 'px'
+
+    //setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。
+    //setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。
+    //通过 setInterval() 方法 实现不断变换宽高和颜色 
+    
+    setInterval(function () {
+        var r = Math.floor(Math.random() * 256)
+        var g = Math.floor(Math.random() * 256)
+        var b = Math.floor(Math.random() * 256)
+        var W = document.getElementById('W')
+        var H = document.getElementById('H')
+        var w = Math.floor(Math.random() * 250 + 250)
+        var h = Math.floor(Math.random() * 250 + 250)
+        Num.style.background = "rgb(" + r + ',' + g + ',' + b + ")"
+        Num.style.width = w + 'px'
+        Num.style.height = h + 'px'
+        W.innerText = '宽:' + w + 'px'
+        H.innerText = '高:' + h + 'px'
+    }, 1000)
+</script>
+
+</html>

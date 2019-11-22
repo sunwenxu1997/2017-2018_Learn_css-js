@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        /* 定义全局属性 */
+        margin: 0 auto;
+        padding: 0;
+    }
+    body,html{
+        height: 100%;
+        /* 开启弹性布局 */
+        /* 使 ul在浏览器中 居中对齐 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: royalblue;
+    }
+    ul{
+        /* 定义ul样式 */
+        /* 消除小圆点 */
+        list-style: none;
+        width: 700px;
+        height: 60px;
+    }
+    li{
+        width: 100px;
+        height: 60px;
+        background: rgb(94, 131, 241);
+        /* 定义往左浮动 */
+        float: left;
+        /* 设置相对定位 */
+        position: relative;
+        font-size: 25px;
+        color: white;
+        /* 设置文字居中 */
+        text-align: center;
+        line-height: 60px;
+        /* 鼠标样式改为小手 */
+        cursor: pointer;
+    }
+    section{
+       /* 定义全部 section 属性 */
+        position: absolute;
+        /* 设置渐变 */
+        transition: 0.5s;
+    }
+    li:hover{
+        /* 设置鼠标经过时改变li背景 */
+        background: rgba(41, 41, 41, 0.274);
+    }
+    .one{
+        width: 700px;
+        height: 60px;
+        /* 相对与li进行定位，使section 与 ul 相对其   下同 */
+        top: 60px;
+        /* 使改标签为 无 */
+        display: none;
+    }
+    li:hover .one{
+        /* 使标签转换为块标签 */
+        display: block;
+        background: rgb(247, 106, 106);
+    }
+    .two{
+        width: 700px;
+        /* 定义高度为0 */
+        height: 0;
+        /* 相对与li进行定位，使section 与 ul 相对其   下同 */
+        left: -100px;
+        /* 因为高度为0，所以超出的部分被隐藏掉 */
+        overflow: hidden;
+    }
+    li:hover .two{
+        /* 高度变为60px，内容会显示出来 */
+        height: 60px;
+        background: rgb(247, 212, 99);
+    }
+    .three{
+        /* 定义宽度为0 */
+        width: 0;
+        height: 60px;
+        left: -200px;
+         /* 因为宽度为0，所以超出的部分被隐藏掉 */
+        overflow: hidden;
+    }
+    li:hover .three{
+        width: 700px;
+        background: rgb(174, 247, 106);
+    }
+    .four{
+      width: 0;
+      height: 60px;
+       /* 相对与li进行定位，使section 与 ul 相对其  */
+       /* 此处用 right 而不用 left ，是为了使其改变起始方向 */
+      right: -300px;
+        /* 因为宽度为0，所以超出的部分被隐藏掉 */
+      overflow: hidden;
+    }
+    li:hover .four{
+        width: 700px;
+        background: rgb(106, 247, 200);
+    }
+    .five{
+        width: 0;
+        height: 0;
+        left: -400px;
+        /* 因为宽，高度为0，所以超出的部分被隐藏掉 */
+        overflow: hidden;
+    }
+    li:hover .five{
+        width: 700px;
+        height: 60px;
+        background: rgb(242, 106, 247);
+    }
+    .six{
+        width: 0;
+        height: 0;
+        right: -100px;
+          /* 因为宽，高度为0，所以超出的部分被隐藏掉 */
+        overflow: hidden;
+    }
+    li:hover .six{
+        width: 700px;
+        height: 60px;
+        background: rgb(128, 158, 247);
+    }
+    .seven{
+        width: 700px;
+        height: 0;
+        left: -600px;
+        /* 此处定义 bottom 是为了改变起始位置从底部60px位置开始变高 */
+        bottom: -60px;
+        overflow: hidden;
+    }
+    li:hover .seven{
+       height: 60px;
+       background: rgb(245, 120, 141);
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            One
+            <section class="one">One</section>
+        </li>
+        <li>
+            Two
+            <section class="two">Two</section>
+        </li>
+        <li>
+            Three
+            <section class="three">Three</section>
+        </li>
+        <li>
+            Four
+            <section class="four">Four</section>
+        </li>
+        <li>
+            Five
+            <section class="five">Five</section>
+        </li>
+        <li>
+            Six
+            <section class="six">Six</section>
+        </li>
+        <li>
+            Seven
+            <section class="seven">Seven</section>
+        </li>
+    </ul>
+</body>
+</html>

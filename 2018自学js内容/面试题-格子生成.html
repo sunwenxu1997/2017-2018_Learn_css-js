@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 0;
+            height: 0;
+            border: 1px solid black;
+        }
+        #box div{
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+        }
+        #box div:hover{
+         background: red;
+        }
+        .color{
+            background: blue !important;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <div id="box">
+
+    </div>
+</body>
+<script>
+    var input = document.getElementById('input');
+    var box = document.getElementById('box')
+    var n;
+    input.onchange = function () {
+        n = input.value;
+        box.style.width = 20 * n + 'px';
+        box.style.height = 20 * n + 'px';
+        for (let i = 0; i < n * n; i++) {
+            let kuai = document.createElement('div');
+            kuai.setAttribute('class', 'kuai');
+            kuai.style.width = 20 + 'px';
+            kuai.style.height = 20 + 'px';
+            
+            kuai.onclick = function () {
+                kuai.classList.toggle('color')
+            }
+
+             box.appendChild(kuai);
+        }
+    }
+
+    var clear = document.getElementsByClassName('kuai')
+    input.onfocus = function () {
+        box.style.width = 0;
+        box.style.height = 0;
+        for (let i = 0; i < n * n; i++) {
+            box.removeChild(clear[0])
+        }
+    }
+    
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0 auto;
+        overflow: hidden;
+        background: rgb(54, 54, 54);
+    }
+    div{
+        border-radius: 50%;
+        /* background:rgb(154, 154, 247); */
+        /* opacity: 0.5; */
+        /* animation: bian 1s ease both 1; */
+        position: absolute;
+    }@keyframes bian{
+        0%{
+            opacity: 0.5;
+            transform: scale(0.2);
+        }
+        90%{
+            opacity: 0.2;
+            transform: scale(0.5);
+        }
+        100%{
+            opacity: 0;
+            transform: scale(1);
+        }
+    }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = ['orange','#f0f0f0','yellow','rgb(247, 155, 113)','rgb(245, 82, 82)']
+    // var arr = ['rgb(152, 152, 247)','#f0f0f0','rgb(30, 30, 119)','rgb(67, 185, 214)','rgb(153, 226, 245)']
+     document.onmousemove = function (e) {
+        var num =  Math.floor(Math.random() * 500);
+        var Color =  Math.floor(Math.random() * 5);
+         var x = e.clientX - num/2 ;
+         var y = e.clientY - num/2 ;
+         var div = document.createElement('div');
+        div.style.background = arr[Color];
+         div.style.left = x + 'px';
+         div.style.top = y + 'px';
+         div.style.width = num + 'px';
+         div.style.height = num + 'px';
+         div.style.opacity = '0.5';
+         div.style.animation = 'bian '+ num/100 +'s ease both 1'
+         document.body.appendChild(div);
+         setTimeout(function () {
+            document.body.removeChild(div);
+         }, num*10)
+     }
+</script>
+</html>

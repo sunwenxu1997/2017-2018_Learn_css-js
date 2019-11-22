@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>更多功能显示</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body::before,body::after{
+            content: "";
+            width: 100%;
+            height: 50%;
+            display: block;
+             position: absolute; 
+        }
+        body::before{
+            top: 0;
+            /* background: tomato; */
+        }
+        body::after{
+            bottom: 0;
+            /* background: tomato; */
+            opacity: 0.2;
+        }
+        .nav {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            border: 3px solid grey;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav section{
+            position: absolute;
+            text-align: center;
+            line-height: 100px;
+            color: gray;
+            transition: 0.5s;
+        }
+        .nav div{
+            /* background: black; */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            transition: 0.5s;
+            opacity: 0;
+            background: black;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        .nav:hover section{
+           color: black;
+        }
+        .nav div:hover{
+          background: white;
+          color: red;
+          box-shadow: 0 0 5px gray;
+        }
+        .head {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            opacity: 0;
+        }
+        .head:checked ~ section{
+            opacity: 0;
+        }
+        .head:checked ~ .one{
+            opacity: 0.7;
+            transform: translateY(100px);
+        }
+         .head:checked ~ .two{
+            opacity: 0.7;
+            transform: translateX(100px);
+        }
+         .head:checked ~ .three{
+            opacity: 0.7;
+            transform: translateY(80px) translateX(80px);
+        }
+        .head-btn{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            z-index: 999;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             /* background: black;  */
+        }
+        .head-btn::before,
+        .head-btn::after{
+            content: '';
+            width: 30px;
+            height: 2px;
+            border-radius: 5px;
+            /* background: royalblue; */
+            position: absolute;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        .head-btn::before{
+            top: 42px;
+        }
+        .head-btn::after{
+            bottom: 42px;
+        }
+        .head:checked ~ .head-btn::before{
+            opacity: 1;
+            background: gray;
+            transform: rotate(45deg)  translateX(5px) translateY(5px);
+        }
+        .head:checked ~ .head-btn::after{
+            opacity: 1;
+            background: gray;
+            transform: rotate(-45deg) translateX(5px) translateY(-5px);
+        }
+         .nav:hover  .head-btn::before{
+             background: red;
+         }
+         .nav:hover .head-btn::after{
+             background: red;
+         }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <input type="checkbox" autocomplete="off" id="head" class="head">
+        <div class="one">联系客服</div>
+        <div class="two">投诉建议</div>
+        <div class="three">7天退货</div>
+        <section>更多功能</section>
+        <label for="head" class="head-btn"></label>
+    </div>
+</body>
+
+</html>

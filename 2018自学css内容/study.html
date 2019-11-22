@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上课了,宝贝们</title>
+    <style>
+      *{
+          margin: 0 auto;
+          box-sizing: border-box;
+      }
+      body{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #4c7e80;
+      }
+      body,html{
+          height: 100%;
+      }
+      main{
+          width: 200px;
+          height: 200px;
+          /* border: 1px solid black; */
+          position: relative;
+      }
+      main:hover .toufa{
+          transform: rotate(30deg)
+      }
+      main:hover #yan section{
+          animation: none;
+          height: 3px;
+          border-radius: 0;
+          overflow: hidden;
+          position: relative;
+          top: 10px;
+      }
+      main:hover #yan section::before{
+          left: 20px;
+          top: -10px;
+      }
+      main:hover .zui{
+          transition: 0.3s;
+          border-radius: 0;
+          width: 5px;
+          height: 5px;
+      }
+      main:hover #tui{
+          animation: none;
+      }
+      .tou{
+          width: 80px;
+          height: 80px;
+          /* border-top-right-radius: 50px;
+          border-top-left-radius: 50px; */
+          border-bottom-right-radius: 50px;
+          border-bottom-left-radius: 50px;
+          background: #faefcd;
+          overflow: hidden;
+          position: relative;
+          z-index: 2;
+      }
+      .tou::before,.tou::after{
+          content:"";
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #353535;
+          position: absolute;
+          top: -20px;
+      }
+      .tou::before{
+          left: -20px;
+      }
+      .tou::after{
+          right: -20px;
+      }
+      .liuhai{
+          width: 40px;
+          height: 20px;
+          /* border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 40px; */
+          background: #353535;
+      }
+      #yan{
+          height: 30px;
+          /* background: red; */
+          display: flex;
+      }
+      #yan section{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: white;
+          position: relative;
+          animation: zhuan 4s linear infinite ;
+      }@keyframes zhuan{
+          0%{
+              transform: rotate(0deg)
+          }
+          100%{
+              transform: rotate(360deg)
+          }
+      }
+      #yan section::before{
+          content: "";
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #353535;
+          position: absolute;
+          left: 5px;
+          top: 2px;
+      }
+      .bizi{
+          width: 0;
+          height: 0;
+          border-top: 5px solid transparent;
+          border-bottom: 10px solid #fadbc6;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          position: relative;
+          top: -10px;
+      }
+      .zui{
+          width: 10px;
+          height: 10px;
+          background: #fadbc6;
+          position: relative;
+          top: -5px;
+          border-radius: 5px;
+          position: relative;
+      }
+      .toufa{
+          transition: 0.5s;
+          transform-origin: 50% 0;
+          width: 80px;
+          height: 130px;
+          background: #353535;
+          position: absolute;
+          z-index: -1;
+          left: calc(50% - 40px);
+          top: 0;
+           border-bottom-right-radius: 40px;
+          border-bottom-left-radius: 40px;
+      }
+      .yifu{
+          width: 40px;
+          height: 30px;
+          background: white;
+          position: relative;
+          top: -5px;
+      }
+      .yifu::before{
+          content:"";
+          width: 20px;
+          height: 20px;
+          background: black;
+          position: absolute;
+          left: calc(50% - 10px);
+      }
+      .yifu::after{
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 10px solid black;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          position: absolute;
+          left: calc(50% - 10px);
+          bottom: -10px;
+      }
+      .qunzi{
+          width: 40px;
+          height: 20px;
+          background: black;
+          position: relative;
+          top: -5px;
+      }
+      .qunzi::before{
+          content: "";
+        width: 0;
+        height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid black;
+          border-left: 6px solid transparent;
+          border-right: 6px solid black;
+          position: absolute;
+          left: -12px;
+      }
+      .qunzi::after{
+          content: "";
+        width: 0;
+        height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid black;
+          border-right: 6px solid transparent;
+          border-left: 6px solid black;
+          position: absolute;
+          right: -12px;
+      }
+      .tui{
+          width: 40px;
+          height: 70px;
+          position: relative;
+          top: -5px;
+          display: flex;
+      }
+      #tui{
+          width: 5px;
+          height: 70px;
+          background: #fadbc6;
+          position: relative;
+      }@keyframes zou{
+          0%{
+              height: 70px;
+          }
+          100%{
+              height: 60px;
+          }
+      }
+      .l-tui{
+            animation: zou 0.5s linear infinite alternate-reverse;
+      }
+      .r-tui{
+            animation: zou 0.5s -0.5s linear infinite alternate-reverse;
+      }
+      #tui::before{
+          content: "";
+          width: 5px;
+          height: 10px;
+          background: white;
+          border-top: 2px solid #ccc;
+          position: absolute;
+          bottom: 0;
+      }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="toufa"></div>
+       <div class="tou">
+           <div class="liuhai"></div>
+           <div id="yan">
+              <section></section>
+              <section></section>
+           </div>
+           <div class="bizi"></div>
+           <div class="zui"></div>
+       </div>
+       <div class="yifu"></div>
+       <div class="qunzi"></div>
+       <div class="tui">
+           <div id="tui" class="l-tui"></div>
+           <div id="tui" class="r-tui"></div>
+       </div><br>
+       <div style="color:white">5.21 <span style="font-size:12px;">作</span></div>
+    </main>
+</body>
+</html>

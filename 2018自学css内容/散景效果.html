@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>散景效果</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+    .background{
+        width: 100vw;
+        height: 100vh;
+        background: #3E1E68;
+    }
+    .background span{
+        width: 20vmin;
+        height: 20vmin;
+        border-radius: 20vmin;
+        position: absolute;
+       
+    }
+    .background span:nth-child(2n){
+        box-shadow: 40vmin 0 10vmin currentColor ;
+        animation: move 15s linear infinite;
+    }
+    .background span:nth-child(2n+1){
+        box-shadow: 40vmin 0 10vmin  currentColor ;
+        animation: move 20s linear infinite;
+    }
+    .background span:nth-child(1){
+        color:#583B87;
+        top: 50%;
+        left: 45%;
+        transform-origin: 11vw -22vh;
+    }
+    .background span:nth-child(2){
+        color: #E45A84;
+        top: 40%;
+        left: 30%;
+        transform-origin: 10vw 23vh;
+    }
+    .background span:nth-child(3){
+        color: #FFACAC;
+        top: 60%;
+        left: 60%;
+        transform-origin:  -9vw -24vh;
+    }
+    .background span:nth-child(4){
+        color:#583B87;
+        top: 50%;
+        left: 60%;
+        transform-origin: 16vw 25vh;
+    }
+    .background span:nth-child(5){
+        color: #E45A84;
+        top: 20%;
+        left: 80%;
+        transform-origin:8vw 3vh;
+    }
+    .background span:nth-child(6){
+        color:#583B87;
+        top: 60%;
+        left: 35%;
+        transform-origin: 0vw 17vh;
+    }
+    .background span:nth-child(7){
+        color: #E45A84;
+        top: 25%;
+        left: 68%;
+        transform-origin: 11vw -8vh;
+    }
+    .background span:nth-child(8) {
+        color:#583B87;
+  top: 53%;
+  left: 95%;
+  animation-duration: 15s;
+  animation-delay: -10.9s;
+  transform-origin: 25vw 15vh;
+}
+.background span:nth-child(9) {
+    color: #E45A84;
+  top: 75%;
+  left: 67%;
+  animation-duration: 11.7s;
+  animation-delay: -13.9s;
+  transform-origin: -11vw -3vh;
+}
+.background span:nth-child(10) {
+    color: #FFACAC;
+  top: 59%;
+  left: 51%;
+  animation-duration: 12.1s;
+  animation-delay: -11.7s;
+  transform-origin: -5vw -7vh;
+}
+.background span:nth-child(11) {
+    color: #FFACAC;
+  top: 80%;
+  left: 91%;
+  animation-duration: 13.4s;
+  animation-delay: -5.9s;
+  transform-origin: 7vw -19vh;
+}
+.background span:nth-child(12) {
+    color: #E45A84;
+  top: 68%;
+  left: 97%;
+  animation-duration: 15.8s;
+  animation-delay: -8.2s;
+  transform-origin: 24vw 3vh;
+}
+.background span:nth-child(13) {
+    color: #FFACAC;
+  top: 69%;
+  left: 46%;
+  animation-duration: 10.4s;
+  animation-delay: -11.5s;
+  transform-origin: 13vw 24vh;
+}
+.background span:nth-child(14) {
+    color: #E45A84;
+  top: 98%;
+  left: 63%;
+  animation-duration: 14.2s;
+  animation-delay: -3s;
+  transform-origin: -13vw -15vh;
+}
+    @keyframes move {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>

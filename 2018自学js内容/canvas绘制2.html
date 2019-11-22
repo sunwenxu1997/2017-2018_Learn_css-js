@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+           
+        }
+
+        canvas {
+            background: rgb(28, 185, 28);
+            display: block;
+            /* filter: blur(5px); */
+          
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bu"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('bu')
+    var w, h;
+    w = window.innerWidth; //获取浏览器宽
+    h = window.innerHeight; //获取浏览器高
+    // 使画布宽高等于浏览器宽高
+    canvas.width = w;
+    canvas.height = h;
+
+    // 定义画笔样式
+    var canCon = canvas.getContext('2d')
+    // 定义绘制圆点的个数
+    var num = 200;
+    //定一个存放小点位置的数组
+    var data = [];
+    
+    //创建绘制小圆点的方法
+    function Cricle(x, y) {
+        canCon.beginPath(); //擦除前 需要先把笔抬起来
+        // 定义绘制圆点的背景色
+        canCon.fillStyle = 'yellow'
+        // 定义边框颜色
+        canCon.strokeStyle = 'white'
+        // 定义边框宽度
+        canCon.lineWidth = 1;
+       
+        //绘制圆点的坐标，圆心位置，圆(Math.PI * 2为圆形，否则为扇形)
+        canCon.arc(x, y, 10, 0, Math.PI * 2);
+        //绘制出来边框
+        canCon.stroke();
+        // 绘制出来背景
+        // canCon.fill();
+    }
+    
+    //创建规定数量的i 对应所绘制的小圆点个数
+    for (var i = 0; i < num; i++) {
+        //每个小圆点对应的坐标位置
+        //此处的x,y 为之前绘制 圆点时的参数
+        //cX ，cY 相当于重新绘制的小圆点的坐标位置
+        data[i] = { x: Math.random() * w, y: Math.random() * h, cX: Math.random() * 0.6 - 0.3, cY: Math.random() * 0.6 - 0.3 };
+        // 调用绘制圆点的函数，绘制多个不同位置的小圆点
+        Cricle(data[i].x, data[i].y);
+    }
+
+
+//创建一个会改变位置的圆点方法
+    function draw() {
+        // clearRect() 方法清空给定矩形内的指定像素。(这里指没执行一次方法，清除整个画布之前的绘制的东西)
+        canCon.clearRect(0, 0, w, h);
+         //创建相同数量的i 对应所绘制的小圆点个数
+        for (var i = 0; i < num; i++) {
+            //对应之前所创建的小圆点
+            //对应data数组内的小圆点所相对应的 x，y坐标会改变
+            data[i].x += data[i].cX;
+            data[i].y += data[i].cY;
+            //重新绘制一个改变位置后的小圆点
+            Cricle(data[i].x, data[i].y)
+        }
+    }
+    setInterval(function () {
+        draw()
+    }, 10)
+</script>
+
+</html>

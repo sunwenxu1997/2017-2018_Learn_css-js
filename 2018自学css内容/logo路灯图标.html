@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路灯</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: purple;
+        }
+
+        main {
+            width: 1100px;
+            height: 400px;
+            /* border: 1px solid white; */
+            position: relative;
+            overflow: hidden;
+        }
+
+        #deng {
+            width: 50px;
+            height: 320px;
+            /* border: 1px solid white; */
+        }
+
+        .deng-t {
+            width: 20px;
+            height: 0;
+            border-top: 0px solid transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 20px solid white;
+        }
+
+        .deng {
+            width: 30px;
+            height: 0;
+            border-top: 35px solid #ccc;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 0px solid transparent;
+            position: relative;
+        }
+
+        .deng section {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid white;
+            box-shadow: 0 0 10px rgb(231, 219, 40) inset;
+            position: absolute;
+            top: -30px;
+            left: 3px;
+        }
+
+        .deng::after {
+            content: '';
+            width: 150px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgb(247, 240, 146);
+            position: absolute;
+            top: 270px;
+            left: -60px;
+            opacity: 0;
+            filter: blur(5px);
+            transition-duration: 0s;
+            z-index: 888;
+        }
+
+        .deng::before {
+            content: '';
+            width: 50px;
+            height: 0;
+            opacity: 0;
+            border-top: 0px solid transparent;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 0px solid rgb(247, 240, 146);
+            filter: blur(5px);
+            position: absolute;
+            left: -60px;
+            top: -35px;
+            z-index: 999;
+            transition-duration: 0s;
+        }
+
+        main:hover .deng::before {
+            transition: 0.8s;
+            opacity: 0.5;
+            border-bottom: 330px solid rgb(247, 240, 146);
+        }
+
+        main:hover .deng::after {
+            transition: 0.8s;
+            transition-delay: 0.3s;
+            opacity: 0.5;
+        }
+
+        .dengs {
+            width: 10px;
+            height: 0;
+            border-top: 20px solid white;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 0px solid transparent;
+        }
+
+        .deng-c {
+            width: 5px;
+            height: 180px;
+            background: white;
+        }
+
+        .deng-b {
+            width: 20px;
+            height: 0;
+            border-top: 0px solid transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 50px solid white;
+        }
+
+        #qiu {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            right: -10%;
+            z-index: 88;
+            
+        }
+
+        @keyframes move {
+            0% {
+                right: -10%
+            }
+            25%{
+                transform: rotate(9deg);
+            }
+            50% {
+                right: 46%;
+                transform: rotate(0deg);
+            }
+            75%{
+                transform: rotate(-10deg);
+            }
+            100% {
+                right: 110%;
+                transform: rotate(-10deg);
+            }
+        }
+    #qius{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            right: -10%;
+            transform: rotate(9deg);
+            z-index: 77;
+            
+    }
+        #qius::after{
+            content: '';
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgb(43, 42, 42);
+            opacity: 0.5;
+            position: absolute;
+            bottom:-2px;
+            transform-origin: 50% 100%;
+            transform: skewX(-80deg);
+        }
+main:hover #qiu{
+    animation: move 8s ease-in-out  both;
+    animation-delay: 2s;
+}
+main:hover #qius{
+    animation: move 8s ease-in-out  both;
+    animation-delay: 2s;
+}
+main:hover #qius::after{
+    animation: move1 8s ease-in-out  both;
+    animation-delay: 2s;
+
+}
+        @keyframes move1 {
+            0% {
+               
+                opacity: 0.5;
+                height: 50px;
+            }
+            25%{
+                opacity: 0.5;
+                height: 50px;
+                transform: skewX(-80deg);
+            }
+            50% {
+               
+                opacity: 0;
+                height: 0px;
+
+            }
+            75%{
+                height: 50px;
+                transform: skewX(80deg);
+            }
+            100% {
+      
+                opacity: 0.5;
+                height: 50px;
+                transform: skewX(80deg);
+                bottom:-2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="deng">
+            <div class="deng-t"></div>
+            <div class="deng">
+                <section></section>
+            </div>
+            <div class="dengs"></div>
+            <div class="deng-c"></div>
+            <div class="deng-b"></div>
+        </div>
+        <div id="qiu"></div>
+        <div id="qius"></div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+#slider {
+    width:100px;
+	height:100px;
+	cursor:pointer;
+	position:absolute;
+	background:#0000FF;
+}
+#box {
+	width:960px;
+	height:540px;
+	border:1px solid #000000;
+	position:relative;
+	top:10px;
+	left:10px;
+}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="slider"></div>
+    </div>
+</body>
+<script>
+
+    //定义一个能够拖拽的方法
+function dragInit() {
+    // 获取到容器
+    var box = document.getElementById('box');
+    //获取被拖拽的标签
+    var div = document.getElementById('slider');
+
+    div.onmousedown = function(e) { //鼠标按下位置；
+    // client 事件属性返回当事件被触发时鼠标指针相对于浏览器页面的坐标
+        var x = e.clientX - div.offsetLeft;
+        var y = e.clientY - div.offsetTop;
+        document.onmousemove = function(e) { //鼠标按下后移动位置；
+            var L = e.clientX - x;
+            var T = e.clientY - y;
+
+            //获取容器的宽度(包含边框)
+            var boxW = box.offsetWidth;
+             //获取容器的高度(包含边框)
+            var boxH = box.offsetHeight;
+             //获取标签的宽度(包含边框)
+            var divW = div.offsetWidth; 
+             //获取标签的高度(包含边框)
+            var divH = div.offsetHeight;
+
+
+            //范围限制
+            if (L < 0) {
+                L = 0;
+            }
+            if (T < 0) {
+                T = 0;
+            }
+            if (L > boxW - divW) {
+                L = boxW - divW;
+            }
+            if (T > boxH - divH) {
+                T = boxH - divH;
+            }
+            div.style.left = L + "px";
+            div.style.top = T + "px";
+            console.log(L, T);
+
+        }
+        document.onmouseup = function(e) {
+
+            document.onmousemove = null; //如果不取消，鼠标弹起div依旧会随着鼠标移动
+            document.onmouseup = null;
+
+        }
+
+    }
+    return div;
+};
+dragInit();
+
+</script>
+</html>

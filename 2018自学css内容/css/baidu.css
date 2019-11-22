@@ -1,0 +1,135 @@
+
+body{
+    min-width: 1000px;
+    position: relative;
+}
+p{
+    padding: 0;
+    margin: 0 auto;
+    cursor: default;
+}
+/* 导航栏部分 */
+nav {
+    width: 100%;
+    height: 30px;
+}
+.head {
+    width: 480px;
+    height: 30px;
+    /* border: 1px solid red; */
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.nav {
+    list-style: none;
+    margin: 0 auto;
+    float: left;
+    padding: 0;
+}
+.nav li {
+    float: left;
+    margin-left: 20px;
+}
+.nav a {
+    color: black;
+    font-size: 14px;
+    padding: 0;
+    margin: 0 auto;
+
+}
+.nav a:hover {
+    color: blue;
+
+}
+/* 百度搜索部分 */
+main{
+    width: 800px;
+    height: 200px;
+    margin:100px auto;
+    /* border: 1px solid red; */
+}
+main a{
+ display: block;
+ width: 200px;
+ height: 70px;
+ margin: 0 auto;
+ padding: 0;
+}
+img{
+    margin: 0 auto;
+}
+/* 百度搜索按键部分 */
+form{
+    display: flex;
+    margin-top: 30px;
+    /* border: 1px solid red; */
+    /* width: 700px; */
+    padding: 0;
+}
+   input:nth-child(1){
+       margin: 0 auto;
+width: 550px;
+height: 35px;
+padding: 0;
+padding-left: 5px;
+border: 0.5px solid rgb(172, 171, 171);
+border-right: none;
+position: relative;
+left: 50px;
+   }
+   input:nth-child(1):hover{
+    border-color: #3385FF;
+   }
+   input:nth-child(2){
+ margin: 0 auto;
+width: 90px;
+height: 36px;
+padding: 0;
+border-width: 0px;
+background-color: #3385FF;
+color: white;
+position: relative;
+left: -18px;
+   }
+   input:nth-child(2):hover{
+       cursor: pointer;
+    border-bottom: 1px solid #2868c8;
+    box-shadow: 1px 1px 1px #ccc;
+   }
+/* 底部二维码部分 */
+.ewm{
+    width: 60px;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 150px;
+    }
+    /* 底部部分 */
+.bottom{
+    width: 600px;
+    height: 100px;
+    /* border: 1px solid red; */
+    margin: 20px auto;
+}
+.bottom a{
+    color: #999999;
+    font-size: 12px;
+}
+/* 底部第一行部分 */
+.bottom div:nth-child(1){
+    text-align: center;
+}
+.bottom div:nth-child(1) a{
+    margin-left: 25px;
+}
+/* 底部第二行部分 */
+.bottom div:nth-child(2){
+    color: #999999;
+    font-size: 12px;
+    text-align: center;
+}
+.bottom img{
+    position: relative;
+    top: 6px;
+}
+   

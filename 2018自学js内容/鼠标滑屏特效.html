@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0 auto;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            /*白*/
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(60deg,rgb(77, 77, 76) 50% , white 50% , white 100%);
+        }
+
+        .connect {
+            width: 120px;
+            height: 200px;
+            /* background: greenyellow; */
+        }
+
+        #head {
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+            transform: skew(-30deg);
+        }
+        #head::after{
+            content: '';
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            background: transparent;
+            box-shadow: 0 0 10px 1px black;
+        }
+        #connect {
+            /*黑*/
+            height: 100%;
+            background: linear-gradient(60deg,rgb(77, 77, 76) 50% , white 50% , white 100%);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: skew(30deg);
+        }
+
+        #connect section {
+            width: 120px;
+            height: 200px;
+            /* background: orangered; */
+        }
+
+        img {
+            width: 100%;
+        }
+        #text{
+            width: 250px;
+            /* height: 200px; */
+            position: absolute;
+            top: calc(50% - 100px);
+        }
+        #connect .text{
+            /* 黑 */
+            left: calc(50% - 450px);
+            color: white;
+        }
+        
+        .connect .text{
+            /* 白 */
+            left: calc(50% + 200px);
+        }
+        h2{
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        p{
+            text-indent: 2em;
+            line-height: 20px;
+            font-weight: 200;
+            font-size: 14px;
+        }
+        #kuai{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: calc(50% - 80px);
+        }
+        #kuai section{
+            width: 100px;
+            height: 100px;
+            float: left;
+        }@keyframes move{
+            100%{
+                transform: scale(0.3);
+            }
+        }
+        .connect .kuai{
+           left: calc(50% - 600px); 
+        }
+        .connect .kuai section{
+            background: white;
+        }
+        #connect .kuai{
+            left: calc(50% + 350px);
+        }
+        #connect .kuai section{
+            background: rgb(77, 77, 76);
+        }
+         .kuai section:nth-child(1){
+            animation: move 1s ease infinite alternate;
+        }
+         .kuai section:nth-child(2){
+            animation: move 1s ease -0.5s infinite alternate;
+        }
+         .kuai section:nth-child(3){
+            animation: move 1s ease -1s infinite alternate;
+        }
+         .kuai section:nth-child(4){
+            animation: move 1s ease -0.7s infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="connect">
+        <div id="kuai" class="kuai">
+            <section></section>
+            <section></section>
+            <section></section>
+            <section></section>
+        </div>
+        <div id="text" class="text">
+            <h2>iphoneX-front</h2>
+            <p>一直以来，我们都心存一个设想，期待着能够打造出这样一部 iPhone：它有整面的屏幕，能让你在使用时完全沉浸其中，仿佛忘记了它的存在。它是如此智能，你的一触、一碰、一言、一语，哪怕是轻轻一瞥，都会得到它心有灵犀的回应。而这个设想，终于随着 iPhone X 的到来成为了现实。现在，就跟未来见个面吧。</p>
+        </div>
+        <img src="img/photo-white.png" alt="">
+    </section>
+
+    <div id="head">
+        <div id="connect">
+                <div id="kuai" class="kuai">
+                        <section></section>
+                        <section></section>
+                        <section></section>
+                        <section></section>
+                    </div>
+            <section>
+                    <div id="text" class="text">
+                            <h2>iphoneX-back</h2>
+                            <p>一直以来，我们都心存一个设想，期待着能够打造出这样一部 iPhone：它有整面的屏幕，能让你在使用时完全沉浸其中，仿佛忘记了它的存在。它是如此智能，你的一触、一碰、一言、一语，哪怕是轻轻一瞥，都会得到它心有灵犀的回应。而这个设想，终于随着 iPhone X 的到来成为了现实。现在，就跟未来见个面吧。</p>
+                        </div>
+                <img src="img/photo-black.png" alt="">
+            </section>
+        </div>
+    </div>
+</body>
+<script>
+
+    
+    window.onload = function () {
+        MyFunction();
+        window.onresize = function () {
+            MyFunction();
+        }
+
+    }
+    function MyFunction() {
+        var head = document.getElementById('head');
+        var connect = document.getElementById('connect');
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        head.style.width = w + 650 + 'px';
+        connect.style.width = w + 'px';
+        head.style.left = -w / 2 - 650 + 'px';
+        connect.style.left = w / 2 + 650 + 'px';
+        document.onmousemove = function (e) {
+            var x = e.clientX;
+            head.style.left = w / 2 - (w / 2 + x * 1.5) - 300 + 'px';
+            connect.style.left = -w / 2 + (w / 2 + x * 1.5) + 300 + 'px';
+        }
+    }
+</script>
+
+</html>

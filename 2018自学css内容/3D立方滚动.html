@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D立方滚动</title>
+  <style>
+  body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    margin: 0 auto;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  div{
+    transform-style: preserve-3d;
+  }
+  #boxs{
+    transform: rotateX(-30deg) rotateY(-30deg);
+  }
+ 
+  #box{
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid white; */
+    /* background: white; */
+    /* transform-origin: 0 50%; */
+    /* transform: rotateY(-30deg) rotateX(-30deg); */
+    position: relative;
+    transform-origin: 100% 100%;
+    animation: zhuan 1.15s infinite  cubic-bezier(1, 0.01, 1, 1) ;
+  }@keyframes zhuan{
+    0% {
+            transform: rotateZ(0deg);
+  }
+  85% {
+            transform: rotateZ(90deg);
+  }
+  87% {
+            transform: rotateZ(88deg);
+  }
+  90% {
+            transform: rotateZ(90deg);
+  }
+  100% {
+            transform: rotateZ(90deg);
+  }
+  }
+  #gensui{
+    width: 200px;
+    height: 200px;
+    /* background: red; */
+    animation: gensui 1.15s linear infinite;
+  }@keyframes gensui {
+  0% {
+            transform: translateX(0);
+  }
+  100% {
+            transform: translateX(-200px);
+  }
+}
+  #box .mian{
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    background: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    color: white;
+    font-size: 30px;
+  }
+  .mian:nth-child(1){
+transform: rotateX(90deg) translateZ(100px);
+  }
+  .mian:nth-child(2){
+transform: rotateX(90deg)  translateZ(-100px);
+  }
+  .mian:nth-child(3){
+transform: translateZ(100px);
+  }
+  .mian:nth-child(4){
+transform: translateZ(-100px);
+  }
+  .mian:nth-child(5){
+transform:rotateY(90deg) translateZ(100px);
+  }
+  .mian:nth-child(6){
+transform:rotateY(90deg) translateZ(-100px);
+  }
+  #rail{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(-30deg) rotateY(-30deg) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+  }
+  #rail .stamp{
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    /* background: rgb(54, 52, 52); */
+   /* animation: stampdong 20s linear infinite; */
+  }@keyframes stampdong{
+    0%{
+      transform: rotateX(90deg) rotateZ(-90deg) translateZ(-100px) translateY(-600px);
+    }
+    100%{
+      transform: rotateX(90deg) rotateZ(-90deg) translateZ(-100px) translateY(-800px);
+    }
+  }
+  .stamp:nth-child(1){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  .stamp:nth-child(2){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  .stamp:nth-child(3){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  .stamp:nth-child(4){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  .stamp:nth-child(5){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  .stamp:nth-child(6){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  .stamp:nth-child(7){
+    animation: stampdong 1.15s -0.03s linear infinite;
+  }
+  </style>
+</head>
+<body>
+ 
+  <div id="boxs">
+ <div id="gensui">
+  <div id="box">
+<div class="mian"></div>
+<div class="mian"></div>
+<div class="mian"></div>
+<div class="mian"></div>
+<div class="mian"></div>
+<div class="mian"></div>
+</div>
+  </div>
+</div>
+<div id="rail">
+    <div class="stamp"></div>
+    <div class="stamp"></div>
+    <div class="stamp"></div>
+    <div class="stamp"></div>
+    <div class="stamp"></div>
+    <div class="stamp"></div>
+    <div class="stamp"></div>
+  </div>
+</body>
+</html>

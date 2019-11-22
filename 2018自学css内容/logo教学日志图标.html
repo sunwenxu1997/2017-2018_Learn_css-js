@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>教学日志图标</title>
+    <style>
+    html{
+        height: 100%;
+    }
+    body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    main{
+        width: 300px;
+        height: 200px;
+    }
+    #rizhi{
+        width: 300px;
+        height: 200px;
+        background: white;
+        position: relative;
+        box-shadow: 5px 5px 10px rgb(71, 71, 71);
+    }
+    #rizhi-t{
+        width: 100%;
+        height: 30px;
+        background: rgb(42, 68, 146);
+    }
+    #rizhi-b{
+        width: 100%;
+        height: 170px;
+        background: rgb(42, 68, 146);
+        transition: 1s;
+        transform-origin:100% 0;
+        position: relative;
+        /* backface-visibility:inherit; */
+    }
+    main:hover #rizhi-b{
+        transform: rotateX(180deg);
+        z-index: 999;
+       
+    }
+    main:hover #rizhi-b h3{
+        color: rgb(42, 68, 146);
+    }
+    main:hover #rizhi-b h4{
+        color: rgb(42, 68, 146);
+    }
+    .huan{
+        width: 5px;
+        height: 5px;
+        border: 3px solid gray;
+        border-radius: 50%;
+        margin: 5px auto;
+        position: absolute;
+        background: white;
+    }
+    .huan:nth-child(1){
+        left: 50px;
+    }
+    .huan:nth-child(1)::after{
+        content: '';
+        width: 97px;
+        height: 3px;
+        background: black;
+        position: absolute;
+        top: 1px;
+        z-index: 5;
+        border-radius: 2px;
+    }
+    .huan:nth-child(2){
+        right: 50px;
+    }
+    .huan:nth-child(3){
+        left: 145px;
+    }
+    .huan:nth-child(3)::after{
+        content: '';
+        width: 97px;
+        height: 3px;
+        background: black;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        z-index:5;
+        border-radius: 2px;
+    }
+    .hr{
+        width: 100%;
+        height: 5px;
+        background: rgb(73, 72, 72);
+        opacity: 0.7;
+        position: absolute;
+        top: 25px;
+    }
+    h3,h4{
+        margin: 0 auto;
+        text-align: center;
+        color: rgb(223, 191, 11);
+        padding-top: 40px;
+        cursor: default;
+        transition: 1s;
+    }
+    h4{
+        padding-top: 55px;
+        font-size: 13px;
+        transition: 1s;
+    }
+    .rizhi-bs{
+        width: 100%;
+        height: 170px;
+        /* background: yellow; */
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        border: 2px solid rgb(42, 68, 146);
+        box-sizing: border-box;
+        border-top: 0px ;
+    }
+    .rizhi-bs section{
+        width: 120px;
+        height: 13px;
+        border-bottom: 1px solid black;
+        margin: 5px auto;
+        font-size: 12px;
+        position: relative;
+    }
+    .rizhi-bs  section:nth-of-type(1)::after{
+        content: '专业：';
+        width: 45px;
+        height: 20px;
+        position: absolute;
+        left: -32px;
+        font-weight: bold;
+    }
+    .rizhi-bs  section:nth-of-type(2)::after{
+        content: '学年：';
+        width: 45px;
+        height: 20px;
+        position: absolute;
+        left: -32px;
+        font-weight: bold;
+    }
+    .rizhi-bs  section:nth-of-type(3)::after{
+        content: '学期：';
+        width: 45px;
+        height: 20px;
+        position: absolute;
+        left: -32px;
+        font-weight: bold;
+    }
+    .rizhi-bs  section:nth-of-type(4)::after{
+        content: '系别：';
+        width: 45px;
+        height: 20px;
+        position: absolute;
+        left: -32px;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="rizhi">
+                <div class="rizhi-bs">
+                    <h3 style="color:black;padding-top:15px;font-size:15px">郑州铁路职业技术学院</h3>
+                    <h4 style="padding-top:5px;color:black;">教学日志</h4>
+                     <section style="margin-top:10px">移动互联应用技术</section>
+                     <section>2017~2018学年</section>
+                     <section>第二学期</section>
+                     <section>信息工程系</section>
+                     <h4  style="padding-top:1px;color:black;font-weight:100;font-size:13px;">(教务处印刷)</h4>
+                </div>
+            <div id="rizhi-t">
+        <section class="huan"></section>
+        <section class="huan"></section>
+        <section class="huan"></section>
+        <div class="hr"></div>
+    </div>
+    <div id="rizhi-b">
+        <h3>教&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 志</h3>
+        <h4>郑州铁路职业技术学院</h4>
+    </div>
+   
+        </div>
+    </main>
+</body>
+</html>

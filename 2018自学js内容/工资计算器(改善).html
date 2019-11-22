@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(127, 158, 250);
+        }
+
+        main {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgb(75, 140, 226);
+            box-shadow: 0 0 100px rgb(75, 140, 226);
+            transition: 0.5s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        main::before {
+            content: '交税了';
+            width: 5px;
+            height: 100px;
+            position: absolute;
+            top: 25px;
+            left: 60px;
+            color: white;
+            font-size: 25px;
+            opacity: 1;
+        }
+
+        #import {
+            width: 50%;
+            height: 60px;
+            margin-left: 18%;
+            margin-top: 45px;
+            border: 0;
+            font-size: 30px;
+            color: rgb(65, 201, 225);
+            position: relative;
+            z-index: -1;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        #yuan {
+            font-size: 40px;
+            color: white;
+            padding-left: 10px;
+            transition: 1s;
+            opacity: 0;
+        }
+
+        #gong {
+            display: inline-block;
+            width: 2px;
+            height: 50px;
+            font-size: 27px;
+            color: white;
+            position: relative;
+            top: 17px;
+            left: 38px;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        #refer {
+            width: 0px;
+            height: 0px;
+            border-radius: 50%;
+            border: 0;
+            position: relative;
+            top: -5px;
+            left: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            background: rgb(88, 233, 173);
+            transition: 0.5s;
+            transition-delay: 0.5s;
+        }
+
+        #refer:hover {
+            border: 10px solid rgb(88, 233, 173);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <span id="gong">工资</span>
+        <input  autocomplete="off" type="text" id="import" placeholder="&nbsp;0">
+        <span id="yuan">元</span>
+        <input type="submit" value="Refer" id="refer" onclick="myfunction()">
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+    $('main').click(function () {
+        $(this).css({ width: '500px', borderRadius: '100px', boxShadow: '0 0 100px rgb(75, 203, 226)', background: 'rgb(75, 203, 226)' });
+        //如何选择标签伪元素
+        $(this).append('<style> main::before{opacity:0} </style>');
+        $('#import').css({ opacity: '1', zIndex: '1' })
+        $('#gong').css({ opacity: '1' });
+        $('#yuan').css({ opacity: '1' });
+        $('#refer').css({ width: '70px', height: '70px' });
+    })
+    function myfunction() {
+        var salary = document.getElementById('import')
+        var salary = parseFloat(salary.value)
+        var suoDe = salary - 3500;
+        var jiaoShui;
+        if (suoDe > 0) {
+            if (suoDe <= 1500) {
+                jiaoShui = suoDe * 0.03
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+            else if (suoDe <= 4500) {
+                jiaoShui = suoDe * 0.1 - 105
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+            else if (suoDe <= 9000) {
+                jiaoShui = suoDe * 0.2 - 555
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+            else if (suoDe <= 35000) {
+                jiaoShui = suoDe * 0.25 - 1005
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+            else if (suoDe <= 55000) {
+                jiaoShui = suoDe * 0.3 - 2755
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+            else if (suoDe <= 80000) {
+                jiaoShui = suoDe * 0.35 - 5505
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+            else if (suoDe > 80000) {
+                jiaoShui = suoDe * 0.45 - 13505
+                alert('你需要交' + jiaoShui + '元的税')
+            }
+        } else {
+            alert('你不用交税')
+        }
+    }
+</script>
+
+</html>

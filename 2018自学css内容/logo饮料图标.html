@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>饮料图标</title>
+    <style>
+        body{
+            background: rgb(243, 112, 89);
+        }
+    main{
+        width: 300px;
+        height: 300px;
+        border: 1px solid transparent;
+        margin: 250px auto;
+        position: relative;
+    }
+    .title{
+        position: absolute;
+        right: 0;
+        top: -10px;
+        width: 30px;
+        height: 30px;
+        /* background: red; */
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    main:hover .title{
+        transition: 1s;
+        right: 50px;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+    .gaizi{
+        width: 140px;
+        height: 5px;
+        background: white;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
+    .beizi{
+        width: 140px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.418);
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .beizi img{
+        position: absolute;
+        top:125px;
+        left: 20px;
+        z-index: 1;
+        transition: 0.5s;
+        opacity: 0.7;
+
+    }
+    main:hover .beizi img{
+        transition: 1s;
+        transition-delay: 0.5s;
+        opacity: 1;
+    }
+    .beizi::before{
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: -10px;
+        border-left: 20px solid rgb(243, 112, 89);
+        border-bottom: 200px solid rgb(243, 112, 89);
+        border-right: 20px solid transparent;
+        border-bottom: 200ox solid transparent;
+        z-index: 1;
+    }
+    .beizi::after{
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: -10px;
+        border-right: 20px solid rgb(243, 112, 89);
+        border-bottom: 200px solid rgb(243, 112, 89);
+        border-left: 20px solid transparent;
+        border-bottom: 200ox solid transparent;
+    }
+    .water{
+        position: absolute;
+        top:40px;
+        width: 140px;
+        height: 160px;
+        background: rgba(224, 224, 18, 0.685);
+        transition: 0.5s;
+    }
+   .water div{
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        bottom: 0;
+    }@keyframes dong{
+        0%{
+            transform: translateY(0)
+        }
+        50%{
+           transform: translateY(-75px) translateX(-15px);
+        }
+        100%{
+            transform: translateY(-150px) translateX(15px);
+        }
+    }
+    .water div:nth-child(1){
+        left: 50px;
+        animation: dong 2s linear infinite;
+        animation-delay: 0.5s;
+    }
+    .water div:nth-child(2){
+        left: 100px;
+        animation: dong 3s linear infinite;
+        animation-delay: 2s;
+    }
+    .water div:nth-child(3){
+        left: 80px;
+        animation: dong 2s linear infinite;
+        animation-delay: 1s;
+    }
+    .water div:nth-child(4){
+        left:60px;
+        animation: dong 3s linear infinite;
+        animation-delay: 0.8s;
+    }
+    .water div:nth-child(5){
+        left:40px;
+        animation: dong 3s linear infinite;
+        animation-delay:2s;
+    }
+    main:hover .water{
+transition: 2s;
+top: 180px;
+    }
+    .xiguan1{
+        width: 8px;
+        height: 60px;
+        background: teal;
+        position: absolute;
+        top: -12px;
+        left: 160px;
+        transform-origin: 0 100%;
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+    main:hover .xiguan1{
+        transition: 1s;
+        transform: rotate(45deg);
+    }
+    .xiguan2{
+        width: 8px;
+        height: 230px;
+        background: teal;
+        position: absolute;
+        top:45px;
+        left: 160px;
+        border-top-left-radius: 5px;
+        opacity: 0.5;
+    }
+    h1{
+        text-align: center;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="title">吸~</div>
+<div class="gaizi"></div>
+<div class="beizi">
+ <img src="img/ningmeng.png" alt="" width="100" height="100">
+    <div class="water">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<div class="xiguan1"></div>
+<div class="xiguan2"></div>
+<h1>好喝的柠檬水</h1>
+    </main>
+</body>
+</html>

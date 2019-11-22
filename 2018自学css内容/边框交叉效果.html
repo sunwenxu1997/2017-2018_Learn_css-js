@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框交叉效果</title>
+    <style>
+        body{
+            margin:  0 auto;
+        }
+        main{
+            width: 1200px;
+            height: 900px;
+            /* border: 1px solid red; */
+            margin: 10px auto;
+        }
+        section{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+    .one,.two,.three,.four,.five,.six,.seven,.eight,.nine,.ten,.eleven,.twelve{
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+        position: relative;
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        float: left;
+        cursor: pointer;
+    }
+    .one{
+        background: orange;
+    }
+    .two{
+        background: royalblue;
+    }
+    .three{
+        background: rgb(250, 225, 4);
+    }
+    .four{
+        background: green;
+    }
+    .five{
+        background: firebrick;
+    }
+    .six{
+        background: darkviolet;
+    }
+    .seven{
+        background: rgb(13, 207, 207);
+    }
+    .eight{
+        background: rgb(235, 60, 118);
+    }
+    .nine{
+        background: orchid;
+    }
+    .ten{
+        background: teal;
+    }
+    .eleven{
+        background: tomato;
+    }
+    .twelve{
+        background:slateblue;
+    }
+    .one::before{
+        display: block;
+        content: "";
+        width: 0px;
+        height: 0px;
+        /* 上 右 下 左 */
+        border-width: 20px  0 0 20px;
+        border-color: orangered;
+        border-style: solid;
+        transition: 0.5s;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+    }
+    .one::after{
+        display: block;
+        content: "";
+        width: 0px;
+        height: 0px;
+        /* 上 右 下 左 */
+        border-width:  0 20px  20px  0;
+        border-color: orangered;
+        border-style: solid;
+        transition: 0.5s;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        opacity: 0;
+    }
+    .one section{
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .one:hover section{
+        opacity: 1;
+    }
+    .one:hover:before{
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    }
+    .one:hover:after{
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    }
+    .two{
+        overflow: hidden;
+    }
+    .two section{
+        width: 200px;
+        height: 200px;
+        background: blue;
+        transform-origin: 0 100%;
+        transform:rotateZ(-90deg);
+        transition: 0.5s;
+        font-size: 30px;
+        color: white;
+        line-height: 200px;
+        text-align: center;
+    }
+    .two:hover section{
+        transform:rotateZ(0deg);
+    }
+    .three::after{
+        display: block;
+        content: "";
+        width: 100px;
+        height: 200px;
+        transition: 0.5s;
+        background: yellow;
+        position: absolute;
+        left: 0;
+        z-index: 1;
+    }
+    .three::before{
+        display: block;
+        content: "";
+        width: 100px;
+        height: 200px;
+        transition: 0.5s;
+        background: yellow;
+        position: absolute;
+       right: 0;
+       z-index: 1;
+    }
+    .three:hover:after{
+        left: -100px;
+    }
+    .three:hover:before{
+        right:-100px;
+    }
+    .three{
+        overflow: hidden;
+
+    }
+
+.four{
+    overflow: hidden;
+}
+
+.four::after{
+    display: block;
+        content: "";
+        width: 300px;
+        height: 300px;
+        transition: 0.5s;
+        background: yellowgreen;
+        position: absolute;
+        top: -100px;
+       right:-100px;
+       z-index: 1;
+       transform-origin: 0 100%;
+       transform: rotateZ(45deg);
+}
+.four::before{
+        display: block;
+        content: "";
+        width: 300px;
+        height: 300px;
+        transition: 0.5s;
+        background: yellowgreen;
+        position: absolute;
+       top: -100px;
+       left:0px;
+       z-index: 1;
+       transform-origin: 0 100%;
+       transform: rotateZ(-45deg);
+}
+.four:hover:after{
+    transform: rotateZ(90deg);
+}
+.four:hover:before{
+    transform: rotateZ(-90deg);
+}
+.five{
+    overflow: hidden;
+}
+.five::after{
+    display: block;
+        content: "";
+        width: 300px;
+        height: 300px;
+        transition: 0.5s;
+        background: rgb(236, 47, 47);
+        position: absolute;
+        top: -100px;
+       right:-100px;
+       z-index: 1;
+       transform-origin: 0 100%;
+       transform: rotateZ(45deg);
+}
+.five::before{
+        display: block;
+        content: "";
+        width: 300px;
+        height: 300px;
+        transition: 0.5s;
+        background: rgb(236, 47, 47);
+        position: absolute;
+       top: -100px;
+       left:0px;
+       z-index: 1;
+       transform-origin: 0 100%;
+       transform: rotateZ(-45deg);
+}
+.five:hover:before{
+    top: -200px;
+    left: -100px;
+}
+.five:hover:after{
+    top:0px;
+    right:-200px ;
+}
+.six{
+    overflow: hidden;
+}
+.six section{
+    border-radius: 50%;
+    background: darkmagenta;
+    transform-origin:50% 50%;
+    transform: rotateZ(360deg);
+    transition: 0.5s;
+    left: 200px;
+
+}
+.six:hover section{
+    transform: rotateZ(0deg);
+    left: 0;
+}
+.seven section{
+z-index: 1;
+opacity: 0;
+transition: 0.5s;
+}
+.seven:hover section{
+    opacity: 1;
+}
+.seven::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    background: aqua;
+    transform: rotateZ(0deg);
+    transition: 0.5s;
+}
+.seven:hover:after{
+    transform:  rotateZ(28deg);
+}
+.seven::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    background: aqua;
+    transform: rotateZ(0deg);
+    transition: 0.5s;
+}
+.seven:hover:before{
+    transform:  rotateZ(-28deg);
+}
+.eight section{
+    transition: 0.5s;
+    opacity: 0;
+}
+.eight{
+    transition: 0.5s;
+}
+.eight:hover{
+    background:palevioletred;
+    border-radius:50%;
+}
+.eight:hover section{
+opacity: 1;
+}
+.nine{
+
+}
+.nine::after{
+    display: block;
+    content: "";
+    width: 0;
+    height:180px;
+    /* 上 右 下 左 */
+    border-width: 20px 0px 0px 20px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    border-color: orchid;
+    transition: 0.5s;
+    transition-delay:0.3s;
+}
+.nine:hover:after{
+    border-color: rgb(206, 19, 200);
+    width: 180px;
+    height: 0px;
+}
+.nine::before{
+    display: block;
+    content: "";
+    width: 0;
+    height:180px;
+    /* 上 右 下 左 */
+    border-width: 0 20px 20px 0;
+    border-style: solid;
+    border-color: orchid;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: 0.5s;
+    transition-delay: 0.3s;
+    /* opacity: 0; */
+}
+.nine:hover:before{
+    border-color: rgb(206, 19, 200);
+    width: 180px;
+    height: 0px;
+}
+.nine section{
+    transition: 1s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+.nine:hover section{
+    background: rgb(206, 19, 200);
+    opacity: 1;
+} 
+.ten{
+    /* overflow: hidden; */
+}
+.ten::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-right: 100px solid transparent;
+    border-left:  100px solid rgb(9, 184, 184);
+    z-index: 1;
+    transition: 0.5s;
+}
+.ten::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-right:  100px solid rgb(9, 184, 184);
+    z-index: 1;
+    transition: 0.5s;
+}
+.ten section::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-top:  100px solid rgb(9, 184, 184);
+    z-index: 1;
+    transition: 0.5s;
+}
+.ten section::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right:100px solid transparent;
+    border-top:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-bottom:  100px solid rgb(9, 184, 184);
+    z-index: 1;
+    transition: 0.5s;
+}
+.ten:hover:after{
+    transform: rotateX(90deg);
+}
+.ten:hover:before{
+    transform: rotateX(90deg);
+}
+.ten:hover section:before{
+    transform: rotateY(90deg);
+}
+.ten:hover section:after{
+    transform: rotateY(90deg);
+}
+.eleven{
+overflow: hidden;
+}
+.eleven::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-right: 100px solid transparent;
+    border-left:  100px solid rgb(240, 63, 31);
+    z-index: 1;
+    transition: 0.5s;
+}
+.eleven::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-right:  100px solid rgb(240, 63, 31);
+    z-index: 1;
+    transition: 0.5s;
+}
+.eleven section::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-top:  100px solid rgb(240, 63, 31);
+    z-index: 1;
+    transition: 0.5s;
+}
+.eleven section::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right:100px solid transparent;
+    border-top:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-bottom:  100px solid rgb(240, 63, 31);
+    z-index: 1;
+    transition: 0.5s;
+}
+.eleven:hover:after{
+    transform: translateX(100px);
+}
+.eleven:hover:before{
+    transform: translateX(-100px);
+}
+.eleven:hover section:before{
+    transform: translateY(-100px);
+}
+.eleven:hover section:after{
+    transform: translateY(100px);
+}
+.twelve{
+overflow: hidden;
+}
+.twelve::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-right: 100px solid transparent;
+    border-left:  100px solid rgb(54, 42, 128);
+    z-index: 1;
+    transition: 0.5s;
+}
+.twelve::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-right:  100px solid rgb(54, 42, 128);
+    z-index: 1;
+    transition: 0.5s;
+}
+.twelve section::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right:100px solid transparent;
+    border-bottom:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-top:  100px solid rgb(54, 42, 128);
+    z-index: 1;
+    transition: 0.5s;
+}
+.twelve section::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right:100px solid transparent;
+    border-top:100px solid transparent;
+    border-left: 100px solid transparent;
+    border-bottom:  100px solid rgb(54, 42, 128);
+    z-index: 1;
+    transition: 0.5s;
+}
+.twelve:hover:after{
+    transform: translateX(-200px);
+}
+.twelve:hover:before{
+    transform: translateX(200px);
+}
+.twelve:hover section:before{
+    transform: translateY(200px);
+}
+.twelve:hover section:after{
+    transform: translateY(-200px);
+}
+    </style>
+</head>
+<body>
+    <main>
+<div class="one">
+  <section>你好</section>
+</div>
+<div class="two">
+    <section>你好</section>
+</div>
+<div class="three">
+    <section>你好</section>
+</div>
+<div class="four">
+    <section>你好</section>
+</div>
+<div class="five">
+   <section>你好</section>
+</div>
+<div class="six">
+        <section>你好</section>
+</div>
+<div class="seven">
+        <section>你好</section>
+</div>
+<div class="eight">
+        <section>你好</section>
+</div>
+<div class="nine">
+        <section>你好</section>
+</div>
+<div class="ten">
+        <section>你好</section>
+</div>
+<div class="eleven">
+        <section>你好</section>
+</div>
+<div class="twelve">
+        <section>你好</section>
+</div>
+</main>
+</body>
+</html>

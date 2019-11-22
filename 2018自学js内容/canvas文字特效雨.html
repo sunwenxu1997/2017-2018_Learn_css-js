@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        html{
+            height: 100%;
+        }
+       body{
+           height: 100%;
+           position: relative;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+        #canvas {
+            background: black   ;
+            display: block;
+            position: absolute;
+        }
+        div{
+            width: 1050px;
+            height: 160px;
+            line-height: 150px;
+            /* background: red; */
+            color: black;
+            font-size: 200px;
+            position: relative;
+            top: 260px;
+            font-weight: bold;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div>SUPPERME</div>
+</body>
+<script>
+    //获取canvas 标签
+    var canvas = document.getElementById('canvas');
+    // 获取浏览器宽高
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    // 让画布的宽高等于浏览器的宽高，实现画布铺满效果
+    canvas.width = w;
+    canvas.height = h;
+    //定义画布里的画笔
+    var ctx = canvas.getContext('2d');
+    // Array(256)有256个元素的空数组
+    // join(1)将数据每个元素用1连接起来成一个字符串（256个数组需要用255个1连接），所以就是255个1组成的字符串
+    // split('')将255个1分割成长度为255的数组 
+    var array = Array(256).join('1').split('');
+
+    function gif() {
+        //覆盖上一层的绘画
+        ctx.fillStyle = 'rgba(0,0,0,0.05)';
+        ctx.fillRect(0, 0, w, h/1.5);
+        //数据是什么？记录的字符串，接下来是给画板添加文本，设置文本所在
+        //遍历数组一遍，每个文字的位置随着下标变化
+        // .map() 对数组中的每个元素进行处理，得到新的数组,不改变原数组
+        array.map(function (item, index) {
+            //此处定义字体的颜色
+            ctx.fillStyle = colors();
+            //   item为数组元素，index为元素对应下标
+            // String.fromCharCode()根据指定的 Unicode 编码中的序号值来返回一个字符串。
+            // Math.ceil()向下取整
+            var text = String.fromCharCode(Math.ceil(Math.random() * 100));
+            //ctx.fillText(text,x,y);
+            //text是指所添加的文字，x横坐标，y纵坐标
+            ctx.fillText(text, index * 10, item);
+            //修改每个子集的y坐标，且y坐标有范围
+            array[index] = (item > 800 + Math.random() * 400) ? 0 : item + 10;
+        })
+    }
+    //十六进制的颜色
+    function colors() {
+        //toString(16)将十进制转为十六进制
+        // 2 - 数字以二进制值显示
+        // 8 - 数字以八进制值显示
+        // 16 - 数字以十六进制值显示 1561616
+        var color = Math.ceil(Math.random() * 155555).toString(16);
+        //当color不足六位时，前面补0；
+        while (color.length < 6) {
+            color = '0' + color;
+        }
+        return '#' + color;
+    }
+    setInterval(gif, 50);
+</script>
+
+</html>

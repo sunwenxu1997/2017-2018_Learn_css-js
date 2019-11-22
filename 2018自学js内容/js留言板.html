@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .write {
+            font-size: 20px;
+        }
+
+        #btn {
+            cursor: pointer;
+            position: relative;
+            z-index: 999;
+        }
+
+        main{
+            width: 623px;
+            height: 500px;
+            border: 1px solid black;
+            position: relative;
+            overflow-y: auto;
+        }
+        div{
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            /* position: absolute; */
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <textarea name="" id="" cols="50" rows="5" class="write"></textarea><br>
+    </form>
+    <button id="btn">留言</button>
+    <main></main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    var index = 0;
+    $('#btn').click(function () {
+        // 创建 div标签部分
+        index++;
+        //定义一个变量 获取到输入框中的字符
+        var writes = $('.write').val();
+        // 定义一个变量 等于每次创建的 div标签
+        //把每次创建的标签添加到 body 中
+        // .prependTo()在之前插入
+        $('<div></div>').prependTo($('main'));
+        var div = 'div:first-child';
+        //每次所创建的div内的内容变为 获取到的字符
+        $(div).text(writes);
+//---------------------------------------------------
+
+        //获取时间部分
+        var now = new Date();
+        var hour = now.getHours()
+        var minute = now.getMinutes()
+        var second = now.getSeconds()
+        var year = now.getFullYear()
+        var month = now.getMonth() + 1
+        var ri = now.getDate()
+        //每次创建一个p标签到相对应的div标签内
+        $('<p></p>').appendTo($(div));
+        // 每次所创建的div下的p标签的内容变为当前留言时的时间
+        $('div:first-child > p').text(year+'年'+month+'月'+ri+'日'+hour+':'+minute+':'+second+'第'+index+'条留言');
+     
+    })
+</script>
+
+</html>

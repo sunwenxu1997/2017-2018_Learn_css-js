@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+    }
+    body,html{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body{
+        perspective: 2000px;
+        background: rgb(45, 228, 143);
+    }
+    main{
+        width: 500px;
+        height: 500px;
+        /* border-radius: 50%; */
+        /* background: red; */
+        position: relative;
+        transform-origin: 75px 75px;
+        perspective: 1000px;
+        animation: zhuan 15s linear  infinite alternate;
+    }@keyframes zhuan{
+        0%{
+            transform:rotateX(40deg) rotateZ(-10deg);
+        }
+        50%{
+            transform:rotateX(40deg) rotateZ(0deg);
+        }
+        100%{
+            transform:rotateX(40deg) rotateZ(10deg);
+        }
+    }
+   
+    /* <!-- 转盘 --> */
+    #dial{
+        width: 150px;
+        height: 150px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 20px white;
+    }
+    #dial::before{
+        content: '';
+        width: 150px;
+        height: 150px;
+        box-sizing: border-box;
+        border: 70px solid rgb(66, 226, 226);
+        border-top: 70px solid transparent;
+        /* border-bottom: 70px solid transparent; */
+        position: absolute;
+        border-radius: 50%;
+        animation: dong 2s ease infinite alternate;
+        z-index: 99;
+    }@keyframes dong{
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    .water{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgb(106, 141, 243);
+        z-index: 999;
+    }
+    /* 出来的条条 */
+    #nav{
+        /* 定位条条初始位置在轮盘圆心位置 */
+        position: absolute;
+        left: 75px;
+        top: 50px;
+        width: 200px;
+        height: 50px;
+        border-radius: 40px;
+        /* 定义旋转点位置和轮盘旋转点相同 */
+        transform-origin: 0% 50%;
+        background: white;
+        perspective: 1000px;
+        cursor: pointer;
+    }
+    #nav p{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        text-align: left;
+        padding-left: 20px;
+        line-height: 50px;
+        font-size: 20px;
+        color: rgb(135, 135, 136);
+        z-index: 999;
+        font-weight: bold;
+        transition: 1s;
+    }
+    #nav #water{
+       width: 0px;
+       height: 10px;
+       background: rgba(72, 153, 228, 0.596);
+       transform-origin: 0% 0%;
+       transform: rotateY(80deg);
+       position: absolute;
+       left: 200px;
+       top: 20px;
+       transition: 0.5s;
+      
+    }
+    #nav::before{
+        /* 定义条条跟随的线 */
+        content: '';
+        width: 0px;
+        height: 2px;
+        background: white;
+        position: absolute;
+        top: 24px;
+        transform: translateX(-250px);
+        transition: 0.5s;
+    }
+    #nav::after{
+        content: '';
+        width: 0px;
+        height: 50px;
+        position: absolute;
+        background: rgb(122, 152, 240);
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+        transition: 1s;
+        opacity: 0;
+    }
+    main:hover{
+        animation-play-state: paused;
+    }
+    #nav:hover::before{
+        width: 250px;
+    }
+    #nav:hover::after{
+        transition-delay: 0.5s;
+        width: 200px;
+        border-radius: 40px;
+        opacity: 1;
+    }
+    #nav:hover #water{
+        transition-delay: 1.5s;
+        width: 100px;
+    }
+    #nav:hover p {
+        transition-delay: 0.5s;
+        left: 40%;
+        color: white;
+    }
+    .n-1{
+        transform: rotate(0deg) translateX(250px);
+    }
+    .n-2{
+        transform: rotate(20deg) translateX(250px);
+    }
+    .n-3{
+        transform: rotate(40deg) translateX(250px);
+    }
+    .n-4{
+        transform: rotate(60deg) translateX(250px);
+    }
+    .n-5{
+        transform: rotate(80deg) translateX(250px);
+    }
+    .n-6{
+        transform: rotate(100deg) translateX(250px);
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- 转盘 -->
+        <div id="dial"> <section class="water"></section></div>
+        <div id="nav" class="n-1"><p>首页</p><section id="water"></section></div>
+        <div id="nav" class="n-2"><p>资源下载</p><section id="water"></section></div>
+        <div id="nav" class="n-3"><p>问题帮助</p><section id="water"></section></div>
+        <div id="nav" class="n-4"><p>相关链接</p><section id="water"></section></div>
+        <div id="nav" class="n-5"><p>客服服务</p><section id="water"></section></div>
+        <div id="nav" class="n-6"><p>关于我们</p><section id="water"></section></div>
+    </main>
+</body>
+</html>

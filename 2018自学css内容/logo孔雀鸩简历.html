@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简历</title>
+    <style>
+    *{
+        margin:  0 auto;
+        padding: 0;
+    }
+    html,body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(56, 96, 156);
+    }
+    main{
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        /* border: 2px solid rgb(10, 61, 138); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.568);
+        box-shadow: 5px 5px 5px rgb(56, 56, 56);
+    }
+    
+    #head{
+        width: 80px;
+        height: 400px;
+        /* background: red; */
+        position: relative;
+    }
+    .head{
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background: transparent;
+        z-index: 999;
+        position: absolute;
+    }
+    main:hover .head{
+        /* 防止意外触碰的效果 */
+        transition: 1s;
+        z-index: 1;
+    }
+    #head::before{
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        top: 210px;
+        left: 35px;
+        z-index: 999;
+    }
+    #head div{
+        width: 0;
+        height: 0;
+        border-bottom: 0 solid transparent;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        position: absolute;
+        transform-origin: 50% 78%;
+        transition: 1s ;
+        opacity: 0.8;
+        /* transform: rotate(30deg); */
+    }
+    p{
+        color: white;
+        position: absolute;
+       opacity: 0;
+       transition: 1s;
+       cursor: default;
+       text-shadow: 0px 5px 3px rgb(46, 45, 45);
+    }
+    main:hover p{
+        opacity: 1;
+    }
+    #head div::after{
+        content: '';
+        width: 0;
+        height: 0;
+        border-top:40px solid transparent;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        position: absolute;
+        top: -350px;
+        left: -40px;
+    }
+    #head div:nth-child(1){
+        border-top:270px solid rgb(10, 61, 138);
+        z-index: 4;
+    }
+    #head div:nth-child(1)::after{
+        border-bottom: 40px solid rgb(10, 61, 138);
+    }
+    #head div:nth-child(2){
+        border-top:250px solid rgb(23, 70, 141);
+        z-index: 5;
+        top: 20px;
+    }
+    #head div:nth-child(2)::after{
+        border-bottom: 40px solid rgb(23, 70, 141);
+        top: -330px;
+    }
+
+    #head div:nth-child(3){
+      
+        border-top:230px solid rgb(39, 83, 148);
+        z-index: 6;
+        top: 35px;
+    }
+    #head div:nth-child(3)::after{
+        border-bottom: 40px solid rgb(39, 83, 148);
+        top: -310px;
+    }
+ 
+    #head div:nth-child(4){
+       
+        border-top:210px solid rgb(56, 98, 161);
+        z-index: 7;
+        top: 50px;
+    }
+    #head div:nth-child(4)::after{
+        border-bottom: 40px solid rgb(56, 98, 161);
+        top: -290px;
+    }
+  
+    #head div:nth-child(5){
+       
+        border-top:190px solid rgb(68, 113, 182);
+        z-index: 8;
+        top: 65px;
+    }
+    #head div:nth-child(5)::after{
+        border-bottom: 40px solid rgb(68, 113, 182);
+        top: -270px;
+    }
+   
+    #head div:nth-child(6){
+       
+        border-top:170px solid rgb(81, 129, 201);
+        z-index: 9;
+        top:85px;
+    }
+    #head div:nth-child(6)::after{
+        border-bottom: 40px solid rgb(81, 129, 201);
+        top: -250px;
+    }
+  
+    #head div:nth-child(7){
+        
+        border-top:150px solid rgb(99, 146, 218);
+        z-index: 10;
+        top: 100px;
+    }
+    #head div:nth-child(7)::after{
+        border-bottom: 40px solid rgb(99, 146, 218);
+        top: -230px;
+    }
+    #head div:nth-child(1) p{
+        font-size: 30px;
+        top: -240px;
+        left: -15px;
+    }
+    #head div:nth-child(2) p{
+        font-size: 20px;
+        top: -240px;
+        left: -12px;
+    }
+    #head div:nth-child(3) p{
+        font-size: 19px;
+        top: -220px;
+        left: -10px;
+    }
+    #head div:nth-child(4) p{
+        font-size: 18px;
+        top: -200px;
+        left: -8px;
+    }
+    #head div:nth-child(5) p{
+        font-size: 17px;
+        top: -180px;
+        left: -10px;
+    }
+    #head div:nth-child(6) p{
+        font-size: 16px;
+        top: -165px;
+        left: -10px;
+    }
+    #head div:nth-child(7) p{
+        font-size: 15px;
+        top: -150px;
+        left: -8px;
+    }
+    main:hover #head div:nth-child(2){
+        transform: rotate(25deg);
+    }
+    main:hover #head div:nth-child(3){
+        transform: rotate(51deg);
+    }
+    main:hover #head div:nth-child(4){
+        transform: rotate(80deg);
+    }
+    main:hover #head div:nth-child(5){
+        transform: rotate(111deg);
+    }
+    main:hover #head div:nth-child(6){
+        transform: rotate(145deg);
+    }
+    main:hover #head div:nth-child(7){
+        transform: rotate(184deg);
+    }
+   main  #head div:nth-child(2):hover{
+       transition-delay: 0.5s;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    main  #head div:nth-child(3):hover{
+       transition-delay: 0.5s;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    main  #head div:nth-child(4):hover{
+       transition-delay: 0.5s;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    main  #head div:nth-child(5):hover{
+       transition-delay: 0.5s;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    main  #head div:nth-child(6):hover{
+       transition-delay: 0.5s;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    main  #head div:nth-child(7):hover{
+       transition-delay: 0.5s;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+   section{
+       width: 10px;
+       height: 10px;
+       border-radius: 50%;
+       text-align: center;
+       line-height: 200px;
+       color: white;
+       transition-duration: 0.5s;
+       transform: rotate(0deg);
+       overflow: hidden;
+       position: absolute;
+       top: -250px;
+       opacity: 0;
+       box-shadow: -5px 0px 5px rgb(32, 32, 32);
+   }
+   main  #head div:nth-child(2):hover section{
+   width: 200px;
+   height: 200px;
+   transition: 1s;
+   transition-delay: 1s;
+   transform: translateY(90px) translateX(-250px) rotate(360deg) ;
+   background: rgb(10, 61, 138);
+   opacity: 0.9;
+   }
+   main  #head div:nth-child(3):hover section{
+   width: 200px;
+   height: 200px;
+   transition: 1s;
+   transition-delay: 1s;
+   transform: translateY(90px) translateX(-250px) rotate(360deg) ;
+   background: rgb(39, 83, 148);
+   opacity: 0.9;
+   }
+   main  #head div:nth-child(4):hover section{
+   width: 200px;
+   height: 200px;
+   transition: 1s;
+   transition-delay: 1s;
+   transform: translateY(90px) translateX(-250px) rotate(360deg) ;
+   background: rgb(56, 98, 161);
+   opacity: 0.9;
+   }
+   main  #head div:nth-child(5):hover section{
+   width: 200px;
+   height: 200px;
+   transition: 1s;
+   transition-delay: 1s;
+   transform: translateY(90px) translateX(-250px) rotate(360deg) ;
+   background: rgb(68, 113, 182);
+   opacity: 0.9;
+   }
+   main  #head div:nth-child(6):hover section{
+   width: 200px;
+   height: 200px;
+   transition: 1s;
+   transition-delay: 1s;
+   transform: translateY(90px) translateX(-250px) rotate(360deg) ;
+   background: rgb(81, 129, 201);
+   opacity: 0.9;
+   }
+   main  #head div:nth-child(7):hover section{
+   width: 200px;
+   height: 200px;
+   transition: 1s;
+   transition-delay: 1s;
+   transform: translateY(90px) translateX(-250px) rotate(360deg) ;
+   background: rgb(99, 146, 218);
+   opacity: 0.9;
+   }
+    </style>
+</head>
+<body>
+    <main>
+<div id="head">
+<div><p>简历</p></div>
+<div><p>个人信息</p>
+<section>个人信息</section>
+</div>
+<div><p>工作经验</p>
+    <section>工作经验</section>
+</div>
+<div><p>职业技能</p>
+    <section>职业技能</section>
+</div>
+<div><p>求职意向</p>
+    <section>求职意向</section>
+</div>
+<div><p>教育背景</p>
+    <section>教育背景</section>
+</div>
+<div><p>自我评价</p>
+    <section>自我评价</section>
+</div>
+</div>
+<div class="head"></div>
+    </main>
+</body>
+</html>

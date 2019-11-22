@@ -1,0 +1,63 @@
+#scroll {
+    width: 190px;
+    margin: 0 auto;
+    padding-top: 30px;
+    font-family: "Microsoft Yahei";
+    position: absolute;
+}
+
+#scroll .owl-wrapper-outer {
+    margin: 0 auto;
+}
+
+#scroll .item {
+    position: relative;
+    width:190px;
+    height: 300px;
+    margin: 0 auto;
+    background-color:red;
+    overflow: hidden;
+    z-index: 888;
+}
+#scroll .item img{
+    width: 100%;
+}
+
+
+.owl-carousel{
+/* 定义包裹整个的盒子 */
+display: none;
+position: relative;
+width: 100%;
+/* background: red; */
+}
+
+
+.owl-carousel .owl-wrapper-outer{
+/* 定义包裹内容的盒子 */
+/* 删除后占满横屏 */
+overflow: hidden;
+position: relative;
+width: 100%;
+
+}
+
+.owl-carousel .owl-item{
+/* 定义标签往左浮动 */
+float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+/* 定义触摸左右切换按钮和小圆点的鼠标样式 */
+cursor: pointer;
+}
+
+
+.owl-theme .owl-controls{
+/* 定义左右切换 和 小圆点 内的内容居中 */
+margin-top: 10px;
+text-align: center;
+}
+
+
+

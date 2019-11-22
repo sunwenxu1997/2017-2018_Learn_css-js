@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>SVG绘制图形</title>
+        <style>
+                svg {
+                        width: 500px;
+                        height: 800px;
+                        background: #ccc;
+                }
+
+                rect {
+                        /* 矩形  */
+                        fill: aqua;
+                        stroke: red;
+                        stroke-width: 5px;
+                        /* 背景透明 */
+                        stroke-opacity: 0.5;
+                }
+
+                circle {
+                        /* 圆形 */
+                        fill: blue;
+                        stroke: red;
+                        stroke-width: 5px;
+                }
+
+                ellipse {
+                        /* 椭圆 */
+                        fill: rgb(200, 100, 50);
+                        stroke: rgb(0, 0, 100);
+                        stroke-width: 2
+                }
+
+                line {
+                        /* 线 */
+                        stroke: rgb(99, 99, 99);
+                        stroke-width: 2
+                }
+
+                polyline {
+                        /* 折线 */
+                        fill: yellow;
+                        stroke: red;
+                        stroke-width: 2
+                }
+
+                polygon {
+                        /* 多边形 */
+                        fill: #cccccc;
+                        stroke: #000000;
+                        stroke-width: 1
+                }
+
+                path {
+                        /* 路径 */
+                        fill: white;
+                        stroke: red;
+                        stroke-width: 2
+                }
+        </style>
+</head>
+
+<body>
+        <!-- 矩形 <rect/>
+        圆形 <circle/>
+        椭圆 <ellipse/>
+        线 <line/>
+        折线 <polyline/>
+        多边形 <polygon/>
+        路径 <path/> -->
+        <svg>
+
+                <!-- /* 矩形  */ -->
+                <!-- x,y 相对于svg左上角坐标位置 -->
+                <!-- rx ry 确定矩形圆角 -->
+                <rect width='200' height='100' x='10' y='10' rx="50" ry="50" />
+
+                <!-- /* 圆形 */ -->
+                <!-- cx,cy 圆心相对svg左上角坐标的位置   r  圆的半径 -->
+                <circle cx="100" cy="200" r="40" />
+
+                <!-- /* 椭圆 */ -->
+                <!-- cx,cy 圆心相对svg左上角坐标的位置   rx 横向半径  ry纵向半径  -->
+                <ellipse cx="200" cy="350" rx="200" ry="80" />
+
+                <!-- /* 线 */ -->
+                <!-- x1 y1 为坐标起始点  x2 y2 最为坐标终点 -->
+                <!-- 只有 x1 x2 y1 y2,没有x3 y3 ... -->
+                <line x1="0" y1="0" x2="300" y2="300" />
+
+                <!-- /* 折线 */ -->
+                <!-- points 定义位置    从起点开始  x,y x1,y1 x2,y2 x3,y3 x4,y4 ...  -->
+                <!-- 最后将所确定的点依次连接,形成图像 -->
+                <polyline points="0,500  0,550  50,550  50,600  100,600  100,650" />
+
+                <!-- /* 多边形 */ -->
+                <!-- 和折线效果类似 -->
+                <polygon points="220,100 300,210 170,250"  />
+
+                <!-- 路径 -->
+                <!-- 绘制三角形 -->
+                <!-- M x y 起始位置坐标 L x y 第二个坐标位置 L x y 第三个坐标位置...   -->
+                <!-- M :- moveto 将绘画点重置到指定点上
+                     L :- lineto 从当前的点画一条直线到目标点上，同时当前点更新
+                     z :- last,closepath 从当前点连回最早的点，以line的形式 -->
+                <path d="M250 150   L150 350   L350 350 Z" />
+                <!-- 绘制螺旋图形 -->
+                <!-- M x y 起始位置坐标 -->
+                <!-- C x y x1 y1 x2 y2 -->
+                <!-- 给定三个坐标，以前两个为控制点，作从当前点到第三个点的贝塞尔曲线，并且更新当前点 -->
+                <path d="
+M153 334
+C153 334 151  334 151  334
+C151 339 153  344 156  344
+C164 344 171  339 171  334
+C171 322 164  314 156  314
+C142 314 131  322 131  334
+C131 350 142  364 156  364
+C175 364 191  350 191  334
+C191 311 175  294 156  294
+C131 294 111  311 111  334
+C111 361 131  384 156  384
+C186 384 211  361 211  334
+C211 300 186  274 156  274" />
+        </svg>
+</body>
+
+</html>

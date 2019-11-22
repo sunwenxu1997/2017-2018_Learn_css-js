@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>蒲公英图标</title>
+    <style>
+        body {
+            background: teal;
+        }
+
+        main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid transparent;
+            margin: 250px auto;
+            position: relative;
+            perspective: 1000px;
+        }
+        .title{
+        position: absolute;
+        right: 0;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        /* background: red; */
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    main:hover .title{
+        transition: 1s;
+        right: 50px;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+        .head {
+            width: 300px;
+            height: 250px;
+            position: absolute;
+            /* background: red; */
+        }
+
+        .mao {
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            bottom: 0;
+            transform-style: preserve-3d;
+            transition: 0.5s;
+        }
+
+        .mao section {
+            width: 10px;
+            height: 30px;
+            border-radius: 50%;
+            border-left: 2px solid black;
+            transform: rotate(-10deg);
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            transition: 0.5s;
+            /* background: green; */
+        }
+
+        .mao div {
+            position: absolute;
+            top: -25px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border-bottom: 1px solid white;
+            transition: 0.5s;
+            /* border-left: 1px solid transparent; */
+        }
+
+        .mao div:nth-child(2) {
+            transform: rotateY(80deg);
+        }
+
+        .mao div:nth-child(3) {
+            transform: rotateY(70deg);
+        }
+
+        .mao div:nth-child(4) {
+            transform: rotateY(60deg);
+        }
+
+        .mao div:nth-child(5) {
+            transform: rotateY(50deg);
+        }
+
+        .mao div:nth-child(6) {
+            transform: rotateY(40deg);
+        }
+
+        .mao div:nth-child(7) {
+            transform: rotateY(30deg);
+        }
+
+        .mao div:nth-child(8) {
+            transform: rotateY(20deg);
+        }
+
+        .mao div:nth-child(9) {
+            transform: rotateY(10deg);
+        }
+
+        .mao div:nth-child(10) {
+            transform: rotateY(0deg);
+        }
+
+        .mao div:nth-child(11) {
+            transform: rotateY(90deg);
+        }
+
+        .mao div:nth-child(12) {
+            transform: rotateY(-10deg);
+        }
+
+        .mao div:nth-child(13) {
+            transform: rotateY(-20deg);
+        }
+
+        .mao div:nth-child(14) {
+            transform: rotateY(-30deg);
+        }
+
+        .mao div:nth-child(15) {
+            transform: rotateY(-40deg);
+        }
+
+        .mao div:nth-child(16) {
+            transform: rotateY(-50deg);
+        }
+
+        .mao div:nth-child(17) {
+            transform: rotateY(-60deg);
+        }
+
+        .mao div:nth-child(18) {
+            transform: rotateY(-70deg);
+        }
+
+        .mao div:nth-child(19) {
+            transform: rotateY(-80deg);
+        }
+
+        .gen {
+            width: 30px;
+            height: 130px;
+            border-radius: 50%;
+            border-right: 3px solid black;
+            position: absolute;
+            bottom: 0;
+            left: 135px;
+            z-index: -1;
+        }
+
+        .gen::before {
+            display: block;
+            content: "";
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            top: 0;
+            left: 13px;
+        }
+
+        #mao1 {
+            bottom: 88px;
+            left: 125px;
+            transform: rotateX(90deg) rotateZ(-15deg);
+        }
+
+        main:hover #mao1 {
+            transition: 2s;
+            left: -100px;
+            bottom: 100px;
+            transform: rotateX(30deg) rotateZ(-15deg);
+            /* opacity: 0; */
+        }
+
+        #mao2 {
+            bottom: 90px;
+            left: 123px;
+            transform: rotateY(70deg) rotateZ(-70deg);
+        }
+
+        main:hover #mao2 {
+            transition: 2s;
+            transition-delay: 0.5s;
+            left: 50px;
+            bottom: 100px;
+            transform: rotateY(40deg) rotateZ(-70deg);
+        }
+
+        #mao3 {
+            bottom: 83px;
+            left: 120px;
+            transform: rotateY(130deg) rotateZ(90deg);
+        }
+
+        main:hover #mao3 {
+            transition: 2s;
+            transition-delay: 1s;
+            left: -110px;
+            bottom: 50px;
+            transform: rotateY(110deg) rotateZ(-45deg) rotateX(100deg);
+        }
+
+        #mao4 {
+            bottom: 82px;
+            left: 135px;
+            transform: rotateY(-130deg) rotateZ(-90deg);
+        }
+
+        main:hover #mao4 {
+            transition: 2s;
+            transition-delay: 1s;
+            left: 0px;
+            bottom: 150px;
+            transform: rotateY(70deg) rotateZ(90deg) rotateX(20deg);
+        }
+
+        #mao5 {
+            bottom: 75px;
+            left: 135px;
+            transform: rotateY(70deg) rotateZ(120deg);
+        }
+
+        main:hover #mao5 {
+            transition: 2s;
+            transition-delay: 1s;
+            left: -50px;
+            bottom: 0px;
+            transform: rotateY(90deg) rotateZ(50deg) rotateX(20deg);
+        }
+
+        #mao6 {
+            bottom: 75px;
+            left: 122px;
+            transform: rotateY(72deg) rotateZ(-110deg);
+        }
+
+        main:hover #mao6 {
+            transition: 2s;
+            transition-delay: 1s;
+            left: 10px;
+            bottom: 30px;
+            transform: rotateY(50deg) rotateZ(100deg) rotateX(20deg);
+        }
+
+        #mao7 {
+            bottom: 90px;
+            left: 133px;
+            transform: rotateY(70deg) rotateZ(70deg);
+        }
+
+        #head2 {
+            position: absolute;
+            left: -30px;
+            top: 63px;
+            transform: scale(0.5);
+        }
+
+        #head2 .gen {
+            width: 50px;
+            border-left: 3px solid black;
+            border-right: none;
+            transform: rotate(-15deg);
+            left: 154px;
+        }
+
+        #head2 .gen::before {
+            left: 5px;
+        }
+
+        main:hover #head2 #mao7 {
+            transition: 2s;
+            transition-delay: 1s;
+            bottom: 300px;
+            left: -100px;
+            transform: rotateY(0deg) rotateZ(70deg) rotateX(110deg);
+        }
+
+        h1 {
+
+            position: absolute;
+            bottom: -30px;
+            left: 50px;
+            color: white;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+            <div class="title">吹~</div>
+        <div class="head">
+            <div class="mao" id="mao1">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao2">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao3">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao4">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao5">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao6">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao7">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="gen"></div>
+        </div>
+        <div class="head" id="head2">
+            <div class="mao" id="mao1">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao2">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao3">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao4">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao5">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao6">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="mao" id="mao7">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <section></section>
+            </div>
+            <div class="gen"></div>
+        </div>
+        <h1>好看的蒲公英</h1>
+    </main>
+
+</body>
+
+</html>

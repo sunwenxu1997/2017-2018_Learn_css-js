@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠横幅</title>
+    <style>
+        body{
+            background:teal;
+        }
+    main{
+        width: 500px;
+        height: 100px;
+        margin: 300px auto;
+        /* border: 1px solid black; */
+    }
+    /* 定义一个div标签内装有2个section标签 */
+    /* 一个section标签 往右倾斜，一个往左倾斜 */
+    /* 当鼠标经过div标签时，使其内部的2个section标签同时往相反方向倾斜，回到初始位置 */
+    /* 此处   transform: skew(角度); 为知识点 */
+    .one{
+        width: 100px;
+        height: 50px;
+        /* 设置div背景色，显现阴影效果 */
+        background: rgb(82, 81, 81);
+        float: left;
+    }
+    section{
+        float: left;
+        width: 50px;
+        height: 50px;
+        font-size: 17px;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        cursor: default;
+    }
+
+    .one section:nth-child(1){
+        /* 设置相同时间的过度 */
+        transition: 0.3s;
+        transform-origin: 0% 100%;
+        background: royalblue;
+        /* skew倾斜角度 */
+        transform: skewY(-18deg);
+    }
+    .one section:nth-child(2){
+         /* 设置相同时间的过度 */
+        transition: 0.3s;
+        transform-origin:100%  0% ;
+        background: rgb(48, 77, 163);
+        transform:  skewY(18deg);
+    }
+    .one:hover section:nth-child(1){
+        transform: skewY(0deg);
+    }
+    .one:hover section:nth-child(2){
+        transform: skewY(0deg);
+    }
+    #One:hover section:nth-child(2){
+        background: royalblue;;
+    }
+    #Two section:nth-child(1){
+        background: tomato;
+    }
+    #Two section:nth-child(2){
+        background: rgb(182, 71, 52);
+    }
+    #Two:hover section:nth-child(2){
+        background: tomato;
+    }
+    #Three section:nth-child(1){
+        background: rgb(255, 227, 71);
+    }
+    #Three section:nth-child(2){
+        background: rgb(194, 173, 58);
+    }
+    #Three:hover section:nth-child(2){
+        background: rgb(255, 227, 71);
+    }
+    #Five section:nth-child(1){
+        background: red;
+    }
+    #Five section:nth-child(2){
+        background: rgb(165, 4, 4);
+    }
+    #Five:hover section:nth-child(2){
+        background: red;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="one" id="One">
+            <section>我</section>
+            <section>真</section>
+        </div>
+        <div class="one" id="Two">
+            <section>的</section>
+            <section>很</section>
+        </div>
+        <div class="one" id="Three">
+            <section>喜</section>
+            <section>欢</section>
+        </div>
+        <div class="one" id="Four" style="background:none;">
+            
+        </div>
+        <div class="one" id="Five">
+            <section>You</section>
+            <section>!</section>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Winds窗口标志</title>
+    <style>
+        *{
+        background-color: #1B1D33;  
+        }
+    main{
+        width: 400px;
+        height: 400px;
+        margin: 100px auto;
+        /* box-shadow: 0 0 20px 0 white inset; */
+    }
+    h1{
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        font-size:100px;
+        opacity: 0;
+        position: relative;
+        top: -15px;
+        left: 0;
+        z-index: -1;
+        transition-duration: 1s;
+    }
+div{
+    width: 80px;
+    height: 80px;
+    /* background: red; */
+    vertical-align: middle;
+    transition-duration:1s;
+    border-radius: 50%;
+}
+.one{
+    background: greenyellow;
+}
+.two{
+    width: 120px;
+    height: 120px;
+    background: red;
+}
+.three{
+    width: 150px;
+    height: 150px;
+    background: orange;
+}
+.four{
+    width: 40px;
+    height:40px;
+    background: royalblue;
+}
+main:hover .one{
+transition: 3s;
+transform: translateX(115px) translateY(115px);
+background: red;
+border-radius: 0;
+}
+main:hover .two{
+transition: 3s;
+transform: translateX(-115px)  translateY(115px);
+width: 80px;
+height: 80px;
+background: greenyellow;
+border-radius: 0;
+}
+main:hover .three{
+transition: 3s;
+transform: translateX(115px) translateY(-115px);
+width: 80px;
+height: 80px;
+background: royalblue;
+border-radius: 0;
+}
+main:hover .four{
+    width: 80px;
+height: 80px;
+transition: 3s;
+transform: translateX(-115px)  translateY(-115px);
+background: orange;
+border-radius: 0;
+}
+main:hover h1{
+    transition: 2s;
+    opacity: 1;
+    cursor: default;
+}
+    </style>
+</head>
+<body>
+    <main>
+
+        <div class="one" style="float:left;"></div>
+        <div class="two" style="float:right;"></div>
+        <div class="three" style="margin-top:320px;float:left;margin-left:-80px;"></div>
+        <div class="four" style="margin-top:320px; float:right; margin-right:-80px;"></div>
+        <h1>Windows</h1>
+
+    </main>
+
+</body>
+</html>

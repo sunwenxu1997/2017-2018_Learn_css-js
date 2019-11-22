@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+           margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: tomato;
+        }
+        main{
+             width: 800px;
+             height: 100px;
+             display: flex;
+             box-shadow: 0 0 10px rgb(253, 74, 42) inset;
+             /* background: tomato; */
+        }
+    div{
+        width: 100px;
+        height: 100px;
+        /* border: 1px solid black; */
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        font-size: 100px;
+        overflow: hidden;
+        color: rgb(243, 17, 17);
+    }
+    section{
+        width: 100px;
+        height: 100px; 
+        color: white;
+        text-shadow: 0 0 5px white ;
+        z-index: -1;
+    }
+    .fen-l section{
+    animation: fen-l 3600s 1;
+    }@keyframes fen-l{
+        0% {
+    transform: translateY(-500px);
+  }
+  16.66667% {
+    transform: translateY(-400px);
+  }
+  33.33333% {
+    transform: translateY(-300px);
+  }
+  50% {
+    transform: translateY(-200px);
+  }
+  66.66667% {
+    transform: translateY(-100px);
+  }
+  83.33333% {
+    transform: translateY(0px);
+  }
+    }
+    .fen-r section{
+   animation: fen-r 600s linear infinite;
+    }@keyframes fen-r{
+        0% {
+    transform: translateY(-900px);
+  }
+  10% {
+    transform: translateY(-800px);
+  }
+  20% {
+    transform: translateY(-700px);
+  }
+  30% {
+    transform: translateY(-600px);
+  }
+  40% {
+    transform: translateY(-500px);
+  }
+  50% {
+    transform: translateY(-400px);
+  }
+  60% {
+    transform: translateY(-300px);
+  }
+  70% {
+    transform: translateY(-200px);
+  }
+  80% {
+    transform: translateY(-100px);
+  }
+  90% {
+    transform: translateY(0px);
+  }
+}
+    .miao-l section{
+   animation: miao-l 60s ease infinite;
+    }@keyframes miao-l{
+        0% {
+    transform: translateY(-500px);
+  }
+  16.66667% {
+    transform: translateY(-500px);
+  }
+  33.33333% {
+    transform: translateY(-400px);
+  }
+  50% {
+    transform: translateY(-300px);
+  }
+  66.66667% {
+    transform: translateY(-200px);
+  }
+  83.33333% {
+    transform: translateY(-100px);
+  }
+    }
+    .miao-r section{
+   animation: miao-r 10s ease infinite;
+    } @keyframes miao-r{
+        0% {
+    transform: translateY(-1000px);
+  }
+  10% {
+    transform: translateY(-900px);
+  }
+  20% {
+    transform: translateY(-800px);
+  }
+  30% {
+    transform: translateY(-700px);
+  }
+  40% {
+    transform: translateY(-600px);
+  }
+  50% {
+    transform: translateY(-500px);
+  }
+  60% {
+    transform: translateY(-400px);
+  }
+  70% {
+    transform:translateY(-300px);
+  }
+  80% {
+    transform: translateY(-200px);
+  }
+  90% {
+    transform: translateY(-100px);
+  }
+}
+.ling-l section{
+   animation: ling-l 1s ease infinite;
+    }@keyframes ling-l{
+        0% {
+    transform: translateY(-600px);
+  }
+  16.66667% {
+    transform: translateY(-500px);
+  }
+  33.33333% {
+    transform: translateY(-400px);
+  }
+  50% {
+    transform: translateY(-300px);
+  }
+  66.66667% {
+    transform: translateY(-200px);
+  }
+  83.33333% {
+    transform: translateY(-100px);
+  }
+    }
+    .ling-r section{
+   animation: ling-r 0.1s ease infinite;
+    } @keyframes ling-r{
+        0% {
+    transform: translateY(-1000px);
+  }
+  10% {
+    transform: translateY(-900px);
+  }
+  20% {
+    transform: translateY(-800px);
+  }
+  30% {
+    transform: translateY(-700px);
+  }
+  40% {
+    transform: translateY(-600px);
+  }
+  50% {
+    transform: translateY(-500px);
+  }
+  60% {
+    transform: translateY(-400px);
+  }
+  70% {
+    transform:translateY(-300px);
+  }
+  80% {
+    transform: translateY(-200px);
+  }
+  90% {
+    transform: translateY(-100px);
+  }
+}
+    </style>
+</head>
+<body>
+    <main>
+    <div class="fen-l">
+            <section>0</section>
+            <section>1</section>
+            <section>2</section>
+            <section>3</section>
+            <section>4</section>
+            <section>5</section>
+            <section>0</section>
+    </div>
+    <div class="fen-r">
+            <section>0</section>
+            <section>1</section>
+            <section>2</section>
+            <section>3</section>
+            <section>4</section>
+            <section>5</section>
+            <section>6</section>
+            <section>7</section>
+            <section>8</section>
+            <section>9</section>
+            <section>0</section>
+    </div>
+    <div>:</div>
+    <div class="miao-l">
+            <section>0</section>
+            <section>1</section>
+            <section>2</section>
+            <section>3</section>
+            <section>4</section>
+            <section>5</section>
+            <section>0</section>
+    </div>
+    <div class="miao-r">
+        <section>0</section>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <section>5</section>
+        <section>6</section>
+        <section>7</section>
+        <section>8</section>
+        <section>9</section>
+        <section>0</section>
+    </div>
+    <div>:</div>
+    <div class="ling-l">
+            <section>0</section>
+            <section>1</section>
+            <section>2</section>
+            <section>3</section>
+            <section>4</section>
+            <section>5</section>
+            <section>0</section>
+    </div>
+    <div class="ling-r">
+        <section>0</section>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+        <section>5</section>
+        <section>6</section>
+        <section>7</section>
+        <section>8</section>
+        <section>9</section>
+        <section>0</section>
+    </div>
+</main>
+</body>
+</html>

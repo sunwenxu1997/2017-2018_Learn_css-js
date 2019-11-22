@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        body {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -o-user-select: none;
+            background-color: #1D1D1D;
+        }
+
+        .box {
+            height: 400px;
+            width: 400px;
+            margin: 200px auto;
+            position: relative;
+            transform: rotateX(-15deg) rotateY(15deg);
+            transform-style: preserve-3d;
+            cursor: move;
+        }
+
+        .box div {
+            position: absolute;
+            height: 400px;
+            width: 400px;
+            left: 0;
+            right: 0;
+            /*opacity: 0.8;*/
+        }
+
+        .left {
+            background: url(img/1.jpg);
+            background-size: auto 100%;
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        .right {
+            background: url(img/2.jpg);
+            background-size: auto 100%;
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        .top {
+            background: url(img/3.jpg);
+            background-size: auto 100%;
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        .bottom {
+            background: url(img/4.jpg);
+            background-size: auto 100%;
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+
+        .pre {
+            background: url(img/5.jpg);
+            background-size: auto 100%;
+            transform: translateZ(200px);
+        }
+
+        .back {
+            background: url(img/6.jpg);
+            background-size: auto 100%;
+            transform: translateZ(-200px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+        <div class="left"></div>
+        <div class="pre"></div>
+        <div class="back"></div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery-touchrotate.js"></script>
+<script>
+    $('.box').touchrotate({
+        //初始3D旋转
+        rotateX: -15,
+        rotateY: 15,
+        //数值越小 , 旋转速度越快
+        speedX: 2,
+        speedY: 2,
+        // 旋转的倍数, 越大旋转的圈数越多
+        multipleX: 50,
+        multipleY: 50,
+        // 动画持续的时间, 单位是S
+        time: 2,
+        //模式 0:表示匀速运动 , 运动中途可以重新开始 , 1表示先加速后减速(动画过程中不可滑动,体验效果差)
+        model: 0
+    });
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字体排列</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background: black; */
+        }
+
+        main {
+            width: 800px;
+            height: 400px;
+            border: 1px solid rgb(22, 22, 22);
+        }
+
+        svg {
+            width: 800px;
+            height: 400px;
+            /* background: red; */
+            position: relative;
+            z-index: 999;
+        }
+
+        #text {
+            /* 设置字体由上往下排列 */
+            writing-mode: vertical-rl;
+            font-size: 20px;
+            letter-spacing: 0.4em;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <svg viewBox='0 0 800 200'>
+
+            <!-- 旋转文字方向 -->
+            <text x="25%" y="50%">
+                It’s
+                <!-- dx dy 定义文字所在坐标的位置  此处有6个字符，所以有6个坐标值 -->
+                <!-- rotate 为旋转度数 -->
+                <tspan dx="0 4 -3 5 -4 6" dy="0 -3 7 3 -2 -8" rotate="5 10 -5 -20 0 15">shaken</tspan>, not stirred.
+            </text>
+
+
+            <!-- 实现文字垂直排列 -->
+            <text id="text" x="50" y="20" rotate='-90'>writing vertical text</text>
+
+
+            <!-- 实现文字跟随路径排列 -->
+            <defs>
+                <!-- M400 50 圆所开始的坐标点  a50 50 圆的半径 -->
+                <path id="circle" d="M400 50 a50 50 0 1 1 -1 0"></path>
+            </defs>
+            <text>
+                <textPath xlink:href="#circle" style="fill: violet;">
+                    Text following a circle.............
+                </textPath>
+            </text>
+        </svg>
+    </main>
+</body>
+
+</html>

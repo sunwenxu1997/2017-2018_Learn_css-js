@@ -1,0 +1,177 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>帆船图标</title>
+        <style>
+            body{
+                background:cornflowerblue;
+            }
+main{
+    width:200px;
+    height:200px;
+     border-radius: 50%; 
+     border: 5px dashed transparent; 
+    margin:0px auto;
+    margin-top: 350px;
+    cursor: pointer;
+}
+#chuan{
+    /* background: yellow; */
+    margin: 0 auto;
+    margin-top:110px;
+    animation: dong 2s linear infinite alternate;
+
+    z-index: 1;
+}@keyframes dong{
+    0%{
+        transform: translateX(0px) rotateZ(0deg);
+    }
+    50%{
+        transform-origin: 0 50%;
+        transform: translateX(30px) rotateZ(-5deg);
+    }
+    100%{
+        transform-origin: 100% 0;
+         transform: translateX(-30px) rotateZ(5deg);
+    }
+}
+@keyframes dong1{
+    0%{
+        transform: translateX(0px) rotateZ(0deg);
+    }
+    50%{
+        transform: translateX(30px);
+    }
+    100%{
+         transform: translateX(-30px);
+    }
+}
+.top{
+    width: 10px;
+    height: 25px;
+    background: royalblue;
+    margin: 0px auto;
+    position: relative;
+    left: 10px;
+}
+.top::after{
+display: block;
+content: "";
+width: 0;
+height: 0;
+position: absolute;
+top: -115px;
+left: -40px;
+border-left:  40px solid transparent;
+border-top:65px solid transparent;
+border-bottom: 65px solid royalblue;
+border-right: 40px solid white;
+}
+.bottom{
+    width: 80px;
+    height: 30px;
+    background: white;
+    margin: 0 auto;
+    position: relative;
+    z-index: -1;
+}
+.bottom::before{
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -30px;
+    border-left:15px solid transparent;
+    border-bottom:15px solid transparent;
+    border-top:15px solid royalblue;
+    border-right:15px solid royalblue;
+}
+.bottom::after{
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    left:80px;
+    border-right:15px solid transparent;
+    border-bottom:15px solid transparent;
+    border-left:15px solid white;
+    border-top:15px solid royalblue;
+}
+.bolang1{
+width: 250px;
+height: 40px;
+margin-top: -20px;
+z-index: 1;
+/* background: red; */
+}
+.bolang1>div{
+       width: 50px;
+    height: 35px;
+    border-radius:50%;
+    border-top:4px solid royalblue;
+    float: left;
+    transition: 0.5s;
+}
+.bolang1 div:nth-child(2){
+    border-top: transparent;
+     border-bottom:4px solid royalblue;
+}
+.bolang1 div:nth-child(4){
+    border-top: transparent;
+     border-bottom: 4px solid royalblue;
+}
+#bolangt{
+
+    animation: dong1 2s ease infinite alternate;
+            animation-delay:0.5s;
+}
+#bolangb{
+    position: relative;
+    left: -50px;
+    top: -20px;
+animation: dong1 2s ease infinite alternate;
+    /* animation-delay: 0.5s; */
+}
+main:hover #chuan{
+    transition: 0.5s;
+    animation: dong1 2s linear infinite alternate;
+
+}
+main:hover .bolang1 div{
+        transition: 0.5s;
+        border-radius: 0;
+}
+main:hover .bolang1{
+    transition: 0.5s;
+        animation: dong1 2s linear infinite alternate;
+}
+</style>
+    </head>
+    <body>
+        <main>
+            <div id="chuan">
+            <div class="top"></div>
+            <div class="bottom"></div>
+            </div>
+        <div id="bolangt" class="bolang1">
+ <div></div>
+ <div></div>
+ <div></div>
+ <div></div>
+ <div></div>
+        </div>
+         <div id="bolangb" class="bolang1">
+<div></div>
+ <div></div>
+ <div></div>
+ <div></div>
+ <div></div>
+        </div>
+        </main>
+    </body>
+    </html>  

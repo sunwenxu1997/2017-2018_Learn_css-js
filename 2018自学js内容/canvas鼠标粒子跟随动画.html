@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        canvas {
+            display: block;
+            /* background: black; */
+            /* background: rgb(38, 129, 247); */
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+    var canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+
+    //    当浏览器准备好时调用
+    onload = function () {
+        setTimeout(init, 0)
+    }
+
+    init = function () {
+        ctx = canvas.getContext('2d');//确定画笔
+
+        //使画布宽高等于窗口宽高
+        onresize = function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        onresize();
+        //定义鼠标初始坐标位置，为画布中心位置
+        mouse = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            out: false
+        }
+        //鼠标移动后触发事件
+        canvas.onmouseout = function () {
+            mouse.out = true;
+        }
+        //鼠标移动时触发事件
+        canvas.onmousemove = function (e) {
+            // getBoundingClientRect用于获取某个元素相对于视窗的位置集合
+            var rect = canvas.getBoundingClientRect();
+            mouse = {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+                out: false
+            }
+        }
+
+        //--------------------此处可定义粒子移动频率------------------------------------
+        gravityStrength = 20; //粒子引力，值越大粒子间的频率越快
+        particles = []; //储存粒子的集合
+        spawnTimer = 0; //产生粒子的计时器
+
+        //--------------------此处可定义生成粒子速率------------------------------------
+        spawnInterval = 20; //每隔多久产生一个粒子
+        type = 0;
+        //这是一个绘制循环,它将频繁执行,该方法用于在浏览器中制作动画。
+        requestAnimationFrame(startLoop);
+    }
+
+    //定义产生粒子的方法
+    newParticle = function () {
+        type = type ? 0 : 1;//条件判断，取值0时为false，显示小粒子，取值1时为true，显示大粒子
+        particles.push({ //往粒子集合中添加数据
+            x: mouse.x, //鼠标位置
+            y: mouse.y,
+
+            //--------------------此处可定义粒子散射范围------------------------------------
+            xv: type ? Math.random() * 18 - 9 : Math.random() * 24 - 12, //粒子散射范围，前者为大粒子偏移量，后者为小粒子偏移量
+            yv: type ? Math.random() * 18 - 9 : Math.random() * 24 - 12,
+
+            //--------------------此处可定义粒子颜色------------------------------------
+            c: type ? 'rgb('+ Math.random() *100 +', '+ Math.random() * 100 + ',' + Math.random() * 255 + 100 + ')' : 'rgb(255,0,0)',//粒子颜色，前者为大粒子颜色，后者为小粒子颜色(默认为白色)
+            //--------------------此处可定义粒子大小------------------------------------
+            s: type ? Math.random() * 30 + 5 : 1,//粒子大小，前者大粒子大小，后者小粒子大小
+            a: 1
+        })
+    }
+
+    startLoop = function (newTime) {
+        time = newTime;
+        requestAnimationFrame(loop)
+    }
+
+    loop = function (newTime) {
+        draw();
+        calculate(newTime);
+        requestAnimationFrame(loop);
+    }
+    //绘制粒子
+    draw = function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);//绘制图形前首先清除之前画的图像
+        for (let i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            ctx.globalAlpha = p.a; //globalAlpha 属性设置或返回绘图的当前透明值
+            ctx.strokeStyle = p.c; //粒子颜色
+            ctx.lineWidth = 2; //边框粗细
+            ctx.beginPath(); //抬笔作画
+            //--------------------此处可定义粒子形状------------------------------------
+            ctx.rect(p.x, p.y, p.s, p.s);//粒子形状，此处可以用 rect改变为方块
+
+            //--------------------此处可定义粒子边框------------------------------------
+            ctx.stroke(); //作画 可以设置为 fill()绘制背景
+        }
+    }
+
+    calculate = function (newTime) {
+        var dt = newTime - time;
+        time = newTime;
+
+        if (!mouse.out) { //当鼠标不移动时，执行以下代码
+            spawnTimer += (dt < 100) ? dt : 100;
+            //  使产生的粒子慢慢返回到鼠标位置
+            for (var i = 0; spawnTimer > 0; spawnTimer -= spawnInterval) {
+                newParticle();
+            }
+        }
+
+        //--------------------此处可定义屏幕中最多存在的粒子数量------------------------------------
+        particleOverflow = particles.length - 500; //粒子溢出,定义屏幕中最多存在的粒子数量
+        if (particleOverflow > 0) {
+            particles.splice(0, particleOverflow);//当粒子数量超出时，自动把多余的粒子从集合中删除
+        }
+        for (let i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            if (!mouse.out) {//当鼠标不移动时，执行以下代码
+                x = mouse.x - p.x;
+                y = mouse.y - p.y;
+                a = x * x + y * y; //通过勾股定理，计算出斜边值
+
+                //--------------------此处可定义粒子散射距离------------------------------------
+                a = a > 100 ? gravityStrength / a : gravityStrength / 100; //当斜边超过一定条件时判断执行
+
+                //--------------------此处可定义生成后粒子的返回方向------------------------------------
+                p.xv = (p.xv + a * x) * 0.99; //生成后的粒子偏移量
+                p.yv = (p.yv + a * y) * 0.99;
+            }
+            p.x += p.xv;
+            p.y += p.yv;
+            p.a *= 0.99;
+        }
+
+    }
+</script>
+
+</html>

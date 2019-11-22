@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(73, 73, 73);
+        }
+
+        main {
+            width: 800px;
+            height: 500px;
+            position: relative;
+            perspective: 500px;
+        }
+
+        div {
+            width: 50%;
+            height: 50%;
+            /* overflow: hidden; */
+            position: absolute;
+            cursor: pointer;
+        }
+
+        img {
+            transform-style: preserve-3d;
+            opacity: 0.5;
+            position: absolute;
+            height: 100%;
+        }
+
+        #one {
+            overflow: hidden;
+        }
+
+        #two {
+            right: 0;
+        }
+
+        #two img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #three {
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        #three img {
+            width: 700px;
+            height: 500px;
+            left: -200px;
+            top: -200px;
+        }
+        #four{
+            bottom: 0;
+            right: 0;
+        }
+        #four img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="one">
+            <img src="img/21.jpg" alt="" class="img-1">
+            <img src="img/21.jpg" alt="" class="img-2">
+            <img src="img/21.jpg" alt="" class="img-3">
+            <img src="img/21.jpg" alt="" class="img-4">
+            <img src="img/21.jpg" alt="" class="img-5">
+        </div>
+        <div id="two">
+            <img src="img/20.jpg" alt="" class="img-1">
+            <img src="img/20.jpg" alt="" class="img-2">
+            <img src="img/20.jpg" alt="" class="img-3">
+            <img src="img/20.jpg" alt="" class="img-4">
+            <img src="img/20.jpg" alt="" class="img-5">
+        </div>
+        <div id="three">
+            <img src="img/10.jpg" alt="" class="img-1">
+            <img src="img/10.jpg" alt="" class="img-2">
+            <img src="img/10.jpg" alt="" class="img-3">
+            <img src="img/10.jpg" alt="" class="img-4">
+            <img src="img/10.jpg" alt="" class="img-5">
+        </div>
+        <div id="four">
+            <img src="img/8.jpg" alt="" class="img-1">
+            <img src="img/8.jpg" alt="" class="img-2">
+            <img src="img/8.jpg" alt="" class="img-3">
+            <img src="img/8.jpg" alt="" class="img-4">
+            <img src="img/8.jpg" alt="" class="img-5">
+        </div>
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $('#one').on('mousemove', function (e) {
+        var offsetX = e.clientX / window.innerWidth - 0.5;
+        offsetY = e.clientY / window.innerHeight - 0.5;
+        var _left = -40 * offsetX;
+        var _top = -40 * offsetY;
+        $('#one .img-1').css({ left: _left * 4, top: _top * 4 });
+        $('#one .img-2').css({ left: _left * 3, top: _top * 3 });
+        $('#one .img-3').css({ left: _left * 2, top: _top * 2 });
+        $('#one .img-4').css({ left: _left * 1, top: _top * 1 });
+        $('#one .img-5').css({ left: _left * 0, top: _top * 0 });
+    })
+    $('#two').on('mousemove', function (e) {
+        var offsetX = e.clientX / window.innerWidth - 0.4;
+        offsetY = e.clientY / window.innerHeight - 0.4;
+        var _left = 30 * offsetX;
+        var _top = 30 * offsetY;
+        $('#two .img-1').css({ left: _left * 5, top: _top * 5, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#two .img-2').css({ left: _left * 4, top: _top * 4, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#two .img-3').css({ left: _left * 3, top: _top * 3, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#two .img-4').css({ left: _left * 2, top: _top * 2, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#two .img-5').css({ left: _left * 1, top: _top * 1, transform: 'rotateX(' + _left * 2 + 'deg)' });
+    })
+    $('#three').on('mousemove', function (e) {
+        var offsetX = e.clientX / window.innerWidth - 0.4;
+        offsetY = e.clientY / window.innerHeight - 0.4;
+        var _left = 20 * offsetX;
+        var _top = 20 * offsetY;
+        $('#three .img-1').css({ left: -200 + _left * 4, top: -200 + _top * 4 });
+        $('#three .img-2').css({ left: -200 + _left * 3, top: -200 + _top * 3 });
+        $('#three .img-3').css({ left: -200 + _left * 2, top: -200 + _top * 2 });
+        $('#three .img-4').css({ left: -200 + _left * 1, top: -200 + _top * 1 });
+        $('#three .img-5').css({ left: -200 + _left * 0, top: -200 + _top * 0 });
+    })
+    $('#four').on('mousemove', function (e) {
+        var offsetX = e.clientX / window.innerWidth - 0.4;
+        offsetY = e.clientY / window.innerHeight - 0.4;
+        var _left = 10 * offsetX;
+        var _top = 10 * offsetY;
+        $('#four .img-1').css({ left: _left * 5, top: _top * 5, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#four .img-2').css({ left: _left * 4, top: _top * 4, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#four .img-3').css({ left: _left * 3, top: _top * 3, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#four .img-4').css({ left: _left * 2, top: _top * 2, transform: 'rotateX(' + _left * 2 + 'deg)' });
+        $('#four .img-5').css({ left: _left * 1, top: _top * 1, transform: 'rotateX(' + _left * 2 + 'deg)' });
+    })
+</script>
+
+</html>

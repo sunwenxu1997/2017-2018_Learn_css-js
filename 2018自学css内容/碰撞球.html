@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>碰撞球</title>
+    <style>
+    body{
+        background-color: black;
+        margin: 0 auto;
+    }
+    .bubble{
+        /* 弹性盒模型 */
+        display: flex; 
+        /* justify-content: space-around;存在有相同的间距 */
+        justify-content: space-around;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        background-color: black;
+        margin: 0 auto;
+        /* filter 滤镜效果 contrast 对比度（必须有2种以上的颜色，白的更白，黑的更黑）*/
+        filter: blur(15px) contrast(30);
+    }
+    .content1,.content2,.content3{
+        width: 96px;
+        height: 96px;
+        background-color: #fff;
+        border-radius: 50%;
+        float: left;
+    }
+    .content2{
+        box-shadow: 0 0 0 #fff;
+        /* alternate 动画返回  ease-in-out环境缓冲*/
+        animation: move 2s infinite alternate ease-in-out;
+    }@keyframes move{
+        0%{
+            box-shadow: 350px 0 0 #fff;
+        }
+        100%{
+            box-shadow: -350px 0 0 #fff;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="bubble">
+        <div class="content1"></div>
+        <div class="content2"></div>
+        <div class="content3"></div>
+    </div>
+</body>
+</html>

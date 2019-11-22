@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+    }
+    body,html{
+        height: 100%;
+        /* 开启弹性布局 */
+        /* 使main标签居中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(152, 175, 247);
+    }
+    main{
+        width: 700px;
+        height: 700px;
+        /* border: 1px solid white; */
+        /* 开启弹性布局 */
+        /* 使其中div标签从左往右排列 */
+        display: flex;
+        /* flex-direction 即项目的排列方向 */
+        /* flex-direction:  row（默认值）： 主轴为水平方向，起点在左端； */
+        /* flex-direction: row-reverse： 主轴在水平方向，起点在右端 ； */
+        /* flex-direction:   column：主轴为垂直方向，起点在上沿。 */
+        /* flex-direction:  column-reverse：主轴为垂直方向，起点在下沿。 */
+
+        /* 垂直居中 */
+        align-items: center;
+        /* flex-wrap        属性定义，如果一条轴线排不下，如何换行。 */
+        /* wrap： 换行，并且第一行在容器最上方； */
+        flex-wrap: wrap;
+
+    }
+    main div{
+        width: 200px;
+        height: 200px;
+        border: 3px solid white;
+        /* 设置景深，以便于section的3D旋转 */
+        /* perspective景深值随意设置，但必须大于section的大小 */
+        perspective: 1000px;
+    }
+    main div section{
+        width: 200px;
+        height: 200px;
+        background: rgb(85, 83, 238);
+        /* 定义section 3D旋转 */
+        transform-style: preserve-3d;
+        /* 设置起始透明度为0 */
+        opacity: 0;
+        /* 设置过渡属性 */
+        transition: 0.5s;
+        text-align: center;
+        line-height: 200px;
+        color: white;
+        font-size: 40px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        /* 鼠标经过样式 */
+        cursor: pointer;
+
+    }
+    main div:hover section{
+        opacity: 1;
+    }
+    main div:nth-child(1) section{
+        /* transform-origin 此处旋转角度默认为 50% 50% 即section中间位置 */
+        transform: rotateX(90deg);
+    }
+    main div:nth-child(1):hover section{
+        transform: rotateX(0);
+    }
+    main div:nth-child(2) section{
+          /* transform-origin 此处旋转角度默认为 50% 50% 即section中间位置 */
+        transform: rotateY(90deg);
+    }
+    main div:nth-child(2):hover section{
+        transform: rotateY(0);
+    }
+    main div:nth-child(3) section{
+        /* 定义旋转点为section 的 x轴方向的0%位置，y轴方向的0%位置（相当于顶部） */
+        transform-origin: 0% 0%;
+        transform: rotateX(-90deg);
+    }
+    main div:nth-child(3):hover section{
+        transform: rotateX(0);
+    }
+    main div:nth-child(4) section{
+        /* 定义旋转点为section 的 x轴方向的0%位置，y轴方向的100%位置（相当于底部） */
+        transform-origin: 0% 100%;
+        transform: rotateX(90deg);
+    }
+    main div:nth-child(4):hover section{
+        transform: rotateX(0);
+    }
+    main div:nth-child(5) section{
+        /* 定义旋转点为section 的 x轴方向的0%位置，y轴方向的0位置（相当于顶部） */
+        transform-origin: 0% 0%;
+        transform: rotateY(90deg);
+    }
+    main div:nth-child(5):hover section{
+        transform: rotateY(0);
+    }
+    main div:nth-child(6){
+        /* 设置第六个div超出隐藏 */
+        overflow: hidden;
+    }
+    main div:nth-child(6) section{
+        /* 定义旋转点为section 的 x轴方向的0%位置，y轴方向的0位置（相当于左上角） */
+        transform-origin: 0% 0%;
+        transform: rotateZ(90deg);
+    }
+    main div:nth-child(6):hover section{
+        transform: rotateZ(0);
+    }
+    main div:nth-child(7){
+        /* 设置第七个div超出隐藏 */
+        overflow: hidden;
+    }
+    main div:nth-child(7) section{
+        /* 定义旋转点为section 的 x轴方向的100%位置，y轴方向的100%位置（相当于右下角） */
+        transform-origin: 100% 100%;
+        transform: rotateZ(90deg);
+    }
+    main div:nth-child(7):hover section{
+        transform: rotateZ(0);
+    }
+    main div:nth-child(8) section{
+        /* transform: translateZ()相当于你看事物，事物与你的远近，事物越远，你会感觉它越小，相反越大 */
+        transform: translateZ(-2000px);
+    }
+    main div:nth-child(8):hover section{
+        transform: translateZ(0px);
+    }
+    main div:nth-child(9){
+        /* 设置第九个div超出隐藏 */
+        overflow: hidden;
+    }
+    main div:nth-child(9) section{
+        /* transform: translateX(-200px) 相对与当前位置往左水平移动200px */
+        transform: translateX(-200px);
+    }
+    main div:nth-child(9):hover section{
+        transform: translateX(0px);
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <div><section style="background: rgb(248, 84, 84)">One</section></div>
+    <div><section style="background: rgb(248, 232, 84)">Two</section></div>
+    <div><section style="background: rgb(117, 248, 84)">Three</section></div>
+    <div><section style="background: rgb(99, 248, 241)">Four</section></div>
+    <div><section style="background: rgb(238, 113, 123);">Five</section></div>
+    <div><section style="background: rgb(85, 83, 238)">Six</section></div>
+    <div><section style="background: rgb(248, 99, 223)">Seven</section></div>
+    <div><section style="background: rgb(226, 193, 85);">Eight</section></div>
+    <div><section style="background: rgb(83, 238, 160)">Nine</section></div>
+    </main>
+</body>
+</html>

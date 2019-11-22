@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移入移出</title>
+    <style>
+        *{
+            padding: 0;
+        margin: 0 auto;
+        }
+        html{
+            height: 100%;
+        }
+    body{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(85, 84, 84);
+    }
+    main{
+        width: 850px;
+        height: 500px;
+        /* border: 1px solid black; */
+    }
+    .panduan{
+        width: 850px;
+        height: 500px;
+        list-style: none;
+        /* background: rebeccapurple; */
+    }
+    .panduan a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: white;
+        text-align: center;
+        line-height:150px;
+        font-size: 25px;
+        text-decoration: none;
+    }
+    .panduan li{
+        display: block;
+        width: 200px;
+        height: 150px;
+        /* background: blue; */
+        float: left;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    .grid-content{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .grid-content img{
+        position: absolute;
+        height: 100%;
+    }
+    .grid-shade{
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: 0.7;
+        position: absolute;
+        top: 0;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <main>
+   <ul class="panduan">
+       <li> 
+            <!-- grid-content 格子内容 -->
+            <div class="grid-content">
+                    <img src="img/1.jpg" alt="">
+                      <!-- grid-content 格子阴影 -->
+                    <div class="grid-shade">
+                            <a href="">你</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <div class="grid-content">
+                    <img src="img/2.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">在</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <div class="grid-content">
+                    <img src="img/3.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">看</a>
+                    </div>
+                </div>
+       </li>
+       <li style="margin-right:0px;"> 
+            <div class="grid-content">
+                    <img src="img/4.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">我</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <!-- grid-content 格子内容 -->
+            <div class="grid-content">
+                    <img src="img/5.jpg" alt="">
+                      <!-- grid-content 格子阴影 -->
+                    <div class="grid-shade">
+                            <a href="">再</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <div class="grid-content">
+                    <img src="img/6.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">还</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <div class="grid-content">
+                    <img src="img/7.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">你</a>
+                    </div>
+                </div>
+       </li>
+       <li style="margin-right:0px;"> 
+            <div class="grid-content">
+                    <img src="img/8.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">吗</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <!-- grid-content 格子内容 -->
+            <div class="grid-content">
+                    <img src="img/9.jpg" alt="">
+                      <!-- grid-content 格子阴影 -->
+                    <div class="grid-shade">
+                            <a href="">看</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <div class="grid-content">
+                    <img src="img/10.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">打</a>
+                    </div>
+                </div>
+       </li>
+       <li> 
+            <div class="grid-content">
+                    <img src="img/11.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">死</a>
+                    </div>
+                </div>
+       </li>
+       <li style="margin-right:0px;"> 
+            <div class="grid-content">
+                    <img src="img/12.jpg" alt="">
+                    <div class="grid-shade">
+                            <a href="">你</a>
+                    </div>
+                </div>
+       </li>
+   </ul>
+    </main>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<!-- 判断鼠标移入方向  js部分 -->
+<script>
+    (function (b) {
+        b.fn.extend({
+            "mouseMove": function (c) {
+                $this = b(this);
+                $this.hover(function (k) {
+                    var u = b(this).find(c);
+                    var p = k.clientX;
+                    var n = k.clientY;
+                    var s = parseInt(b(this).offset().top);
+                    var o = parseInt(s + b(this).height());
+                    var g = parseInt(b(this).offset().left);
+                    var d = parseInt(g + b(this).width());
+                    var m = Math.abs(n - s); var j = Math.abs(n - o);
+                    var i = Math.abs(p - g); var f = Math.abs(p - d);
+                    var h = Math.min(m, j, i, f);
+                    var q = k.type; switch (h) {
+                        case m: a("top", q, u);
+                            break; case j: a("bottom", q, u); break; case i: a("left", q, u);
+                            break; case f: a("right", q, u)
+                    }
+                })
+            }
+        });
+        function a(c, d, f) {
+            var e = 300; if (c == "top") {
+                if (d == "mouseenter") {
+                    b(b(f)[0]).stop(true, true);
+                    b(b(f)[0]).css({ display: "block", top: "-100%", left: "0" }).animate({ top: 0, left: 0 }, e)
+                } else { b(b(f)[0]).animate({ display: "block", top: "-100%", left: "0" }, e) }
+            } if (c == "left") {
+                if (d == "mouseenter") {
+                    b(b(f)[0]).stop(true, true);
+                    b(b(f)[0]).css({ display: "block", top: "0", left: "-100%" }).animate({ left: 0, top: 0 }, e)
+                } else { b(b(f)[0]).animate({ display: "block", left: "-100%" }, e) }
+            } if (c == "bottom") {
+                if (d == "mouseenter") {
+                    b(b(f)[0]).stop(true, true);
+                    b(b(f)[0]).css({ display: "block", top: "100%", left: "0" }).animate({ top: 0, left: 0 }, e)
+                } else { b(b(f)[0]).animate({ display: "block", top: "100%", left: "0" }, e) }
+            } if (c == "right") {
+                if (d == "mouseenter") {
+                    b(b(f)[0]).stop(true, true);
+                    b(b(f)[0]).css({ display: "block", top: 0, left: "100%" }).animate({ left: "0%", top: 0 }, e)
+                } else { b(b(f)[0]).animate({ display: "block", left: "100%" }, e) }
+            }
+        }
+    })(window.jQuery);
+    	/**
+	 *  $('.grid-content') 该元素为内容的父元素
+	 *  '.grid-shade'  	   该元素为鼠标移入移出的遮罩层
+	 */
+    $('.grid-content').mouseMove('.grid-shade')
+</script>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纸盒人</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0 auto;
+            background: rgb(18, 161, 18);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 250px;
+            height: 150px;
+            background: rgb(206, 138, 56);
+            border: 5px solid black;
+            border-radius: 10px;
+            /* margin: 300px auto; */
+            position: relative;
+            cursor: pointer;
+        }
+
+        #zuo {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background: black;
+            border-radius: 50%;
+        }
+        #you {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: black;
+            border-radius: 50%;
+            
+        }
+        main:hover #zuo{
+            transition: 0.1s;
+            height: 5px;
+            border-radius: 0;
+        }
+        main:hover #you{
+            transition: 0.1s;
+            height: 5px;
+            border-radius: 0;
+        }
+        section{
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid black;
+            position: absolute;
+            bottom: 25px;
+            left: 95px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="zuo"></div>
+        <div id="you"></div>
+        <section></section>
+    </main>
+</body>
+<script>
+    var body = document.getElementsByTagName('body')[0]
+    var main = document.getElementsByTagName('main')[0]
+    var zuo = document.getElementById('zuo')
+    var you = document.getElementById('you')
+    // body.addEventListener(
+    //     'mousemove',
+    //     e
+    // )
+    // function e() {
+    //     if (e.clientY < main.offsetHeight) {
+    //         div.style.top = '25px'
+    //     }
+    // }
+    body.addEventListener('mousemove', (e) => {
+        if (e.clientY = main.offsetHeight) {
+           zuo.style.top = '40px'
+           you.style.top = '40px'
+        }
+        if (e.clientY < main.offsetHeight + 100) {
+           zuo.style.top = '25px'
+           you.style.top = '25px'
+        }
+        if (e.clientY > (main.offsetHeight + 300)) {
+           zuo.style.top = '55px'
+           you.style.top = '55px'
+        }
+        if (e.clientX = (main.offsetLeft)) {
+           zuo.style.left = '40px'
+           you.style.right = '40px'
+        }
+        if (e.clientX < (main.offsetLeft)) {
+          zuo.style.left = '25px'
+          you.style.right = '55px'
+        }
+        if (e.clientX > (main.offsetLeft + 300)) {
+           zuo.style.left = '55px'
+           you.style.right = '25px'
+        }
+    });
+</script>
+
+</html>

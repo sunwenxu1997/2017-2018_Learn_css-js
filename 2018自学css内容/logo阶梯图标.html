@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阶梯图标</title>
+    <style>
+        *{
+            margin: 0 auto;
+           
+        }
+        body{
+            background: slategray;
+        }
+     main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid transparent;
+            margin:300px auto;
+            position: relative;
+        }
+        h1 {
+text-align: center;
+color: white;
+cursor: default;
+}
+        #jieti{
+            width: 250px;
+            height: 250px;
+            /* border: 1px solid black; */
+            margin: 25px auto;
+        }
+        img{
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 35px;
+            height: 45px;
+            transform: rotateX(40deg);
+            opacity: 0;
+            transition: 1s;
+        }
+        #jieti>div{
+            transform-origin: 0 100%;
+        }
+        section{
+            transform-origin: 0 100%;
+            transform: rotateX(90deg);
+            transition: 0.5s;
+        }
+        .one{
+            width: 50px;
+            height: 10px;
+            background: #ccc;
+            position: relative;
+            margin-top: 20px;
+        }
+        main:active .one img{
+            transition: 1s;
+            transition-delay: 2.5s;
+            opacity: 1;
+        }
+        main:hover .one{
+            transition: 1s;
+            transition-delay: 4s;
+            transform: rotateX(0deg);
+        }
+        section::before{
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-top: 5px solid transparent;
+            border-right: 5px solid #ccc;
+            border-bottom: 5px solid #ccc;
+            position: absolute;
+            left: -10px;
+        }
+        section::after{
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 5px solid #ccc;
+            border-top: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #ccc;
+            position: absolute;
+            right: -10px;
+        }
+        .ones{
+            width: 70px;
+            height: 20px;
+            background: rgb(143, 141, 141);
+            transform: rotateX(90deg);
+            transition: 0.5s;
+        }
+        main:hover .ones{
+            transition: 1s;
+            transition-delay:3.5s;
+            transform: rotateX(0deg);
+        }
+        .two{
+            width: 70px;
+            height: 14px;
+            background: #ccc;
+            position: relative;
+        }
+        main:hover .two{
+            transition: 1s;
+            transition-delay: 3s;
+            transform: rotateX(0deg);
+        }
+        main:active .two img{
+            transition: 1s;
+            transition-delay: 2s;
+            opacity: 1;
+        }
+      .two::before{
+          border-right: 7px solid #ccc;
+          border-bottom: 7px solid #ccc;
+          border-left: 7px solid transparent;
+            border-top: 7px solid transparent;
+            left: -14px;
+      }
+      .two::after{
+        border-left: 7px solid #ccc;
+          border-bottom: 7px solid #ccc;
+          border-right: 7px solid transparent;
+            border-top: 7px solid transparent;
+            right: -14px;
+      }
+        .twos{
+            width: 98px;
+            height: 30px;
+            background: rgb(143, 141, 141);
+            transform: rotateX(90deg);
+            transition: 0.5s;
+        }
+        
+        main:hover .twos{
+            transition: 1s;
+            transition-delay: 2.5s;
+            transform: rotateX(0deg);
+        }
+        .three{
+            width: 98px;
+            height: 18px;
+            background: #ccc;
+            position: relative;
+        }
+        main:hover .three{
+            transition: 1s;
+            transition-delay: 2s;
+            transform: rotateX(0deg);
+        }
+        main:active .three img{
+            transition: 1s;
+            transition-delay: 1.5s;
+            opacity: 1;
+        }
+        .three::before{
+          border-right: 9px solid #ccc;
+          border-bottom: 9px solid #ccc;
+          border-left: 9px solid transparent;
+            border-top: 9px solid transparent;
+            left: -18px;
+      }
+      .three::after{
+        border-left: 9px solid #ccc;
+          border-bottom: 9px solid #ccc;
+          border-right: 9px solid transparent;
+            border-top: 9px solid transparent;
+            right: -18px;
+      }
+        .threes{
+            width: 134px;
+            height: 40px;
+            background: rgb(143, 141, 141);
+            transform: rotateX(90deg);
+            transition: 0.5s;
+        }
+        main:hover .threes{
+            transition: 1s;
+            transition-delay: 1.5s;
+            transform: rotateX(0deg);
+        }
+        .four{
+            width: 134px;
+            height: 22px;
+            background: #ccc;
+            position: relative;
+        }
+        main:hover .four{
+            transition: 1s;
+            transition-delay: 1s;
+            transform: rotateX(0deg);
+        }
+        main:active .four img{
+            transition: 1s;
+            transition-delay: 1s;
+            opacity: 1;
+        }
+        .four::before{
+          border-right: 11px solid #ccc;
+          border-bottom: 11px solid #ccc;
+          border-left: 11px solid transparent;
+            border-top: 11px solid transparent;
+            left: -22px;
+      }
+      .four::after{
+        border-left: 11px solid #ccc;
+          border-bottom: 11px solid #ccc;
+          border-right: 11px solid transparent;
+            border-top: 11px solid transparent;
+            right: -22px;
+      }
+        .fours{
+            width: 178px;
+            height:50px;
+            background: rgb(143, 141, 141);
+            transform: rotateX(90deg);
+            transition: 0.5s;
+        }
+        main:hover .fours{
+            transition: 1s;
+            transition-delay: 0.5s;
+            transform: rotateX(0deg);
+        }
+        .five{
+            width: 178px;
+            height:26px;
+            background: #ccc;
+            position: relative;
+        }
+        main:hover .five{
+            transition: 1s;
+            transform: rotateX(0deg);
+        }
+        main:active .five img{
+            transition: 1s;
+            opacity: 1;
+        }
+        .five::before{
+          border-right: 13px solid #ccc;
+          border-bottom: 13px solid #ccc;
+          border-left: 13px solid transparent;
+            border-top: 13px solid transparent;
+            left: -26px;
+      }
+      .five::after{
+        border-left: 13px solid #ccc;
+          border-bottom: 13px solid #ccc;
+          border-right: 13px solid transparent;
+            border-top: 13px solid transparent;
+            right: -26px;
+      }
+    </style>
+</head>
+<body>
+    <main>
+<div id="jieti">
+    <section class="one">
+            <img src="img/footl.png" alt="" style="left:10px;top:-5px;width:10px;height:20px;">
+    </section>
+    <div class="ones"></div>
+    <section class="two">
+            <img src="img/footr.png" alt="" style="right:-12px;top:-5px;width:13px;height:23px;">
+    </section>
+    <div class="twos"></div>
+    <section class="three">
+            <img src="img/footl.png" alt="" style="left:15px;top:-5px;width:20px;height:30px;">
+    </section>
+    <div class="threes"></div>
+    <section class="four">
+            <img src="img/footr.png" alt="" style="right:-20px;top:-8px;width:25px;height:35px;">
+    </section>
+    <div class="fours"></div>
+    <section class="five">
+        <img src="img/footl.png" alt="">
+    </section>
+</div>
+<h1>成功的阶梯</h1>
+    </main>
+</body>
+</html>
